@@ -50,7 +50,7 @@ public class GrupoDeInteresDTO {
      *
      * @return the id
      */
-    public Long getIdioma() {
+    public String getIdioma() {
         return idioma;
     }
 
