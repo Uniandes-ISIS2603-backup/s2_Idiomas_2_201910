@@ -12,6 +12,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.runner.RunWith;
 import co.edu.uniandes.csw.idiomas.entities.*;
 import co.edu.uniandes.csw.idiomas.persistence.*;
+import java.util.ArrayList;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -48,7 +49,7 @@ public class ActividadPersistenceTest {
     /**
      * Lista que tiene los datos de prueba.
      */
-    private List<ActividadEntity> data = new ArrayList<ActividadEntity>();
+    private ArrayList <ActividadEntity> data = new ArrayList<ActividadEntity>();
     
     @Deployment
     public static JavaArchive createDeployment() {
