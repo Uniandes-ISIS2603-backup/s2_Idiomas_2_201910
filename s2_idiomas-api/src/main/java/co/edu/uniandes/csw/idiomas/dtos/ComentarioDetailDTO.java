@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author estudiante
+ * @author Santiago Gamboa
  */
 public class ComentarioDetailDTO extends ComentarioDTO implements Serializable{
     
