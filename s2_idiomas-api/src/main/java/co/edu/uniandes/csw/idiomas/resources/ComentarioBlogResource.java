@@ -20,7 +20,7 @@ import javax.ws.rs.Produces;
 @RequestScoped
 /**
  *
- * @author estudiante
+ * @author Santiago Gamboa
  */
 public class ComentarioBlogResource {
     

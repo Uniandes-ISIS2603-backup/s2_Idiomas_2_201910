@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author estudiante
+ * @author Santiago Gamboa
  */
 public class ComentarioBlogDTO extends ComentarioDTO implements Serializable{
     
