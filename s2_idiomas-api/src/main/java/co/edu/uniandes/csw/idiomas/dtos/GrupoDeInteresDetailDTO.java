@@ -14,39 +14,39 @@ import java.util.List;
  */
 public class GrupoDeInteresDetailDTO extends GrupoDeInteresDTO implements Serializable{
     
-    private List<GrupoDeInteresDTO> usuariosGrupo;
-    private List<GrupoDeInteresDTO> actividadesGrupo;
-    private List<GrupoDeInteresDTO> comentariosGrupo;
+    private List<UsuarioDTO> usuariosGrupo;
+    private List<ActividadDTO> actividadesGrupo;
+    private List<ComentarioGrupoDTO> comentariosGrupo;
     
     public GrupoDeInteresDetailDTO()
     {
         
     }
 
-    public List<GrupoDeInteresDTO> getComentariosGrupo() {
+    public List<ComentarioGrupoDTO> getComentariosGrupo() {
         return comentariosGrupo;
     }
 
-    public void setComentariosGrupo(List<GrupoDeInteresDTO> comentariosGrupo) {
+    public void setComentariosGrupo(List<ComentarioGrupoDTO> comentariosGrupo) {
         this.comentariosGrupo = comentariosGrupo;
     }
     
        
-    public List<GrupoDeInteresDTO> getUsuariosGrupo() 
+    public List<UsuarioDTO> getUsuariosGrupo() 
     {
         return usuariosGrupo;
     }
 
-    public void setUsuariosGrupo(List<GrupoDeInteresDTO> pUsuariosGrupo) 
+    public void setUsuariosGrupo(List<UsuarioDTO> pUsuariosGrupo) 
     {
         this.usuariosGrupo = pUsuariosGrupo;
     }
     
-    public List<GrupoDeInteresDTO> getActividadesGrupo() {
+    public List<ActividadDTO> getActividadesGrupo() {
         return actividadesGrupo;
     }
 
-    public void setActividadesGrupo(List<GrupoDeInteresDTO> actividadesGrupo) {
+    public void setActividadesGrupo(List<ActividadDTO> actividadesGrupo) {
         this.actividadesGrupo = actividadesGrupo;
     }
 
