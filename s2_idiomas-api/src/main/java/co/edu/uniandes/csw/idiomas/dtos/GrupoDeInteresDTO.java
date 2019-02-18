@@ -21,6 +21,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *      "administrador": string
  *      "calificacion" : number
  *      "blog":number
+ *      
  *   }
  * </pre> Por ejemplo un GrupoDeInteres se representa asi:<br>
  *
@@ -74,12 +75,7 @@ public class GrupoDeInteresDTO {
     public void setAdministrador (String pAdmin) {
         this.administrador = pAdmin;
     }
-
-    /**
-     * Devuelve el nombre de la administrador.
-     *
-     * @return the administrador
-     */
+ 
     public String getAdministrador() {
         return administrador;
     }
@@ -107,4 +103,5 @@ public class GrupoDeInteresDTO {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 }
+   
 }
