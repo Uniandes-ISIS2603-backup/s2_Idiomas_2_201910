@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 /**
- * ActividadDTO Objeto de transferencia de datos de la actividad. Los DTO contienen
+ * ChatDTO Objeto de transferencia de datos del chat. Los DTO contienen
  * las representaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  * @author g.cubillosb
@@ -32,6 +32,24 @@ public class ChatDTO extends ActividadDTO{
     public ChatDTO ()
     {
         
+    }
+    
+    // --------------------------------------------------------------------
+    // Métodos
+    // --------------------------------------------------------------------
+
+    /**
+     * @return the medio
+     */
+    public String getMedio() {
+        return medio;
+    }
+
+    /**
+     * @param medio the medio to set
+     */
+    public void setMedio(String medio) {
+        this.medio = medio;
     }
     
 }
