@@ -8,7 +8,8 @@ package co.edu.uniandes.csw.idiomas.dtos;
 /**
  * ActividadDTO Objeto de transferencia de datos de la actividad. Los DTO contienen
  * las representaciones de los JSON que se transfieren entre el cliente y el
- * servidor.@author g.cubillosb
+ * servidor.
+ * @author g.cubillosb
  */
 public class ChatDTO extends ActividadDTO{
     
