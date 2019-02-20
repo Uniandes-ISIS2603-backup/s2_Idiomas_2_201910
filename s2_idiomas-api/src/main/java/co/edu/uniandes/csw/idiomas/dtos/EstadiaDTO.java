@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 /**
- * EstadiaDTO Objeto de transferencia de datos de la actividad. Los DTO contienen
+ * EstadiaDTO Objeto de transferencia de datos de la estadia. Los DTO contienen
  * las representaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  * @author g.cubillosb
@@ -32,6 +32,20 @@ public class EstadiaDTO extends ActividadDTO{
     public EstadiaDTO ()
     {
         
+    }
+
+    /**
+     * @return the pais
+     */
+    public String getPais() {
+        return pais;
+    }
+
+    /**
+     * @param pais the pais to set
+     */
+    public void setPais(String pais) {
+        this.pais = pais;
     }
     
 }
