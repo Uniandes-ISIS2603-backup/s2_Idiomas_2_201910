@@ -12,11 +12,11 @@ import java.util.List;
  *
  * @author estudiante
  */
-public class CoordinadorDetailDTo 
+public class CoordinadorDetailDTO 
 {
     private List<AdministradorDTO> activiadesCoordinadas;
     
-    public CoordinadorDetailDTo()
+    public CoordinadorDetailDTO()
     {
         
     }
