@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.CalificacionDTO;
+import co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -39,8 +40,7 @@ public class CalificacionResource {
     }
     @GET
     @Path("{calificacionesId: \\d+}")
-    public Integer retornarCoordinador(@PathParam("calificacionesId") Integer calificacionId) {
-        return calificacionId;
+    public CalificacionDetailDTO retornarCalificacion(@PathParam("calificacionesId") Integer calificacionId) {
+        return null;
     }
-    
 }
