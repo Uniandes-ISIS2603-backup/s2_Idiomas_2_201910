@@ -5,13 +5,15 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
+
 /**
  * EncuentroDTO Objeto de transferencia de datos del encuentro. Los DTO 
  * contienen las representaciones de los JSON que se transfieren entre el 
  * cliente y el servidor.
  * @author g.cubillosb
  */
-public class EncuentroDTO extends ActividadDTO{
+public class EncuentroDTO extends ActividadDTO implements Serializable{
     
     // -------------------------------------------------------------------------
     // Atributos
