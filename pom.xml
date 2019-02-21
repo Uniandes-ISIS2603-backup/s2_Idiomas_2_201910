@@ -12,6 +12,7 @@
  
     <modules>
         <module>s2_idiomas-back</module>
+        <module>s2_idiomas-api</module>
     </modules>
     
     <repositories>
