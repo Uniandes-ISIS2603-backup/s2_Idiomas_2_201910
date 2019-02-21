@@ -5,13 +5,15 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
+
 /**
  * OtroDTO Objeto de transferencia de datos de otro. Los DTO 
  * contienen las representaciones de los JSON que se transfieren entre el 
  * cliente y el servidor.
  * @author g.cubillosb
  */
-public class OtroDTO extends ActividadDTO{
+public class OtroDTO extends ActividadDTO implements Serializable{
     
     // -------------------------------------------------------------------------
     // Atributos

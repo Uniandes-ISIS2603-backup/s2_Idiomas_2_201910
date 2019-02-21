@@ -5,13 +5,15 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
+
 /**
  * ChatDTO Objeto de transferencia de datos del chat. Los DTO contienen
  * las representaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  * @author g.cubillosb
  */
-public class ChatDTO extends ActividadDTO{
+public class ChatDTO extends ActividadDTO implements Serializable{
     
     // -------------------------------------------------------------------
     // Atributos
