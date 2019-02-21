@@ -55,7 +55,9 @@ public class PersonaResource {
     @POST
     public PersonaDTO createPersona(PersonaDTO persona) throws BusinessLogicException {
        
-        return persona;
+        PersonaDTO p = persona;
+        System.out.println(persona.getNombre());
+        return p;
     }
 
     /**

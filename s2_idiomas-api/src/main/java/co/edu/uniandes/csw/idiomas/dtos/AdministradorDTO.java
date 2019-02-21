@@ -20,7 +20,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *   {
  *      "id": number,
  *      "nombre": string
- *      "contraseña" : string
+ *      "contrasenia" : string
  *   }
  * </pre> Por ejemplo una administrador se representa asi:<br>
  *
@@ -29,7 +29,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *   {
  *      "id": 1,
  *      "nombre": juan
- *      "contraseña" : 1234
+ *      "contrasenia" : 1234
  *   }
  *
  * </pre>
@@ -40,7 +40,9 @@ public class AdministradorDTO
 {
     Long id;
     String nombre;
-    Long contraseña;
+    Long contrasenia;
+
+
     
     
     /**
@@ -59,6 +61,7 @@ public class AdministradorDTO
         if (administradorEntity != null) {
             this.id = administradorEntity.getId();
             this.nombre = administradorEntity.getNombre();
+            this.contrasenia = administradorEntity.getContrasenia();
         }
     }
 
@@ -85,7 +88,7 @@ public class AdministradorDTO
      *
      * @return the nombre
      */
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -94,8 +97,26 @@ public class AdministradorDTO
      *
      * @param nombre the nombre to set
      */
-    public void setName(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+     /**
+     * Devuelve el contrasenia de la administrador.
+     *
+     * @return the contrasenia
+     */
+    public Long getContrasenia() {
+        return contrasenia;
+    }
+    
+    /**
+     * Modifica la conrasenia del administrador.
+     *
+     * @param contraseina the nombre to set
+     */
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
 //    /**
@@ -106,7 +127,7 @@ public class AdministradorDTO
 //    public AdministradorEntity toEntity() {
 //        AdministradorEntity administradorEntity = new AdministradorEntity();
 //        administradorEntity.setId(this.id);
-//        administradorEntity.setName(this.nombre);
+//        administradorEntity.setNombre(this.nombre);
 //        return administradorEntity;
 //    }
 
