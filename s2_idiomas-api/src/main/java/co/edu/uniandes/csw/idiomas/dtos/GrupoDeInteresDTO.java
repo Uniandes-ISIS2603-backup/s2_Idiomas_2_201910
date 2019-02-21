@@ -20,6 +20,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *      "idioma": String,
  *      "administrador": string
  *      "calificacion" : number
+ *      "blog":number
+ *      
  *   }
  * </pre> Por ejemplo un GrupoDeInteres se representa asi:<br>
  *
@@ -29,6 +31,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *      "idioma": Ingles,
  *      "administrador": "XYZ",
  *      "calificacion": 5,
+ *      "blog":1,
 
  *   }
  *
@@ -41,46 +44,55 @@ public class GrupoDeInteresDTO {
     String idioma;
     String administrador;
     Long calificacion;
+    Long blog;
     
     public GrupoDeInteresDTO(){
         
     }
         /**
-     * Devuelve el ID de la administrador.
+     * Devuelve el Idioma del grupo.
      *
      * @return the id
      */
     public String getIdioma() {
         return idioma;
     }
+        
+       /**
+     * Devuelve el Idioma del grupo.
+     *
+     * @return the id
+     */
+    public Long getBlog() {
+        return blog;
+    }
 
     /**
-     * Modifica el ID de la administrador.
+     * Modifica el Admin dl grupo.
      *
-     * @param id the id to set
+     * @param admin the admin to set
      */
     public void setAdministrador (String pAdmin) {
         this.administrador = pAdmin;
     }
-
-    /**
-     * Devuelve el nombre de la administrador.
-     *
-     * @return the nombre
-     */
+ 
     public String getAdministrador() {
         return administrador;
     }
 
     /**
-     * Modifica el nombre de la administrador.
+     * Modifica la califiacion del grupo.
      *
-     * @param nombre the nombre to set
+     * @param calificacion the calificacion to set
      */
     public void setCalificacion(Long pCalificacion) {
         this.calificacion = pCalificacion;
     }
     
+      /**
+     * retorna la califiacion del grupo.
+     *
+     */
     public Long getCalificacion() {
        return calificacion;
     }
@@ -91,4 +103,5 @@ public class GrupoDeInteresDTO {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 }
+   
 }

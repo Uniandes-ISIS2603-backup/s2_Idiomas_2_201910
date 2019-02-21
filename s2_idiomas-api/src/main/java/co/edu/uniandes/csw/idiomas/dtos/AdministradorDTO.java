@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,6 +6,7 @@
 
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -54,12 +55,12 @@ public class AdministradorDTO
      *
      * @param administradorEntity: Es la entidad que se va a convertir a DTO
      */
-//    public AdministradorDTO(AdministradorEntity administradorEntity) {
-//        if (administradorEntity != null) {
-//            this.id = administradorEntity.getId();
-//            this.nombre = administradorEntity.getName();
-//        }
-//    }
+    public AdministradorDTO(AdministradorEntity administradorEntity) {
+        if (administradorEntity != null) {
+            this.id = administradorEntity.getId();
+            this.nombre = administradorEntity.getNombre();
+        }
+    }
 
     /**
      * Devuelve el ID de la administrador.
