@@ -20,6 +20,11 @@ public class ActividadDTO implements Serializable{
     // -----------------------------------------------------------------------
     
     /**
+     * Atributo que representa el nombre
+     */
+    private String nombre;
+    
+    /**
      * Atributo que contiene la fecha
      */
     private String fecha;
@@ -90,6 +95,20 @@ public class ActividadDTO implements Serializable{
      */
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     
