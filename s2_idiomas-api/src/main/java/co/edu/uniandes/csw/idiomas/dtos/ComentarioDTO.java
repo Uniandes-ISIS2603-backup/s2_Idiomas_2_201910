@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,19 +13,25 @@ import java.util.Date;
  *
  * @author Santiago Gamboa
  */
-public class ComentarioDTO implements Serializable{
-    
-    
+public class ComentarioDTO implements Serializable {
+
     private String texto;
     private Date fecha;
     private Long id;
 
-    
-    public ComentarioDTO()
-    {
-        
+    /**
+     * Constructor de ComentarioActividadDTO
+     *
+     * @param entity recibe la informacion del comentario.
+     */
+    public ComentarioDTO(ComentarioEntity entity) {
+        if (entity != null) {
+            this.texto = entity.getTexto();
+            this.fecha = entity.getFecha();
+            this.id = entity.getId();
+        }
     }
-    
+
     /**
      * @return the texto
      */
@@ -66,6 +73,18 @@ public class ComentarioDTO implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
+
+    /**
+     * Convierte un objeto DTO a una Entidad.
+     *
+     * @return entidad convertida.
+     */
+    public ComentarioEntity toEntity() {
+        ComentarioEntity entity = new ComentarioEntity();
+        entity.setFecha(this.fecha);
+        entity.setTexto(this.texto);
+        entity.setId(this.id);
+        return entity;
+    }
+
 }

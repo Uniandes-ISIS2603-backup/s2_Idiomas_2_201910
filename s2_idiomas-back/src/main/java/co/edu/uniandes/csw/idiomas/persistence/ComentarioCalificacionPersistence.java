@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.idiomas.persistence;
 
+import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioCalificacionEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,25 +21,25 @@ import javax.persistence.TypedQuery;
  * @author se.gamboa
  */
 @Stateless
-public class ComentarioPersistence {
+public class ComentarioCalificacionPersistence {
 
     @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
-    private static final Logger LOGGER = Logger.getLogger(ComentarioPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ComentarioCalificacionPersistence.class.getName());
 
-    public ComentarioEntity create(ComentarioEntity entidad) {
+    public ComentarioCalificacionEntity create(ComentarioCalificacionEntity entidad) {
         LOGGER.log(Level.INFO, "Creando un nuevo comentario");
         em.persist(entidad);
         LOGGER.log(Level.INFO, "Saliendo de crear un comentario nuevo");
         return entidad;
     }
 
-    public ComentarioEntity find(Long commentsID) {
-        return em.find(ComentarioEntity.class, commentsID);
+    public ComentarioCalificacionEntity find(Long commentsID) {
+        return em.find(ComentarioCalificacionEntity.class, commentsID);
     }
-    
-    public List<ComentarioEntity> findAll(){
-        TypedQuery<ComentarioEntity> query = em.createQuery("select u from ComentarioEntity u", ComentarioEntity.class);
+
+    public List<ComentarioCalificacionEntity> findAll() {
+        TypedQuery<ComentarioCalificacionEntity> query = em.createQuery("select u from ComentarioCalificacionEntity u", ComentarioCalificacionEntity.class);
         return query.getResultList();
     }
 }
