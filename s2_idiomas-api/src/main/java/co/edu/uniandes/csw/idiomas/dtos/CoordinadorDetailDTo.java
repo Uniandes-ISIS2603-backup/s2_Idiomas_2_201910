@@ -14,19 +14,19 @@ import java.util.List;
  */
 public class CoordinadorDetailDTo 
 {
-    private List<AdministradorDTO> activiadesCoordinadas;
+    private List<ActividadDTO> activiadesCoordinadas;
     
     public CoordinadorDetailDTo()
     {
         
     }
 
-    public List<AdministradorDTO> getActiviadesCoordinadas() 
+    public List<ActividadDTO> getActiviadesCoordinadas() 
     {
         return activiadesCoordinadas;
     }
 
-    public void setActiviadesCoordinadas(List<AdministradorDTO> activiadesCoordinadas) 
+    public void setActiviadesCoordinadas(List<ActividadDTO> activiadesCoordinadas) 
     {
         this.activiadesCoordinadas = activiadesCoordinadas;
     }
