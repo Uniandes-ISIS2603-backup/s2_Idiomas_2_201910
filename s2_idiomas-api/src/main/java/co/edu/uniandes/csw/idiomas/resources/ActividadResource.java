@@ -6,19 +6,13 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.ActividadDTO;
+import co.edu.uniandes.csw.idiomas.dtos.ActividadDetailDTO;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
-
+import javax.ws.rs.*;
 /**
  * Clase que define los servicios de la clase actividad
  * @author g.cubillosb
@@ -89,9 +83,63 @@ public class ActividadResource {
 //        actividadLogic.deleteActividad(actividadId)
     }
     
+    /**
+     * Actualiza la actividad con el id recibido en la URL con la información
+     * que se recibe en el cuerpo de la petición.
+     * @param actividadId El identificador de la actividad que se quiere
+     * actualizar. Debe ser una cadena de dígitos.
+     * @param actividad {@link ActividadDetailDTO} La actividad que se desea
+     * guardar.
+     * @return JSON {@link ActividadDetailDTO} La actvidad guardada.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} 
+     * Error de lógica que se genera cuando no se encuentra la actividad a
+     * actualizar.
+     */
+    @PUT
+    @Path("{actividadId: \\d+}")
+    public ActividadDTO updateActividad(@PathParam("actividadId") Long actividadId, ActividadDetailDTO actividad)
+    {
+        LOGGER.log(Level.INFO,"ActividadResource updateActividad: input: actividadId: {0}, actividad: {1}",
+                new Object[]{actividadId, actividad});
+        // TODO Implementar lógica
+//        actividad.setId(actividadId);
+//        if(actividadLogic.getActividad(actividadId) == null)
+//        {
+//            throw new WebApplicationException("El recurso /actividad/" + actividadId + " no existe.", 404);
+//        }
+//        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadLogic.updateActividad(actividadId, actividad.toEntity()));
+//        LOGGER.log(Level.INFO, "ActividadResource updateActividad: output: {0}", detailDTO);
+//        return detailDTO;
+        return actividad;
+    }
     
-    // TODO Método PUT
-    // TODO Método GET
+    /**
+     * Busca la actividad con el id asociado que se recibe en la URL y lo
+     * devuelve.
+     * 
+     * @param actividadId Identificador de la actividad que se busca. Debe ser
+     * una cadena de dígitos.
+     * @return JSON {@link ActividadDetailDTO} La actividad buscada.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} 
+     * Error de lógica que se genera cuando no se encuentra la actividad.
+     */
+    @GET
+    @Path("{actividadId: \\d+")
+    public ActividadDetailDTO getActividad(@PathParam ("actividadId") Long actividadId)
+    {
+        LOGGER.log(Level.INFO, "ActividadResource getActividad: input: actividadId {0}", actividadId);
+        // TODO Implementar lógica
+//        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadId);
+//        if(ActividadEntity == null)
+//        {
+//            throw new WebApplicationException("El recurso /actividad/" + actividadId + " no existe.", 404;
+//        }
+//        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadEntity);
+//        LOGGER.log(Level.INFO, "ActividadResource getActividad: output: actividadId {0}"), detailDTO);
+//        return detailDTO;
+        ActividadDetailDTO actividad = new ActividadDetailDTO();
+        return actividad;
+    }
     
     
     
