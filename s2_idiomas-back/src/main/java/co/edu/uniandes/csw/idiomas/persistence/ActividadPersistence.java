@@ -12,6 +12,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+// TODO Completar documentación
 /**
  *
  * @author g.cubillosb
@@ -19,22 +20,22 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class ActividadPersistence {
     
-    private static final Logger LOGGER = Logger.getLogger(ActividadPersistence.class.getName());
-    
-    @PersistenceContext (unitName = "idiomasPU")
-    protected EntityManager em;
-    
-    /**
-     * Método para persistir
-     * @param pActividadEntity
-     * @return 
-     */
-    public ActividadEntity create (ActividadEntity pActividadEntity)
-    {
-        LOGGER.log(Level.INFO, "Creando una actividad nueva");
-        em.persist(pActividadEntity);
-        LOGGER.log(Level.INFO, "Saliendo de crear una actividad nueva");
-        return pActividadEntity;
-    }
-    
+    // TODO Completar
+//    private static final Logger LOGGER = Logger.getLogger(ActividadPersistence.class.getName());
+//    
+//    @PersistenceContext (unitName = "idiomasPU")
+//    protected EntityManager em;
+//    
+//    /**
+//     * Método para persistir
+//     * @param pActividadEntity
+//     * @return 
+//     */
+//    public ActividadEntity create (ActividadEntity pActividadEntity)
+//    {
+//        LOGGER.log(Level.INFO, "Creando una actividad nueva");
+//        em.persist(pActividadEntity);
+//        LOGGER.log(Level.INFO, "Saliendo de crear una actividad nueva");
+//        return pActividadEntity;
+//    }
 }

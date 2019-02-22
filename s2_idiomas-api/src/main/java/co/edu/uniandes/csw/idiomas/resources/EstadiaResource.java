@@ -5,10 +5,15 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
+// TODO Completar documentación clase
 /**
  *
  * @author g.cubillosb
  */
 public class EstadiaResource {
     
+    // TODO Método POST
+    // TODO Método PUT
+    // TODO Método DELETE
+    // TODO Método GET
 }
