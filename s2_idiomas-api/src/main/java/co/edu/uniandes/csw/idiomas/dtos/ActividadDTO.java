@@ -46,6 +46,16 @@ public class ActividadDTO implements Serializable{
         
     }
     
+    /**
+     * Constructor básico de una actividad
+     */
+    public ActividadDTO (String pFecha, String pDescripcion, String pMotivacion)
+    {
+        fecha = pFecha;
+        descripcion = pDescripcion;
+        motivacion = pMotivacion;
+    }
+    
     // ----------------------------------------------------------------------
     // Metodos
     // ----------------------------------------------------------------------

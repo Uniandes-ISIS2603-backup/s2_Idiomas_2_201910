@@ -8,7 +8,9 @@ package co.edu.uniandes.csw.idiomas.dtos;
 import java.util.List;
 
 /**
- * 
+ * Clase que extiende de {@link EstadiaDTO} para manejar las relaciones entre
+ * EstadiaDTO y otros DTOs. Para el contenido de una estadia ir a la
+ * documentación de {@link EstadiaDTO}
  * @author g.cubillosb
  */
 public class EstadiaDetailDTO extends EstadiaDTO {
@@ -32,7 +34,7 @@ public class EstadiaDetailDTO extends EstadiaDTO {
      */
     public EstadiaDetailDTO () 
     {
-        
+        super();
     }
 
     // ------------------------------------------------------------------------

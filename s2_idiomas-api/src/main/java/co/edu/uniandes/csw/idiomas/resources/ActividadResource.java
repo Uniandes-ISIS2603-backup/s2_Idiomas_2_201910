@@ -13,11 +13,11 @@ import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+
 /**
  * Clase que define los servicios de la clase actividad
  * @author g.cubillosb
  */
-
 @Path("actividad")
 @Produces("application/json")
 @Consumes("application/json")

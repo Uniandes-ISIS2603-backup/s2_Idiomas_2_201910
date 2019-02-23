@@ -35,6 +35,19 @@ public class EstadiaDTO extends ActividadDTO implements Serializable{
     {
         
     }
+    
+    /**
+     * Constructor básico de EstadiaDTO
+     * @param pPais El pais en el que se va a realizar la estadia
+     */
+    public EstadiaDTO(String pPais)
+    {
+        pais = pPais;
+    }
+    
+    // ---------------------------------------------------------------------
+    // Métodos
+    // ---------------------------------------------------------------------
 
     /**
      * @return the pais
