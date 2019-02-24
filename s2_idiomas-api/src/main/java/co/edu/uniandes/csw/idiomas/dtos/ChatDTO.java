@@ -36,6 +36,15 @@ public class ChatDTO extends ActividadDTO implements Serializable{
         
     }
     
+    /**
+     * Constructor básico que crea un chat con el medio pasado por parámetro.
+     * @param pMedio El medio en el que se va a realizar el chat.
+     */
+    public ChatDTO(String pMedio)
+    {
+        medio = pMedio;
+    }
+    
     // --------------------------------------------------------------------
     // Métodos
     // --------------------------------------------------------------------
