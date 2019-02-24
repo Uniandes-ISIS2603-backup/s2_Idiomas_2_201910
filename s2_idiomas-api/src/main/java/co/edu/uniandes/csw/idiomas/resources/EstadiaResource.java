@@ -10,7 +10,6 @@ package co.edu.uniandes.csw.idiomas.resources;
 import co.edu.uniandes.csw.idiomas.dtos.EstadiaDTO;
 import co.edu.uniandes.csw.idiomas.dtos.EstadiaDetailDTO;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
-import com.sun.istack.internal.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import java.util.logging.*;
 import javax.enterprise.context.RequestScoped;
@@ -35,7 +34,7 @@ public class EstadiaResource {
      * Atributo que representa el logger correspondiente de la clase. 
      * Puede enviar mensajes
      */
-    private static final Logger LOGGER = Logger.getLogger(EstadiaResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ActividadResource.class.getName());
     
     // ----------------------------------------------------------------------
     // Constructor
@@ -127,7 +126,7 @@ public class EstadiaResource {
      * Error de lógica que ocurre cuando no se encuentra la estadia a borrar.
      */
     @DELETE
-    @Path("{estadiaId: \\d++")
+    @Path("{estadiaId: \\d++}")
     public void deleteEstadia(@PathParam("estadiaId") Long estadiaId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "EstadiaResource deletEstadia: input: {0}", estadiaId);
