@@ -33,7 +33,7 @@ public class ChatDTO extends ActividadDTO implements Serializable{
      */
     public ChatDTO ()
     {
-        
+        super();
     }
     
     /**

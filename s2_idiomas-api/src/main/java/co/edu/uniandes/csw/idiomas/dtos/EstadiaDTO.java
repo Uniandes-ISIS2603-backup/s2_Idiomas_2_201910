@@ -33,7 +33,7 @@ public class EstadiaDTO extends ActividadDTO implements Serializable{
      */
     public EstadiaDTO ()
     {
-        
+        super();
     }
     
     /**

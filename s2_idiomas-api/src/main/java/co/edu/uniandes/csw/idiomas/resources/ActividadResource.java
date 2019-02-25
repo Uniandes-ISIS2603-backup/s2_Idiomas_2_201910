@@ -55,7 +55,7 @@ public class ActividadResource {
     public ActividadDTO createActividad(ActividadDTO actividad)
     {
           // TODO Falta implementar la lógica
-//        LOGGER.log(Level.INFO, "ActividadResource createActividad: input: {0}", actividad);
+        LOGGER.log(Level.INFO, "ActividadResource createActividad: input: {0}", actividad);
 //        ActividadDTO actividadDTO = new ActividadDTO(authorLogic.createAuthor(actividad.toEntity()));
 //        LOGGER.log(Level.INFO, "ActividadResource createActividad: output: {0}", actividadDTO);
 //        return actividadDTO;
@@ -127,7 +127,7 @@ public class ActividadResource {
     @Path("{actividadId: \\d+")
     public ActividadDetailDTO getActividad(@PathParam ("actividadId") Long actividadId)
     {
-        LOGGER.log(Level.INFO, "ActividadResource getActividad: input: actividadId {0}", actividadId);
+        LOGGER.log(Level.INFO, "ActividadResource getActividad: input: actividadId: {0}", actividadId);
         // TODO Implementar lógica
 //        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadId);
 //        if(ActividadEntity == null)
