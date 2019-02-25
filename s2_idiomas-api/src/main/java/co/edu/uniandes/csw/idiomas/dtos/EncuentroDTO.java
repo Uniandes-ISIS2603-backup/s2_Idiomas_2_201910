@@ -43,7 +43,21 @@ public class EncuentroDTO extends ActividadDTO implements Serializable{
      */
     public EncuentroDTO () 
     {
-        
+        super();
+    }
+    
+    /**
+     * Crea un objeto EncuentroDTO con la información pasada por parámetro.
+     * 
+     * @param pLugar El lugar en el que se va a realizar el encuentro.
+     * @param pNumeroMaxAsistentes El máximo número de asistentes al encuentro.
+     * @param pAprobado El estado de aprobación del encuentro.
+     */
+    public EncuentroDTO (String pLugar, Integer pNumeroMaxAsistentes, Boolean pAprobado)
+    {
+        lugar = pLugar;
+        numeroMaxAsistentes = pNumeroMaxAsistentes;
+        aprobado = pAprobado;
     }
     
     // -------------------------------------------------------------------------

@@ -20,6 +20,7 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     // Atributos
     // ------------------------------------------------------------------------
     
+    // TODO: GC Make "asistentes" transient or serializable.
     /**
      * Lista de tipo UsuarioDTO contiene los usuarios que están asociados con
      * esta actividad.

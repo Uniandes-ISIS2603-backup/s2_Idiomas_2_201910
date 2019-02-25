@@ -28,7 +28,7 @@ public class OtroDTO extends ActividadDTO implements Serializable{
      */
     public OtroDTO ()
     {
-        
+        super();
     }
     
     // -------------------------------------------------------------------------
