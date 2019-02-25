@@ -34,6 +34,10 @@ public class ActividadResource {
      */
     private static final Logger LOGGER = Logger.getLogger(ActividadResource.class.getName());
     
+//    @Inject
+//    private ActividadLogic actividadLogic; 
+// Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------

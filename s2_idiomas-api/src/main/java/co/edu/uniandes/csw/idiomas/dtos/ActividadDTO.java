@@ -20,6 +20,11 @@ public class ActividadDTO implements Serializable{
     // -----------------------------------------------------------------------
     
     /**
+     * Atributo que representa el nombre
+     */
+    private String nombre;
+    
+    /**
      * Atributo que contiene la fecha
      */
     private String fecha;
@@ -47,18 +52,21 @@ public class ActividadDTO implements Serializable{
     }
     
     /**
-     * Construye un objeto ActividadDTO con la información pasada por parámetro.
-     * 
-     * @param pFecha La fecha en la que se va a realizar la actividad.
-     * @param pDescripcion La descripción de la actividad.
-     * @param pMotivacion La razón por la que se va a realizar la actividad.
+     * Constructor de una actividad con los parámetros pasados.
+     * @param pNombre El nombre de la actividad
+     * @param pFecha La fecha de la actividad
+     * @param pDescripcion La descripcion de la actividad
+     * @param pMotivacion La motivacion de la actividad
      */
-    public ActividadDTO (String pFecha, String pDescripcion, String pMotivacion)
+    public ActividadDTO (String pNombre, String pFecha, String pDescripcion, String pMotivacion)
     {
+        nombre = pNombre;
         fecha = pFecha;
         descripcion = pDescripcion;
         motivacion = pMotivacion;
+                
     }
+            
     
     // ----------------------------------------------------------------------
     // Metodos
@@ -104,6 +112,20 @@ public class ActividadDTO implements Serializable{
      */
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     

@@ -6,7 +6,9 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -17,6 +19,8 @@ public class PersonaEntity extends BaseEntity implements Serializable
 {
     String contraseña;
     String nombre;
+    //@OneToMany(mappedBy = "autor")
+    //private List<ComentarioEntity> comentarioEntitys;
     
     /**
      * Connstructor vacio de un Entity

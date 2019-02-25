@@ -16,7 +16,7 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
 
 @Path("CalificacionComments")
