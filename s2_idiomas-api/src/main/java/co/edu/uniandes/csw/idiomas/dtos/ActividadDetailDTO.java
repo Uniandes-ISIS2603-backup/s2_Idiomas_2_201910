@@ -5,18 +5,22 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
- *
+ * Clase que extiende de {@link ActividadDTO} para manejar las relaciones entre
+ * ActividadDTO y otros DTOs. Para el contenido de una actividad ir a la
+ * documentación de {@link ActividadDTO}
  * @author g.cubillosb
  */
-public class ActividadDetailDTO extends ActividadDTO{
+public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     
     // ------------------------------------------------------------------------
     // Atributos
     // ------------------------------------------------------------------------
     
+    // TODO: GC Make "asistentes" transient or serializable.
     /**
      * Lista de tipo UsuarioDTO contiene los usuarios que están asociados con
      * esta actividad.
@@ -38,7 +42,7 @@ public class ActividadDetailDTO extends ActividadDTO{
      */
     public ActividadDetailDTO () 
     {
-        
+        super();
     }
     
     // ------------------------------------------------------------------------

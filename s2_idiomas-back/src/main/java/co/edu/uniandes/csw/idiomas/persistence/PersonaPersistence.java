@@ -64,21 +64,21 @@ public class PersonaPersistence
      * @return null si no existe ninguna Persona con el nombre del argumento.
      * Si existe alguna devuelve la primera.
      */
-    public PersonaEntity findByName(String nombre) {
+    public PersonaEntity findByNombre(String nombre) {
         LOGGER.log(Level.INFO, "Consultando Persona por nombre ", nombre);
         // Se crea un query para buscar Personas con el nombre que recibe el método como argumento. ":nombre" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From PersonaEntity e where e.nombre = :nombre", PersonaEntity.class);
         // Se remplaza el placeholder ":nombre" con el valor del argumento 
         query = query.setParameter("nombre", nombre);
         // Se invoca el query se obtiene la lista resultado
-        List<PersonaEntity> sameName = query.getResultList();
+        List<PersonaEntity> sameNombre = query.getResultList();
         PersonaEntity result;
-        if (sameName == null) {
+        if (sameNombre == null) {
             result = null;
-        } else if (sameName.isEmpty()) {
+        } else if (sameNombre.isEmpty()) {
             result = null;
         } else {
-            result = sameName.get(0);
+            result = sameNombre.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar Persona por nombre ", nombre);
         return result;
