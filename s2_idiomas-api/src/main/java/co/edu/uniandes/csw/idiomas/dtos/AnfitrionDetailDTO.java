@@ -14,19 +14,19 @@ import java.util.List;
  */
 public class AnfitrionDetailDTO 
 {
-    private List<AnfitrionDTO> estadias;
+    private List<EstadiaDTO> estadias;
     
     public AnfitrionDetailDTO()
     {
         
     }
 
-    public List<AnfitrionDTO> getEstadias() 
+    public List<EstadiaDTO> getEstadias() 
     {
         return estadias;
     }
 
-    public void setEstadias(List<AnfitrionDTO> estadias) 
+    public void setEstadias(List<EstadiaDTO> estadias) 
     {
         this.estadias = estadias;
     }

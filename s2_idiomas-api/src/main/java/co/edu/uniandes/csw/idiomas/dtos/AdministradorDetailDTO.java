@@ -15,19 +15,19 @@ import java.util.List;
 public class AdministradorDetailDTO  extends AdministradorDTO implements Serializable{
     
     
-    private List<AdministradorDTO> gruposAdministrados;
+    private List<GrupoDeInteresDTO> gruposAdministrados;
     
     public AdministradorDetailDTO()
     {
         
     }
 
-    public List<AdministradorDTO> getGruposAdministrados() 
+    public List<GrupoDeInteresDTO> getGruposAdministrados() 
     {
         return gruposAdministrados;
     }
 
-    public void setGruposAdministrados(List<AdministradorDTO> gruposAdministrados) 
+    public void setGruposAdministrados(List<GrupoDeInteresDTO> gruposAdministrados) 
     {
         this.gruposAdministrados = gruposAdministrados;
     }

@@ -14,19 +14,19 @@ import java.util.List;
  */
 public class UsuarioDetailDTO
 {
-   private List<AdministradorDTO> activiadesProgramadas;
+   private List<ActividadDTO> activiadesProgramadas;
     
     public UsuarioDetailDTO()
     {
         
     }
 
-    public List<AdministradorDTO> getActiviadesProgramadas() 
+    public List<ActividadDTO> getActiviadesProgramadas() 
     {
         return activiadesProgramadas;
     }
 
-    public void setActiviadesProgramadas(List<AdministradorDTO> activiadesProgramadas) 
+    public void setActiviadesProgramadas(List<ActividadDTO> activiadesProgramadas) 
     {
         this.activiadesProgramadas = activiadesProgramadas;
     }
