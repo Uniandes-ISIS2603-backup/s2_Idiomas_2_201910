@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import java.io.Serializable;
+import javax.inject.Inject;
 
 /**
  *
@@ -20,6 +22,14 @@ public class CalificacionDTO implements Serializable {
     public CalificacionDTO()
     {
         
+    }
+    
+    public CalificacionDTO(CalificacionEntity cal)
+    {
+        if(cal != null)
+        {
+            this.calificacion = cal.getCalificacion();
+        }
     }
 
     /**
@@ -77,5 +87,13 @@ public class CalificacionDTO implements Serializable {
     public void setNumeroDeCalificaciones(Integer numeroDeCalificaciones) {
         this.numeroDeCalificaciones = numeroDeCalificaciones;
     }    
+    
+    @Inject
+    public CalificacionEntity toEntity()
+    {
+        CalificacionEntity cal = new CalificacionEntity();
+        cal.setCalificacion(calificacion);
+        return cal;
+    }
     
 }

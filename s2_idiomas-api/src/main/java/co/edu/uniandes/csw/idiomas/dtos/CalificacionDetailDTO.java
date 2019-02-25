@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +21,16 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
     public CalificacionDetailDTO()
     {
         
+    }
+    
+    public CalificacionDetailDTO(CalificacionEntity cal)
+    {
+        super(cal);
+        if(cal!=null)
+        {
+            comentarios = new ArrayList<>();
+            
+        }
     }
 
     /**
@@ -34,4 +47,18 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
         this.comentarios = comentarios;
     }
     
+    public CalificacionEntity toEntity()
+    {
+        CalificacionEntity cal = super.toEntity();
+        if(comentarios != null)
+        {
+            List<ComentarioEntity> comentariosEntity = new ArrayList<>();
+            for(ComentarioDTO dtoComentario : comentarios)
+            {
+                comentariosEntity.add(dtoComentario.toEntity());
+            }
+        }
+        cal.setComentariosEntity(comentariosEntity);
+        return cal;
+    }
 }
