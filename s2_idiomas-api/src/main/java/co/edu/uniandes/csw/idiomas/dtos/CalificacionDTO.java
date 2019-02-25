@@ -28,7 +28,7 @@ public class CalificacionDTO implements Serializable {
     {
         if(cal != null)
         {
-            this.calificacion = cal.getCalificacion();
+//            this.calificacion = cal.getCalificacion();
         }
     }
 
@@ -92,7 +92,7 @@ public class CalificacionDTO implements Serializable {
     public CalificacionEntity toEntity()
     {
         CalificacionEntity cal = new CalificacionEntity();
-        cal.setCalificacion(calificacion);
+//        cal.setCalificacion(calificacion);
         return cal;
     }
     

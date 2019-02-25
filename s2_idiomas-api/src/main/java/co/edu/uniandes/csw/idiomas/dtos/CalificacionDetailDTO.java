@@ -58,7 +58,7 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
                 comentariosEntity.add(dtoComentario.toEntity());
             }
         }
-        cal.setComentariosEntity(comentariosEntity);
+//        cal.setComentariosEntity(comentariosEntity);
         return cal;
     }
 }
