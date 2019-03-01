@@ -13,39 +13,24 @@ import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
- * Clase que representa una actividad en la persistencia y permite su
+ * Clase que representa un chat en la persistencia y permite su
  * serialización.
  * @author g.cubillosb
  */
 @Entity
-public class ActividadEntity extends BaseEntity implements Serializable{
+public class ChatEntity extends ActividadEntity implements Serializable{
     
     // -------------------------------------------------------------------
     // Atributos
     // -------------------------------------------------------------------
     
     /**
-     * Atributo que representa el nombre de la actividad.
+     * Atributo que representa la medio del chat.
      */
-    private String name;
+    private String medio;
     
     /**
-     * Atributo que representa la fecha de la actividad.
-     */
-    private String fecha;
-    
-    /**
-     * Atributo que modela la descripción de la actividad.
-     */
-    private String descripcion;
-    
-    /**
-     * Atributo que representa la motivación de la actividad.
-     */
-    private String motivacion;
-    
-    /**
-     * Atributo que representa los comentarios de la actividad.
+     * Atributo que representa los comentarios del chat.
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad")
@@ -58,7 +43,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     /**
      * Constructor vacío.
      */
-    public ActividadEntity ()
+    public ChatEntity ()
     {
         
     }
@@ -68,59 +53,17 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     // ------------------------------------------------------------------
 
     /**
-     * @return the fecha
+     * @return the medio
      */
-    public String getFecha() {
-        return fecha;
+    public String getMedio() {
+        return medio;
     }
 
     /**
-     * @param fecha the fecha to set
+     * @param medio the medio to set
      */
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    /**
-     * @return the descripcion
-     */
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    /**
-     * @param descripcion the descripcion to set
-     */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    /**
-     * @return the motivacion
-     */
-    public String getMotivacion() {
-        return motivacion;
-    }
-
-    /**
-     * @param motivacion the motivacion to set
-     */
-    public void setMotivacion(String motivacion) {
-        this.motivacion = motivacion;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public void setMedio(String medio) {
+        this.medio = medio;
     }
 
     /**
@@ -136,5 +79,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     public void setComentarios(List<ComentarioActividadEntity> comentarios) {
         this.comentarios = comentarios;
     }
+
+    
     
 }
