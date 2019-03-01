@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
-import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
+import co.edu.uniandes.csw.idiomas.entities.OtroEntity;
+import co.edu.uniandes.csw.idiomas.persistence.OtroPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -25,18 +25,18 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
- * Pruebas de persistencia de Actividad
+ * Pruebas de persistencia de Otro
  *
- * @actividad g.cubillosb
+ * @otro g.cubillosb
  */
 @RunWith(Arquillian.class)
-public class ActividadPersistenceTest {
+public class OtroPersistenceTest {
 
     /**
-     * Inyecta la dependencia de ActividadPersistence.
+     * Inyecta la dependencia de OtroPersistence.
      */
     @Inject
-    private ActividadPersistence actividadPersistence;
+    private OtroPersistence otroPersistence;
 
     /**
      * Contexto de persistencia que se va a utilizar para acceder a la base
@@ -55,7 +55,7 @@ public class ActividadPersistenceTest {
     /**
      * Lista de los datos de prueba.
      */
-    private List<ActividadEntity> data = new ArrayList<>();
+    private List<OtroEntity> data = new ArrayList<>();
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -65,8 +65,8 @@ public class ActividadPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(ActividadEntity.class.getPackage())
-                .addPackage(ActividadPersistence.class.getPackage())
+                .addPackage(OtroEntity.class.getPackage())
+                .addPackage(OtroPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -96,7 +96,7 @@ public class ActividadPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from ActividadEntity").executeUpdate();
+        em.createQuery("delete from OtroEntity").executeUpdate();
     }
 
     /**
@@ -106,7 +106,7 @@ public class ActividadPersistenceTest {
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            ActividadEntity entity = factory.manufacturePojo(ActividadEntity.class);
+            OtroEntity entity = factory.manufacturePojo(OtroEntity.class);
 
             em.persist(entity);
             data.add(entity);
@@ -114,31 +114,31 @@ public class ActividadPersistenceTest {
     }
 
     /**
-     * Prueba para crear un Actividad.
+     * Prueba para crear un Otro.
      */
     @Test
-    public void createActividadTest() {
+    public void createOtroTest() {
         PodamFactory factory = new PodamFactoryImpl();
-        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
-        ActividadEntity result = actividadPersistence.create(newEntity);
+        OtroEntity newEntity = factory.manufacturePojo(OtroEntity.class);
+        OtroEntity result = otroPersistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
-        ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
+        OtroEntity entity = em.find(OtroEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
     /**
-     * Prueba para consultar la lista de Actividades.
+     * Prueba para consultar la lista de Otros.
      */
     @Test
-    public void getActividadesTest() {
-        List<ActividadEntity> list = actividadPersistence.findAll();
+    public void getOtrosTest() {
+        List<OtroEntity> list = otroPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (ActividadEntity ent : list) {
+        for (OtroEntity ent : list) {
             boolean found = false;
-            for (ActividadEntity entity : data) {
+            for (OtroEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -148,43 +148,43 @@ public class ActividadPersistenceTest {
     }
 
     /**
-     * Prueba para consultar un Actividad.
+     * Prueba para consultar un Otro.
      */
     @Test
-    public void getActividadTest() {
-        ActividadEntity entity = data.get(0);
-        ActividadEntity newEntity = actividadPersistence.find(entity.getId());
+    public void getOtroTest() {
+        OtroEntity entity = data.get(0);
+        OtroEntity newEntity = otroPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
         Assert.assertEquals(entity.getFecha(), newEntity.getFecha());
     }
 
     /**
-     * Prueba para actualizar un Actividad.
+     * Prueba para actualizar un Otro.
      */
     @Test
-    public void updateActividadTest() {
-        ActividadEntity entity = data.get(0);
+    public void updateOtroTest() {
+        OtroEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+        OtroEntity newEntity = factory.manufacturePojo(OtroEntity.class);
 
         newEntity.setId(entity.getId());
 
-        actividadPersistence.update(newEntity);
+        otroPersistence.update(newEntity);
 
-        ActividadEntity resp = em.find(ActividadEntity.class, entity.getId());
+        OtroEntity resp = em.find(OtroEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
     /**
-     * Prueba para eliminar un Actividad.
+     * Prueba para eliminar un Otro.
      */
     @Test
-    public void deleteActividadTest() {
-        ActividadEntity entity = data.get(0);
-        actividadPersistence.delete(entity.getId());
-        ActividadEntity deleted = em.find(ActividadEntity.class, entity.getId());
+    public void deleteOtroTest() {
+        OtroEntity entity = data.get(0);
+        otroPersistence.delete(entity.getId());
+        OtroEntity deleted = em.find(OtroEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 }
