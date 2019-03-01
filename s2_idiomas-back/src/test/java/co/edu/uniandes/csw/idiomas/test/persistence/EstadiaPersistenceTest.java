@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
-import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
+import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
+import co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -25,18 +25,18 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
- * Pruebas de persistencia de Actividad
+ * Pruebas de persistencia de Estadia
  *
- * @actividad g.cubillosb
+ * @estadia g.cubillosb
  */
 @RunWith(Arquillian.class)
-public class ActividadPersistenceTest {
+public class EstadiaPersistenceTest {
 
     /**
-     * Inyecta la dependencia de ActividadPersistence.
+     * Inyecta la dependencia de EstadiaPersistence.
      */
     @Inject
-    private ActividadPersistence actividadPersistence;
+    private EstadiaPersistence estadiaPersistence;
 
     /**
      * Contexto de persistencia que se va a utilizar para acceder a la base
@@ -55,7 +55,7 @@ public class ActividadPersistenceTest {
     /**
      * Lista de los datos de prueba.
      */
-    private List<ActividadEntity> data = new ArrayList<>();
+    private List<EstadiaEntity> data = new ArrayList<>();
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -65,8 +65,8 @@ public class ActividadPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(ActividadEntity.class.getPackage())
-                .addPackage(ActividadPersistence.class.getPackage())
+                .addPackage(EstadiaEntity.class.getPackage())
+                .addPackage(EstadiaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -96,7 +96,7 @@ public class ActividadPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from ActividadEntity").executeUpdate();
+        em.createQuery("delete from EstadiaEntity").executeUpdate();
     }
 
     /**
@@ -106,7 +106,7 @@ public class ActividadPersistenceTest {
     private void insertData() {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
-            ActividadEntity entity = factory.manufacturePojo(ActividadEntity.class);
+            EstadiaEntity entity = factory.manufacturePojo(EstadiaEntity.class);
 
             em.persist(entity);
             data.add(entity);
@@ -114,31 +114,31 @@ public class ActividadPersistenceTest {
     }
 
     /**
-     * Prueba para crear un Actividad.
+     * Prueba para crear un Estadia.
      */
     @Test
-    public void createActividadTest() {
+    public void createEstadiaTest() {
         PodamFactory factory = new PodamFactoryImpl();
-        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
-        ActividadEntity result = actividadPersistence.create(newEntity);
+        EstadiaEntity newEntity = factory.manufacturePojo(EstadiaEntity.class);
+        EstadiaEntity result = estadiaPersistence.create(newEntity);
 
         Assert.assertNotNull(result);
 
-        ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
+        EstadiaEntity entity = em.find(EstadiaEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getName(), entity.getName());
     }
 
     /**
-     * Prueba para consultar la lista de Actividades.
+     * Prueba para consultar la lista de Estadias.
      */
     @Test
-    public void getActividadesTest() {
-        List<ActividadEntity> list = actividadPersistence.findAll();
+    public void getEstadiasTest() {
+        List<EstadiaEntity> list = estadiaPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (ActividadEntity ent : list) {
+        for (EstadiaEntity ent : list) {
             boolean found = false;
-            for (ActividadEntity entity : data) {
+            for (EstadiaEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -148,43 +148,43 @@ public class ActividadPersistenceTest {
     }
 
     /**
-     * Prueba para consultar un Actividad.
+     * Prueba para consultar un Estadia.
      */
     @Test
-    public void getActividadTest() {
-        ActividadEntity entity = data.get(0);
-        ActividadEntity newEntity = actividadPersistence.find(entity.getId());
+    public void getEstadiaTest() {
+        EstadiaEntity entity = data.get(0);
+        EstadiaEntity newEntity = estadiaPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getName(), newEntity.getName());
         Assert.assertEquals(entity.getFecha(), newEntity.getFecha());
     }
 
     /**
-     * Prueba para actualizar un Actividad.
+     * Prueba para actualizar un Estadia.
      */
     @Test
-    public void updateActividadTest() {
-        ActividadEntity entity = data.get(0);
+    public void updateEstadiaTest() {
+        EstadiaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+        EstadiaEntity newEntity = factory.manufacturePojo(EstadiaEntity.class);
 
         newEntity.setId(entity.getId());
 
-        actividadPersistence.update(newEntity);
+        estadiaPersistence.update(newEntity);
 
-        ActividadEntity resp = em.find(ActividadEntity.class, entity.getId());
+        EstadiaEntity resp = em.find(EstadiaEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getName(), resp.getName());
     }
 
     /**
-     * Prueba para eliminar un Actividad.
+     * Prueba para eliminar un Estadia.
      */
     @Test
-    public void deleteActividadTest() {
-        ActividadEntity entity = data.get(0);
-        actividadPersistence.delete(entity.getId());
-        ActividadEntity deleted = em.find(ActividadEntity.class, entity.getId());
+    public void deleteEstadiaTest() {
+        EstadiaEntity entity = data.get(0);
+        estadiaPersistence.delete(entity.getId());
+        EstadiaEntity deleted = em.find(EstadiaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 }
