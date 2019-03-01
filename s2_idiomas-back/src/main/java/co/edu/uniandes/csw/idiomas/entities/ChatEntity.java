@@ -13,12 +13,12 @@ import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
- * Clase que representa una chat en la persistencia y permite su
+ * Clase que representa un chat en la persistencia y permite su
  * serialización.
  * @author g.cubillosb
  */
 @Entity
-public class ChatEntity extends BaseEntity implements Serializable{
+public class ChatEntity extends ActividadEntity implements Serializable{
     
     // -------------------------------------------------------------------
     // Atributos
