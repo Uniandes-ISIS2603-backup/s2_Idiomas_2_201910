@@ -6,7 +6,12 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,6 +22,13 @@ public class ComentarioActividadEntity extends BaseEntity implements Serializabl
     
 
     private String titulo;
+    
+    /**
+     * Atributo que representa los comentarios de la actividad.
+     */
+    @PodamExclude
+    @ManyToOne
+    private ActividadEntity actividad;
     
     /**
      * Constructor vacío de comentarioActividadEntity.
