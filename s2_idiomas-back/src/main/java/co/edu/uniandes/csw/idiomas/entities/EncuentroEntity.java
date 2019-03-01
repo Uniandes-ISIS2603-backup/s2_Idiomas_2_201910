@@ -13,40 +13,37 @@ import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
- * Clase que representa una actividad en la persistencia y permite su
+ * Clase que representa un encuentro en la persistencia y permite su
  * serialización.
  * @author g.cubillosb
  */
 @Entity
-public class ActividadEntity extends BaseEntity implements Serializable{
+public class EncuentroEntity extends ActividadEntity implements Serializable
+{
     
     // -------------------------------------------------------------------
     // Atributos
     // -------------------------------------------------------------------
     
     /**
-     * Atributo que representa el nombre de la actividad.
+     * Atributo que representa el lugar del encuentro.
      */
-    private String name;
+    private String lugar;
     
     /**
-     * Atributo que representa la fecha de la actividad.
+     * Atributo que representa el número máximo de asistentes del encuentro.
      */
-    private String fecha;
+    private Integer numeroMaxAsistentes;
     
     /**
-     * Atributo que modela la descripción de la actividad.
+     * Atributo que modela el estado de aprobación del encuentro.
      */
-    private String descripcion;
-    
-    /**
-     * Atributo que representa la motivación de la actividad.
-     */
-    private String motivacion;
-    
+    private Boolean aprobado;
+        
     /**
      * Atributo que representa los comentarios de la actividad.
      */
+    // TODO: GC Se define como actividad o como encuentro
     @PodamExclude
     @OneToMany(mappedBy = "actividad")
     private List<ComentarioActividadEntity> comentarios = new ArrayList<ComentarioActividadEntity>();
@@ -58,7 +55,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     /**
      * Constructor vacío.
      */
-    public ActividadEntity ()
+    public EncuentroEntity ()
     {
         
     }
@@ -68,59 +65,45 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     // ------------------------------------------------------------------
 
     /**
-     * @return the fecha
+     * @return the lugar
      */
-    public String getFecha() {
-        return fecha;
+    public String getLugar() {
+        return lugar;
     }
 
     /**
-     * @param fecha the fecha to set
+     * @param lugar the lugar to set
      */
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
     /**
-     * @return the descripcion
+     * @return the numeroMaxAsistentes
      */
-    public String getDescripcion() {
-        return descripcion;
+    public Integer getNumeroMaxAsistentes() {
+        return numeroMaxAsistentes;
     }
 
     /**
-     * @param descripcion the descripcion to set
+     * @param numeroMaxAsistentes the numeroMaxAsistentes to set
      */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNumeroMaxAsistentes(Integer numeroMaxAsistentes) {
+        this.numeroMaxAsistentes = numeroMaxAsistentes;
     }
 
     /**
-     * @return the motivacion
+     * @return the aprobado
      */
-    public String getMotivacion() {
-        return motivacion;
+    public Boolean getAprobado() {
+        return aprobado;
     }
 
     /**
-     * @param motivacion the motivacion to set
+     * @param aprobado the aprobado to set
      */
-    public void setMotivacion(String motivacion) {
-        this.motivacion = motivacion;
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+    public void setAprobado(Boolean aprobado) {
+        this.aprobado = aprobado;
     }
 
     /**
@@ -136,5 +119,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     public void setComentarios(List<ComentarioActividadEntity> comentarios) {
         this.comentarios = comentarios;
     }
+
+    
     
 }
