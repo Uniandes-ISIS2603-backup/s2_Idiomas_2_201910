@@ -34,7 +34,7 @@ public class ChatEntity extends ActividadEntity implements Serializable{
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad")
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<ComentarioActividadEntity>();
+    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
     
     // ------------------------------------------------------------------
     // Constructor

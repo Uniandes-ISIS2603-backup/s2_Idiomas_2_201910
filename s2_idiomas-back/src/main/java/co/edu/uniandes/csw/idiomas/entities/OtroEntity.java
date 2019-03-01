@@ -29,7 +29,7 @@ public class OtroEntity extends ActividadEntity implements Serializable{
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad")
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<ComentarioActividadEntity>();
+    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
     
     // ------------------------------------------------------------------
     // Constructor
@@ -61,6 +61,5 @@ public class OtroEntity extends ActividadEntity implements Serializable{
         this.comentarios = comentarios;
     }
 
-    
     
 }

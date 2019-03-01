@@ -141,8 +141,7 @@ public class ActividadResource {
 //        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadEntity);
 //        LOGGER.log(Level.INFO, "ActividadResource getActividad: output: actividadId {0}"), detailDTO);
 //        return detailDTO;
-        ActividadDetailDTO actividad = new ActividadDetailDTO();
-        return actividad;
+        return new ActividadDetailDTO();
     }
     
     

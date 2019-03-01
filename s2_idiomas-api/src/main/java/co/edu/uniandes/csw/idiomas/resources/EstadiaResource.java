@@ -10,10 +10,8 @@ package co.edu.uniandes.csw.idiomas.resources;
 import co.edu.uniandes.csw.idiomas.dtos.EstadiaDTO;
 import co.edu.uniandes.csw.idiomas.dtos.EstadiaDetailDTO;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
-import javax.enterprise.context.RequestScoped;
 import java.util.logging.*;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.*;
 
 /**
