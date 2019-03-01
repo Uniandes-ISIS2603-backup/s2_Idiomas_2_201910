@@ -65,7 +65,7 @@ public class OtroPersistence {
     public List<OtroEntity> findAll() {
         LOGGER.log(Level.INFO, "Consultando todas las otros");
         // Se crea un query para buscar todas las otros en la base de datos.
-        TypedQuery query = em.createQuery("select u from OtroEntitiy u", OtroEntity.class);
+        TypedQuery query = em.createQuery("select u from OtroEntity u", OtroEntity.class);
         // Se hace uso del método getResultList() que obtiene una lista de otros.
         return query.getResultList();
     }

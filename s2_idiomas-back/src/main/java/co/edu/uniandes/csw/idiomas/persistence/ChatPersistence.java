@@ -65,7 +65,7 @@ public class ChatPersistence {
     public List<ChatEntity> findAll() {
         LOGGER.log(Level.INFO, "Consultando todas las chats");
         // Se crea un query para buscar todas las chats en la base de datos.
-        TypedQuery query = em.createQuery("select u from ChatEntitiy u", ChatEntity.class);
+        TypedQuery query = em.createQuery("select u from ChatEntity u", ChatEntity.class);
         // Se hace uso del método getResultList() que obtiene una lista de chats.
         return query.getResultList();
     }

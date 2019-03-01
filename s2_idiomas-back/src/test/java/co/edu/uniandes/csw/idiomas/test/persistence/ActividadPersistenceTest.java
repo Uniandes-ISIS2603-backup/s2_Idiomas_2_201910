@@ -55,7 +55,7 @@ public class ActividadPersistenceTest {
     /**
      * Lista de los datos de prueba.
      */
-    private List<ActividadEntity> data = new ArrayList<>();
+    private List<ActividadEntity> data = new ArrayList<ActividadEntity>();
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.

@@ -65,7 +65,7 @@ public class ActividadPersistence {
     public List<ActividadEntity> findAll() {
         LOGGER.log(Level.INFO, "Consultando todas las actividades");
         // Se crea un query para buscar todas las actividades en la base de datos.
-        TypedQuery query = em.createQuery("select u from ActividadEntitiy u", ActividadEntity.class);
+        TypedQuery query = em.createQuery("select u from ActividadEntity u", ActividadEntity.class);
         // Se hace uso del método getResultList() que obtiene una lista de actividades.
         return query.getResultList();
     }
