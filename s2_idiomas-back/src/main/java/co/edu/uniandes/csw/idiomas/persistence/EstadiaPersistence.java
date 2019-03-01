@@ -65,7 +65,7 @@ public class EstadiaPersistence {
     public List<EstadiaEntity> findAll() {
         LOGGER.log(Level.INFO, "Consultando todas las estadias");
         // Se crea un query para buscar todas las estadias en la base de datos.
-        TypedQuery query = em.createQuery("select u from EstadiaEntitiy u", EstadiaEntity.class);
+        TypedQuery query = em.createQuery("select u from EstadiaEntity u", EstadiaEntity.class);
         // Se hace uso del método getResultList() que obtiene una lista de estadias.
         return query.getResultList();
     }

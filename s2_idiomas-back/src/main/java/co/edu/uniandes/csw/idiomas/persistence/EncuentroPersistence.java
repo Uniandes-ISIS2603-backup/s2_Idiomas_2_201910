@@ -65,7 +65,7 @@ public class EncuentroPersistence {
     public List<EncuentroEntity> findAll() {
         LOGGER.log(Level.INFO, "Consultando todas las encuentros");
         // Se crea un query para buscar todas las encuentros en la base de datos.
-        TypedQuery query = em.createQuery("select u from EncuentroEntitiy u", EncuentroEntity.class);
+        TypedQuery query = em.createQuery("select u from EncuentroEntity u", EncuentroEntity.class);
         // Se hace uso del método getResultList() que obtiene una lista de encuentros.
         return query.getResultList();
     }
