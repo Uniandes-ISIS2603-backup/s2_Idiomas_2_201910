@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -35,16 +36,18 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author j.barbosa
  */
 public class PersonaDTO 
-{
-    Long id;
+{ Long id;
     String nombre;
-    Long contraseña;
+    Long contrasenia;
+
+
     
     
     /**
      * Constructor por defecto
      */
-    public PersonaDTO() {
+    public PersonaDTO()
+    {
     }
 
     /**
@@ -53,12 +56,13 @@ public class PersonaDTO
      *
      * @param personaEntity: Es la entidad que se va a convertir a DTO
      */
-//    public PersonaDTO(PersonaEntity personaEntity) {
-//        if (personaEntity != null) {
-//            this.id = personaEntity.getId();
-//            this.nombre = personaEntity.getName();
-//        }
-//    }
+    public PersonaDTO(PersonaEntity personaEntity) {
+        if (personaEntity != null) {
+            this.id = personaEntity.getId();
+            this.nombre = personaEntity.getNombre();
+            this.contrasenia = personaEntity.getContrasenia();
+        }
+    }
 
     /**
      * Devuelve el ID de la persona.
@@ -83,7 +87,7 @@ public class PersonaDTO
      *
      * @return the nombre
      */
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -92,8 +96,26 @@ public class PersonaDTO
      *
      * @param nombre the nombre to set
      */
-    public void setName(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+     /**
+     * Devuelve el contrasenia de la persona.
+     *
+     * @return the contrasenia
+     */
+    public Long getContrasenia() {
+        return contrasenia;
+    }
+    
+    /**
+     * Modifica la conrasenia del persona.
+     *
+     * @param contraseina the nombre to set
+     */
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
 //    /**
@@ -104,7 +126,7 @@ public class PersonaDTO
 //    public PersonaEntity toEntity() {
 //        PersonaEntity personaEntity = new PersonaEntity();
 //        personaEntity.setId(this.id);
-//        personaEntity.setName(this.nombre);
+//        personaEntity.setNombre(this.nombre);
 //        return personaEntity;
 //    }
 

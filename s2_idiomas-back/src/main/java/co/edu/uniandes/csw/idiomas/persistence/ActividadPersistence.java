@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.persistence;
 
+
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,6 +23,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class ActividadPersistence {
     
+
     // ----------------------------------------------------------------------
     // Atributos 
     // ----------------------------------------------------------------------
@@ -47,12 +49,30 @@ public class ActividadPersistence {
      * @param pActividadEntity Objeto actividad que se creará en la base de datos.
      * @return Devuelve la actividad creada con un id dado por la base de datos.
      */
-    public ActividadEntity create (ActividadEntity pActividadEntity)
-    {
-        LOGGER.log(Level.INFO, "Creando una actividad nueva");
-        em.persist(pActividadEntity);
-        LOGGER.log(Level.INFO, "Saliendo de crear una actividad nueva");
-        return pActividadEntity;
+    public PersonaEntity update(PersonaEntity personaEntity) {
+        LOGGER.log(Level.INFO, "Actualizando el persona con id={0}", personaEntity.getId());
+        /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
+        la persona con los cambios, esto es similar a 
+        "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
+         */
+        return em.merge(personaEntity);
+    }
+
+    /**
+     * Borra una persona de la base de datos recibiendo como argumento el id de
+     * la persona
+     *
+     * @param personasId: id correspondiente a la persona a borrar.
+     */
+    public void delete(Long personasId) {
+
+        LOGGER.log(Level.INFO, "Borrando el persona con id={0}", personasId);
+        // Se hace uso de mismo método que esta explicado en public PersonaEntity find(Long id) para obtener la persona a borrar.
+        PersonaEntity personaEntity = em.find(PersonaEntity.class, personasId);
+        /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
+        EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
+        Es similar a "delete from PersonaEntity where id=id;" - "DELETE FROM table_name WHERE condition;" en SQL.*/
+        em.remove(personaEntity);
     }
     
     /**

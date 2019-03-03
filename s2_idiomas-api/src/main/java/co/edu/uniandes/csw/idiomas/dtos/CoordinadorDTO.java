@@ -5,11 +5,12 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * AdministradorDTO Objeto de transferencia de datos de Administradores. Los DTO
+ * CoordinadorDTO Objeto de transferencia de datos de Coordinadores. Los DTO
  * contienen las representaciones de los JSON que se transfieren entre el
  * cliente y el servidor.
  *
@@ -20,7 +21,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *      "nombre": string
  *      "contraseña" : string
  *   }
- * </pre> Por ejemplo una administrador se representa asi:<br>
+ * </pre> Por ejemplo una coordinador se representa asi:<br>
  *
  * <pre>
  *
@@ -37,7 +38,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class CoordinadorDTO {
     Long id;
     String nombre;
-    Long contraseña;
+    Long contrasenia;
+
+
     
     
     /**
@@ -52,12 +55,13 @@ public class CoordinadorDTO {
      *
      * @param coordinadorEntity: Es la entidad que se va a convertir a DTO
      */
-//    public CoordinadorDTO(CoordinadorEntity coordinadorEntity) {
-//        if (coordinadorEntity != null) {
-//            this.id = coordinadorEntity.getId();
-//            this.nombre = coordinadorEntity.getName();
-//        }
-//    }
+    public CoordinadorDTO(CoordinadorEntity coordinadorEntity) {
+        if (coordinadorEntity != null) {
+            this.id = coordinadorEntity.getId();
+            this.nombre = coordinadorEntity.getNombre();
+            this.contrasenia = coordinadorEntity.getContrasenia();
+        }
+    }
 
     /**
      * Devuelve el ID de la coordinador.
@@ -82,7 +86,7 @@ public class CoordinadorDTO {
      *
      * @return the nombre
      */
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -91,8 +95,26 @@ public class CoordinadorDTO {
      *
      * @param nombre the nombre to set
      */
-    public void setName(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+     /**
+     * Devuelve el contrasenia de la coordinador.
+     *
+     * @return the contrasenia
+     */
+    public Long getContrasenia() {
+        return contrasenia;
+    }
+    
+    /**
+     * Modifica la conrasenia del coordinador.
+     *
+     * @param contraseina the nombre to set
+     */
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
 //    /**
@@ -103,7 +125,7 @@ public class CoordinadorDTO {
 //    public CoordinadorEntity toEntity() {
 //        CoordinadorEntity coordinadorEntity = new CoordinadorEntity();
 //        coordinadorEntity.setId(this.id);
-//        coordinadorEntity.setName(this.nombre);
+//        coordinadorEntity.setNombre(this.nombre);
 //        return coordinadorEntity;
 //    }
 
@@ -111,5 +133,5 @@ public class CoordinadorDTO {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-    
 }
+

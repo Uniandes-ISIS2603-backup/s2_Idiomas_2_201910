@@ -188,3 +188,4 @@ public class ActividadPersistenceTest {
         Assert.assertNull(deleted);
     }
 }
+

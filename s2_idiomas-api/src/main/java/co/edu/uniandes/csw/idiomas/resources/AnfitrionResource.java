@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 
 import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDTO;
+import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDetailDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.AnfitrionLogic;
 //import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
@@ -53,9 +54,9 @@ public class AnfitrionResource
      * Error de lógica que se genera cuando ya existe la anfitrion.
      */
     @POST
-    public AnfitrionDTO createAnfitrion(AnfitrionDTO anfitrion) throws BusinessLogicException {
-       
-        return anfitrion;
+    public AnfitrionDetailDTO  createAnfitrion(AnfitrionDTO anfitrion) throws BusinessLogicException {
+        AnfitrionDetailDTO  nuevo = new AnfitrionDetailDTO();
+        return nuevo;
     }
 
     /**
@@ -67,8 +68,9 @@ public class AnfitrionResource
      */
     @DELETE
     @Path("{anfitrionesId: \\d+}")
-    public long deleteAnfitrion(@PathParam("anfitrionesId") Long anfitrionesId) {
-        return anfitrionesId;
+    public AnfitrionDetailDTO deleteAnfitrion(@PathParam("anfitrionesId") Long anfitrionesId) {
+        AnfitrionDetailDTO  nuevo = new AnfitrionDetailDTO();
+        return nuevo;
     }
     
     /**
@@ -80,8 +82,9 @@ public class AnfitrionResource
      */
     @PUT
     @Path("{anfitrionesId: \\d+}")
-    public long updateAnfitrion(@PathParam("anfitrionesId") Long anfitrionesId) {
-        return anfitrionesId;
+    public AnfitrionDetailDTO updateAnfitrion(@PathParam("anfitrionesId") Long anfitrionesId) {
+       AnfitrionDetailDTO  nuevo = new AnfitrionDetailDTO();
+        return nuevo;
     }
     
      /**
@@ -93,8 +96,9 @@ public class AnfitrionResource
      */
     @GET
     @Path("{anfitrionesId: \\d+}")
-    public long retornarAnfitrion(@PathParam("anfitrionesId") Long anfitrionesId) {
-        return anfitrionesId;
+    public AnfitrionDetailDTO retornarAnfitrion(@PathParam("anfitrionesId") Long anfitrionesId) {
+        AnfitrionDetailDTO  nuevo = new AnfitrionDetailDTO();
+        return nuevo;
     }
     
       /**
@@ -105,7 +109,7 @@ public class AnfitrionResource
      * @return 
      */
     @GET    
-    public AnfitrionDTO[] retornarAnfitrion() {
-        return new AnfitrionDTO[1];        
+    public AnfitrionDetailDTO[] retornarAnfitrion() {
+        return new AnfitrionDetailDTO[1];        
     }   
 }

@@ -53,7 +53,9 @@ public class PersonaResource {
     @POST
     public PersonaDTO createPersona(PersonaDTO persona) throws BusinessLogicException {
        
-        return persona;
+        PersonaDTO personax = new PersonaDTO();
+        personax.setNombre("JUAN");
+        return personax;
     }
 
     /**
@@ -65,8 +67,10 @@ public class PersonaResource {
      */
     @DELETE
     @Path("{personasId: \\d+}")
-    public long deletePersona(@PathParam("personasId") Long personasId) {
-        return personasId;
+    public PersonaDTO deletePersona(@PathParam("personasId") Long personasId) {
+        PersonaDTO persona = new PersonaDTO();
+        persona.setNombre("JUAN");
+        return persona;
     }
     
     /**
@@ -78,12 +82,14 @@ public class PersonaResource {
      */
     @PUT
     @Path("{personasId: \\d+}")
-    public long updatePersona(@PathParam("personasId") Long personasId) {
-        return personasId;
+    public PersonaDTO updatePersona(@PathParam("personasId") Long personasId) {
+        PersonaDTO persona = new PersonaDTO();
+        persona.setNombre("JUAN");
+        return persona; 
     }
     
      /**
-     * Actualiza la persona con el id asociado recibido en la URL.
+     * Retorna la persona con el id asociado recibido en la URL.
      *
      * @param personasId Identificador de la persona que se desea actualizar.
      * Este debe ser una cadena de dígitos.
@@ -91,19 +97,23 @@ public class PersonaResource {
      */
     @GET
     @Path("{personasId: \\d+}")
-    public long retornarPersona(@PathParam("personasId") Long personasId) {
-        return personasId;
+    public PersonaDTO retornarPersona(@PathParam("personasId") Long personasId) {      
+        PersonaDTO persona = new PersonaDTO();
+        persona.setNombre("JUAN");
+        return persona; 
     }
     
-      /**
-     * Actualiza la persona con el id asociado recibido en la URL.
-     *
-     * @param personasId Identificador de la persona que se desea actualizar.
-     * Este debe ser una cadena de dígitos.
-     * @return 
-     */
+     /**
+      * Retorna la lista de peronas
+      * @return 
+      */
     @GET    
-    public PersonaDTO[] retornarPersona() {
-        return new PersonaDTO[1];        
+    public PersonaDTO[] retornarPersona()
+    {
+        PersonaDTO[] a = new PersonaDTO[1];
+        PersonaDTO persona = new PersonaDTO();
+        persona.setNombre("JUAN");
+        a[0] = persona;
+        return a;        
     }
 }
