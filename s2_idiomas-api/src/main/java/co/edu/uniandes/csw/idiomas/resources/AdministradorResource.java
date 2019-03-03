@@ -2,10 +2,13 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
+import co.edu.uniandes.csw.idiomas.dtos.PersonaDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic;
 //import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -18,6 +21,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "administradores".
@@ -85,6 +89,10 @@ public class AdministradorResource
     @Path("{administradoresId: \\d+}")
     public AdministradorDetailDTO updateAdministrador(@PathParam("administradoresId") Long administradoresId) {
          AdministradorDetailDTO  retorno = new AdministradorDetailDTO();
+         if(retorno == null)
+        {
+            throw new WebApplicationException();
+        }
         return retorno;
     }
     
@@ -110,7 +118,12 @@ public class AdministradorResource
      * @return 
      */
     @GET    
-    public AdministradorDetailDTO[] retornarAdministrador() {
-        return new AdministradorDetailDTO[1];        
+    public List<AdministradorDetailDTO> retornarAdministrador() {
+        List<AdministradorDetailDTO> list = new ArrayList<>();
+        if(list == null)
+        {
+            throw new WebApplicationException();
+        }
+        return list;         
     }   
 }

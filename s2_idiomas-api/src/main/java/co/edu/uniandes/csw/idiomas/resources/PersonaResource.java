@@ -5,11 +5,14 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
+import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
 import co.edu.uniandes.csw.idiomas.dtos.PersonaDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.PersonaLogic;
 //import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -22,6 +25,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "personas".
@@ -86,7 +90,10 @@ public class PersonaResource {
     @Path("{personasId: \\d+}")
     public PersonaDTO updatePersona(@PathParam("personasId") Long personasId) {
         PersonaDTO persona = new PersonaDTO();
-        persona.setNombre("JUAN");
+         if(persona == null)
+        {
+            throw new WebApplicationException();
+        }
         return persona; 
     }
     
@@ -110,12 +117,14 @@ public class PersonaResource {
       * @return 
       */
     @GET    
-    public PersonaDTO[] retornarPersona()
+    public List<PersonaDTO> retornarPersona()
     {
-        PersonaDTO[] a = new PersonaDTO[1];
-        PersonaDTO persona = new PersonaDTO();
-        persona.setNombre("JUAN");
-        a[0] = persona;
-        return a;        
+        List<PersonaDTO> list = new ArrayList<>();
+        if(list == null)
+        {
+            throw new WebApplicationException();
+            }
+        return list;    
+               
     }
 }

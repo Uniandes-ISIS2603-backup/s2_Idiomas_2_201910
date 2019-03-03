@@ -7,12 +7,15 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 
 
+import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
 import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDTO;
 import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDetailDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.AnfitrionLogic;
 //import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -25,6 +28,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "anfitriones".
@@ -86,6 +90,10 @@ public class AnfitrionResource
     @Path("{anfitrionesId: \\d+}")
     public AnfitrionDetailDTO updateAnfitrion(@PathParam("anfitrionesId") Long anfitrionesId) {
        AnfitrionDetailDTO  nuevo = new AnfitrionDetailDTO();
+       if(nuevo == null)
+        {
+            throw new WebApplicationException();
+        }
         return nuevo;
     }
     
@@ -111,7 +119,12 @@ public class AnfitrionResource
      * @return 
      */
     @GET    
-    public AnfitrionDetailDTO[] retornarAnfitrion() {
-        return new AnfitrionDetailDTO[1];        
+    public List<AnfitrionDetailDTO> retornarAnfitrion() {
+         List<AnfitrionDetailDTO> list = new ArrayList<>();
+         if(list == null)
+        {
+            throw new WebApplicationException();
+        }
+        return list;         
     }   
 }
