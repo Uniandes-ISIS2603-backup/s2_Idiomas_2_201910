@@ -119,17 +119,18 @@ public class AdministradorDTO
         this.contrasenia = contrasenia;
     }
 
-//    /**
-//     * Convertir DTO a Entity
-//     *
-//     * @return Un Entity con los valores del DTO
-//     */
-//    public AdministradorEntity toEntity() {
-//        AdministradorEntity administradorEntity = new AdministradorEntity();
-//        administradorEntity.setId(this.id);
-//        administradorEntity.setNombre(this.nombre);
-//        return administradorEntity;
-//    }
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public AdministradorEntity toEntity() {
+        AdministradorEntity administradorEntity = new AdministradorEntity();
+        administradorEntity.setId(this.id);
+        administradorEntity.setNombre(this.nombre);
+        administradorEntity.setContrasenia(this.contrasenia);
+        return administradorEntity;
+    }
 
     @Override
     public String toString() {
