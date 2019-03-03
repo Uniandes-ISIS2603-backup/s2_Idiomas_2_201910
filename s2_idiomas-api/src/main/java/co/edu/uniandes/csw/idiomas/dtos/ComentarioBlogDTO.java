@@ -5,19 +5,29 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.ComentarioBlogEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.io.Serializable;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
-public class ComentarioBlogDTO extends ComentarioDTO implements Serializable{
-    
+public class ComentarioBlogDTO extends ComentarioDTO implements Serializable {
+
     private String titulo;
-    
-    public ComentarioBlogDTO()
-    {
-        
+
+    /**
+     * Constructor de ComentarioBlogDTO
+     *
+     * @param entity recibe el titulo del comentario.
+     * @param entity2 recibe la informacion general de un comentario.
+     */
+    public ComentarioBlogDTO(ComentarioBlogEntity entity, ComentarioEntity entity2) {
+        super(entity2);
+        if (entity != null) {
+            this.titulo = entity.getTitulo();
+        }
     }
 
     /**
@@ -32,5 +42,16 @@ public class ComentarioBlogDTO extends ComentarioDTO implements Serializable{
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    /**
+     * Convierte un objeto DTO a una Entidad.
+     *
+     * @return entidad convertida.
+     */
+    public ComentarioBlogEntity toEntityB() {
+        ComentarioBlogEntity entity = new ComentarioBlogEntity();
+        entity.setTitulo(this.titulo);
+        return entity;
     }
 }

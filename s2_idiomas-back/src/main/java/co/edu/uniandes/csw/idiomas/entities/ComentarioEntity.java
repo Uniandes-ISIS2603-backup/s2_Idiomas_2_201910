@@ -6,37 +6,34 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
 @Entity
 public class ComentarioEntity extends BaseEntity implements Serializable {
-    
+
     private String texto;
-    
+
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    
-   // @PodamExclude
-    //@OneToMany(mappedBy = "comentario")
-    //private List<ComentarioEntity> comments = new ArrayList<ComentarioEntity>();
-    
-    public ComentarioEntity()
-    {
-        
+
+    @ManyToOne
+    private PersonaEntity autor;
+
+    /**
+     * Constructor vacío de ComentarioEntity.
+     */
+    public ComentarioEntity() {
+
     }
-    
+
     /**
      * @return the texto
      */
@@ -64,6 +61,31 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
-    
+
+    /**
+     * @return the autor
+     */
+    public PersonaEntity getAutor() {
+        return autor;
+    }
+
+    /**
+     * @param autor the autor to set
+     */
+    public void setAutor(PersonaEntity autor) {
+        this.autor = autor;
+    }
+
+    /**
+     * @return the comments
+     */
+    //public List<ComentarioEntity> getComments() {
+    //    return comments;
+    //}
+    /**
+     * @param comments the comments to set
+     */
+    //public void setComments(List<ComentarioEntity> comments) {
+    //     this.comments = comments;
+    // }
 }

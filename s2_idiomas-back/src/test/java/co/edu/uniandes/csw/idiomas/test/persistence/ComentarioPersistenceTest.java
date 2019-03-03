@@ -12,7 +12,6 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 import org.junit.Assert;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -26,7 +25,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
 @RunWith(Arquillian.class)
 public class ComentarioPersistenceTest {
@@ -36,7 +35,7 @@ public class ComentarioPersistenceTest {
     @PersistenceContext
     private EntityManager em;
 
-  @Deployment
+    @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(ComentarioEntity.class.getPackage())
@@ -54,6 +53,6 @@ public class ComentarioPersistenceTest {
 
         ComentarioEntity entity = em.find(ComentarioEntity.class, result.getId());
 
-        Assert.assertEquals(newEntity.getTexto(),entity.getTexto());
+        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
     }
 }

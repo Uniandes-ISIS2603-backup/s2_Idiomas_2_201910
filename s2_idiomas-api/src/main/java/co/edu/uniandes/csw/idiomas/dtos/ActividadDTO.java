@@ -5,17 +5,24 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
+
 /**
  * ActividadDTO Objeto de transferencia de datos de la actividad. Los DTO contienen
  * las representaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  * @author g.cubillosb
  */
-public class ActividadDTO {
+public class ActividadDTO implements Serializable{
     
     // -----------------------------------------------------------------------
     // Atributos
     // -----------------------------------------------------------------------
+    
+    /**
+     * Atributo que representa el nombre
+     */
+    private String nombre;
     
     /**
      * Atributo que contiene la fecha
@@ -43,6 +50,23 @@ public class ActividadDTO {
     {
         
     }
+    
+    /**
+     * Constructor de una actividad con los parámetros pasados.
+     * @param pNombre El nombre de la actividad
+     * @param pFecha La fecha de la actividad
+     * @param pDescripcion La descripcion de la actividad
+     * @param pMotivacion La motivacion de la actividad
+     */
+    public ActividadDTO (String pNombre, String pFecha, String pDescripcion, String pMotivacion)
+    {
+        nombre = pNombre;
+        fecha = pFecha;
+        descripcion = pDescripcion;
+        motivacion = pMotivacion;
+                
+    }
+            
     
     // ----------------------------------------------------------------------
     // Metodos
@@ -88,6 +112,20 @@ public class ActividadDTO {
      */
     public void setMotivacion(String motivacion) {
         this.motivacion = motivacion;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     
