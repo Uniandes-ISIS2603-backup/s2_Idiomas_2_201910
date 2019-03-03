@@ -5,21 +5,29 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.ComentarioCalificacionEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.io.Serializable;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
-public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializable{
-    
+public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializable {
+
     private String titulo;
-    
-    private Double calificacion;
-    
-    public ComentarioCalificacionDTO()
-    {
-        
+
+    /**
+     * Constructor de ComentarioCalificacionDTO
+     *
+     * @param entity recibe el titulo del comentario.
+     * @param entity2 entidad del comentario del que hereda.
+     */
+    public ComentarioCalificacionDTO(ComentarioCalificacionEntity entity, ComentarioEntity entity2) {
+        super(entity2);
+        if (entity != null) {
+            this.titulo = entity.getTitulo();
+        }
     }
 
     /**
@@ -37,16 +45,13 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
     }
 
     /**
-     * @return the calificacion
+     * Convierte un objeto DTO a una Entidad.
+     *
+     * @return entidad convertida.
      */
-    public Double getCalificacion() {
-        return calificacion;
-    }
-
-    /**
-     * @param calificacion the calificacion to set
-     */
-    public void setCalificacion(Double calificacion) {
-        this.calificacion = calificacion;
+    public ComentarioCalificacionEntity toEntityC() {
+        ComentarioCalificacionEntity entity = new ComentarioCalificacionEntity();
+        entity.setTitulo(this.titulo);
+        return entity;
     }
 }

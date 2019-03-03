@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
+
 /**
  * ActividadDTO Objeto de transferencia de datos de la actividad. Los DTO contienen
  * las representaciones de los JSON que se transfieren entre el cliente y el

@@ -5,13 +5,15 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
+
 /**
- * EstadiaDTO Objeto de transferencia de datos de la actividad. Los DTO contienen
+ * EstadiaDTO Objeto de transferencia de datos de la estadia. Los DTO contienen
  * las representaciones de los JSON que se transfieren entre el cliente y el
  * servidor.
  * @author g.cubillosb
  */
-public class EstadiaDTO extends ActividadDTO{
+public class EstadiaDTO extends ActividadDTO implements Serializable{
     
     // -------------------------------------------------------------------
     // Atributos
@@ -31,7 +33,34 @@ public class EstadiaDTO extends ActividadDTO{
      */
     public EstadiaDTO ()
     {
-        
+        super();
+    }
+    
+    /**
+     * Constructor básico de EstadiaDTO
+     * @param pPais El pais en el que se va a realizar la estadia
+     */
+    public EstadiaDTO(String pPais)
+    {
+        pais = pPais;
+    }
+    
+    // ---------------------------------------------------------------------
+    // Métodos
+    // ---------------------------------------------------------------------
+
+    /**
+     * @return the pais
+     */
+    public String getPais() {
+        return pais;
+    }
+
+    /**
+     * @param pais the pais to set
+     */
+    public void setPais(String pais) {
+        this.pais = pais;
     }
     
 }
