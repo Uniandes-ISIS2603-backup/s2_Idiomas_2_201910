@@ -46,7 +46,8 @@ public class PersonaDTO
     /**
      * Constructor por defecto
      */
-    public PersonaDTO() {
+    public PersonaDTO()
+    {
     }
 
     /**
