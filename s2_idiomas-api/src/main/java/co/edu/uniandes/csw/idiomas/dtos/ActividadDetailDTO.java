@@ -5,7 +5,11 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,10 +49,59 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
         super();
     }
     
+    /**
+     * Crea un objeto ActividadDetailDTO a partir de un objeto ActividadEntity
+     * incluyendo los atributos de ActividadDTO.
+     *
+     * @param pActividadEntity Entidad ActividadEntity desde la cual se va a crear el
+     * nuevo objeto.
+     *
+     */
+    public ActividadDetailDTO(ActividadEntity pActividadEntity) {
+        super(pActividadEntity);
+        if (pActividadEntity != null) {
+            asistentes = new ArrayList<>();
+            for (UsuarioEntity entityUsuario : pActividadEntity.getAsistentes()) {
+                asistentes.add(new UsuarioDTO(entityUsuario));
+            }
+            comentarioA = new ArrayList();
+            for (ComentarioActividadEntity entityComentario : pActividadEntity.getComentarios()) {
+                comentarioA.add(new ComentarioActividadDTO(entityComentario));
+            }
+        }
+    }
+    
     // ------------------------------------------------------------------------
     // Métodos
     // ------------------------------------------------------------------------
 
+    /**
+     * Convierte un objeto ActividadDetailDTO a ActividadEntity incluyendo los
+     * atributos de ActividadDTO.
+     *
+     * @return Nueva objeto ActividadEntity.
+     *
+     */
+    @Override
+    public ActividadEntity toEntity() {
+        ActividadEntity actividadEntity = super.toEntity();
+        if (asistentes != null) {
+            List<UsuarioEntity> usuarioEntity = new ArrayList<>();
+            for (UsuarioDTO dtoUsuario : asistentes) {
+                usuarioEntity.add(dtoUsuario.toEntity());
+            }
+            actividadEntity.setAsistentes(usuarioEntity);
+        }
+        if (comentarioA != null) {
+            List<ComentarioActividadEntity> comentariosEntity = new ArrayList<>();
+            for (ComentarioActividadDTO dtoComentario : comentarioA) {
+                comentariosEntity.add(dtoComentario.toEntity());
+            }
+            actividadEntity.setComentarios(comentariosEntity);
+        }
+        return actividadEntity;
+    }
+    
     /**
      * @return the asistentes
      */
