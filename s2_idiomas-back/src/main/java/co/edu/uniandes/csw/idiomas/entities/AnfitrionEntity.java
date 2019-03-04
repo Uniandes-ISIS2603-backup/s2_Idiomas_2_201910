@@ -19,6 +19,10 @@ public class AnfitrionEntity extends BaseEntity implements Serializable {
     String pais;
     String ciudad;
     String direccion;
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "anfitrion")
+    private List<EstadiaEntity> estadias = new ArrayList<>();
 
     /**
      * retorna el nombre 

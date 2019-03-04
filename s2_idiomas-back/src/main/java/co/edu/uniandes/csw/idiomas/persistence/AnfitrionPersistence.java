@@ -21,39 +21,52 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class AnfitrionPersistence {
     private static final Logger LOGGER = Logger.getLogger(AnfitrionPersistence.class.getName());
-    
+
     @PersistenceContext(unitName = "idiomasPU")
-    protected EntityManager em; 
-    
+    protected EntityManager em;
+
     /**
      * Método para persisitir la entidad en la base de datos.
      *
      * @param AnfitrionEntity objeto Anfitrion que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public AnfitrionEntity create(AnfitrionEntity AnfitrionEntity) {
-        LOGGER.log(Level.INFO, "Creando una Anfitrion nueva");        
-        em.persist(AnfitrionEntity);
-        LOGGER.log(Level.INFO, "Saliendo de crear una Anfitrion nueva");
-        return AnfitrionEntity;
+    public AnfitrionEntity create(AnfitrionEntity anfitrionEntity) {
+        LOGGER.log(Level.INFO, "Creando un anfitrion nuevo");
+        /* Note que hacemos uso de un método propio de EntityManager para persistir la anfitrion en la base de datos.
+        Es similar a "INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
+         */
+        em.persist(anfitrionEntity);
+        LOGGER.log(Level.INFO, "Anfitrion creado");
+        return anfitrionEntity;
     }
 
     /**
      *
-     * Borra una Anfitrion de la base de datos recibiendo como argumento el id
-     * de la Anfitrion
+     * @return una lista con todas las anfitriones que encuentre en la base de
+     * datos, "select u from AnfitrionEntity u" es como un "select * from
+     * AnfitrionEntity;" - "SELECT * FROM table_name" en SQL.
+     */
+    public List<AnfitrionEntity> findAll() {
+        LOGGER.log(Level.INFO, "Consultando todos los anfitriones");
+        // Se crea un query para buscar todas las anfitriones en la base de datos.
+        TypedQuery query = em.createQuery("select u from AnfitrionEntity u", AnfitrionEntity.class);
+        // Note que en el query se hace uso del método getResultList() que obtiene una lista de anfitriones.
+        return query.getResultList();
+    }
+
+    /**
+     * Busca si hay alguna anfitrion con el id que se envía de argumento
      *
      * @param AnfitrionsId: id correspondiente a la Anfitrion a borrar.
      */
-    public void delete(Long AnfitrionsId) {
-        LOGGER.log(Level.INFO, "Borrando Anfitrion con id = {0}", AnfitrionsId);
-        // Se hace uso de mismo método que esta explicado en public AnfitrionEntity find(Long id) para obtener la Anfitrion a borrar.
-        AnfitrionEntity entity = em.find(AnfitrionEntity.class, AnfitrionsId);
-        /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
-         EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
-         Es similar a "delete from AnfitrionEntity where id=id;" - "DELETE FROM table_nombre WHERE condition;" en SQL.*/
-        em.remove(entity);
-        LOGGER.log(Level.INFO, "Saliendo de borrar la Anfitrion con id = {0}", AnfitrionsId);
+    public AnfitrionEntity find(Long anfitrionesId) {
+        LOGGER.log(Level.INFO, "Consultando el anfitrion con id={0}", anfitrionesId);
+        /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
+        el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
+        Suponga que es algo similar a "select * from AnfitrionEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
+         */
+        return em.find(AnfitrionEntity.class, anfitrionesId);
     }
 
     /**

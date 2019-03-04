@@ -29,13 +29,6 @@ public class ChatEntity extends ActividadEntity implements Serializable{
      */
     private String medio;
     
-    /**
-     * Atributo que representa los comentarios del chat.
-     */
-    @PodamExclude
-    @OneToMany(mappedBy = "actividad")
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<ComentarioActividadEntity>();
-    
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
@@ -64,20 +57,6 @@ public class ChatEntity extends ActividadEntity implements Serializable{
      */
     public void setMedio(String medio) {
         this.medio = medio;
-    }
-
-    /**
-     * @return the comentarios
-     */
-    public List<ComentarioActividadEntity> getComentarios() {
-        return comentarios;
-    }
-
-    /**
-     * @param comentarios the comentarios to set
-     */
-    public void setComentarios(List<ComentarioActividadEntity> comentarios) {
-        this.comentarios = comentarios;
     }
 
     

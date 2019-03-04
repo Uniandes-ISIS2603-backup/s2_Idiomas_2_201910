@@ -20,11 +20,12 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class AdministradorPersistence {
-    private static final Logger LOGGER = Logger.getLogger(AdministradorPersistence.class.getName());
-    
+     
+    private static final Logger LOGGER = Logger.getLogger(AdministradorEntity.class.getName());
+
     @PersistenceContext(unitName = "idiomasPU")
-    protected EntityManager em; 
-    
+    protected EntityManager em;
+
     /**
      * Método para persisitir la entidad en la base de datos.
      *

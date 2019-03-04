@@ -55,7 +55,7 @@ public class ActividadPersistenceTest {
     /**
      * Lista de los datos de prueba.
      */
-    private List<ActividadEntity> data = new ArrayList<ActividadEntity>();
+    private List<ActividadEntity> data = new ArrayList<>();
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -126,7 +126,7 @@ public class ActividadPersistenceTest {
 
         ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
 
-        Assert.assertEquals(newEntity.getName(), entity.getName());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
 
     /**
@@ -155,7 +155,7 @@ public class ActividadPersistenceTest {
         ActividadEntity entity = data.get(0);
         ActividadEntity newEntity = actividadPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
         Assert.assertEquals(entity.getFecha(), newEntity.getFecha());
     }
 
@@ -174,7 +174,7 @@ public class ActividadPersistenceTest {
 
         ActividadEntity resp = em.find(ActividadEntity.class, entity.getId());
 
-        Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
     }
 
     /**

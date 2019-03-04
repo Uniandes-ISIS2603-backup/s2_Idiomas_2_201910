@@ -13,4 +13,9 @@ import java.io.Serializable;
  */
 public class CalificacionEntity extends BaseEntity implements Serializable{
     
+    public CalificacionEntity()
+    {
+        // Constructor vacío
+    }
+    
 }

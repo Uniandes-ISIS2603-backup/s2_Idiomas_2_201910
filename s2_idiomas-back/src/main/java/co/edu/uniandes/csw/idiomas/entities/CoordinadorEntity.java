@@ -18,6 +18,9 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
      String contraseña;
     String nombre;
     
+    @PodamExclude
+    @ManyToMany(mappedBy = "coordinadores")
+    private List<ActividadEntity> actividadesCoordinadas = new ArrayList<>();
     /**
      * Connstructor vacio de un Entity
      */

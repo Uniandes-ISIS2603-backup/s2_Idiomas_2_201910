@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.EncuentroEntity;
 import java.io.Serializable;
 
 /**
@@ -47,17 +48,20 @@ public class EncuentroDTO extends ActividadDTO implements Serializable{
     }
     
     /**
-     * Crea un objeto EncuentroDTO con la información pasada por parámetro.
-     * 
-     * @param pLugar El lugar en el que se va a realizar el encuentro.
-     * @param pNumeroMaxAsistentes El máximo número de asistentes al encuentro.
-     * @param pAprobado El estado de aprobación del encuentro.
+     * Convertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param pEncuentroEntity: Es la entidad que se va a convertir a DTO
      */
-    public EncuentroDTO (String pLugar, Integer pNumeroMaxAsistentes, Boolean pAprobado)
+    public EncuentroDTO(EncuentroEntity pEncuentroEntity) 
     {
-        lugar = pLugar;
-        numeroMaxAsistentes = pNumeroMaxAsistentes;
-        aprobado = pAprobado;
+        super(pEncuentroEntity);
+        if (pEncuentroEntity != null) 
+        {
+            this.aprobado = pEncuentroEntity.getAprobado();
+            this.lugar = pEncuentroEntity.getLugar();
+            this.numeroMaxAsistentes = pEncuentroEntity.getNumeroMaxAsistentes();
+        }
     }
     
     // -------------------------------------------------------------------------
@@ -104,6 +108,25 @@ public class EncuentroDTO extends ActividadDTO implements Serializable{
      */
     public void setAprobado(Boolean aprobado) {
         this.aprobado = aprobado;
+    }
+    
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public EncuentroEntity toEntity() 
+    {
+        EncuentroEntity encuentroEntity = new EncuentroEntity();
+        encuentroEntity.setNombre(this.getNombre());
+        encuentroEntity.setDescripcion(this.getDescripcion());
+        encuentroEntity.setMotivacion(this.getMotivacion());
+        encuentroEntity.setFecha(this.getFecha());
+        encuentroEntity.setAprobado(this.getAprobado());
+        encuentroEntity.setLugar(this.getLugar());
+        encuentroEntity.setNumeroMaxAsistentes(this.getNumeroMaxAsistentes());
+        
+        return encuentroEntity;
     }
     
 }

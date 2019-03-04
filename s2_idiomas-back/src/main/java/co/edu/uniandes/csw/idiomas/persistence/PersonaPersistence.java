@@ -22,10 +22,10 @@ import javax.persistence.TypedQuery;
 public class PersonaPersistence 
 {
     private static final Logger LOGGER = Logger.getLogger(PersonaPersistence.class.getName());
-    
+
     @PersistenceContext(unitName = "idiomasPU")
-    protected EntityManager em; 
-    
+    protected EntityManager em;
+
     /**
      * Método para persisitir la entidad en la base de datos.
      *

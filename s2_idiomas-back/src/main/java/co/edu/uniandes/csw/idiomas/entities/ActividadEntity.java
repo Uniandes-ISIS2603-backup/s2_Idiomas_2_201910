@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -27,7 +29,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     /**
      * Atributo que representa el nombre de la actividad.
      */
-    private String name;
+    private String nombre;
     
     /**
      * Atributo que representa la fecha de la actividad.
@@ -49,7 +51,27 @@ public class ActividadEntity extends BaseEntity implements Serializable{
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad")
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<ComentarioActividadEntity>();
+    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
+    
+    /**
+     * Atributo que representa los asistentes de la actividad.
+     */
+    @PodamExclude
+    @ManyToMany(mappedBy = "actividades")
+    private List<UsuarioEntity> asistentes = new ArrayList<>();
+    
+    /**
+     * Atributo que representa los coordinadores de una actividad.
+     */
+    @ManyToMany
+    private List<CoordinadorEntity> coordinadores = new ArrayList<>();
+    
+//    /**
+//     * Atributo que representa la calificacion de la actividad.
+//     */
+//    @PodamExclude
+//    @OneToOne
+//    private CalificacionEntity calificacion;
     
     // ------------------------------------------------------------------
     // Constructor
@@ -110,20 +132,6 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     }
 
     /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * @return the comentarios
      */
     public List<ComentarioActividadEntity> getComentarios() {
@@ -136,5 +144,47 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     public void setComentarios(List<ComentarioActividadEntity> comentarios) {
         this.comentarios = comentarios;
     }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @return the asistentes
+     */
+    public List<UsuarioEntity> getAsistentes() {
+        return asistentes;
+    }
+
+    /**
+     * @param asistentes the asistentes to set
+     */
+    public void setAsistentes(List<UsuarioEntity> asistentes) {
+        this.asistentes = asistentes;
+    }
+
+//    /**
+//     * @return the calificacion
+//     */
+//    public CalificacionEntity getCalificacion() {
+//        return calificacion;
+//    }
+//
+//    /**
+//     * @param calificacion the calificacion to set
+//     */
+//    public void setCalificacion(CalificacionEntity calificacion) {
+//        this.calificacion = calificacion;
+//    }
     
 }

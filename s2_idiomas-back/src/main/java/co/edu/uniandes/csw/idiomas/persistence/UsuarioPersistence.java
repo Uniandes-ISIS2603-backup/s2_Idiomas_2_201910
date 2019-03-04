@@ -23,9 +23,11 @@ public class UsuarioPersistence
 {
     private static final Logger LOGGER = Logger.getLogger(UsuarioPersistence.class.getName());
     
+    private static final Logger LOGGER = Logger.getLogger(UsuarioEntity.class.getName());
+
     @PersistenceContext(unitName = "idiomasPU")
-    protected EntityManager em; 
-    
+    protected EntityManager em;
+
     /**
      * Método para persisitir la entidad en la base de datos.
      *
