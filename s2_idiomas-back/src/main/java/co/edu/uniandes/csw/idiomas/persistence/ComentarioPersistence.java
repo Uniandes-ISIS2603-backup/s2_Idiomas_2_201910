@@ -16,19 +16,19 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
 @Stateless
 public class ComentarioPersistence {
 
     @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
-    //private static final Logger LOGGER = Logger.getLogger(ComentarioPersistence.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ComentarioPersistence.class.getName());
 
     public ComentarioEntity create(ComentarioEntity entidad) {
-        // LOGGER.log(Level.INFO, "Creando un nuevo comentario");
+        LOGGER.log(Level.INFO, "Creando un nuevo comentario");
         em.persist(entidad);
-        //LOGGER.log(Level.INFO, "Saliendo de crear un comentario nuevo");
+        LOGGER.log(Level.INFO, "Saliendo de crear un comentario nuevo");
         return entidad;
     }
 

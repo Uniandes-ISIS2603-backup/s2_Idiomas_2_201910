@@ -7,6 +7,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -36,7 +37,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author j.barbosa
  */
-public class AdministradorDTO 
+public class AdministradorDTO implements Serializable
 {
     Long id;
     String nombre;
@@ -111,9 +112,11 @@ public class AdministradorDTO
     }
     
     /**
+     * 
      * Modifica la conrasenia del administrador.
      *
-     * @param contraseina the nombre to set
+     *   
+     * @param contrasenia 
      */
     public void setContrasenia(Long contrasenia) {
         this.contrasenia = contrasenia;

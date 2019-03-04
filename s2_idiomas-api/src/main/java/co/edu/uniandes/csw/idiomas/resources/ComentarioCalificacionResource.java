@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
-import co.edu.uniandes.csw.idiomas.dtos.ComentarioActividadDTO;
 import co.edu.uniandes.csw.idiomas.dtos.ComentarioCalificacionDTO;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -16,7 +15,7 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
 
 @Path("CalificacionComments")

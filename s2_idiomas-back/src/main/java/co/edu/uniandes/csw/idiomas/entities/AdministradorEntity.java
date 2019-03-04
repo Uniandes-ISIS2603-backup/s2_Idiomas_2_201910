@@ -6,7 +6,11 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,6 +21,13 @@ public class AdministradorEntity extends BaseEntity implements Serializable {
     
     Long contrasenia;
     String nombre;
+    
+    /**
+     * Atributo que representa los grupos administradps.
+     */
+//    @PodamExclude
+//    @OneToMany(mappedBy = "administrador")
+//    private List<AdministradorGrupoEntity> comentarios = new ArrayList<AdministradorGrupoEntity>();
     
     /**
      * Connstructor vacio de un Entity

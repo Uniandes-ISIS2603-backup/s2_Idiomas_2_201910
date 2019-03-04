@@ -6,7 +6,12 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -15,10 +20,22 @@ import javax.persistence.Entity;
 @Entity
 public class AnfitrionEntity extends BaseEntity implements Serializable {
     String nombre;
-    Long contraseña;
+    Long contrasenia;
     String pais;
     String ciudad;
     String direccion;
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "anfitrion ")
+    private List<EstadiaEntity> estadias = new ArrayList<>();
+
+    public List<EstadiaEntity> getEstadias() {
+        return estadias;
+    }
+
+    public void setEstadias(List<EstadiaEntity> estadias) {
+        this.estadias = estadias;
+    }
 
     /**
      * retorna el nombre 
@@ -37,19 +54,19 @@ public class AnfitrionEntity extends BaseEntity implements Serializable {
     }
 
     /**
-     * retrona la contraseña
-     * @return contraseña -la contraseña
+     * retrona la contrasenia
+     * @return contrasenia -la contrasenia
      */
     public Long getContrasenia() {
-        return contraseña;
+        return contrasenia;
     }
 
     /**
-     * Asigna una contraseña
-     * @param contraseña 
+     * Asigna una contrasenia
+     * @param contrasenia 
      */
-    public void setContraseña(Long contraseña) {
-        this.contraseña = contraseña;
+    public void setContraseña(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     /**

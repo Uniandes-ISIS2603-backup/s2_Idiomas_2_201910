@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -35,7 +36,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author j.barbosa
  */
-public class CoordinadorDTO {
+public class CoordinadorDTO implements Serializable {
     Long id;
     String nombre;
     Long contrasenia;
@@ -117,17 +118,18 @@ public class CoordinadorDTO {
         this.contrasenia = contrasenia;
     }
 
-//    /**
-//     * Convertir DTO a Entity
-//     *
-//     * @return Un Entity con los valores del DTO
-//     */
-//    public CoordinadorEntity toEntity() {
-//        CoordinadorEntity coordinadorEntity = new CoordinadorEntity();
-//        coordinadorEntity.setId(this.id);
-//        coordinadorEntity.setNombre(this.nombre);
-//        return coordinadorEntity;
-//    }
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public CoordinadorEntity toEntity() {
+        CoordinadorEntity coordinadorEntity = new CoordinadorEntity();
+        coordinadorEntity.setId(this.id);
+        coordinadorEntity.setNombre(this.nombre);
+        coordinadorEntity.setContrasenia(this.contrasenia);
+        return coordinadorEntity;
+    }
 
     @Override
     public String toString() {

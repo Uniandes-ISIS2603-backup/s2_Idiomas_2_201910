@@ -6,7 +6,11 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -18,6 +22,9 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
     Long contrasenia;
     String nombre;    
     
+    @PodamExclude
+    @ManyToMany(mappedBy = "cordinadores")
+    private List<ActividadEntity> actividadesCoordinadas = new ArrayList<>();
     /**
      * Connstructor vacio de un Entity
      */
@@ -57,4 +64,14 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public List<ActividadEntity> getActividadesCoordinadas() {
+        return actividadesCoordinadas;
+    }
+
+    public void setActividadesCoordinadas(List<ActividadEntity> actividadesCoordinadas) {
+        this.actividadesCoordinadas = actividadesCoordinadas;
+    }
+    
+    
 }
