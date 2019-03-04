@@ -16,7 +16,7 @@ import java.util.List;
  * Clase que extiende de {@link ActividadDTO} para manejar las relaciones entre
  * ActividadDTO y otros DTOs. Para el contenido de una actividad ir a la
  * documentación de {@link ActividadDTO}
- * @author g.cubillosb
+ * @actividad g.cubillosb
  */
 public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     
@@ -24,7 +24,6 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     // Atributos
     // ------------------------------------------------------------------------
     
-    // TODO: GC Make "asistentes" transient or serializable.
     /**
      * Lista de tipo UsuarioDTO contiene los usuarios que están asociados con
      * esta actividad.
@@ -47,6 +46,33 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     public ActividadDetailDTO () 
     {
         super();
+    }
+
+    /**
+     * Crea un objeto ActividadDetailDTO a partir de un objeto ActividadEntity
+     * incluyendo los atributos de ActividadDTO.
+     *
+     * @param actividadEntity Entidad ActividadEntity desde la cual se va a crear el
+     * nuevo objeto.
+     *
+     */
+    public ActividadDetailDTO(ActividadEntity actividadEntity) {
+        super(actividadEntity);
+        if (actividadEntity.getAsistentes() != null) {
+            asistentes = new ArrayList<>();
+            for (UsuarioEntity entityAsistentes : actividadEntity.getAsistentes())
+            {
+                asistentes.add(new UsuarioDTO(entityAsistentes));
+            }
+        }
+        if (actividadEntity.getComentarios() != null)
+        {
+            comentarioA = new ArrayList();
+            for (ComentarioActividadEntity entityComentarios : actividadEntity.getComentarios())
+            {
+                comentarioA.add(new ComentarioActividadDTO(entityComentarios,null));
+            }
+        }
     }
     
     /**

@@ -19,8 +19,8 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class CoordinadorEntity  extends BaseEntity implements Serializable
 {
-     String contraseña;
-    String nombre;
+    Long contrasenia;
+    String nombre;    
     
     @PodamExclude
     @ManyToMany(mappedBy = "coordinadores")
@@ -34,19 +34,19 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
     }
     
     /**
-     * Retorna la contraseña de un Entity
-     * @return contraseña la contrseña
+     * Retorna la contrasenia de un Entity
+     * @return contrasenia la contrseña
      */
-    public String getContraseña() {
-        return contraseña;
+    public Long getContrasenia() {
+        return contrasenia;
     }
     
     /**
-     * Asigna una contraseña a un Entity
-     * @param contraseña 
+     * Asigna una contrasenia a un Entity
+     * @param contrasenia 
      */
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     /**
@@ -64,4 +64,14 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public List<ActividadEntity> getActividadesCoordinadas() {
+        return actividadesCoordinadas;
+    }
+
+    public void setActividadesCoordinadas(List<ActividadEntity> actividadesCoordinadas) {
+        this.actividadesCoordinadas = actividadesCoordinadas;
+    }
+    
+    
 }

@@ -113,14 +113,21 @@ public class ActividadPersistenceTest {
         }
     }
 
-    /**
-     * Prueba para crear un Actividad.
-     */
-    @Test
-    public void createActividadTest() {
-        PodamFactory factory = new PodamFactoryImpl();
-        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
-        ActividadEntity result = actividadPersistence.create(newEntity);
+//    /**
+//     * Prueba para crear un Actividad.
+//     */
+//    @Test
+//    public void createActividadTest() {
+//        PodamFactory factory = new PodamFactoryImpl();
+//        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+//        ActividadEntity result = actividadPersistence.create(newEntity);
+//
+//        Assert.assertNotNull(result);
+//
+//        ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
+//
+//        Assert.assertEquals(newEntity.getName(), entity.getName());
+//    }
 
         Assert.assertNotNull(result);
 
@@ -188,3 +195,4 @@ public class ActividadPersistenceTest {
         Assert.assertNull(deleted);
     }
 }
+

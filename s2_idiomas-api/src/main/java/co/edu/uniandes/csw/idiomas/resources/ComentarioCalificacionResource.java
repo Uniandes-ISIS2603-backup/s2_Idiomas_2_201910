@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
-import co.edu.uniandes.csw.idiomas.dtos.ComentarioActividadDTO;
 import co.edu.uniandes.csw.idiomas.dtos.ComentarioCalificacionDTO;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;

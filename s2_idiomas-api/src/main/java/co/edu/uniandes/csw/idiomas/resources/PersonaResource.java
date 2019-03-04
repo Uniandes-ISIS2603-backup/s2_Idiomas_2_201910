@@ -5,15 +5,17 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
+import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
 import co.edu.uniandes.csw.idiomas.dtos.PersonaDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.PersonaLogic;
 //import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -22,6 +24,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "personas".
@@ -55,7 +58,9 @@ public class PersonaResource {
     @POST
     public PersonaDTO createPersona(PersonaDTO persona) throws BusinessLogicException {
        
-        return persona;
+        PersonaDTO personax = new PersonaDTO();
+        personax.setNombre("JUAN");
+        return personax;
     }
 
     /**
@@ -67,8 +72,10 @@ public class PersonaResource {
      */
     @DELETE
     @Path("{personasId: \\d+}")
-    public long deletePersona(@PathParam("personasId") Long personasId) {
-        return personasId;
+    public PersonaDTO deletePersona(@PathParam("personasId") Long personasId) {
+        PersonaDTO persona = new PersonaDTO();
+        persona.setNombre("JUAN");
+        return persona;
     }
     
     /**
@@ -80,12 +87,17 @@ public class PersonaResource {
      */
     @PUT
     @Path("{personasId: \\d+}")
-    public long updatePersona(@PathParam("personasId") Long personasId) {
-        return personasId;
+    public PersonaDTO updatePersona(@PathParam("personasId") Long personasId) {
+        PersonaDTO persona = new PersonaDTO();
+         if(persona == null)
+        {
+            throw new WebApplicationException();
+        }
+        return persona; 
     }
     
      /**
-     * Actualiza la persona con el id asociado recibido en la URL.
+     * Retorna la persona con el id asociado recibido en la URL.
      *
      * @param personasId Identificador de la persona que se desea actualizar.
      * Este debe ser una cadena de dígitos.
@@ -93,19 +105,25 @@ public class PersonaResource {
      */
     @GET
     @Path("{personasId: \\d+}")
-    public long retornarPersona(@PathParam("personasId") Long personasId) {
-        return personasId;
+    public PersonaDTO retornarPersona(@PathParam("personasId") Long personasId) {      
+        PersonaDTO persona = new PersonaDTO();
+        persona.setNombre("JUAN");
+        return persona; 
     }
     
-      /**
-     * Actualiza la persona con el id asociado recibido en la URL.
-     *
-     * @param personasId Identificador de la persona que se desea actualizar.
-     * Este debe ser una cadena de dígitos.
-     * @return 
-     */
+     /**
+      * Retorna la lista de peronas
+      * @return 
+      */
     @GET    
-    public PersonaDTO[] retornarPersona() {
-        return new PersonaDTO[1];        
+    public List<PersonaDTO> retornarPersona()
+    {
+        List<PersonaDTO> list = new ArrayList<>();
+        if(list == null)
+        {
+            throw new WebApplicationException();
+            }
+        return list;    
+               
     }
 }

@@ -7,15 +7,18 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 
 
+import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDetailDTO;
 import co.edu.uniandes.csw.idiomas.dtos.UsuarioDTO;
+import co.edu.uniandes.csw.idiomas.dtos.UsuarioDetailDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.UsuarioLogic;
-//import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
+import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -24,6 +27,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "usuarios".
@@ -55,9 +59,9 @@ public class UsuarioResource
      * Error de lógica que se genera cuando ya existe la usuario.
      */
     @POST
-    public UsuarioDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException {
-       
-        return usuario;
+    public UsuarioDetailDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException {
+        UsuarioDetailDTO usuarioDe = new UsuarioDetailDTO();        
+        return usuarioDe;
     }
 
     /**
@@ -69,8 +73,9 @@ public class UsuarioResource
      */
     @DELETE
     @Path("{usuariosId: \\d+}")
-    public long deleteUsuario(@PathParam("usuariosId") Long usuariosId) {
-        return usuariosId;
+    public UsuarioDetailDTO deleteUsuario(@PathParam("usuariosId") Long usuariosId) {
+        UsuarioDetailDTO usuariosde = new UsuarioDetailDTO();
+        return usuariosde;
     }
     
     /**
@@ -82,8 +87,13 @@ public class UsuarioResource
      */
     @PUT
     @Path("{usuariosId: \\d+}")
-    public long updateUsuario(@PathParam("usuariosId") Long usuariosId) {
-        return usuariosId;
+    public UsuarioDetailDTO updateUsuario(@PathParam("usuariosId") Long usuariosId) {
+       UsuarioDetailDTO usuariosde = new UsuarioDetailDTO();
+       if(usuariosde == null)
+        {
+            throw new WebApplicationException();
+        }
+        return usuariosde;
     }
     
      /**
@@ -95,8 +105,9 @@ public class UsuarioResource
      */
     @GET
     @Path("{usuariosId: \\d+}")
-    public long retornarUsuario(@PathParam("usuariosId") Long usuariosId) {
-        return usuariosId;
+    public UsuarioDetailDTO retornarUsuario(@PathParam("usuariosId") Long usuariosId) {
+        UsuarioDetailDTO usuariosde = new UsuarioDetailDTO();
+        return usuariosde;
     }
     
       /**
@@ -107,8 +118,13 @@ public class UsuarioResource
      * @return 
      */
     @GET    
-    public UsuarioDTO[] retornarUsuario() {
-        return new UsuarioDTO[1];        
+    public List<AnfitrionDetailDTO> retornarUsuario() {
+        List<AnfitrionDetailDTO> list = new ArrayList<>();
+        if(list == null)
+        {
+            throw new WebApplicationException();
+        }
+        return list;     
     }   
     
 }

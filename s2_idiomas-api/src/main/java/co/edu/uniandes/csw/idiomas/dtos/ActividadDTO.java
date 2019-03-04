@@ -21,21 +21,22 @@ public class ActividadDTO implements Serializable{
     // -----------------------------------------------------------------------
     
     /**
-     * Atributo que representa el identificador
+     * Atributo que representa el Id de la actividad
      */
     private Long id;
+    
     /**
-     * Atributo que representa el nombre
+     * Atributo que representa el nombre de la actividad.
      */
     private String nombre;
     
     /**
-     * Atributo que contiene la fecha
+     * Atributo que contiene la fecha.
      */
     private String fecha;
     
     /**
-     * Atributo que contiene la descripcion de la actividad
+     * Atributo que contiene la descripcion de la actividad.
      */
     private String descripcion;
     
@@ -43,6 +44,11 @@ public class ActividadDTO implements Serializable{
      * Atributo que contiene la motivacion de la actvidad
      */
     private String motivacion;
+    
+    /**
+     * Atributo que contiene la calificación de la actividad
+     */
+    private CalificacionDTO calificacion;
     
     // -----------------------------------------------------------------------
     // Constructor
@@ -57,19 +63,27 @@ public class ActividadDTO implements Serializable{
     }
     
     /**
-     * Crea un objeto ActividadDTO a partir de un objeto ActividadEntity.
+     * Convertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
      *
-     * @param pActividadEntity Entidad ActividadEntity desde la cual se va a crear el
-     * nuevo objeto.
-     *
+     * @param pActividadEntity: Es la entidad que se va a convertir a DTO
      */
-    public ActividadDTO(ActividadEntity pActividadEntity) {
-        if (pActividadEntity != null) {
+    public ActividadDTO(ActividadEntity pActividadEntity) 
+    {
+        if (pActividadEntity != null) 
+        {
             this.descripcion = pActividadEntity.getDescripcion();
             this.fecha = pActividadEntity.getFecha();
             this.motivacion = pActividadEntity.getMotivacion();
             this.nombre = pActividadEntity.getNombre();
-             
+            if (pActividadEntity.getCalificacion() != null)
+            {
+                this.calificacion = new CalificacionDTO(pActividadEntity.getCalificacion());
+            }
+            else
+            {
+                this.calificacion = null;
+            }
         }
     }
             
@@ -147,6 +161,50 @@ public class ActividadDTO implements Serializable{
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public ActividadEntity toEntity() 
+    {
+        ActividadEntity actividadEntity = new ActividadEntity();
+        actividadEntity.setNombre(this.getNombre());
+        actividadEntity.setDescripcion(this.getDescripcion());
+        actividadEntity.setMotivacion(this.getMotivacion());
+        actividadEntity.setFecha(this.getFecha());
+        
+        return actividadEntity;
+    }
+
+    /**
+     * @return the calificacion
+     */
+    public CalificacionDTO getCalificacion() {
+        return calificacion;
+    }
+
+    /**
+     * @param calificacion the calificacion to set
+     */
+    public void setCalificacion(CalificacionDTO calificacion) {
+        this.calificacion = calificacion;
     }
 
     /**

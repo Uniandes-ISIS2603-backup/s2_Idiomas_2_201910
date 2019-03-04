@@ -16,19 +16,20 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author j.barbosaj 201717575
+ * @anfitrion j.barbosaj 201717575
  */
 @Stateless
 public class AnfitrionPersistence {
+    
     private static final Logger LOGGER = Logger.getLogger(AnfitrionPersistence.class.getName());
 
     @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**
-     * Método para persisitir la entidad en la base de datos.
+     * Crea un autor en la base de datos
      *
-     * @param AnfitrionEntity objeto Anfitrion que se creará en la base de datos
+     * @param anfitrionEntity objeto anfitrion que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public AnfitrionEntity create(AnfitrionEntity anfitrionEntity) {
@@ -42,6 +43,7 @@ public class AnfitrionPersistence {
     }
 
     /**
+     * Devuelve todas las anfitriones de la base de datos.
      *
      * @return una lista con todas las anfitriones que encuentre en la base de
      * datos, "select u from AnfitrionEntity u" es como un "select * from
@@ -58,7 +60,8 @@ public class AnfitrionPersistence {
     /**
      * Busca si hay alguna anfitrion con el id que se envía de argumento
      *
-     * @param AnfitrionsId: id correspondiente a la Anfitrion a borrar.
+     * @param anfitrionesId: id correspondiente a la anfitrion buscada.
+     * @return un anfitrion.
      */
     public AnfitrionEntity find(Long anfitrionesId) {
         LOGGER.log(Level.INFO, "Consultando el anfitrion con id={0}", anfitrionesId);
@@ -70,29 +73,36 @@ public class AnfitrionPersistence {
     }
 
     /**
-     * Busca si hay alguna Anfitrion con el nombre que se envía de argumento
+     * Actualiza una anfitrion.
      *
-     * @param nombre: Nombre de la Anfitrion que se está buscando
-     * @return null si no existe ninguna Anfitrion con el nombre del argumento.
-     * Si existe alguna devuelve la primera.
+     * @param anfitrionEntity: la anfitrion que viene con los nuevos cambios. Por
+     * ejemplo el nombre pudo cambiar. En ese caso, se haria uso del método
+     * update.
+     * @return una anfitrion con los cambios aplicados.
      */
-    public AnfitrionEntity findByName(String nombre) {
-        LOGGER.log(Level.INFO, "Consultando Anfitrion por nombre ", nombre);
-        // Se crea un query para buscar Anfitrions con el nombre que recibe el método como argumento. ":nombre" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From AnfitrionEntity e where e.nombre = :nombre", AnfitrionEntity.class);
-        // Se remplaza el placeholder ":nombre" con el valor del argumento 
-        query = query.setParameter("nombre", nombre);
-        // Se invoca el query se obtiene la lista resultado
-        List<AnfitrionEntity> sameName = query.getResultList();
-        AnfitrionEntity result;
-        if (sameName == null) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-            result = null;
-        } else {
-            result = sameName.get(0);
-        }
-        LOGGER.log(Level.INFO, "Saliendo de consultar Anfitrion por nombre ", nombre);
-        return result;
+    public AnfitrionEntity update(AnfitrionEntity anfitrionEntity) {
+        LOGGER.log(Level.INFO, "Actualizando el anfitrion con id={0}", anfitrionEntity.getId());
+        /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
+        la anfitrion con los cambios, esto es similar a 
+        "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
+         */
+        return em.merge(anfitrionEntity);
+    }
+
+    /**
+     * Borra una anfitrion de la base de datos recibiendo como argumento el id de
+     * la anfitrion
+     *
+     * @param anfitrionesId: id correspondiente a la anfitrion a borrar.
+     */
+    public void delete(Long anfitrionesId) {
+
+        LOGGER.log(Level.INFO, "Borrando el anfitrion con id={0}", anfitrionesId);
+        // Se hace uso de mismo método que esta explicado en public AnfitrionEntity find(Long id) para obtener la anfitrion a borrar.
+        AnfitrionEntity anfitrionEntity = em.find(AnfitrionEntity.class, anfitrionesId);
+        /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
+        EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
+        Es similar a "delete from AnfitrionEntity where id=id;" - "DELETE FROM table_name WHERE condition;" en SQL.*/
+        em.remove(anfitrionEntity);
     }
 }
