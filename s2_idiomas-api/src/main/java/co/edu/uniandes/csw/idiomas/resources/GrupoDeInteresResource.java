@@ -70,15 +70,15 @@ public class GrupoDeInteresResource {
      * Actualiza el encuentro asociado al id recibido en la URL con la información
      * que se recibe en el cuerpo de la petición.
      * 
-     * @param grupoDeInteresId El identificador del encuentro que se quiere. Debe ser
+     * @param grupoDeInteresId El identificador del grupo que se quiere. Debe ser
      * una cadena de dígitos.
-     * @param grupoDeInteres {@link GrupoDeINteresDTO} - El grupo que se desea guardar.
-     * @return JSON {@link GrupoDeINteresDTO} - El grupo guardado.
+     * @param grupoDeInteres {@link GrupoDeInteresDTO} - El grupo que se desea guardar.
+     * @return JSON {@link GrupoDeInteresDTO} - El grupo guardado.
      * // TODO: GC Completar documentación con excepciones
      */
     @PUT
     @Path("{grupoDeInteresId: \\d+}")
-    public GrupoDeInteresDTO updategrupoDeInteres (@PathParam("grupoDeInteresId") Long grupoDeInteresId, GrupoDeInteresDTO grupoDeInteres)throws WebApplicationException
+    public GrupoDeInteresDTO updateGrupoDeInteres (@PathParam("grupoDeInteresId") Long grupoDeInteresId, GrupoDeInteresDTO grupoDeInteres)throws WebApplicationException
     {
         LOGGER.log(Level.INFO, "GrupoDeInteresResource updateGrupoDeInteres: input: encuentroId: {0}, encuentro: {1}", 
                 new Object[]{grupoDeInteresId, grupoDeInteres});
@@ -97,7 +97,7 @@ public class GrupoDeInteresResource {
     /**
      * Busca y devuelve el encuentro con el id asociado recibido en la URL
      * 
-     * @param encuentroId El identificador del encuentro que se busca. Debe ser
+     * @param grupoDeInteresId El identificador del grupo que se busca. Debe ser
      * una cadena de dígitos.
      * @return JSON {@link GrupoDeInteresDTO} - El grupo buscado.
      * // TODO: GC Completar documentación excepciones.

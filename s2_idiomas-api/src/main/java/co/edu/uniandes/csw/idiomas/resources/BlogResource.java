@@ -6,14 +6,20 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.BlogDTO;
+import co.edu.uniandes.csw.idiomas.dtos.GrupoDeInteresDTO;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  *
@@ -43,8 +49,8 @@ public class BlogResource {
      * de la petición y se regresa un objeto idéntico, con un id autogenerado
      * por la base de datos.
      * 
-     * @param grupoDeInteres {@link EncuentroDTO} - El encuentro a guardar.
-     * @return JSON {@link EncuentroDTO} - El encuentro guardado con el atributo
+     * @param blog {@link EncuentroDTO} - El blog a guardar.
+     * @return JSON {@link EncuentroDTO} - El blog guardado con el atributo
      * autogenerado.
      *
      */
@@ -57,5 +63,68 @@ public class BlogResource {
 //        LOGGER.log(Level.INFO, "ActividadResource createActividad: output: {0}", actividadDTO);
 //        return actividadDTO;
         return blog;
+    }
+       /**
+     * Actualiza el encuentro asociado al id recibido en la URL con la información
+     * que se recibe en el cuerpo de la petición.
+     * 
+     * @param blog El identificador del blog que se quiere. Debe ser
+     * una cadena de dígitos.
+     * @param blog {@link BlogDTO} - El grupo que se desea guardar.
+     * @return JSON {@link BlogTO} - El grupo guardado.
+     * // TODO: GC Completar documentación con excepciones
+     */
+    @PUT
+    @Path("{blogId: \\d+}")
+    public BlogDTO updateBlog (@PathParam("blogId") Long blogId, BlogDTO blog)throws WebApplicationException
+    {
+        LOGGER.log(Level.INFO, "BlogResource updateBlog: input: blogId: {0}, blog: {1}", 
+                new Object[]{blogId, blog});
+        // TODO: GC Implementar lógica PUT
+//        actividad.setId(actividadId);
+//        if(actividadLogic.getActividad(actividadId) == null)
+//        {
+//            throw new WebApplicationException("El recurso /actividad/" + actividadId + " no existe.", 404);
+//        }
+//        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadLogic.updateActividad(actividadId, actividad.toEntity()));
+//        LOGGER.log(Level.INFO, "ActividadResource updateActividad: output: {0}", detailDTO);
+//        return detailDTO;
+        return blog;
+    }
+        /**
+     * Busca y devuelve el encuentro con el id asociado recibido en la URL
+     * 
+     * @param blogID El identificador del blog que se busca. Debe ser
+     * una cadena de dígitos.
+     * @return JSON {@link BlogDTO} - El blog buscado.
+     * // TODO: GC Completar documentación excepciones.
+     */
+    @GET
+    @Path("{blogID: \\d+}")
+    public BlogDTO getBlog (@PathParam("blogID") Long blogID)
+    {
+        LOGGER.log(Level.INFO, "BlogResource getBlog: input: blogID: {0}", blogID);
+        // TODO: GC Implementar lógica GET
+//        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadId);
+//        if(ActividadEntity == null)
+//        {
+//            throw new WebApplicationException("El recurso /actividad/" + actividadId + " no existe.", 404;
+//        }
+//        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadEntity);
+//        LOGGER.log(Level.INFO, "ActividadResource getActividad: output: actividadId {0}"), detailDTO);
+//        return detailDTO;
+        return new BlogDTO();
+    }
+    @DELETE
+    @Path("{blogID: \\d+}")
+    public void deleteBlog (@PathParam("blogID") Long blogID)
+    {
+        LOGGER.log(Level.INFO, "BlogResource deleteBlog: input: {0}", blogID);
+        // TODO: GC Implementar lógica DELETE
+//        if (actividadLogic.getActividad(actividadId) == null)
+//        {
+//            throw new WebApplicationException("El recurso /actividad/" + actividadId + "no existe.", 404);
+//        }
+//        actividadLogic.deleteActividad(actividadId)
     }
 }
