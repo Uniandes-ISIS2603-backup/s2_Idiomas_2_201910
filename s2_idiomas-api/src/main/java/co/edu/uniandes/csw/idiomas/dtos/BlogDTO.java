@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -12,7 +13,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author Luis Perez le.perezl
  */
-public class BlogDTO {
+public class BlogDTO implements Serializable{
     /**
      * texto del blog
      */

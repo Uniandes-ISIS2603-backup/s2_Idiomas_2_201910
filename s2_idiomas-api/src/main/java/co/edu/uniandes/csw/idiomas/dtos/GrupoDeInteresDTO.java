@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity;
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -41,7 +42,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author le.perezl
  */
-public class GrupoDeInteresDTO {
+public class GrupoDeInteresDTO implements Serializable{
     /**
      * idioma del grupo
      */
