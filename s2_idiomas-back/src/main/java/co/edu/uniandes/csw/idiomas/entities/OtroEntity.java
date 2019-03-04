@@ -41,5 +41,4 @@ public class OtroEntity extends ActividadEntity implements Serializable{
     // ------------------------------------------------------------------
 
     
-    
 }
