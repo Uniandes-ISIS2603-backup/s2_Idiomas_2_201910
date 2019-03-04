@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -35,7 +36,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author j.barbosa
  */
-public class PersonaDTO 
+public class PersonaDTO implements Serializable 
 { Long id;
     String nombre;
     Long contrasenia;
@@ -112,23 +113,24 @@ public class PersonaDTO
     /**
      * Modifica la conrasenia del persona.
      *
-     * @param contraseina the nombre to set
+     * @param contrasenia 
      */
-    public void setContrasenia(Long contrasenia) {
+       public void setContrasenia(Long contrasenia) {
         this.contrasenia = contrasenia;
     }
 
-//    /**
-//     * Convertir DTO a Entity
-//     *
-//     * @return Un Entity con los valores del DTO
-//     */
-//    public PersonaEntity toEntity() {
-//        PersonaEntity personaEntity = new PersonaEntity();
-//        personaEntity.setId(this.id);
-//        personaEntity.setNombre(this.nombre);
-//        return personaEntity;
-//    }
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public PersonaEntity toEntity() {
+        PersonaEntity personaEntity = new PersonaEntity();
+        personaEntity.setId(this.id);
+        personaEntity.setNombre(this.nombre);
+        personaEntity.setContrasenia(this.contrasenia);
+        return personaEntity;
+    }
 
     @Override
     public String toString() {

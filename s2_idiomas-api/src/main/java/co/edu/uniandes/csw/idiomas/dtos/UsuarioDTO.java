@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -35,7 +36,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author j.barbosa
  */
-public class UsuarioDTO {
+public class UsuarioDTO implements Serializable{
     Long id;
     String nombre;
     Long contrasenia;
@@ -117,18 +118,18 @@ public class UsuarioDTO {
         this.contrasenia = contrasenia;
     }
 
-//    /**
-//     * Convertir DTO a Entity
-//     *
-//     * @return Un Entity con los valores del DTO
-//     */
-//    public UsuarioEntity toEntity() {
-//        UsuarioEntity usuarioEntity = new UsuarioEntity();
-//        usuarioEntity.setId(this.id);
-//        usuarioEntity.setNombre(this.nombre);
-//        return usuarioEntity;
-//      verificaste la contraseña
-//    }
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public UsuarioEntity toEntity() {
+        UsuarioEntity usuarioEntity = new UsuarioEntity();
+        usuarioEntity.setId(this.id);
+        usuarioEntity.setNombre(this.nombre);
+        usuarioEntity.setContrasenia(this.contrasenia);
+        return usuarioEntity;
+    }
 
     @Override
     public String toString() {

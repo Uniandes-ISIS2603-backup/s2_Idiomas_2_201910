@@ -19,10 +19,12 @@ import javax.persistence.OneToMany;
 public class PersonaEntity extends BaseEntity implements Serializable
 {
 
-    private String contraseña;
+    private Long contrasenia;
     private String nombre;
     @OneToMany(mappedBy = "autor")
     private List<ComentarioEntity> comentarioEntitys;
+    
+    
 
     
     /**

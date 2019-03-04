@@ -11,6 +11,9 @@ import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
 //import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
@@ -21,6 +24,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "coordinadores".
@@ -82,6 +86,10 @@ public class CoordinadorResource
     @Path("{coordinadoresId: \\d+}")
     public CoordinadorDetailDTO updateCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) {
         CoordinadorDetailDTO nuevo = new CoordinadorDetailDTO();
+         if(nuevo == null)
+        {
+            throw new WebApplicationException();
+        }
         return nuevo;
     }
     
@@ -107,7 +115,14 @@ public class CoordinadorResource
      * @return 
      */
     @GET    
-    public CoordinadorDetailDTO[] retornarCoordinador() {
-        return new CoordinadorDetailDTO[1];        
+    public List<CoordinadorDetailDTO> retornarCoordinador() {
+        
+        List<CoordinadorDetailDTO> list = new ArrayList<>();
+        
+        if(list == null)
+        {
+            throw new WebApplicationException();
+        }
+        return list;        
     }   
 }
