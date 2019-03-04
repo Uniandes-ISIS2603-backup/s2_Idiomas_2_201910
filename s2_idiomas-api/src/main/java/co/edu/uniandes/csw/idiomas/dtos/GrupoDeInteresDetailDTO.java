@@ -13,39 +13,63 @@ import java.util.List;
  * @author le.perezl
  */
 public class GrupoDeInteresDetailDTO extends GrupoDeInteresDTO implements Serializable{
-    
+    /**
+     * Lista de usuarioDTO que contiene los usuarios del grupo
+     */
     private List<UsuarioDTO> usuariosGrupo;
+    /**
+     * Lista de ActividadDTO que contiene las actividades del grupo
+     */
     private List<ActividadDTO> actividadesGrupo;
+    /**
+     * lista de comentarioDTO que contiene los comentarios del grupo
+     */
     private List<ComentarioGrupoDTO> comentariosGrupo;
     
+    /**
+     * constructor vacio
+     */
     public GrupoDeInteresDetailDTO()
     {
         
     }
 
+    /**
+     * @return comentarios del grupo
+    */
     public List<ComentarioGrupoDTO> getComentariosGrupo() {
         return comentariosGrupo;
     }
-
+    /**
+     * @param comentarios del grupo
+    */
     public void setComentariosGrupo(List<ComentarioGrupoDTO> comentariosGrupo) {
         this.comentariosGrupo = comentariosGrupo;
     }
     
-       
+    /**
+     * @return usuarios del grupo
+    */   
     public List<UsuarioDTO> getUsuariosGrupo() 
     {
         return usuariosGrupo;
     }
-
+    /**
+     * @param Usuarios del grupo
+    */
     public void setUsuariosGrupo(List<UsuarioDTO> pUsuariosGrupo) 
     {
         this.usuariosGrupo = pUsuariosGrupo;
     }
-    
+    /**
+     * @return Actividades del grupo
+    */
     public List<ActividadDTO> getActividadesGrupo() {
         return actividadesGrupo;
     }
-
+    /**
+     * @param Actividades del grupo
+    */
     public void setActividadesGrupo(List<ActividadDTO> actividadesGrupo) {
         this.actividadesGrupo = actividadesGrupo;
     }

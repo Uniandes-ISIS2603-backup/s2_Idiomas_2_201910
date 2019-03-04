@@ -10,19 +10,34 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
- * @author estudiante
+ * @author Luis Perez le.perezl
  */
 public class BlogDTO {
+    /**
+     * texto del blog
+     */
     String texto;
+    /**
+     * imagen del blog
+     */
     String imagen;
+    /**
+     * video del blog
+     */
     String video;
+    /**
+     * grupo dueño del blog
+     */
     Long grupoDeInteres;
     
+    /**
+     * Constructor
+     */
     public BlogDTO(){
         
     }
         /**
-     * Devuelve el Idioma del grupo.
+     * Devuelve el Texto del Blog.
      *
      * @return the id
      */
@@ -31,7 +46,7 @@ public class BlogDTO {
     }
         
        /**
-     * Devuelve el Idioma del grupo.
+     * Devuelve la imagen del Blog.
      *
      * @return the id
      */
@@ -40,42 +55,48 @@ public class BlogDTO {
     }
 
     /**
-     * Modifica el Admin dl grupo.
+     * Modifica el Texto dl Blog.
      *
-     * @param admin the admin to set
+     * @param pTexto the texto to set
      */
     public void setTexto (String pTexto) {
         this.texto = pTexto;
     }
- 
+    /**
+     * 
+     * @return video del blog
+     */
     public String getVideo() {
         return video;
     }
 
     /**
-     * Modifica la califiacion del grupo.
+     * Modifica la Imagen del Blog.
      *
-     * @param calificacion the calificacion to set
+     * @param pImagen the Imagen to set
      */
     public void setImagen(String pImagen) {
         this.imagen = pImagen;
     }
        /**
-     * Modifica la califiacion del grupo.
+     * Modifica la video del Blog.
      *
-     * @param calificacion the calificacion to set
+     * @param pVideo the video to set
      */
     public void setVideo(String pVideo) {
         this.video = pVideo;
     }
       /**
-     * retorna la califiacion del grupo.
-     *
+     * retorna El GrupoDeInteres del Blog.
+     *@return grupoDeInteres
      */
     public Long getGrupoDeInteres() {
        return grupoDeInteres;
     }
-    
+    /**
+     * cambia el grupo del blog
+     * @param pGrupo del blog
+     */
     public void setGrupoDeInteres(Long pGrupo) {
         this.grupoDeInteres = pGrupo;
     }

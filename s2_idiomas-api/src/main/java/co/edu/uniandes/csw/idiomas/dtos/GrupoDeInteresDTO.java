@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -41,12 +42,30 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author le.perezl
  */
 public class GrupoDeInteresDTO {
+    /**
+     * idioma del grupo
+     */
     String idioma;
+    /**
+     * administrador del grupo
+     */
     String administrador;
+    /**
+     * calificacion del grupo
+     */
     Long calificacion;
+    /**
+     * blog del grupo
+     */
     Long blog;
     
     public GrupoDeInteresDTO(){
+        
+    }
+    public GrupoDeInteresEntity toEntity(){
+        //crear variable del tipo
+        //hacer traspaso de los datos
+        return null;
         
     }
         /**
