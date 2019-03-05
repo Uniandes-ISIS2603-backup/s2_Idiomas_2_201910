@@ -22,6 +22,10 @@ import javax.persistence.TypedQuery;
 public class UsuarioPersistence 
 {
     
+    /**
+     * Logger para las acciones de la clase.
+     */
+    private static final Logger LOGGER = Logger.getLogger(UsuarioPersistence.class.getName());
 
     @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;

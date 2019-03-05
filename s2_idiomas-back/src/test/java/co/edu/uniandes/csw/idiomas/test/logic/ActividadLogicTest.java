@@ -8,7 +8,9 @@ package co.edu.uniandes.csw.idiomas.test.logic;
 import co.edu.uniandes.csw.idiomas.ejb.ActividadLogic;
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
+import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,8 +102,8 @@ public class ActividadLogicTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from PrizeEntity").executeUpdate();
-        em.createQuery("delete from BookEntity").executeUpdate();
+        em.createQuery("delete from UsuarioEntity").executeUpdate();
+        em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
         em.createQuery("delete from ActividadEntity").executeUpdate();
     }
 
@@ -115,6 +117,8 @@ public class ActividadLogicTest {
             em.persist(entity);
             entity.setAsistentes(new ArrayList<>());
             entity.setComentarios(new ArrayList<>());
+            entity.setCoordinadores(new ArrayList<>());
+            // TODO : GC Poner calificación
             data.add(entity);
         }
         ActividadEntity actividad = data.get(2);
@@ -126,21 +130,30 @@ public class ActividadLogicTest {
         ComentarioActividadEntity comentarios = factory.manufacturePojo(ComentarioActividadEntity.class);
         comentarios.setActividad(data.get(1));
         em.persist(comentarios);
-        data.get(1).getPrizes().add(comentarios);
+        data.get(1).getComentarios().add(comentarios);
+        
+//        CoordinadorEntity coordinador = factory.manufacturePojo(CoordinadorEntity.class);
+//        coordinador.setActividadesCoordinadas((List<ActividadEntity>) data.get(1));
+//        em.persist(coordinador);
+//        data.get(1).getCoordinadores().add(coordinador);
+        
     }
 
     /**
      * Prueba para crear un Actividad.
+     * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
     @Test
-    public void createActividadTest() {
+    public void createActividadTest() throws BusinessLogicException {
         ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
         ActividadEntity result = actividadLogic.createActividad(newEntity);
         Assert.assertNotNull(result);
         ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
-        Assert.assertEquals(newEntity.getName(), entity.getName());
-        Assert.assertEquals(newEntity.getBirthDate(), entity.getBirthDate());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+        Assert.assertEquals(newEntity.getDescripcion(), entity.getDescripcion());
+        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
+        
     }
 
     /**
@@ -169,9 +182,10 @@ public class ActividadLogicTest {
         ActividadEntity entity = data.get(0);
         ActividadEntity resultEntity = actividadLogic.getActividad(entity.getId());
         Assert.assertNotNull(resultEntity);
-        Assert.assertEquals(entity.getId(), resultEntity.getId());
-        Assert.assertEquals(entity.getName(), resultEntity.getName());
-        Assert.assertEquals(entity.getBirthDate(), resultEntity.getBirthDate());
+        Assert.assertEquals(resultEntity.getId(), entity.getId());
+        Assert.assertEquals(resultEntity.getNombre(), entity.getNombre());
+        Assert.assertEquals(resultEntity.getDescripcion(), entity.getDescripcion());
+        Assert.assertEquals(resultEntity.getFecha(), entity.getFecha());
     }
 
     /**
@@ -188,15 +202,16 @@ public class ActividadLogicTest {
 
         ActividadEntity resp = em.find(ActividadEntity.class, entity.getId());
 
-        Assert.assertEquals(pojoEntity.getId(), resp.getId());
-        Assert.assertEquals(pojoEntity.getName(), resp.getName());
-        Assert.assertEquals(pojoEntity.getBirthDate(), resp.getBirthDate());
+        Assert.assertEquals(resp.getId(), entity.getId());
+        Assert.assertEquals(resp.getNombre(), entity.getNombre());
+        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
+        Assert.assertEquals(resp.getFecha(), entity.getFecha());
     }
 
     /**
      * Prueba para eliminar un Actividad
      *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
     @Test
     public void deleteActividadTest() throws BusinessLogicException {
@@ -206,23 +221,25 @@ public class ActividadLogicTest {
         Assert.assertNull(deleted);
     }
 
-    /**
-     * Prueba para eliminar un Actividad asociado a un libro
-     *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void deleteActividadConLibroTest() throws BusinessLogicException {
-        actividadLogic.deleteActividad(data.get(2).getId());
-    }
+//    /**
+//     * Prueba para eliminar un Actividad asociado a un usuario
+//     *
+//     * 
+//     * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
+//     */
+//    @Test(expected = BusinessLogicException.class)
+//    public void deleteActividadConUsuarioTest() throws BusinessLogicException {
+//        actividadLogic.deleteActividad(data.get(2).getId());
+//    }
 
     /**
-     * Prueba para eliminar un Actividad asociado a un premio
+     * Prueba para eliminar un Actividad asociado a un comentario
      *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     * 
+     * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
     @Test(expected = BusinessLogicException.class)
-    public void deleteActividadConPremioTest() throws BusinessLogicException {
+    public void deleteActividadConComentarioTest() throws BusinessLogicException {
         actividadLogic.deleteActividad(data.get(1).getId());
     }
     

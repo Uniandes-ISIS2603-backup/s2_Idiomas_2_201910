@@ -44,37 +44,19 @@ public class ActividadPersistence {
     // Métodos
     // ----------------------------------------------------------------------
     
-    /**
+   /**
      * Método para persistir la entidad en la base de datos.
      * 
      * @param pActividadEntity Objeto actividad que se creará en la base de datos.
      * @return Devuelve la actividad creada con un id dado por la base de datos.
      */
-    public PersonaEntity update(PersonaEntity personaEntity) {
-        LOGGER.log(Level.INFO, "Actualizando el persona con id={0}", personaEntity.getId());
-        /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
-        la persona con los cambios, esto es similar a 
-        "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
-         */
-        return em.merge(personaEntity);
+    public ActividadEntity create (ActividadEntity pActividadEntity)
+    {
+        LOGGER.log(Level.INFO, "Creando una actividad nueva");
+        em.persist(pActividadEntity);
+        LOGGER.log(Level.INFO, "Saliendo de crear una actividad nueva");
+        return pActividadEntity;
     }
-
-//    /**
-//     * Borra una persona de la base de datos recibiendo como argumento el id de
-//     * la persona
-//     *
-//     * @param personasId: id correspondiente a la persona a borrar.
-//     */
-//    public void delete(Long personasId) {
-//
-//        LOGGER.log(Level.INFO, "Borrando el persona con id={0}", personasId);
-//        // Se hace uso de mismo método que esta explicado en public PersonaEntity find(Long id) para obtener la persona a borrar.
-//        PersonaEntity personaEntity = em.find(PersonaEntity.class, personasId);
-//        /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
-//        EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
-//        Es similar a "delete from PersonaEntity where id=id;" - "DELETE FROM table_name WHERE condition;" en SQL.*/
-//        em.remove(personaEntity);
-//    }
     
     /**
      * Devuelve todas las actividades de la base de datos.
@@ -98,7 +80,7 @@ public class ActividadPersistence {
      * @return una actividad.
      */
     public ActividadEntity find(Long pActividadId) {
-        LOGGER.log(Level.INFO, "Consultando editorial con id={0}", pActividadId);
+        LOGGER.log(Level.INFO, "Consultando actividad con id={0}", pActividadId);
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from ActividadEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
@@ -115,12 +97,12 @@ public class ActividadPersistence {
      * @return una actividad con los cambios aplicados.
      */
     public ActividadEntity update(ActividadEntity pActividadEntity) {
-        LOGGER.log(Level.INFO, "Actualizando editorial con id = {0}", pActividadEntity.getId());
+        LOGGER.log(Level.INFO, "Actualizando actividad con id = {0}", pActividadEntity.getId());
         /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
-        la editorial con los cambios, esto es similar a 
+        la actividad con los cambios, esto es similar a 
         "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
          */
-        LOGGER.log(Level.INFO, "Saliendo de actualizar la editorial con id = {0}", pActividadEntity.getId());
+        LOGGER.log(Level.INFO, "Saliendo de actualizar la actividad con id = {0}", pActividadEntity.getId());
         return em.merge(pActividadEntity);
     }
 	
@@ -134,7 +116,7 @@ public class ActividadPersistence {
     public void delete(Long pActividadId) {
         LOGGER.log(Level.INFO, "Borrando actividad con id = {0}", pActividadId);
         // Se hace uso de mismo método que esta explicado en public ActividadEntity 
-        // find(Long id) para obtener la editorial a borrar.
+        // find(Long id) para obtener la actividad a borrar.
         ActividadEntity entity = em.find(ActividadEntity.class, pActividadId);
         /* Note que una vez obtenido el objeto desde la base de datos llamado 
          "entity", volvemos hacer uso de un método propio del
@@ -155,10 +137,10 @@ public class ActividadPersistence {
      */
     public ActividadEntity findByName(String pName) {
         LOGGER.log(Level.INFO, "Consultando actividad por nombre ", pName);
-        // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From ActividadEntity e where e.name = :name", ActividadEntity.class);
+        // Se crea un query para buscar actividades con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From ActividadEntity e where e.nombre = :nombre", ActividadEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", pName);
+        query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<ActividadEntity> sameName = query.getResultList();
         ActividadEntity result;

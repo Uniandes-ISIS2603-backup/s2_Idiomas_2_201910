@@ -75,28 +75,6 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
         }
     }
     
-    /**
-     * Crea un objeto ActividadDetailDTO a partir de un objeto ActividadEntity
-     * incluyendo los atributos de ActividadDTO.
-     *
-     * @param pActividadEntity Entidad ActividadEntity desde la cual se va a crear el
-     * nuevo objeto.
-     *
-     */
-    public ActividadDetailDTO(ActividadEntity pActividadEntity) {
-        super(pActividadEntity);
-        if (pActividadEntity != null) {
-            asistentes = new ArrayList<>();
-            for (UsuarioEntity entityUsuario : pActividadEntity.getAsistentes()) {
-                asistentes.add(new UsuarioDTO(entityUsuario));
-            }
-            comentarioA = new ArrayList();
-            for (ComentarioActividadEntity entityComentario : pActividadEntity.getComentarios()) {
-                comentarioA.add(new ComentarioActividadDTO(entityComentario));
-            }
-        }
-    }
-    
     // ------------------------------------------------------------------------
     // Métodos
     // ------------------------------------------------------------------------
@@ -121,7 +99,7 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
         if (comentarioA != null) {
             List<ComentarioActividadEntity> comentariosEntity = new ArrayList<>();
             for (ComentarioActividadDTO dtoComentario : comentarioA) {
-                comentariosEntity.add(dtoComentario.toEntity());
+//                comentariosEntity.add(dtoComentario.toEntity());
             }
             actividadEntity.setComentarios(comentariosEntity);
         }

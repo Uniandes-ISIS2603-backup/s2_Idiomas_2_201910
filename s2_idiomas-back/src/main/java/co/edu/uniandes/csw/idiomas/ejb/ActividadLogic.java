@@ -48,7 +48,7 @@ public class ActividadLogic {
      *
      * @param actividadEntity La entidad que representa la actividad a
      * persistir.
-     * @return La entiddad de la actividad luego de persistirla.
+     * @return La entidad de la actividad luego de persistirla.
      * @throws BusinessLogicException Si la actividad a persistir ya existe.
      */
     public ActividadEntity createActividad(ActividadEntity actividadEntity) throws BusinessLogicException 

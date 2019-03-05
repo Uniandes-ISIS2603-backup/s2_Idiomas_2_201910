@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -21,7 +22,8 @@ public class PersonaEntity extends BaseEntity implements Serializable
 
     private Long contrasenia;
     private String nombre;
-    @OneToMany(mappedBy = "autor")
+    @PodamExclude
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
     private List<ComentarioEntity> comentarioEntitys;
     
     
