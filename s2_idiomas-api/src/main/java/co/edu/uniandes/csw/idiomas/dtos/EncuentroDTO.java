@@ -115,6 +115,7 @@ public class EncuentroDTO extends ActividadDTO implements Serializable{
      *
      * @return Un Entity con los valores del DTO
      */
+    @Override
     public EncuentroEntity toEntity() 
     {
         EncuentroEntity encuentroEntity = new EncuentroEntity();

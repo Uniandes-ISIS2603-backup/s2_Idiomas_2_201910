@@ -187,4 +187,18 @@ public class EncuentroPersistenceTest {
         EncuentroEntity deleted = em.find(EncuentroEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+    
+     /**
+     * Prueba para consultasr un Encuentro por nombre.
+     */
+    @Test
+    public void findEncuentroByNameTest() {
+        EncuentroEntity entity = data.get(0);
+        EncuentroEntity newEntity = encuentroPersistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+
+        newEntity = encuentroPersistence.findByName(null);
+        Assert.assertNull(newEntity);
+    }
 }

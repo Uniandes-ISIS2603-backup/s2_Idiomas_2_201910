@@ -187,5 +187,19 @@ public class ActividadPersistenceTest {
         ActividadEntity deleted = em.find(ActividadEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+    
+    /**
+     * Prueba para consultasr un Actividad por nombre.
+     */
+    @Test
+    public void findActividadByNameTest() {
+        ActividadEntity entity = data.get(0);
+        ActividadEntity newEntity = actividadPersistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+
+        newEntity = actividadPersistence.findByName(null);
+        Assert.assertNull(newEntity);
+    }
 }
 

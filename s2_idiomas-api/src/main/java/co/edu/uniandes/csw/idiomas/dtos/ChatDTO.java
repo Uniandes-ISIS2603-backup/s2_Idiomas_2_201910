@@ -75,6 +75,7 @@ public class ChatDTO extends ActividadDTO implements Serializable{
      *
      * @return Un Entity con los valores del DTO
      */
+    @Override
     public ChatEntity toEntity() 
     {
         ChatEntity chatEntity = new ChatEntity();

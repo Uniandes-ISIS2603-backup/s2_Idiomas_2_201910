@@ -187,4 +187,18 @@ public class ChatPersistenceTest {
         ChatEntity deleted = em.find(ChatEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+    
+    /**
+     * Prueba para consultasr un Chat por nombre.
+     */
+    @Test
+    public void findChatByNameTest() {
+        ChatEntity entity = data.get(0);
+        ChatEntity newEntity = chatPersistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+
+        newEntity = chatPersistence.findByName(null);
+        Assert.assertNull(newEntity);
+    }
 }

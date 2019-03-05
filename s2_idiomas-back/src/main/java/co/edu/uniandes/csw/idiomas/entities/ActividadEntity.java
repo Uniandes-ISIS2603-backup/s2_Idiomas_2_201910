@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.entities;
 
+import co.edu.uniandes.csw.idiomas.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,8 +14,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
+import uk.co.jemos.podam.common.PodamStrategyValue;
 
 /**
  * Clase que representa una actividad en la persistencia y permite su
@@ -36,6 +39,8 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     /**
      * Atributo que representa la fecha de la actividad.
      */
+    @Temporal(TemporalType.DATE)
+    @PodamStrategyValue(DateStrategy.class)
     private Date fecha;
     
     /**
@@ -78,14 +83,6 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
-    
-    /**
-     * Constructor vacío.
-     */
-    public ActividadEntity ()
-    {
-        
-    }
     
     // ------------------------------------------------------------------
     // Métodos
@@ -190,17 +187,17 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     }
 
     /**
-     * @param fecha the fecha to set
-     */
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    /**
      * @return the fecha
      */
     public Date getFecha() {
         return fecha;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     
 }

@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.idiomas.persistence;
 
 
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -187,4 +187,18 @@ public class EstadiaPersistenceTest {
         EstadiaEntity deleted = em.find(EstadiaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+    
+    /**
+    * Prueba para consultasr un Estadia por nombre.
+    */
+    @Test
+    public void findEstadiaByNameTest() {
+        EstadiaEntity entity = data.get(0);
+        EstadiaEntity newEntity = estadiaPersistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+
+        newEntity = estadiaPersistence.findByName(null);
+        Assert.assertNull(newEntity);
+    }
 }

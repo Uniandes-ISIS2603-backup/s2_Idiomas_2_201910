@@ -187,4 +187,18 @@ public class OtroPersistenceTest {
         OtroEntity deleted = em.find(OtroEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
+    
+    /**
+    * Prueba para consultasr un Otro por nombre.
+    */
+    @Test
+    public void findOtroByNameTest() {
+        OtroEntity entity = data.get(0);
+        OtroEntity newEntity = otroPersistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+
+        newEntity = otroPersistence.findByName(null);
+        Assert.assertNull(newEntity);
+    }
 }

@@ -133,11 +133,11 @@ public class EstadiaPersistence {
      * Si existe alguna devuelve la primera.
      */
     public EstadiaEntity findByName(String pName) {
-        LOGGER.log(Level.INFO, "Consultando estadia por nombre ", pName);
+        LOGGER.log(Level.INFO, "Consultando estadia por nombre = {0}", pName);
         // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From EstadiaEntity e where e.name = :name", EstadiaEntity.class);
+        TypedQuery query = em.createQuery("Select e From EstadiaEntity e where e.nombre = :nombre", EstadiaEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", pName);
+        query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<EstadiaEntity> sameName = query.getResultList();
         EstadiaEntity result;
@@ -148,7 +148,7 @@ public class EstadiaPersistence {
         } else {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar estadia por nombre ", pName);
+        LOGGER.log(Level.INFO, "Saliendo de consultar estadia por nombre = {0}", pName);
         return result;
     }
     

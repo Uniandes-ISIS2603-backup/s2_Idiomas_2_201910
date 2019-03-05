@@ -135,9 +135,9 @@ public class OtroPersistence {
     public OtroEntity findByName(String pName) {
         LOGGER.log(Level.INFO, "Consultando otro por nombre ", pName);
         // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
-        TypedQuery query = em.createQuery("Select e From OtroEntity e where e.name = :name", OtroEntity.class);
+        TypedQuery query = em.createQuery("Select e From OtroEntity e where e.nombre = :nombre", OtroEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
-        query = query.setParameter("name", pName);
+        query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<OtroEntity> sameName = query.getResultList();
         OtroEntity result;

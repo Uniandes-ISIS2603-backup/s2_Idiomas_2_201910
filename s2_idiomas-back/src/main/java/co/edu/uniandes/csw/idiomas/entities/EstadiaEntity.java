@@ -6,12 +6,8 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -41,14 +37,6 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
-    
-    /**
-     * Constructor vacío.
-     */
-    public EstadiaEntity ()
-    {
-        
-    }
     
     // ------------------------------------------------------------------
     // Métodos

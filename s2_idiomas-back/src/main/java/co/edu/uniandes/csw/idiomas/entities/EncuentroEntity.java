@@ -6,11 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  * Clase que representa un encuentro en la persistencia y permite su
@@ -43,14 +39,6 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
-    
-    /**
-     * Constructor vacío.
-     */
-    public EncuentroEntity ()
-    {
-        
-    }
     
     // ------------------------------------------------------------------
     // Métodos
