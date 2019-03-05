@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * ActividadDTO Objeto de transferencia de datos de la actividad. Los DTO contienen
@@ -33,7 +34,7 @@ public class ActividadDTO implements Serializable{
     /**
      * Atributo que contiene la fecha.
      */
-    private String fecha;
+    private Date fecha;
     
     /**
      * Atributo que contiene la descripcion de la actividad.
@@ -76,14 +77,14 @@ public class ActividadDTO implements Serializable{
             this.fecha = pActividadEntity.getFecha();
             this.motivacion = pActividadEntity.getMotivacion();
             this.nombre = pActividadEntity.getNombre();
-            if (pActividadEntity.getCalificacion() != null)
-            {
-                this.calificacion = new CalificacionDTO(pActividadEntity.getCalificacion());
-            }
-            else
-            {
-                this.calificacion = null;
-            }
+//            if (pActividadEntity.getCalificacion() != null)
+//            {
+//                this.calificacion = new CalificacionDTO(pActividadEntity.getCalificacion());
+//            }
+//            else
+//            {
+//                this.calificacion = null;
+//            }
         }
     }
             
@@ -93,19 +94,20 @@ public class ActividadDTO implements Serializable{
     // ----------------------------------------------------------------------
 
     /**
-     * @return the fecha
+     * Convierte un objeto ActividadDTO a ActividadEntity.
+     *
+     * @return Nueva objeto ActividadEntity.
+     *
      */
-    public String getFecha() {
-        return fecha;
+    public ActividadEntity toEntity() {
+        ActividadEntity actividadEntity = new ActividadEntity();
+        actividadEntity.setDescripcion(this.getDescripcion());
+        actividadEntity.setFecha(this.getFecha());
+        actividadEntity.setMotivacion(this.getMotivacion());
+        actividadEntity.setNombre(this.getNombre());
+        return actividadEntity;
     }
-
-    /**
-     * @param fecha the fecha to set
-     */
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
+    
     /**
      * @return the descripcion
      */
@@ -147,22 +149,21 @@ public class ActividadDTO implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     /**
-     * Convertir DTO a Entity
-     *
-     * @return Un Entity con los valores del DTO
+     * @return the id
      */
-    public ActividadEntity toEntity() 
-    {
-        ActividadEntity actividadEntity = new ActividadEntity();
-        actividadEntity.setNombre(this.getNombre());
-        actividadEntity.setDescripcion(this.getDescripcion());
-        actividadEntity.setMotivacion(this.getMotivacion());
-        actividadEntity.setFecha(this.getFecha());
-        
-        return actividadEntity;
+    public Long getId() {
+        return id;
     }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
 
     /**
      * @return the calificacion
@@ -179,17 +180,17 @@ public class ActividadDTO implements Serializable{
     }
 
     /**
-     * @return the id
+     * @param fecha the fecha to set
      */
-    public Long getId() {
-        return id;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     /**
-     * @param id the id to set
+     * @return the fecha
      */
-    public void setId(Long id) {
-        this.id = id;
+    public Date getFecha() {
+        return fecha;
     }
     
     

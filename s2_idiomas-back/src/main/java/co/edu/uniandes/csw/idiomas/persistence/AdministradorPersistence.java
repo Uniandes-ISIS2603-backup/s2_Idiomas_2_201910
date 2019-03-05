@@ -24,7 +24,7 @@ public class AdministradorPersistence {
      
     private static final Logger LOGGER = Logger.getLogger(AdministradorEntity.class.getName());
 
-    @PersistenceContext(unitName = "BookStorePU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**

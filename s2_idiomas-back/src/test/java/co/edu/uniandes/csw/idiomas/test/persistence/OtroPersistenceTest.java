@@ -126,7 +126,7 @@ public class OtroPersistenceTest {
 
         OtroEntity entity = em.find(OtroEntity.class, result.getId());
 
-        Assert.assertEquals(newEntity.getName(), entity.getName());
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
 
     /**
@@ -155,7 +155,7 @@ public class OtroPersistenceTest {
         OtroEntity entity = data.get(0);
         OtroEntity newEntity = otroPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getName(), newEntity.getName());
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
         Assert.assertEquals(entity.getFecha(), newEntity.getFecha());
     }
 
@@ -174,7 +174,7 @@ public class OtroPersistenceTest {
 
         OtroEntity resp = em.find(OtroEntity.class, entity.getId());
 
-        Assert.assertEquals(newEntity.getName(), resp.getName());
+        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
     }
 
     /**

@@ -39,14 +39,6 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
      * Atributo que modela el estado de aprobación del encuentro.
      */
     private Boolean aprobado;
-        
-    /**
-     * Atributo que representa los comentarios de la actividad.
-     */
-    // TODO: GC Se define como actividad o como encuentro
-    @PodamExclude
-    @OneToMany(mappedBy = "actividad")
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
     
     // ------------------------------------------------------------------
     // Constructor
@@ -104,22 +96,6 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
      */
     public void setAprobado(Boolean aprobado) {
         this.aprobado = aprobado;
-    }
-
-    /**
-     * @return the comentarios
-     */
-    public List<ComentarioActividadEntity> getComentarios() {
-        return comentarios;
-    }
-
-    /**
-     * @param comentarios the comentarios to set
-     */
-    public void setComentarios(List<ComentarioActividadEntity> comentarios) {
-        this.comentarios = comentarios;
-    }
-
-    
+    }    
     
 }

@@ -24,13 +24,6 @@ public class OtroEntity extends ActividadEntity implements Serializable{
     // Atributos
     // -------------------------------------------------------------------
     
-    /**
-     * Atributo que representa los comentarios de la otro.
-     */
-    @PodamExclude
-    @OneToMany(mappedBy = "actividad")
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
-    
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
@@ -46,20 +39,6 @@ public class OtroEntity extends ActividadEntity implements Serializable{
     // ------------------------------------------------------------------
     // Métodos
     // ------------------------------------------------------------------
-
-    /**
-     * @return the comentarios
-     */
-    public List<ComentarioActividadEntity> getComentarios() {
-        return comentarios;
-    }
-
-    /**
-     * @param comentarios the comentarios to set
-     */
-    public void setComentarios(List<ComentarioActividadEntity> comentarios) {
-        this.comentarios = comentarios;
-    }
 
     
 }

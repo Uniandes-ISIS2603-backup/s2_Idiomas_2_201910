@@ -48,6 +48,20 @@ public class ComentarioActividadEntity extends BaseEntity implements Serializabl
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    /**
+     * @return the actividad
+     */
+    public ActividadEntity getActividad() {
+        return actividad;
+    }
+
+    /**
+     * @param actividad the actividad to set
+     */
+    public void setActividad(ActividadEntity actividad) {
+        this.actividad = actividad;
+    }
     
     
 }

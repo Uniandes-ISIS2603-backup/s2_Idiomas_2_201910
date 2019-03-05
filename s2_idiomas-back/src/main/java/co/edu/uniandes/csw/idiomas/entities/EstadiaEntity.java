@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -30,12 +32,11 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
     private String pais;
     
     /**
-     * Atributo que representa los comentarios de la estadia.
+     * Atributo que representa el anfitrion de la estadia.
      */
-    // TODO: GC Se define como actividad o como estadia
     @PodamExclude
-    @OneToMany(mappedBy = "actividad")
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
+    @ManyToOne
+    private AnfitrionEntity anfitrion;
     
     // ------------------------------------------------------------------
     // Constructor
@@ -54,20 +55,6 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
     // ------------------------------------------------------------------
 
     /**
-     * @return the comentarios
-     */
-    public List<ComentarioActividadEntity> getComentarios() {
-        return comentarios;
-    }
-
-    /**
-     * @param comentarios the comentarios to set
-     */
-    public void setComentarios(List<ComentarioActividadEntity> comentarios) {
-        this.comentarios = comentarios;
-    }
-
-    /**
      * @return the pais
      */
     public String getPais() {
@@ -79,6 +66,20 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
      */
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    /**
+     * @return the anfitrion
+     */
+    public AnfitrionEntity getAnfitrion() {
+        return anfitrion;
+    }
+
+    /**
+     * @param anfitrion the anfitrion to set
+     */
+    public void setAnfitrion(AnfitrionEntity anfitrion) {
+        this.anfitrion = anfitrion;
     }
     
 }

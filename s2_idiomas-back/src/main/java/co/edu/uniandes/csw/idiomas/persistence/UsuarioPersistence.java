@@ -22,9 +22,12 @@ import javax.persistence.TypedQuery;
 public class UsuarioPersistence 
 {
     
-    private static final Logger LOGGER = Logger.getLogger(UsuarioEntity.class.getName());
+    /**
+     * Logger para las acciones de la clase.
+     */
+    private static final Logger LOGGER = Logger.getLogger(UsuarioPersistence.class.getName());
 
-    @PersistenceContext(unitName = "BookStorePU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**

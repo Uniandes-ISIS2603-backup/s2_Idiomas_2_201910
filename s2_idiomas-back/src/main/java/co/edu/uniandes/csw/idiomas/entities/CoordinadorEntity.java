@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.idiomas.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -23,7 +24,7 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
     String nombre;    
     
     @PodamExclude
-    @ManyToMany(mappedBy = "cordinadores")
+    @ManyToMany(mappedBy = "coordinadores", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<ActividadEntity> actividadesCoordinadas = new ArrayList<>();
     /**
      * Connstructor vacio de un Entity

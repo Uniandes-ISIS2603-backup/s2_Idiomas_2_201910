@@ -80,6 +80,33 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     // ------------------------------------------------------------------------
 
     /**
+     * Convierte un objeto ActividadDetailDTO a ActividadEntity incluyendo los
+     * atributos de ActividadDTO.
+     *
+     * @return Nueva objeto ActividadEntity.
+     *
+     */
+    @Override
+    public ActividadEntity toEntity() {
+        ActividadEntity actividadEntity = super.toEntity();
+        if (asistentes != null) {
+            List<UsuarioEntity> usuarioEntity = new ArrayList<>();
+            for (UsuarioDTO dtoUsuario : asistentes) {
+                usuarioEntity.add(dtoUsuario.toEntity());
+            }
+            actividadEntity.setAsistentes(usuarioEntity);
+        }
+        if (comentarioA != null) {
+            List<ComentarioActividadEntity> comentariosEntity = new ArrayList<>();
+            for (ComentarioActividadDTO dtoComentario : comentarioA) {
+//                comentariosEntity.add(dtoComentario.toEntity());
+            }
+            actividadEntity.setComentarios(comentariosEntity);
+        }
+        return actividadEntity;
+    }
+    
+    /**
      * @return the asistentes
      */
     public List<UsuarioDTO> getAsistentes() {

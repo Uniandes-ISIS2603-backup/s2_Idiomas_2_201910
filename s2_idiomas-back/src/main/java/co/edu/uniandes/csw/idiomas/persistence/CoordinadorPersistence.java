@@ -23,7 +23,7 @@ public class CoordinadorPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(CoordinadorPersistence.class.getName());
 
-    @PersistenceContext(unitName = "BookStorePU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**

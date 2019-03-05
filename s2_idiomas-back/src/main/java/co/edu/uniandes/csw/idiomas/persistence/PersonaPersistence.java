@@ -24,7 +24,7 @@ public class PersonaPersistence
    
     private static final Logger LOGGER = Logger.getLogger(PersonaPersistence.class.getName());
 
-    @PersistenceContext(unitName = "BookStorePU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**

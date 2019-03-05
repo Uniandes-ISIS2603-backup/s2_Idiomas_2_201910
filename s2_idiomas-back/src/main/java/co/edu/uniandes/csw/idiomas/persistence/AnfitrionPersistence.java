@@ -23,7 +23,7 @@ public class AnfitrionPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(AnfitrionPersistence.class.getName());
 
-    @PersistenceContext(unitName = "BookStorePU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**
@@ -33,12 +33,12 @@ public class AnfitrionPersistence {
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
     public AnfitrionEntity create(AnfitrionEntity anfitrionEntity) {
-        LOGGER.log(Level.INFO, "Creando un autor nuevo");
+        LOGGER.log(Level.INFO, "Creando un anfitrion nuevo");
         /* Note que hacemos uso de un método propio de EntityManager para persistir la anfitrion en la base de datos.
         Es similar a "INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);" en SQL.
          */
         em.persist(anfitrionEntity);
-        LOGGER.log(Level.INFO, "Autor creado");
+        LOGGER.log(Level.INFO, "Anfitrion creado");
         return anfitrionEntity;
     }
 
@@ -50,7 +50,7 @@ public class AnfitrionPersistence {
      * AnfitrionEntity;" - "SELECT * FROM table_name" en SQL.
      */
     public List<AnfitrionEntity> findAll() {
-        LOGGER.log(Level.INFO, "Consultando todos los autores");
+        LOGGER.log(Level.INFO, "Consultando todos los anfitriones");
         // Se crea un query para buscar todas las anfitriones en la base de datos.
         TypedQuery query = em.createQuery("select u from AnfitrionEntity u", AnfitrionEntity.class);
         // Note que en el query se hace uso del método getResultList() que obtiene una lista de anfitriones.
@@ -64,7 +64,7 @@ public class AnfitrionPersistence {
      * @return un anfitrion.
      */
     public AnfitrionEntity find(Long anfitrionesId) {
-        LOGGER.log(Level.INFO, "Consultando el autor con id={0}", anfitrionesId);
+        LOGGER.log(Level.INFO, "Consultando el anfitrion con id={0}", anfitrionesId);
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from AnfitrionEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.

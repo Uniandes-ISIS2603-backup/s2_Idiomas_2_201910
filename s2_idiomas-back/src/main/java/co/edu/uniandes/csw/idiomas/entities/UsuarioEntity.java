@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -37,7 +38,7 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     
        
     @PodamExclude
-    @ManyToMany(mappedBy = "usuarios")
+    @ManyToMany
     private List<ActividadEntity> actividades = new ArrayList<>();
  
     /**
