@@ -80,6 +80,7 @@ public class EstadiaDTO extends ActividadDTO implements Serializable{
      *
      * @return Un Entity con los valores del DTO
      */
+    @Override
     public EstadiaEntity toEntity() 
     {
         EstadiaEntity estadiaEntity = new EstadiaEntity();

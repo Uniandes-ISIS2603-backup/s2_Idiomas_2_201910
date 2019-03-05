@@ -52,6 +52,7 @@ public class OtroDTO extends ActividadDTO implements Serializable{
      *
      * @return Un Entity con los valores del DTO
      */
+    @Override
     public OtroEntity toEntity() 
     {
         OtroEntity otroEntity = new OtroEntity();

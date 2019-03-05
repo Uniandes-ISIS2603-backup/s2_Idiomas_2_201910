@@ -103,7 +103,8 @@ public class OtroResource {
      */
     @GET
     @Path("{otrosId: \\d+}")
-    public OtroDTO getOtro(@PathParam("otrosId") Long otrosId) throws WebApplicationException {
+    public OtroDTO getOtro(@PathParam("otrosId") Long otrosId)
+    {
         LOGGER.log(Level.INFO, "OtroResource getOtro: input: {0}", otrosId);
         OtroEntity otroEntity = otroLogic.getOtro(otrosId);
         if (otroEntity == null) {
@@ -129,7 +130,8 @@ public class OtroResource {
      */
     @PUT
     @Path("{otrosId: \\d+}")
-    public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro) throws WebApplicationException {
+    public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro)
+    {
         LOGGER.log(Level.INFO, "OtroResource updateOtro: input: id:{0} , otro: {1}", new Object[]{otrosId, otro});
         otro.setId(otrosId);
         if (otroLogic.getOtro(otrosId) == null) {

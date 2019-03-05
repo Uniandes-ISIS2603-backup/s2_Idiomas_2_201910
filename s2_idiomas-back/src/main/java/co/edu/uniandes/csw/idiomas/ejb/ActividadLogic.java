@@ -55,9 +55,16 @@ public class ActividadLogic {
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la actividad");
         // Verifica la regla de negocio que dice que no puede haber dos actividades con el mismo nombre
-        if (persistence.findByName(actividadEntity.getNombre()) != null) {
+        if (persistence.findByName(actividadEntity.getNombre()) != null)
+        {
             throw new BusinessLogicException("Ya existe una Actividad con el nombre \"" + actividadEntity.getNombre()+ "\"");
         }
+        if (!validateName(actividadEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido");
+        }
+        
+        
         // Invoca la persistencia para crear la actividad
         persistence.create(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la actividad");
@@ -133,6 +140,17 @@ public class ActividadLogic {
         }
         persistence.delete(pActividadesId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la actividad con id = {0}", pActividadesId);
+    }
+
+    /**
+     * Verifica que el nombre no sea invalido.
+     *
+     * @param pNombre a verificar
+     * @return true si el nombre es valido.
+     */
+    private boolean validateName(String pNombre) 
+    {
+        return !(pNombre == null || pNombre.isEmpty());
     }
     
 }

@@ -104,7 +104,8 @@ public class ActividadResource {
      */
     @GET
     @Path("{actividadesId: \\d+}")
-    public ActividadDetailDTO getActividad(@PathParam("actividadesId") Long actividadesId) throws WebApplicationException {
+    public ActividadDetailDTO getActividad(@PathParam("actividadesId") Long actividadesId) 
+    {
         LOGGER.log(Level.INFO, "ActividadResource getActividad: input: {0}", actividadesId);
         ActividadEntity actividadEntity = actividadLogic.getActividad(actividadesId);
         if (actividadEntity == null) {
@@ -130,7 +131,8 @@ public class ActividadResource {
      */
     @PUT
     @Path("{actividadesId: \\d+}")
-    public ActividadDetailDTO updateActividad(@PathParam("actividadesId") Long actividadesId, ActividadDetailDTO actividad) throws WebApplicationException {
+    public ActividadDetailDTO updateActividad(@PathParam("actividadesId") Long actividadesId, ActividadDetailDTO actividad)
+    {
         LOGGER.log(Level.INFO, "ActividadResource updateActividad: input: id:{0} , actividad: {1}", new Object[]{actividadesId, actividad});
         actividad.setId(actividadesId);
         if (actividadLogic.getActividad(actividadesId) == null) {

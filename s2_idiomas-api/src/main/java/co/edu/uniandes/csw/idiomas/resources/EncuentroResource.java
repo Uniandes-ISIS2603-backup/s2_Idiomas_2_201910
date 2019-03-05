@@ -103,7 +103,8 @@ public class EncuentroResource {
      */
     @GET
     @Path("{encuentrosId: \\d+}")
-    public EncuentroDTO getEncuentro(@PathParam("encuentrosId") Long encuentrosId) throws WebApplicationException {
+    public EncuentroDTO getEncuentro(@PathParam("encuentrosId") Long encuentrosId)
+    {
         LOGGER.log(Level.INFO, "EncuentroResource getEncuentro: input: {0}", encuentrosId);
         EncuentroEntity encuentroEntity = encuentroLogic.getEncuentro(encuentrosId);
         if (encuentroEntity == null) {
@@ -129,7 +130,8 @@ public class EncuentroResource {
      */
     @PUT
     @Path("{encuentrosId: \\d+}")
-    public EncuentroDTO updateEncuentro(@PathParam("encuentrosId") Long encuentrosId, EncuentroDTO encuentro) throws WebApplicationException {
+    public EncuentroDTO updateEncuentro(@PathParam("encuentrosId") Long encuentrosId, EncuentroDTO encuentro)
+    {
         LOGGER.log(Level.INFO, "EncuentroResource updateEncuentro: input: id:{0} , encuentro: {1}", new Object[]{encuentrosId, encuentro});
         encuentro.setId(encuentrosId);
         if (encuentroLogic.getEncuentro(encuentrosId) == null) {

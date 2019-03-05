@@ -135,7 +135,7 @@ public class ActividadPersistence {
      * Si existe alguna devuelve la primera.
      */
     public ActividadEntity findByName(String pName) {
-        LOGGER.log(Level.INFO, "Consultando actividad por nombre ", pName);
+        LOGGER.log(Level.INFO, "Consultando actividad por nombre = {0}", pName);
         // Se crea un query para buscar actividades con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From ActividadEntity e where e.nombre = :nombre", ActividadEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
@@ -143,14 +143,15 @@ public class ActividadPersistence {
         // Se invoca el query se obtiene la lista resultado
         List<ActividadEntity> sameName = query.getResultList();
         ActividadEntity result;
-        if (sameName == null) {
+        if (sameName != null && sameName.isEmpty())
+        {
             result = null;
-        } else if (sameName.isEmpty()) {
-            result = null;
-        } else {
+        }
+        else
+        {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre ", pName);
+        LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);
         return result;
     }
     

@@ -103,7 +103,8 @@ public class ChatResource {
      */
     @GET
     @Path("{chatsId: \\d+}")
-    public ChatDTO getChat(@PathParam("chatsId") Long chatsId) throws WebApplicationException {
+    public ChatDTO getChat(@PathParam("chatsId") Long chatsId)
+    {
         LOGGER.log(Level.INFO, "ChatResource getChat: input: {0}", chatsId);
         ChatEntity chatEntity = chatLogic.getChat(chatsId);
         if (chatEntity == null) {
@@ -129,7 +130,8 @@ public class ChatResource {
      */
     @PUT
     @Path("{chatsId: \\d+}")
-    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) throws WebApplicationException {
+    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) 
+    {
         LOGGER.log(Level.INFO, "ChatResource updateChat: input: id:{0} , chat: {1}", new Object[]{chatsId, chat});
         chat.setId(chatsId);
         if (chatLogic.getChat(chatsId) == null) {

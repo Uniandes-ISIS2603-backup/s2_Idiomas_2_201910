@@ -103,7 +103,8 @@ public class EstadiaResource {
      */
     @GET
     @Path("{estadiasId: \\d+}")
-    public EstadiaDTO getEstadia(@PathParam("estadiasId") Long estadiasId) throws WebApplicationException {
+    public EstadiaDTO getEstadia(@PathParam("estadiasId") Long estadiasId)
+    {
         LOGGER.log(Level.INFO, "EstadiaResource getEstadia: input: {0}", estadiasId);
         EstadiaEntity estadiaEntity = estadiaLogic.getEstadia(estadiasId);
         if (estadiaEntity == null) {
@@ -129,7 +130,8 @@ public class EstadiaResource {
      */
     @PUT
     @Path("{estadiasId: \\d+}")
-    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) throws WebApplicationException {
+    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) 
+    {
         LOGGER.log(Level.INFO, "EstadiaResource updateEstadia: input: id:{0} , estadia: {1}", new Object[]{estadiasId, estadia});
         estadia.setId(estadiasId);
         if (estadiaLogic.getEstadia(estadiasId) == null) {

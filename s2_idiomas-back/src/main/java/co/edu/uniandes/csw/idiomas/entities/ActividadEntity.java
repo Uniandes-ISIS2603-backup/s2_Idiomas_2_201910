@@ -70,6 +70,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     /**
      * Atributo que representa los coordinadores de una actividad.
      */
+    @PodamExclude
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<CoordinadorEntity> coordinadores = new ArrayList<>();
     
