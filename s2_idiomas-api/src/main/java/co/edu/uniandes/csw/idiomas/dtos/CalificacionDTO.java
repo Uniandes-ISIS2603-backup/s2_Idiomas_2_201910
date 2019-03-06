@@ -67,6 +67,7 @@ public class CalificacionDTO implements Serializable {
     {
         CalificacionEntity cal = new CalificacionEntity();
         cal.setCalificacion(calificacion);
+        cal.setMensaje(mensaje);
         return cal;
     }
     

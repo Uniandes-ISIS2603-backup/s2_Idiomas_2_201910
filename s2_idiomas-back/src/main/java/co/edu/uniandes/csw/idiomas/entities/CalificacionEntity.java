@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.idiomas.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.FetchType;
+import javax.inject.Inject;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -130,6 +130,13 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
      */
     public void setComentarios(List<ComentarioEntity> comentarios) {
         this.comentarios = comentarios;
+    }
+    
+    @Inject
+    public CalificacionDTO toDTO()
+    {
+        CalificacionDTO cal = new CalificacionDTO(this);
+        return cal;
     }
     
     
