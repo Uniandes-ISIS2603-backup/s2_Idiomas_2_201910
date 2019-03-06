@@ -133,7 +133,7 @@ public class OtroPersistence {
      * Si existe alguna devuelve la primera.
      */
     public OtroEntity findByName(String pName) {
-        LOGGER.log(Level.INFO, "Consultando otro por nombre ", pName);
+        LOGGER.log(Level.INFO, "Consultando otro por nombre = {0}", pName);
         // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From OtroEntity e where e.nombre = :nombre", OtroEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
@@ -148,7 +148,7 @@ public class OtroPersistence {
         } else {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar otro por nombre ", pName);
+        LOGGER.log(Level.INFO, "Saliendo de consultar otro por nombre = {0}", pName);
         return result;
     }
     

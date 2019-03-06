@@ -133,7 +133,7 @@ public class EncuentroPersistence {
      * Si existe alguna devuelve la primera.
      */
     public EncuentroEntity findByName(String pName) {
-        LOGGER.log(Level.INFO, "Consultando encuentro por nombre ", pName);
+        LOGGER.log(Level.INFO, "Consultando encuentro por nombre = {0}", pName);
         // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From EncuentroEntity e where e.nombre = :nombre", EncuentroEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
@@ -148,7 +148,7 @@ public class EncuentroPersistence {
         } else {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar encuentro por nombre ", pName);
+        LOGGER.log(Level.INFO, "Saliendo de consultar encuentro por nombre = {0}", pName);
         return result;
     }
     

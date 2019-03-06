@@ -130,7 +130,7 @@ public class ChatPersistence {
      * existe alguna devuelve la primera.
      */
     public ChatEntity findByName(String pName) {
-        LOGGER.log(Level.INFO, "Consultando chat por nombre ", pName);
+        LOGGER.log(Level.INFO, "Consultando chat por nombre = {0}", pName);
         // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From ChatEntity e where e.nombre = :nombre", ChatEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
@@ -138,12 +138,14 @@ public class ChatPersistence {
         // Se invoca el query se obtiene la lista resultado
         List<ChatEntity> sameName = query.getResultList();
         ChatEntity result;
-        if (sameName != null && sameName.isEmpty()) {
+        if (sameName == null) {
+            result = null;
+        } else if (sameName.isEmpty()) {
             result = null;
         } else {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar chat por nombre ", pName);
+        LOGGER.log(Level.INFO, "Saliendo de consultar chat por nombre = {0}", pName);
         return result;
     }
 

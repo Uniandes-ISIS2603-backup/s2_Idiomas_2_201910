@@ -143,12 +143,11 @@ public class ActividadPersistence {
         // Se invoca el query se obtiene la lista resultado
         List<ActividadEntity> sameName = query.getResultList();
         ActividadEntity result;
-        if (sameName != null && sameName.isEmpty())
-        {
+        if (sameName == null) {
             result = null;
-        }
-        else
-        {
+        } else if (sameName.isEmpty()) {
+            result = null;
+        } else {
             result = sameName.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);

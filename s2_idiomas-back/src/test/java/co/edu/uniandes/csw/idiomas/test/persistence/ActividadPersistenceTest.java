@@ -200,6 +200,8 @@ public class ActividadPersistenceTest {
 
         newEntity = actividadPersistence.findByName(null);
         Assert.assertNull(newEntity);
+        newEntity = actividadPersistence.findByName("");
+        Assert.assertNull(newEntity);
     }
 }
 
