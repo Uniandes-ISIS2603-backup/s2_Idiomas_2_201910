@@ -35,9 +35,15 @@ public class ComentarioPersistence {
     public ComentarioEntity find(Long commentsID) {
         return em.find(ComentarioEntity.class, commentsID);
     }
-    
-    public List<ComentarioEntity> findAll(){
+
+    public List<ComentarioEntity> findAll() {
         TypedQuery<ComentarioEntity> query = em.createQuery("select u from ComentarioEntity u", ComentarioEntity.class);
         return query.getResultList();
+    }
+
+    public void delete(Long commentId) {
+        LOGGER.log(Level.INFO, "Borrando el libro con id={0}", commentId);
+        ComentarioEntity comentarioEntity = em.find(ComentarioEntity.class, commentId);
+        em.remove(comentarioEntity);
     }
 }

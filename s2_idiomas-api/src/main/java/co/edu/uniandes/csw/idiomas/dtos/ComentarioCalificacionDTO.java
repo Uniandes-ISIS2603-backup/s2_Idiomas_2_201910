@@ -29,6 +29,10 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
             this.titulo = entity.getTitulo();
         }
     }
+    
+    public ComentarioCalificacionDTO(){
+        
+    }
 
     /**
      * @return the titulo

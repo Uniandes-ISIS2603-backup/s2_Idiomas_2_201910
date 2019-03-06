@@ -20,6 +20,7 @@ public class ComentarioActividadDTO extends ComentarioDTO implements Serializabl
     /**
      * Constructor de ComentarioActividadDTO
      * @param entity recibe la informacion del comentario.
+     * @param entity2 recibe la informacion de un comentario general.
      */
     public ComentarioActividadDTO(ComentarioActividadEntity entity, ComentarioEntity entity2)
     {
@@ -27,6 +28,10 @@ public class ComentarioActividadDTO extends ComentarioDTO implements Serializabl
         if (entity != null) {
             this.titulo = entity.getTitulo();
         }
+    }
+    
+    public ComentarioActividadDTO(){
+        
     }
 
     /**

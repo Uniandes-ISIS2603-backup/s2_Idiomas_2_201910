@@ -21,14 +21,23 @@ public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
     public ComentarioDetailDTO(ComentarioEntity entity) {
         super(entity);
         if (entity != null) {
-            this.autor = entity.getAutor();
+            if (entity.getAutor() != null) {
+                this.autor = entity.getAutor();
+            }
         }
 
     }
 
-    public ComentarioEntity toEntityD() {
-        ComentarioEntity entity = new ComentarioEntity();
-        entity.setAutor(this.getAutor());
+    public ComentarioDetailDTO() {
+
+    }
+
+    @Override
+    public ComentarioEntity toEntity() {
+        ComentarioEntity entity = super.toEntity();
+        if (autor != null) {
+            entity.setAutor(this.getAutor());
+        }
         return entity;
     }
 

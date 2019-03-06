@@ -6,18 +6,20 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
+import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
- * @author Santiago Gamboa
+ * @author se.gamboa
  */
 public class ComentarioDTO implements Serializable {
 
     private String texto;
     private Date fecha;
     private Long id;
+    private PersonaDTO autor;
 
     /**
      * Constructor de ComentarioActividadDTO
@@ -29,7 +31,12 @@ public class ComentarioDTO implements Serializable {
             this.texto = entity.getTexto();
             this.fecha = entity.getFecha();
             this.id = entity.getId();
+            //this.autor = new PersonaDTO(entity.getAutor());
         }
+    }
+    
+    public ComentarioDTO(){
+        
     }
 
     /**

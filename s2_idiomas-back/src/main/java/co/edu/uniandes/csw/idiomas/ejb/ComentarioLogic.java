@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -34,15 +35,24 @@ public class ComentarioLogic {
     public ComentarioEntity createComment(ComentarioEntity entidad) throws BusinessLogicException, ParseException {
         Date date1 = sdf.parse("2018-12-31");
         if (entidad.getTexto() == null) {
-            throw new BusinessLogicException("El titulo del comentario no puede ser null");
+            throw new BusinessLogicException("El texto del comentario no puede ser null");
         }
         if (entidad.getTexto().length() == 0) {
-            throw new BusinessLogicException("El titulo debe contener al menos un caracter");
+            throw new BusinessLogicException("El texto debe contener al menos un caracter");
         }
-        if (entidad.getFecha().compareTo(date1) == -1) {
-            throw new BusinessLogicException("El titulo debe contener al menos un caracter");
+        if (entidad.getFecha().before(date1)) {
+            throw new BusinessLogicException("la fecha no es aceptada");
         }
         entidad = persistence.create(entidad);
         return entidad;
     } 
+    
+    public void deleteComment(Long commentId) throws BusinessLogicException {
+        persistence.delete(commentId);
+    }
+    
+    public ComentarioEntity getComment(Long comentarioId){
+        ComentarioEntity comentario = persistence.find(comentarioId);
+        return comentario;
+    }
 }
