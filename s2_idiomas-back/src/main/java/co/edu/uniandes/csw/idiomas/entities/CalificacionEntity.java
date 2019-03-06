@@ -139,5 +139,12 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
         return cal;
     }
     
+    @Inject
+    public CalificacionDetailDTO toDetailDTO()
+    {
+        CalificacionDetailDTO cal = new CalificacionDetailDTO(this);
+        return cal;
+    }
+    
     
 }
