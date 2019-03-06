@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author estudiante
+ * @author jdruedaa
  */
 public class CalificacionDetailDTO extends CalificacionDTO implements Serializable {
     private List<ComentarioDTO> comentarios;
@@ -29,7 +29,10 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
         if(cal!=null)
         {
             comentarios = new ArrayList<>();
-            
+            for(ComentarioEntity entityComentario : cal.getComentarios())
+            {
+                comentarios.add(entityComentario.toDTO());
+            }
         }
     }
 
@@ -58,7 +61,7 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
                 comentariosEntity.add(dtoComentario.toEntity());
             }
         }
-//        cal.setComentariosEntity(comentariosEntity);
+        cal.setComentarios(comentariosEntity);
         return cal;
     }
 }
