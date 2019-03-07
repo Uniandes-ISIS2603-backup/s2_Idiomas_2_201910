@@ -98,12 +98,17 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
             return false;
         }
         EncuentroEntity fobj = (EncuentroEntity) obj;
-        if(aprobado.equals(fobj.getAprobado()) && lugar.equals(fobj.getLugar())
-                && numeroMaxAsistentes.equals(fobj.getNumeroMaxAsistentes()))
-        {
-            return true;
-        }
-        return false;
+        return aprobado.equals(fobj.getAprobado()) && lugar.equals(fobj.getLugar())
+                && numeroMaxAsistentes.equals(fobj.getNumeroMaxAsistentes());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 31 * hash + Objects.hashCode(this.lugar);
+        hash = 31 * hash + Objects.hashCode(this.numeroMaxAsistentes);
+        hash = 31 * hash + Objects.hashCode(this.aprobado);
+        return hash;
     }
     
 }

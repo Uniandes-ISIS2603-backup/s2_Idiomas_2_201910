@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.idiomas.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -91,11 +92,15 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
             return false;
         }
         EstadiaEntity fobj = (EstadiaEntity) obj;
-        if(anfitrion.equals(fobj.getAnfitrion()) && pais.equals(fobj.getPais()))
-        {
-            return true;
-        }
-        return false;
+        return anfitrion.equals(fobj.getAnfitrion()) && pais.equals(fobj.getPais());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 19 * hash + Objects.hashCode(this.pais);
+        hash = 19 * hash + Objects.hashCode(this.anfitrion);
+        return hash;
     }
 
     /**

@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -212,13 +213,19 @@ public class ActividadEntity extends BaseEntity implements Serializable{
             return false;
         }
         ActividadEntity fobj = (ActividadEntity) obj;
-        if(descripcion.equals(fobj.getDescripcion()) && fecha.equals(fobj.getFecha())
-                && motivacion.equals(fobj.getMotivacion()) 
-                && nombre.equals(fobj.getNombre()))
-        {
-            return true;
-        }
-        return false;
+        return descripcion.equals(fobj.getDescripcion()) && fecha.equals(fobj.getFecha())
+                && motivacion.equals(fobj.getMotivacion())
+                && nombre.equals(fobj.getNombre());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.nombre);
+        hash = 97 * hash + Objects.hashCode(this.fecha);
+        hash = 97 * hash + Objects.hashCode(this.descripcion);
+        hash = 97 * hash + Objects.hashCode(this.motivacion);
+        return hash;
     }
     
 }

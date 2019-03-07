@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 
 /**
@@ -58,11 +59,14 @@ public class ChatEntity extends ActividadEntity implements Serializable{
             return false;
         }
         ChatEntity fobj = (ChatEntity) obj;
-        if(medio.equals(fobj.getMedio()))
-        {
-            return true;
-        }
-        return false;
+        return medio.equals(fobj.getMedio());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.medio);
+        return hash;
     }
 
     
