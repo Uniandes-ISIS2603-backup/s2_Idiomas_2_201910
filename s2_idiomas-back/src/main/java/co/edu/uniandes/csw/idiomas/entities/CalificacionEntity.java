@@ -132,12 +132,13 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
         this.comentarios = comentarios;
     }
     
-    @Inject
-    public CalificacionDTO toDTO()
-    {
-        CalificacionDTO cal = new CalificacionDTO(this);
-        return cal;
-    }
+    // Este método no debería estar aquí
+//    @Inject
+//    public CalificacionDTO toDTO()
+//    {
+//        CalificacionDTO cal = new CalificacionDTO(this);
+//        return cal;
+//    }
     
     
     @Override
