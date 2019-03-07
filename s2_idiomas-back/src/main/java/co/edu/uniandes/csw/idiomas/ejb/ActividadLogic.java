@@ -54,17 +54,29 @@ public class ActividadLogic {
     public ActividadEntity createActividad(ActividadEntity actividadEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la actividad");
-        // Verifica la regla de negocio que dice que no puede haber dos actividades con el mismo nombre
-        if (persistence.findByName(actividadEntity.getNombre()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una Actividad con el nombre \"" + actividadEntity.getNombre()+ "\"");
-        }
+        // Verifica la regla de negocio que dice que el nombre de la actividad no puede ser vacío.
         if (!validateName(actividadEntity.getNombre()))
         {
-            throw new BusinessLogicException("El nombre es inválido");
+            throw new BusinessLogicException("El nombre es inválido.");
         }
-        
-        
+        // Verifica la regla de negocio que dice que una actividad debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (actividadEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La actividad debe tener un coordinador.");
+//        }
+        // Verifica la regla de negocio que dice que una actividad no puede ser idéntica a otra actividad.
+        if (persistence.findByName(actividadEntity.getNombre())!= null &&
+                persistence.findByName(actividadEntity.getNombre()).equals(actividadEntity))
+        {
+            throw new BusinessLogicException("La actividad ya existe.");
+        }
+        // Verifica la regla de negocio que dice que una actividad no puede tener el mismo id.
+        if (persistence.find(actividadEntity.getId()) != null)
+        {
+            throw new BusinessLogicException("Ya existe una actividad con ese id: " +
+                    actividadEntity.getId());
+        }
         // Invoca la persistencia para crear la actividad
         persistence.create(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la actividad");
@@ -115,9 +127,25 @@ public class ActividadLogic {
      * por ejemplo el nombre.
      * @return la actividad con los cambios actualizados en la base de datos.
      */
-    public ActividadEntity updateActividad(Long  pActividadesId, ActividadEntity actividadEntity) 
+    public ActividadEntity updateActividad(Long  pActividadesId, ActividadEntity actividadEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la actividad con id = {0}",  pActividadesId);
+        if (!validateName(actividadEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido.");
+        }
+        // Verifica la regla de negocio que dice que una actividad debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (actividadEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La actividad debe tener un coordinador.");
+//        }
+        // Verifica la regla de negocio que dice que una actividad no puede ser idéntica a otra actividad.
+        if (persistence.findByName(actividadEntity.getNombre())!= null &&
+                persistence.findByName(actividadEntity.getNombre()).equals(actividadEntity))
+        {
+            throw new BusinessLogicException("La actividad ya existe.");
+        }
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         ActividadEntity newEntity = persistence.update(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la actividad con id = {0}", actividadEntity.getId());

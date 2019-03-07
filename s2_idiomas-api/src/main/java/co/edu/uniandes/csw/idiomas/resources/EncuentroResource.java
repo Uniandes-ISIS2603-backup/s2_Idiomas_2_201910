@@ -130,7 +130,7 @@ public class EncuentroResource {
      */
     @PUT
     @Path("{encuentrosId: \\d+}")
-    public EncuentroDTO updateEncuentro(@PathParam("encuentrosId") Long encuentrosId, EncuentroDTO encuentro)
+    public EncuentroDTO updateEncuentro(@PathParam("encuentrosId") Long encuentrosId, EncuentroDTO encuentro) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "EncuentroResource updateEncuentro: input: id:{0} , encuentro: {1}", new Object[]{encuentrosId, encuentro});
         encuentro.setId(encuentrosId);

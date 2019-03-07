@@ -54,10 +54,47 @@ public class EncuentroLogic {
     public EncuentroEntity createEncuentro(EncuentroEntity encuentroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la encuentro");
-        // Verifica la regla de negocio que dice que no puede haber dos encuentros con el mismo nombre
-        if (persistence.findByName(encuentroEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Encuentro con el nombre \"" + encuentroEntity.getNombre()+ "\"");
+        
+        // Verifica la regla de negocio que dice que el nombre del encuentro no puede ser vacío.
+        if (!validateName(encuentroEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido.");
         }
+        
+        // Verifica la regla de negocio que dice que una encuentro debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (encuentroEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La encuentro debe tener un coordinador.");
+//        }
+
+        // Verifica la regla de negocio que dice que una encuentro no puede ser idéntica a otra encuentro.
+        if (persistence.findByName(encuentroEntity.getNombre())!= null &&
+                persistence.findByName(encuentroEntity.getNombre()).equals(encuentroEntity))
+        {
+            throw new BusinessLogicException("La encuentro ya existe.");
+        }
+        
+        // Verifica la regla de negocio que dice que el lugar del encuentro no puede ser vacío.
+        if (!validateName(encuentroEntity.getLugar()))
+        {
+            throw new BusinessLogicException("El lugar es inválido: " + encuentroEntity.getLugar());
+        }
+        
+        // Verifica la regla de negocio que dice que el encuentro debe tener un 
+        //número máximo de asistentes definido. Este número es un entero positivo mayor que cero.
+        if (!validateNumber(encuentroEntity.getNumeroMaxAsistentes()))
+        {
+            throw new BusinessLogicException("El número de asistentes es inválido.");
+        }
+        
+        // Verifica la regla de negocio que dice que una encuentro no puede tener el mismo id.
+        if (persistence.find(encuentroEntity.getId()) != null)
+        {
+            throw new BusinessLogicException("Ya existe una encuentro con ese id: " +
+                    encuentroEntity.getId());
+        }
+        
         // Invoca la persistencia para crear la encuentro
         persistence.create(encuentroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la encuentro");
@@ -108,9 +145,43 @@ public class EncuentroLogic {
      * por ejemplo el nombre.
      * @return la encuentro con los cambios actualizados en la base de datos.
      */
-    public EncuentroEntity updateEncuentro(Long  pEncuentrosId, EncuentroEntity encuentroEntity) 
+    public EncuentroEntity updateEncuentro(Long  pEncuentrosId, EncuentroEntity encuentroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la encuentro con id = {0}",  pEncuentrosId);
+        
+        // Verifica la regla de negocio que dice que el nombre del encuentro no puede ser vacío.
+        if (!validateName(encuentroEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido.");
+        }
+        
+        // Verifica la regla de negocio que dice que una encuentro debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (encuentroEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La encuentro debe tener un coordinador.");
+//        }
+
+        // Verifica la regla de negocio que dice que una encuentro no puede ser idéntica a otra encuentro.
+        if (persistence.findByName(encuentroEntity.getNombre())!= null &&
+                persistence.findByName(encuentroEntity.getNombre()).equals(encuentroEntity))
+        {
+            throw new BusinessLogicException("La encuentro ya existe.");
+        }
+        
+        // Verifica la regla de negocio que dice que el lugar del encuentro no puede ser vacío.
+        if (!validateName(encuentroEntity.getLugar()))
+        {
+            throw new BusinessLogicException("El lugar es inválido.");
+        }
+        
+        // Verifica la regla de negocio que dice que el encuentro debe tener un 
+        //número máximo de asistentes definido. Este número es un entero positivo mayor que cero.
+        if (!validateNumber(encuentroEntity.getNumeroMaxAsistentes()))
+        {
+            throw new BusinessLogicException("El número de asistentes es inválido.");
+        }
+        
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         EncuentroEntity newEntity = persistence.update(encuentroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la encuentro con id = {0}", encuentroEntity.getId());
@@ -133,6 +204,28 @@ public class EncuentroLogic {
         }
         persistence.delete(pEncuentrosId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la encuentro con id = {0}", pEncuentrosId);
+    }
+    
+    /**
+     * Verifica que el nombre no sea invalido.
+     *
+     * @param pNombre a verificar
+     * @return true si el nombre es valido.
+     */
+    private boolean validateName(String pNombre) 
+    {
+        return !(pNombre == null || pNombre.isEmpty());
+    }
+    
+    /**
+     * Verifica que el nombre no sea invalido.
+     *
+     * @param pNumero a verificar
+     * @return true si el nombre es valido.
+     */
+    private boolean validateNumber(Integer pNumero) 
+    {
+        return !(pNumero == null || pNumero <= 0);
     }
     
 }

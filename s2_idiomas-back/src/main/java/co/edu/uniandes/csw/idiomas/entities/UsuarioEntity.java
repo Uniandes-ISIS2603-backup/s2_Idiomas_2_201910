@@ -18,8 +18,8 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class UsuarioEntity extends BaseEntity implements Serializable{
-    Long contrasenia;
-    String nombre;
+    private Long contrasenia;
+    private String nombre;
     
 //    @PodamExclude
 //    @ManyToMany(mappedBy = "usuarios")
@@ -38,6 +38,10 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     @ManyToMany
     private List<ActividadEntity> actividades = new ArrayList<>();
  
+    
+    @PodamExclude
+    @ManyToMany
+    private List<EstadiaEntity> estadias = new ArrayList<>();
     /**
      * Connstructor vacio de un Entity
      */
@@ -76,6 +80,20 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the estadias
+     */
+    public List<EstadiaEntity> getEstadias() {
+        return estadias;
+    }
+
+    /**
+     * @param estadias the estadias to set
+     */
+    public void setEstadias(List<EstadiaEntity> estadias) {
+        this.estadias = estadias;
     }
     
 }

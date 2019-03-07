@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 
 /**
@@ -85,5 +86,24 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
     public void setAprobado(Boolean aprobado) {
         this.aprobado = aprobado;
     }    
+    
+    /**
+     * Equals de la clase
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(!super.equals(obj))
+        {
+            return false;
+        }
+        EncuentroEntity fobj = (EncuentroEntity) obj;
+        if(aprobado.equals(fobj.getAprobado()) && lugar.equals(fobj.getLugar())
+                && numeroMaxAsistentes.equals(fobj.getNumeroMaxAsistentes()))
+        {
+            return true;
+        }
+        return false;
+    }
     
 }

@@ -53,15 +53,56 @@ public class EstadiaLogic {
      */
     public EstadiaEntity createEstadia(EstadiaEntity estadiaEntity) throws BusinessLogicException 
     {
+        if(estadiaEntity != null)
+        {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la estadia");
-        // Verifica la regla de negocio que dice que no puede haber dos estadias con el mismo nombre
-        if (persistence.findByName(estadiaEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Estadia con el nombre \"" + estadiaEntity.getNombre()+ "\"");
+        
+        // Verifica la regla de negocio que dice que el nombre del estadia no puede ser vacío.
+        if (!validateName(estadiaEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido.");
         }
+        
+        // Verifica la regla de negocio que dice que una estadia debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (estadiaEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La estadia debe tener un coordinador.");
+//        }
+
+        // Verifica la regla de negocio que dice que una estadia no puede ser idéntica a otra estadia.
+        if (persistence.findByName(estadiaEntity.getNombre()) != null &&
+                persistence.findByName(estadiaEntity.getNombre()).equals(estadiaEntity))
+        {
+            throw new BusinessLogicException("La estadia ya existe.");
+        }
+        
+        // Verifica la regla de negocio que dice que el pais del estadia no puede ser vacío.
+        if (!validateName(estadiaEntity.getPais()))
+        {
+            throw new BusinessLogicException("El lugar es inválido: ");
+        }
+        
+        // Verifica la regla de negocio que dice que una estadia debe tener un anfitrion.
+        // TODO: GC Conectar con Anfitrion.
+//        if (estadiaEntity.getAnfitrion().isEmpty())
+//        {
+//            throw new BusinessLogicException("La estadia debe tener un anfitrion.");
+//        }
+        
+        // Verifica la regla de negocio que dice que una estadia no puede tener el mismo id.
+        if (persistence.find(estadiaEntity.getId()) != null)
+        {
+            throw new BusinessLogicException("Ya existe una estadia con ese id: " +
+                    estadiaEntity.getId());
+        }
+        }
+        
         // Invoca la persistencia para crear la estadia
         persistence.create(estadiaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la estadia");
         return estadiaEntity;
+    
     }
 
     /**
@@ -108,9 +149,43 @@ public class EstadiaLogic {
      * por ejemplo el nombre.
      * @return la estadia con los cambios actualizados en la base de datos.
      */
-    public EstadiaEntity updateEstadia(Long  pEstadiasId, EstadiaEntity estadiaEntity) 
+    public EstadiaEntity updateEstadia(Long  pEstadiasId, EstadiaEntity estadiaEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la estadia con id = {0}",  pEstadiasId);
+        
+        // Verifica la regla de negocio que dice que el nombre del estadia no puede ser vacío.
+        if (!validateName(estadiaEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido.");
+        }
+        
+        // Verifica la regla de negocio que dice que una estadia debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (estadiaEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La estadia debe tener un coordinador.");
+//        }
+
+        // Verifica la regla de negocio que dice que una estadia no puede ser idéntica a otra estadia.
+        if (persistence.findByName(estadiaEntity.getNombre())!= null &&
+                persistence.findByName(estadiaEntity.getNombre()).equals(estadiaEntity))
+        {
+            throw new BusinessLogicException("La estadia ya existe.");
+        }
+        
+        // Verifica la regla de negocio que dice que el pais del estadia no puede ser vacío.
+        if (!validateName(estadiaEntity.getPais()))
+        {
+            throw new BusinessLogicException("El lugar es inválido: ");
+        }
+        
+        // Verifica la regla de negocio que dice que una estadia debe tener un anfitrion.
+        // TODO: GC Conectar con Anfitrion.
+//        if (estadiaEntity.getAnfitrion().isEmpty())
+//        {
+//            throw new BusinessLogicException("La estadia debe tener un anfitrion.");
+//        }
+        
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         EstadiaEntity newEntity = persistence.update(estadiaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la estadia con id = {0}", estadiaEntity.getId());
@@ -133,6 +208,17 @@ public class EstadiaLogic {
         }
         persistence.delete(pEstadiasId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la estadia con id = {0}", pEstadiasId);
+    }
+    
+    /**
+     * Verifica que el nombre no sea invalido.
+     *
+     * @param pNombre a verificar
+     * @return true si el nombre es valido.
+     */
+    private boolean validateName(String pNombre) 
+    {
+        return !(pNombre == null || pNombre.isEmpty());
     }
     
 }

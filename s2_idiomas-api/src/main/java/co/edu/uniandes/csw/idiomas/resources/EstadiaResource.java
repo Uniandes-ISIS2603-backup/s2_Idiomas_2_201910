@@ -130,7 +130,7 @@ public class EstadiaResource {
      */
     @PUT
     @Path("{estadiasId: \\d+}")
-    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) 
+    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "EstadiaResource updateEstadia: input: id:{0} , estadia: {1}", new Object[]{estadiasId, estadia});
         estadia.setId(estadiasId);

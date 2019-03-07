@@ -31,7 +31,8 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
             comentarios = new ArrayList<>();
             for(ComentarioEntity entityComentario : cal.getComentarios())
             {
-                comentarios.add(entityComentario.toDTO());
+                // Se llama un método inexistente
+//                comentarios.add(entityComentario.toDTO());
             }
         }
     }
@@ -61,7 +62,8 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
                 comentariosEntity.add(dtoComentario.toEntity());
             }
         }
-        cal.setComentarios(comentariosEntity);
+        // La línea siguiente produce error.
+//        cal.setComentarios(comentariosEntity);
         return cal;
     }
 }
