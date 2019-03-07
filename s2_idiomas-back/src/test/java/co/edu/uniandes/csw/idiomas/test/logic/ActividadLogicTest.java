@@ -10,7 +10,6 @@ import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
-import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
 import java.util.ArrayList;
@@ -132,14 +131,14 @@ public class ActividadLogicTest {
         {
             ActividadEntity entity = factory.manufacturePojo(ActividadEntity.class);
             em.persist(entity);
-            entity.setAsistentes(new ArrayList<>());
-            entity.setComentarios(new ArrayList<>());
-            entity.setCoordinadores(new ArrayList<>());
             entity.getCoordinadores().add(coordinadorData.get(0));
             // TODO : GC Poner calificación
             data.add(entity);
-            data.add(entity);
         }
+        ComentarioActividadEntity comentario = factory.manufacturePojo(ComentarioActividadEntity.class);
+        comentario.setActividad(data.get(1));
+        em.persist(comentario);
+        data.get(1).getComentarios().add(comentario);
     }
 
     /**
@@ -237,6 +236,15 @@ public class ActividadLogicTest {
         Assert.assertEquals(resultEntity.getDescripcion(), entity.getDescripcion());
         Assert.assertEquals(resultEntity.getFecha(), entity.getFecha());
     }
+    
+    /**
+     * Prueba para consultar un Actividad.
+     */
+    @Test
+    public void getActividadNoExistenteTest() {
+        ActividadEntity resultEntity = actividadLogic.getActividad(-1L);
+        Assert.assertNull(resultEntity);
+    }
 
     /**
      * Prueba para actualizar un Actividad.
@@ -257,6 +265,55 @@ public class ActividadLogicTest {
 //        Assert.assertEquals(resp.getNombre(), entity.getNombre());
 //        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
 //        Assert.assertEquals(resp.getFecha(), entity.getFecha());
+    }
+    
+    /**
+     * Prueba para crear un Actividad con nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateActividadTestConNombreInvalido1() throws BusinessLogicException {
+        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+        newEntity.setNombre("");
+        actividadLogic.updateActividad(newEntity.getId(), newEntity);
+    }
+
+    /**
+     * Prueba para crear un Actividad con nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateActividadTestConNombreInvalido2() throws BusinessLogicException {
+        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+        newEntity.setNombre(null);
+        actividadLogic.updateActividad(newEntity.getId(), newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Actividad sin un coordinador
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    // TODO: GC Conectar con coordinador
+//    @Test(expected = BusinessLogicException.class)
+//    public void createActividadTestSinCoordinador() throws BusinessLogicException {
+//        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+//        newEntity.setCoordinadores(null);
+//        actividadLogic.createActividad(newEntity);
+//    }
+    
+    /**
+     * Prueba para crear un Actividad ya existente.
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateActividadTestYaExistente() throws BusinessLogicException {
+        List<ActividadEntity> actividades = actividadLogic.getActividades();
+        ActividadEntity newEntity = actividades.get(0);
+        actividadLogic.updateActividad(newEntity.getId(), newEntity);
     }
 
     /**
@@ -289,9 +346,10 @@ public class ActividadLogicTest {
      * 
      * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
-//    @Test(expected = BusinessLogicException.class)
-//    public void deleteActividadConComentarioTest() throws BusinessLogicException {
-//        actividadLogic.deleteActividad(data.get(1).getId());
-//    }
+    @Test(expected = BusinessLogicException.class)
+    public void deleteActividadConComentarioTest() throws BusinessLogicException 
+    {
+        actividadLogic.deleteActividad(data.get(1).getId());
+    }
     
 }
