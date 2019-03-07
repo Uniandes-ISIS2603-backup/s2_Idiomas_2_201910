@@ -58,6 +58,24 @@ public class ChatEntity extends ActividadEntity implements Serializable{
     public void setMedio(String medio) {
         this.medio = medio;
     }
+    
+    /**
+     * Equals de la clase
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(!super.equals(obj))
+        {
+            return false;
+        }
+        ChatEntity fobj = (ChatEntity) obj;
+        if(medio.equals(fobj.getMedio()))
+        {
+            return true;
+        }
+        return false;
+    }
 
     
     

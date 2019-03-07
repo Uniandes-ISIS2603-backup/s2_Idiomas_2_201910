@@ -129,7 +129,8 @@ public class ChatResource {
      */
     @PUT
     @Path("{chatsId: \\d+}")
-    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) throws WebApplicationException {
+    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) throws BusinessLogicException 
+    {
         LOGGER.log(Level.INFO, "ChatResource updateChat: input: id:{0} , chat: {1}", new Object[]{chatsId, chat});
         chat.setId(chatsId);
         if (chatLogic.getChat(chatsId) == null) {

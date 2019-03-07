@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.test.logic;
 
 import co.edu.uniandes.csw.idiomas.ejb.ActividadLogic;
+import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
@@ -46,7 +47,13 @@ public class ActividadLogicTest {
      */
     @Inject
     private ActividadLogic actividadLogic;
-
+    
+    /**
+     * Inyección de dependencias con CoordinadorLogic
+     */
+    @Inject
+    private CoordinadorLogic corLogic;
+    
     /**
      * Contexto de persistencia que se va a utilizar para acceder a la base 
      * de datos.
@@ -62,6 +69,8 @@ public class ActividadLogicTest {
     private UserTransaction utx;
 
     private List<ActividadEntity> data = new ArrayList<>();
+    
+    private List<CoordinadorEntity> coordinadorData = new ArrayList<>();
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -105,6 +114,7 @@ public class ActividadLogicTest {
         em.createQuery("delete from UsuarioEntity").executeUpdate();
         em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
         em.createQuery("delete from ActividadEntity").executeUpdate();
+        em.createQuery("delete from CoordinadorEntity").executeUpdate();
     }
 
     /**
@@ -112,31 +122,24 @@ public class ActividadLogicTest {
      * pruebas.
      */
     private void insertData() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++)
+        {
+            CoordinadorEntity coordinador = factory.manufacturePojo(CoordinadorEntity.class);
+            em.persist(coordinador);
+            coordinadorData.add(coordinador);
+        }
+        for (int i = 0; i < 3; i++) 
+        {
             ActividadEntity entity = factory.manufacturePojo(ActividadEntity.class);
             em.persist(entity);
             entity.setAsistentes(new ArrayList<>());
             entity.setComentarios(new ArrayList<>());
             entity.setCoordinadores(new ArrayList<>());
+            entity.getCoordinadores().add(coordinadorData.get(0));
             // TODO : GC Poner calificación
             data.add(entity);
+            data.add(entity);
         }
-        ActividadEntity actividad = data.get(2);
-        UsuarioEntity entity = factory.manufacturePojo(UsuarioEntity.class);
-        entity.getActividades().add(actividad);
-        em.persist(entity);
-        actividad.getAsistentes().add(entity);
-
-        ComentarioActividadEntity comentarios = factory.manufacturePojo(ComentarioActividadEntity.class);
-        comentarios.setActividad(data.get(1));
-        em.persist(comentarios);
-        data.get(1).getComentarios().add(comentarios);
-        
-//        CoordinadorEntity coordinador = factory.manufacturePojo(CoordinadorEntity.class);
-//        coordinador.setActividadesCoordinadas((List<ActividadEntity>) data.get(1));
-//        em.persist(coordinador);
-//        data.get(1).getCoordinadores().add(coordinador);
-        
     }
 
     /**
@@ -146,6 +149,11 @@ public class ActividadLogicTest {
     @Test
     public void createActividadTest() throws BusinessLogicException {
         ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+        CoordinadorEntity newCorEntity = factory.manufacturePojo(CoordinadorEntity.class);
+        
+        // TODO: GC Conectar con coordinador Logic
+//        newCorEntity = corLogic.createCoordinador(newCorEntity);
+//        newEntity.getCoordinadores().add(newCorEntity);
         ActividadEntity result = actividadLogic.createActividad(newEntity);
         Assert.assertNotNull(result);
         ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
@@ -173,6 +181,44 @@ public class ActividadLogicTest {
             Assert.assertTrue(found);
         }
     }
+    
+    /**
+     * Prueba para crear un Actividad con un id ya existente
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createActividadTestConIdExistente() throws BusinessLogicException {
+        List<ActividadEntity> actividades = actividadLogic.getActividades();
+        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+        newEntity.setId(actividades.get(0).getId());
+        actividadLogic.createActividad(newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Actividad sin un coordinador
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    // TODO: GC Conectar con coordinador
+//    @Test(expected = BusinessLogicException.class)
+//    public void createActividadTestSinCoordinador() throws BusinessLogicException {
+//        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
+//        newEntity.setCoordinadores(null);
+//        actividadLogic.createActividad(newEntity);
+//    }
+    
+    /**
+     * Prueba para crear un Actividad ya existente.
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createActividadTestYaExistente() throws BusinessLogicException {
+        List<ActividadEntity> actividades = actividadLogic.getActividades();
+        ActividadEntity newEntity = actividades.get(0);
+        actividadLogic.createActividad(newEntity);
+    }
 
     /**
      * Prueba para consultar un Actividad.
@@ -190,9 +236,10 @@ public class ActividadLogicTest {
 
     /**
      * Prueba para actualizar un Actividad.
+     * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
     @Test
-    public void updateActividadTest() {
+    public void updateActividadTest() throws BusinessLogicException {
         ActividadEntity entity = data.get(0);
         ActividadEntity pojoEntity = factory.manufacturePojo(ActividadEntity.class);
 

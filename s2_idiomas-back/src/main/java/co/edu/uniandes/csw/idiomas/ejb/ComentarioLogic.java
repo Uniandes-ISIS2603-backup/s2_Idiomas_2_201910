@@ -39,7 +39,7 @@ public class ComentarioLogic {
         if (entidad.getTexto().length() == 0) {
             throw new BusinessLogicException("El titulo debe contener al menos un caracter");
         }
-        if (entidad.getFecha().compareTo(date1) == -1) {
+        if (entidad.getFecha().compareTo(date1) < 0) {
             throw new BusinessLogicException("El titulo debe contener al menos un caracter");
         }
         entidad = persistence.create(entidad);

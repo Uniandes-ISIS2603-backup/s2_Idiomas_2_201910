@@ -129,7 +129,8 @@ public class OtroResource {
      */
     @PUT
     @Path("{otrosId: \\d+}")
-    public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro) throws WebApplicationException {
+    public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro) throws BusinessLogicException
+    {
         LOGGER.log(Level.INFO, "OtroResource updateOtro: input: id:{0} , otro: {1}", new Object[]{otrosId, otro});
         otro.setId(otrosId);
         if (otroLogic.getOtro(otrosId) == null) {

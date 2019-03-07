@@ -130,7 +130,8 @@ public class ActividadResource {
      */
     @PUT
     @Path("{actividadesId: \\d+}")
-    public ActividadDetailDTO updateActividad(@PathParam("actividadesId") Long actividadesId, ActividadDetailDTO actividad) throws WebApplicationException {
+    public ActividadDetailDTO updateActividad(@PathParam("actividadesId") Long actividadesId, ActividadDetailDTO actividad) throws BusinessLogicException
+    {
         LOGGER.log(Level.INFO, "ActividadResource updateActividad: input: id:{0} , actividad: {1}", new Object[]{actividadesId, actividad});
         actividad.setId(actividadesId);
         if (actividadLogic.getActividad(actividadesId) == null) {

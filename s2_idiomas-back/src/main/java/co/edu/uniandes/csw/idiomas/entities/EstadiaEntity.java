@@ -8,7 +8,9 @@ package co.edu.uniandes.csw.idiomas.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -38,6 +40,12 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
     @ManyToOne
     private AnfitrionEntity anfitrion;
     
+    /**
+     * Atributo que representa los asistentes de la actividad.
+     */
+    @PodamExclude
+    @ManyToMany(mappedBy = "estadias", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<UsuarioEntity> asistentesEstadia = new ArrayList<>();
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
@@ -82,4 +90,35 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
         this.anfitrion = anfitrion;
     }
     
+    /**
+     * Equals de la clase
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(!super.equals(obj))
+        {
+            return false;
+        }
+        EstadiaEntity fobj = (EstadiaEntity) obj;
+        if(anfitrion.equals(fobj.getAnfitrion()) && pais.equals(fobj.getPais()))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return the asistentesEstadia
+     */
+    public List<UsuarioEntity> getAsistentesEstadia() {
+        return asistentesEstadia;
+    }
+
+    /**
+     * @param asistentesEstadia the asistentesEstadia to set
+     */
+    public void setAsistentesEstadia(List<UsuarioEntity> asistentesEstadia) {
+        this.asistentesEstadia = asistentesEstadia;
+    }
 }

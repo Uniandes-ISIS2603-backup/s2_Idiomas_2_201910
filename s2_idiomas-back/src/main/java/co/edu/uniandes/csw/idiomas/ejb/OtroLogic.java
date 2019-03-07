@@ -54,10 +54,34 @@ public class OtroLogic {
     public OtroEntity createOtro(OtroEntity otroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la otro");
-        // Verifica la regla de negocio que dice que no puede haber dos otros con el mismo nombre
-        if (persistence.findByName(otroEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Otro con el nombre \"" + otroEntity.getNombre()+ "\"");
+        
+        // Verifica la regla de negocio que dice que el nombre del otro no puede ser vacío.
+        if (!validateName(otroEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido.");
         }
+        
+        // Verifica la regla de negocio que dice que una otro debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (otroEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La otro debe tener un coordinador.");
+//        }
+
+        // Verifica la regla de negocio que dice que una otro no puede ser idéntica a otra otro.
+        if (persistence.findByName(otroEntity.getNombre()) != null &&
+                persistence.findByName(otroEntity.getNombre()).equals(otroEntity))
+        {
+            throw new BusinessLogicException("La otro ya existe.");
+        }
+        
+        // Verifica la regla de negocio que dice que una otro no puede tener el mismo id.
+        if (persistence.find(otroEntity.getId()) != null)
+        {
+            throw new BusinessLogicException("Ya existe una otro con ese id: " +
+                    otroEntity.getId());
+        }
+        
         // Invoca la persistencia para crear la otro
         persistence.create(otroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la otro");
@@ -108,9 +132,30 @@ public class OtroLogic {
      * por ejemplo el nombre.
      * @return la otro con los cambios actualizados en la base de datos.
      */
-    public OtroEntity updateOtro(Long  pOtrosId, OtroEntity otroEntity) 
+    public OtroEntity updateOtro(Long  pOtrosId, OtroEntity otroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la otro con id = {0}",  pOtrosId);
+        
+        // Verifica la regla de negocio que dice que el nombre del otro no puede ser vacío.
+        if (!validateName(otroEntity.getNombre()))
+        {
+            throw new BusinessLogicException("El nombre es inválido.");
+        }
+        
+        // Verifica la regla de negocio que dice que una otro debe tener un coordinador.
+        // TODO: GC Conectar con Coordinador.
+//        if (otroEntity.getCoordinadores().isEmpty())
+//        {
+//            throw new BusinessLogicException("La otro debe tener un coordinador.");
+//        }
+
+        // Verifica la regla de negocio que dice que una otro no puede ser idéntica a otra otro.
+        if (persistence.findByName(otroEntity.getNombre()) != null &&
+                persistence.findByName(otroEntity.getNombre()).equals(otroEntity))
+        {
+            throw new BusinessLogicException("La otro ya existe.");
+        }
+        
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         OtroEntity newEntity = persistence.update(otroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la otro con id = {0}", otroEntity.getId());
@@ -133,6 +178,17 @@ public class OtroLogic {
         }
         persistence.delete(pOtrosId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la otro con id = {0}", pOtrosId);
+    }
+    
+    /**
+     * Verifica que el nombre no sea invalido.
+     *
+     * @param pNombre a verificar
+     * @return true si el nombre es valido.
+     */
+    private boolean validateName(String pNombre) 
+    {
+        return !(pNombre == null || pNombre.isEmpty());
     }
     
 }
