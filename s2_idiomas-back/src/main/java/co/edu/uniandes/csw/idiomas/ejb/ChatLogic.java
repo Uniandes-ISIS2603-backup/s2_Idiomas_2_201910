@@ -16,48 +16,42 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
- * Clase que implementa la conexion con la persistencia para la entidad de
- * Chat.
+ * Clase que implementa la conexion con la persistencia para la entidad de Chat.
  *
  * @author g.cubillosb
  */
 @Stateless
 public class ChatLogic {
-    
+
     // -------------------------------------------------------------------------
     // Atributos
     // -------------------------------------------------------------------------
-    
     /**
      * Logger para las acciones de la clase.
      */
     private static final Logger LOGGER = Logger.getLogger(ChatLogic.class.getName());
 
     /**
-     * Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+     * Variable para acceder a la persistencia de la aplicación. Es una
+     * inyección de dependencias.
      */
     @Inject
-    private ChatPersistence persistence; 
+    private ChatPersistence persistence;
 
     // -------------------------------------------------------------------------
     // Métodos
     // -------------------------------------------------------------------------
-    
     /**
      * Crea una chat en la persistencia.
      *
-     * @param chatEntity La entidad que representa la chat a
-     * persistir.
+     * @param chatEntity La entidad que representa la chat a persistir.
      * @return La entiddad de la chat luego de persistirla.
      * @throws BusinessLogicException Si la chat a persistir ya existe.
      */
-    public ChatEntity createChat(ChatEntity chatEntity) throws BusinessLogicException 
-    {
-<<<<<<< Updated upstream
+    public ChatEntity createChat(ChatEntity chatEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del chat");
         // Verifica la regla de negocio que dice que el nombre del chat no puede ser vacío.
-        if (!validateName(chatEntity.getNombre()))
-        {
+        if (!validateName(chatEntity.getNombre())) {
             throw new BusinessLogicException("El nombre es inválido.");
         }
         // Verifica la regla de negocio que dice que una chat debe tener un coordinador.
@@ -67,35 +61,31 @@ public class ChatLogic {
 //            throw new BusinessLogicException("La chat debe tener un coordinador.");
 //        }
         // Verifica la regla de negocio que dice que un el medio del chat no puede ser vacío.
-        if (!validateName(chatEntity.getMedio()))
-        {
+        if (!validateName(chatEntity.getMedio())) {
             throw new BusinessLogicException("El medio del chat es inválido.");
         }
         // Verifica la regla de negocio que dice que una chat no puede ser idéntica a otra chat.
-        if (persistence.findByName(chatEntity.getNombre())!= null &&
-                persistence.findByName(chatEntity.getNombre()).equals(chatEntity))
-        {
+        if (persistence.findByName(chatEntity.getNombre()) != null
+                && persistence.findByName(chatEntity.getNombre()).equals(chatEntity)) {
             throw new BusinessLogicException("La chat ya existe.");
         }
         // Verifica la regla de negocio que dice que una chat no puede tener el mismo id.
-        if (persistence.find(chatEntity.getId()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una chat con ese id: " +
-                    chatEntity.getId());
+        if (persistence.find(chatEntity.getId()) != null) {
+            throw new BusinessLogicException("Ya existe una chat con ese id: "
+                    + chatEntity.getId());
         }
         // Invoca la persistencia para crear la chat
         persistence.create(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación del chat");
-=======
+
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la chat");
         // Verifica la regla de negocio que dice que no puede haber dos chats con el mismo nombre
         if (persistence.findByName(chatEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Chat con el nombre \"" + chatEntity.getNombre()+ "\"");
+            throw new BusinessLogicException("Ya existe una Chat con el nombre \"" + chatEntity.getNombre() + "\"");
         }
         // Invoca la persistencia para crear la chat
         persistence.create(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la chat");
->>>>>>> Stashed changes
         return chatEntity;
     }
 
@@ -105,8 +95,7 @@ public class ChatLogic {
      *
      * @return una lista de chats.
      */
-    public List<ChatEntity> getChats() 
-    {
+    public List<ChatEntity> getChats() {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las chats");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<ChatEntity> chats = persistence.findAll();
@@ -121,8 +110,7 @@ public class ChatLogic {
      * @param chatsId: id de la chat para ser buscada.
      * @return la chat solicitada por medio de su id.
      */
-    public ChatEntity getChat(Long chatsId) 
-    {
+    public ChatEntity getChat(Long chatsId) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la chat con id = {0}", chatsId);
         // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.
         ChatEntity chatEntity = persistence.find(chatsId);
@@ -137,50 +125,38 @@ public class ChatLogic {
      *
      * Actualizar una chat.
      *
-     * @param pChatsId: id de la chat para buscarla en la base de
-     * datos.
-     * @param chatEntity: chat con los cambios para ser actualizada,
-     * por ejemplo el nombre.
+     * @param pChatsId: id de la chat para buscarla en la base de datos.
+     * @param chatEntity: chat con los cambios para ser actualizada, por ejemplo
+     * el nombre.
      * @return la chat con los cambios actualizados en la base de datos.
      */
-<<<<<<< Updated upstream
-    public ChatEntity updateChat(Long  pChatsId, ChatEntity chatEntity) throws BusinessLogicException 
-    {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}",  pChatsId);
-        
+
+    public ChatEntity updateChat(Long pChatsId, ChatEntity chatEntity) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}", pChatsId);
+
         // Verifica la regla de negocio que dice que el nombre del chat no puede ser vacío.
-        if (!validateName(chatEntity.getNombre()))
-        {
+        if (!validateName(chatEntity.getNombre())) {
             throw new BusinessLogicException("El nombre es inválido.");
         }
-        
+
         // Verifica la regla de negocio que dice que una chat debe tener un coordinador.
         // TODO: GC Conectar con Coordinador.
 //        if (chatEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La chat debe tener un coordinador.");
 //        }
-
         // Verifica la regla de negocio que dice que un el medio del chat no puede ser vacío.
-        if (!validateName(chatEntity.getMedio()))
-        {
+        if (!validateName(chatEntity.getMedio())) {
             throw new BusinessLogicException("El medio del chat es inválido.");
         }
-        
+
         // Verifica la regla de negocio que dice que una chat no puede ser idéntica a otra chat.
-        if (persistence.findByName(chatEntity.getNombre())!= null &&
-                persistence.findByName(chatEntity.getNombre()).equals(chatEntity))
-        {
+        if (persistence.findByName(chatEntity.getNombre()) != null
+                && persistence.findByName(chatEntity.getNombre()).equals(chatEntity)) {
             throw new BusinessLogicException("La chat ya existe.");
         }
-        
-=======
-    public ChatEntity updateChat(Long  pChatsId, ChatEntity chatEntity) 
-    {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}",  pChatsId);
->>>>>>> Stashed changes
-        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
-        ChatEntity newEntity = persistence.update(chatEntity);
+ // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
+                ChatEntity newEntity = persistence.update(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la chat con id = {0}", chatEntity.getId());
         return newEntity;
     }
@@ -191,8 +167,7 @@ public class ChatLogic {
      * @param pChatsId: id de la chat a borrar
      * @throws BusinessLogicException Si la chat a eliminar tiene libros.
      */
-    public void deleteChat(Long pChatsId) throws BusinessLogicException 
-    {
+    public void deleteChat(Long pChatsId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la chat con id = {0}", pChatsId);
         // Note que, por medio de la inyección de dependencias se llama al método "delete(id)" que se encuentra en la persistencia.
         List<ComentarioActividadEntity> comentarios = getChat(pChatsId).getComentarios();
@@ -202,18 +177,14 @@ public class ChatLogic {
         persistence.delete(pChatsId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la chat con id = {0}", pChatsId);
     }
-    
-<<<<<<< Updated upstream
-    /**
-     * Verifica que el nombre no sea invalido.
-     *
-     * @param pNombre a verificar
-     * @return true si el nombre es valido.
-     */
-    private boolean validateName(String pNombre) 
-    {
+/**
+             * Verifica que el nombre no sea invalido.
+             *
+             * @param pNombre a verificar
+             * @return true si el nombre es valido.
+             */
+
+    private boolean validateName(String pNombre) {
         return !(pNombre == null || pNombre.isEmpty());
     }
-=======
->>>>>>> Stashed changes
 }

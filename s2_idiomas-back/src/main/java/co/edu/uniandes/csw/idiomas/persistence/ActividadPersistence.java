@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.idiomas.persistence;
 
-
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,45 +17,43 @@ import javax.persistence.TypedQuery;
 /**
  * Clase que maneja la persistencia para Actividad. Se conecta a través Entity
  * Manager de javax.persistance con la base de datos SQL.
+ *
  * @author g.cubillosb
  */
 @Stateless
 public class ActividadPersistence {
-    
 
     // ----------------------------------------------------------------------
     // Atributos 
     // ----------------------------------------------------------------------
-    
     /**
      * Logger para las acciones de la clase.
      */
     private static final Logger LOGGER = Logger.getLogger(ActividadPersistence.class.getName());
-    
+
     /**
      * Entity manager para la clase.
      */
-    @PersistenceContext (unitName = "idiomasPU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
-    
+
     // ----------------------------------------------------------------------
     // Métodos
     // ----------------------------------------------------------------------
-    
-   /**
+    /**
      * Método para persistir la entidad en la base de datos.
-     * 
-     * @param pActividadEntity Objeto actividad que se creará en la base de datos.
+     *
+     * @param pActividadEntity Objeto actividad que se creará en la base de
+     * datos.
      * @return Devuelve la actividad creada con un id dado por la base de datos.
      */
-    public ActividadEntity create (ActividadEntity pActividadEntity)
-    {
+    public ActividadEntity create(ActividadEntity pActividadEntity) {
         LOGGER.log(Level.INFO, "Creando una actividad nueva");
         em.persist(pActividadEntity);
         LOGGER.log(Level.INFO, "Saliendo de crear una actividad nueva");
         return pActividadEntity;
     }
-    
+
     /**
      * Devuelve todas las actividades de la base de datos.
      *
@@ -71,7 +68,7 @@ public class ActividadPersistence {
         // Se hace uso del método getResultList() que obtiene una lista de actividades.
         return query.getResultList();
     }
-	
+
     /**
      * Busca si hay alguna actividad con el id que se envía de argumento
      *
@@ -79,11 +76,8 @@ public class ActividadPersistence {
      * @return una actividad.
      */
     public ActividadEntity find(Long pActividadId) {
-<<<<<<< Updated upstream
         LOGGER.log(Level.INFO, "Consultando actividad con id = {0}", pActividadId);
-=======
         LOGGER.log(Level.INFO, "Consultando actividad con id={0}", pActividadId);
->>>>>>> Stashed changes
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from ActividadEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
@@ -108,7 +102,7 @@ public class ActividadPersistence {
         LOGGER.log(Level.INFO, "Saliendo de actualizar la actividad con id = {0}", pActividadEntity.getId());
         return em.merge(pActividadEntity);
     }
-	
+
     /**
      *
      * Borra una actividad de la base de datos recibiendo como argumento el id
@@ -130,7 +124,7 @@ public class ActividadPersistence {
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar la actividad con id = {0}", pActividadId);
     }
-	
+
     /**
      * Busca si hay alguna actividad con el nombre que se envía de argumento.
      *
@@ -140,31 +134,24 @@ public class ActividadPersistence {
      */
     public ActividadEntity findByName(String pName) {
         LOGGER.log(Level.INFO, "Consultando actividad por nombre = {0}", pName);
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
         // Se crea un query para buscar actividades con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From ActividadEntity e where e.nombre = :nombre", ActividadEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<ActividadEntity> sameName = query.getResultList();
-<<<<<<< Updated upstream
         ActividadEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-=======
-        ActividadEntity result;
-        if (sameName == null) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-            result = null;
-        } else {
->>>>>>> Stashed changes
-            result = sameName.get(0);
+            if (sameName == null) {
+                result = null;
+            } else if (sameName.isEmpty()) {
+                result = null;
+            } else {
+                result = sameName.get(0);
+            }
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);
-        return result;
+            LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);
+            return result;
+        }
     }
-    
-}
+

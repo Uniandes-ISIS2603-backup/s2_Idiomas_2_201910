@@ -53,7 +53,6 @@ public class EstadiaLogic {
      */
     public EstadiaEntity createEstadia(EstadiaEntity estadiaEntity) throws BusinessLogicException 
     {
-<<<<<<< Updated upstream
         if(estadiaEntity != null)
         {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la estadia");
@@ -99,21 +98,16 @@ public class EstadiaLogic {
         }
         }
         
-=======
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la estadia");
         // Verifica la regla de negocio que dice que no puede haber dos estadias con el mismo nombre
         if (persistence.findByName(estadiaEntity.getNombre()) != null) {
             throw new BusinessLogicException("Ya existe una Estadia con el nombre \"" + estadiaEntity.getNombre()+ "\"");
         }
->>>>>>> Stashed changes
         // Invoca la persistencia para crear la estadia
         persistence.create(estadiaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la estadia");
         return estadiaEntity;
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
+
     }
 
     /**
@@ -160,7 +154,6 @@ public class EstadiaLogic {
      * por ejemplo el nombre.
      * @return la estadia con los cambios actualizados en la base de datos.
      */
-<<<<<<< Updated upstream
     public EstadiaEntity updateEstadia(Long  pEstadiasId, EstadiaEntity estadiaEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la estadia con id = {0}",  pEstadiasId);
@@ -197,12 +190,7 @@ public class EstadiaLogic {
 //        {
 //            throw new BusinessLogicException("La estadia debe tener un anfitrion.");
 //        }
-        
-=======
-    public EstadiaEntity updateEstadia(Long  pEstadiasId, EstadiaEntity estadiaEntity) 
-    {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la estadia con id = {0}",  pEstadiasId);
->>>>>>> Stashed changes
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         EstadiaEntity newEntity = persistence.update(estadiaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la estadia con id = {0}", estadiaEntity.getId());
@@ -227,7 +215,6 @@ public class EstadiaLogic {
         LOGGER.log(Level.INFO, "Termina proceso de borrar la estadia con id = {0}", pEstadiasId);
     }
     
-<<<<<<< Updated upstream
     /**
      * Verifica que el nombre no sea invalido.
      *
@@ -239,6 +226,4 @@ public class EstadiaLogic {
         return !(pNombre == null || pNombre.isEmpty());
     }
     
-=======
->>>>>>> Stashed changes
 }

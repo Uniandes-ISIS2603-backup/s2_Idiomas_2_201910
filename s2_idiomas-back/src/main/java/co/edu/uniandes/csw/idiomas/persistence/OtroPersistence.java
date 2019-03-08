@@ -17,50 +17,48 @@ import javax.persistence.TypedQuery;
 /**
  * Clase que maneja la persistencia para Otro. Se conecta a través Entity
  * Manager de javax.persistance con la base de datos SQL.
+ *
  * @author g.cubillosb
  */
 @Stateless
 public class OtroPersistence {
-    
+
     // ----------------------------------------------------------------------
     // Atributos 
     // ----------------------------------------------------------------------
-    
     /**
      * Logger para las acciones de la clase.
      */
     private static final Logger LOGGER = Logger.getLogger(OtroPersistence.class.getName());
-    
+
     /**
      * Entity manager para la clase.
      */
-    @PersistenceContext (unitName = "idiomasPU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
-    
+
     // ----------------------------------------------------------------------
     // Métodos
     // ----------------------------------------------------------------------
-    
     /**
      * Método para persistir la entidad en la base de datos.
-     * 
+     *
      * @param pOtroEntity Objeto otro que se creará en la base de datos.
      * @return Devuelve la otro creada con un id dado por la base de datos.
      */
-    public OtroEntity create (OtroEntity pOtroEntity)
-    {
+    public OtroEntity create(OtroEntity pOtroEntity) {
         LOGGER.log(Level.INFO, "Creando una otro nueva");
         em.persist(pOtroEntity);
         LOGGER.log(Level.INFO, "Saliendo de crear una otro nueva");
         return pOtroEntity;
     }
-    
+
     /**
      * Devuelve todas las otros de la base de datos.
      *
-     * @return una lista con todas las otros que encuentre en la base de
-     * datos, "select u from OtroEntity u" es como un "select * from
-     * OtroEntity;" - "SELECT * FROM table_name" en SQL.
+     * @return una lista con todas las otros que encuentre en la base de datos,
+     * "select u from OtroEntity u" es como un "select * from OtroEntity;" -
+     * "SELECT * FROM table_name" en SQL.
      */
     public List<OtroEntity> findAll() {
         LOGGER.log(Level.INFO, "Consultando todas las otros");
@@ -69,7 +67,7 @@ public class OtroPersistence {
         // Se hace uso del método getResultList() que obtiene una lista de otros.
         return query.getResultList();
     }
-	
+
     /**
      * Busca si hay alguna otro con el id que se envía de argumento
      *
@@ -88,9 +86,8 @@ public class OtroPersistence {
     /**
      * Actualiza una otro.
      *
-     * @param pOtroEntity: la otro que viene con los nuevos cambios.
-     * Por ejemplo el nombre pudo cambiar. En ese caso, se haria uso del método
-     * update.
+     * @param pOtroEntity: la otro que viene con los nuevos cambios. Por ejemplo
+     * el nombre pudo cambiar. En ese caso, se haria uso del método update.
      * @return una otro con los cambios aplicados.
      */
     public OtroEntity update(OtroEntity pOtroEntity) {
@@ -102,11 +99,11 @@ public class OtroPersistence {
         LOGGER.log(Level.INFO, "Saliendo de actualizar la editorial con id = {0}", pOtroEntity.getId());
         return em.merge(pOtroEntity);
     }
-	
+
     /**
      *
-     * Borra una otro de la base de datos recibiendo como argumento el id
-     * de la otro.
+     * Borra una otro de la base de datos recibiendo como argumento el id de la
+     * otro.
      *
      * @param pOtroId: id correspondiente a la otro a borrar.
      */
@@ -124,13 +121,13 @@ public class OtroPersistence {
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar la otro con id = {0}", pOtroId);
     }
-	
+
     /**
      * Busca si hay alguna otro con el nombre que se envía de argumento.
      *
      * @param pName: Nombre de la otro que se está buscando
-     * @return null si no existe ninguna otro con el nombre del argumento.
-     * Si existe alguna devuelve la primera.
+     * @return null si no existe ninguna otro con el nombre del argumento. Si
+     * existe alguna devuelve la primera.
      */
     public OtroEntity findByName(String pName) {
         LOGGER.log(Level.INFO, "Consultando otro por nombre = {0}", pName);
@@ -140,21 +137,18 @@ public class OtroPersistence {
         query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<OtroEntity> sameName = query.getResultList();
-<<<<<<< Updated upstream
         OtroEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-=======
-        OtroEntity result;
-        if (sameName == null) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-            result = null;
-        } else {
->>>>>>> Stashed changes
-            result = sameName.get(0);
+            if (sameName == null) {
+                result = null;
+            } else if (sameName.isEmpty()) {
+                result = null;
+            } else {
+                result = sameName.get(0);
+            }
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar otro por nombre = {0}", pName);
         return result;
     }
-    
+
 }

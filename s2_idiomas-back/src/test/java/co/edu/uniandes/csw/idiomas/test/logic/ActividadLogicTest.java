@@ -6,16 +6,10 @@
 package co.edu.uniandes.csw.idiomas.test.logic;
 
 import co.edu.uniandes.csw.idiomas.ejb.ActividadLogic;
-<<<<<<< Updated upstream
 import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
-import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
-=======
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
->>>>>>> Stashed changes
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
 import java.util.ArrayList;
@@ -52,7 +46,6 @@ public class ActividadLogicTest {
      */
     @Inject
     private ActividadLogic actividadLogic;
-<<<<<<< Updated upstream
     
     /**
      * Inyección de dependencias con CoordinadorLogic
@@ -60,9 +53,6 @@ public class ActividadLogicTest {
     @Inject
     private CoordinadorLogic corLogic;
     
-=======
-
->>>>>>> Stashed changes
     /**
      * Contexto de persistencia que se va a utilizar para acceder a la base 
      * de datos.
@@ -78,11 +68,8 @@ public class ActividadLogicTest {
     private UserTransaction utx;
 
     private List<ActividadEntity> data = new ArrayList<>();
-<<<<<<< Updated upstream
     
     private List<CoordinadorEntity> coordinadorData = new ArrayList<>();
-=======
->>>>>>> Stashed changes
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -126,10 +113,8 @@ public class ActividadLogicTest {
         em.createQuery("delete from UsuarioEntity").executeUpdate();
         em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
         em.createQuery("delete from ActividadEntity").executeUpdate();
-<<<<<<< Updated upstream
         em.createQuery("delete from CoordinadorEntity").executeUpdate();
-=======
->>>>>>> Stashed changes
+
     }
 
     /**
@@ -137,7 +122,6 @@ public class ActividadLogicTest {
      * pruebas.
      */
     private void insertData() {
-<<<<<<< Updated upstream
         for (int i = 0; i < 3; i++)
         {
             CoordinadorEntity coordinador = factory.manufacturePojo(CoordinadorEntity.class);
@@ -156,7 +140,7 @@ public class ActividadLogicTest {
         comentario.setActividad(data.get(1));
         em.persist(comentario);
         data.get(1).getComentarios().add(comentario);
-=======
+
         for (int i = 0; i < 3; i++) {
             ActividadEntity entity = factory.manufacturePojo(ActividadEntity.class);
             em.persist(entity);
@@ -182,7 +166,7 @@ public class ActividadLogicTest {
 //        em.persist(coordinador);
 //        data.get(1).getCoordinadores().add(coordinador);
         
->>>>>>> Stashed changes
+
     }
 
     /**
@@ -192,14 +176,11 @@ public class ActividadLogicTest {
     @Test
     public void createActividadTest() throws BusinessLogicException {
         ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
-<<<<<<< Updated upstream
         CoordinadorEntity newCorEntity = factory.manufacturePojo(CoordinadorEntity.class);
         
         // TODO: GC Conectar con coordinador Logic
 //        newCorEntity = corLogic.createCoordinador(newCorEntity);
 //        newEntity.getCoordinadores().add(newCorEntity);
-=======
->>>>>>> Stashed changes
         ActividadEntity result = actividadLogic.createActividad(newEntity);
         Assert.assertNotNull(result);
         ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
@@ -231,7 +212,6 @@ public class ActividadLogicTest {
         newEntity.setNombre(null);
         actividadLogic.createActividad(newEntity);
     }
-<<<<<<< Updated upstream
     
     /**
      * Prueba para crear un Actividad con un id ya existente
@@ -270,8 +250,6 @@ public class ActividadLogicTest {
         ActividadEntity newEntity = actividades.get(0);
         actividadLogic.createActividad(newEntity);
     }
-=======
->>>>>>> Stashed changes
 
     /**
      * Prueba para consultar un Actividad.
@@ -286,7 +264,6 @@ public class ActividadLogicTest {
         Assert.assertEquals(resultEntity.getDescripcion(), entity.getDescripcion());
         Assert.assertEquals(resultEntity.getFecha(), entity.getFecha());
     }
-<<<<<<< Updated upstream
     
     /**
      * Prueba para consultar un Actividad.
@@ -303,14 +280,7 @@ public class ActividadLogicTest {
      */
     @Test
     public void updateActividadTest() throws BusinessLogicException {
-=======
 
-    /**
-     * Prueba para actualizar un Actividad.
-     */
-    @Test
-    public void updateActividadTest() {
->>>>>>> Stashed changes
         ActividadEntity entity = data.get(0);
         ActividadEntity pojoEntity = factory.manufacturePojo(ActividadEntity.class);
 
@@ -325,7 +295,7 @@ public class ActividadLogicTest {
 //        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
 //        Assert.assertEquals(resp.getFecha(), entity.getFecha());
     }
-<<<<<<< Updated upstream
+
     
     /**
      * Prueba para crear un Actividad con nombre inválido
@@ -375,8 +345,6 @@ public class ActividadLogicTest {
         ActividadEntity newEntity = actividades.get(0);
         actividadLogic.updateActividad(newEntity.getId(), newEntity);
     }
-=======
->>>>>>> Stashed changes
 
     /**
      * Prueba para eliminar un Actividad
@@ -408,17 +376,14 @@ public class ActividadLogicTest {
      * 
      * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
-<<<<<<< Updated upstream
     @Test(expected = BusinessLogicException.class)
     public void deleteActividadConComentarioTest() throws BusinessLogicException 
     {
         actividadLogic.deleteActividad(data.get(1).getId());
     }
-=======
 //    @Test(expected = BusinessLogicException.class)
 //    public void deleteActividadConComentarioTest() throws BusinessLogicException {
 //        actividadLogic.deleteActividad(data.get(1).getId());
 //    }
->>>>>>> Stashed changes
     
 }

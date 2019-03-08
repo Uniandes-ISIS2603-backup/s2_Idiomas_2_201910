@@ -10,10 +10,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-<<<<<<< Updated upstream
+
 import java.util.Objects;
-=======
->>>>>>> Stashed changes
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -204,7 +203,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-<<<<<<< Updated upstream
+
     
     /**
      * Equals de la clase
@@ -231,7 +230,6 @@ public class ActividadEntity extends BaseEntity implements Serializable{
         hash = 97 * hash + Objects.hashCode(this.motivacion);
         return hash;
     }
-=======
->>>>>>> Stashed changes
+
     
 }

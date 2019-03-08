@@ -17,44 +17,42 @@ import javax.persistence.TypedQuery;
 /**
  * Clase que maneja la persistencia para Estadia. Se conecta a través Entity
  * Manager de javax.persistance con la base de datos SQL.
+ *
  * @author g.cubillosb
  */
 @Stateless
 public class EstadiaPersistence {
-    
+
     // ----------------------------------------------------------------------
     // Atributos 
     // ----------------------------------------------------------------------
-    
     /**
      * Logger para las acciones de la clase.
      */
     private static final Logger LOGGER = Logger.getLogger(EstadiaPersistence.class.getName());
-    
+
     /**
      * Entity manager para la clase.
      */
-    @PersistenceContext (unitName = "idiomasPU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
-    
+
     // ----------------------------------------------------------------------
     // Métodos
     // ----------------------------------------------------------------------
-    
     /**
      * Método para persistir la entidad en la base de datos.
-     * 
+     *
      * @param pEstadiaEntity Objeto estadia que se creará en la base de datos.
      * @return Devuelve la estadia creada con un id dado por la base de datos.
      */
-    public EstadiaEntity create (EstadiaEntity pEstadiaEntity)
-    {
+    public EstadiaEntity create(EstadiaEntity pEstadiaEntity) {
         LOGGER.log(Level.INFO, "Creando una estadia nueva");
         em.persist(pEstadiaEntity);
         LOGGER.log(Level.INFO, "Saliendo de crear una estadia nueva");
         return pEstadiaEntity;
     }
-    
+
     /**
      * Devuelve todas las estadias de la base de datos.
      *
@@ -69,7 +67,7 @@ public class EstadiaPersistence {
         // Se hace uso del método getResultList() que obtiene una lista de estadias.
         return query.getResultList();
     }
-	
+
     /**
      * Busca si hay alguna estadia con el id que se envía de argumento
      *
@@ -88,8 +86,8 @@ public class EstadiaPersistence {
     /**
      * Actualiza una estadia.
      *
-     * @param pEstadiaEntity: la estadia que viene con los nuevos cambios.
-     * Por ejemplo el nombre pudo cambiar. En ese caso, se haria uso del método
+     * @param pEstadiaEntity: la estadia que viene con los nuevos cambios. Por
+     * ejemplo el nombre pudo cambiar. En ese caso, se haria uso del método
      * update.
      * @return una estadia con los cambios aplicados.
      */
@@ -102,11 +100,11 @@ public class EstadiaPersistence {
         LOGGER.log(Level.INFO, "Saliendo de actualizar la editorial con id = {0}", pEstadiaEntity.getId());
         return em.merge(pEstadiaEntity);
     }
-	
+
     /**
      *
-     * Borra una estadia de la base de datos recibiendo como argumento el id
-     * de la estadia.
+     * Borra una estadia de la base de datos recibiendo como argumento el id de
+     * la estadia.
      *
      * @param pEstadiaId: id correspondiente a la estadia a borrar.
      */
@@ -124,13 +122,13 @@ public class EstadiaPersistence {
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar la estadia con id = {0}", pEstadiaId);
     }
-	
+
     /**
      * Busca si hay alguna estadia con el nombre que se envía de argumento.
      *
      * @param pName: Nombre de la estadia que se está buscando
-     * @return null si no existe ninguna estadia con el nombre del argumento.
-     * Si existe alguna devuelve la primera.
+     * @return null si no existe ninguna estadia con el nombre del argumento. Si
+     * existe alguna devuelve la primera.
      */
     public EstadiaEntity findByName(String pName) {
         LOGGER.log(Level.INFO, "Consultando estadia por nombre = {0}", pName);
@@ -140,21 +138,18 @@ public class EstadiaPersistence {
         query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<EstadiaEntity> sameName = query.getResultList();
-<<<<<<< Updated upstream
         EstadiaEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-=======
-        EstadiaEntity result;
-        if (sameName == null) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-            result = null;
-        } else {
->>>>>>> Stashed changes
-            result = sameName.get(0);
+            if (sameName == null) {
+                result = null;
+            } else if (sameName.isEmpty()) {
+                result = null;
+            } else {
+                result = sameName.get(0);
+            }
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar estadia por nombre = {0}", pName);
         return result;
     }
-    
+
 }

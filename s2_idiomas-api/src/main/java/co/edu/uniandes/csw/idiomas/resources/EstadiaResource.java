@@ -130,11 +130,7 @@ public class EstadiaResource {
      */
     @PUT
     @Path("{estadiasId: \\d+}")
-<<<<<<< Updated upstream
     public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) throws BusinessLogicException 
-=======
-    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) 
->>>>>>> Stashed changes
     {
         LOGGER.log(Level.INFO, "EstadiaResource updateEstadia: input: id:{0} , estadia: {1}", new Object[]{estadiasId, estadia});
         estadia.setId(estadiasId);

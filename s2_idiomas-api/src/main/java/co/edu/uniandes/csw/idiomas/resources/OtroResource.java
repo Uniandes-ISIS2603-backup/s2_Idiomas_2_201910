@@ -130,11 +130,7 @@ public class OtroResource {
      */
     @PUT
     @Path("{otrosId: \\d+}")
-<<<<<<< Updated upstream
     public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro) throws BusinessLogicException
-=======
-    public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro)
->>>>>>> Stashed changes
     {
         LOGGER.log(Level.INFO, "OtroResource updateOtro: input: id:{0} , otro: {1}", new Object[]{otrosId, otro});
         otro.setId(otrosId);
