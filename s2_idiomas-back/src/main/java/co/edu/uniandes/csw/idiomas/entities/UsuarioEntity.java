@@ -6,7 +6,11 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -14,9 +18,30 @@ import javax.persistence.Entity;
  */
 @Entity
 public class UsuarioEntity extends BaseEntity implements Serializable{
-    String contraseña;
-    String nombre;
+    private Long contrasenia;
+    private String nombre;
     
+//    @PodamExclude
+//    @ManyToMany(mappedBy = "usuarios")
+//    private List<gruposDeintereEntity> grupos = new ArrayList<>();
+
+    public List<ActividadEntity> getActividades() {
+        return actividades;
+    }
+
+    public void setActividades(List<ActividadEntity> actividades) {
+        this.actividades = actividades;
+    }
+    
+       
+    @PodamExclude
+    @ManyToMany
+    private List<ActividadEntity> actividades = new ArrayList<>();
+ 
+    
+    @PodamExclude
+    @ManyToMany
+    private List<EstadiaEntity> estadias = new ArrayList<>();
     /**
      * Connstructor vacio de un Entity
      */
@@ -26,19 +51,19 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     }
     
     /**
-     * Retorna la contraseña de un Entity
-     * @return contraseña la contrseña
+     * Retorna la contrasenia de un Entity
+     * @return contrasenia la contrseña
      */
-    public String getContraseña() {
-        return contraseña;
+    public Long getContrasenia() {
+        return contrasenia;
     }
     
     /**
-     * Asigna una contraseña a un Entity
-     * @param contraseña 
+     * Asigna una contrasenia a un Entity
+     * @param contrasenia 
      */
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     /**
@@ -55,6 +80,20 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the estadias
+     */
+    public List<EstadiaEntity> getEstadias() {
+        return estadias;
+    }
+
+    /**
+     * @param estadias the estadias to set
+     */
+    public void setEstadias(List<EstadiaEntity> estadias) {
+        this.estadias = estadias;
     }
     
 }

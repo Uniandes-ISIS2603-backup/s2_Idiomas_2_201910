@@ -6,14 +6,16 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDTO;
+import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 //import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -22,6 +24,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "coordinadores".
@@ -53,9 +56,9 @@ public class CoordinadorResource
      * Error de lógica que se genera cuando ya existe la coordinador.
      */
     @POST
-    public CoordinadorDTO createCoordinador(CoordinadorDTO coordinador) throws BusinessLogicException {
-       
-        return coordinador;
+    public CoordinadorDetailDTO createCoordinador(CoordinadorDTO coordinador) throws BusinessLogicException {
+        CoordinadorDetailDTO nuevo = new CoordinadorDetailDTO();
+        return nuevo;
     }
 
     /**
@@ -67,8 +70,9 @@ public class CoordinadorResource
      */
     @DELETE
     @Path("{coordinadoresId: \\d+}")
-    public long deleteCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) {
-        return coordinadoresId;
+    public CoordinadorDetailDTO deleteCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) {
+       CoordinadorDetailDTO nuevo = new CoordinadorDetailDTO();
+        return nuevo;
     }
     
     /**
@@ -80,8 +84,13 @@ public class CoordinadorResource
      */
     @PUT
     @Path("{coordinadoresId: \\d+}")
-    public long updateCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) {
-        return coordinadoresId;
+    public CoordinadorDetailDTO updateCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) {
+        CoordinadorDetailDTO nuevo = new CoordinadorDetailDTO();
+         if(nuevo == null)
+        {
+            throw new WebApplicationException();
+        }
+        return nuevo;
     }
     
      /**
@@ -93,8 +102,9 @@ public class CoordinadorResource
      */
     @GET
     @Path("{coordinadoresId: \\d+}")
-    public long retornarCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) {
-        return coordinadoresId;
+    public CoordinadorDetailDTO retornarCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) {
+        CoordinadorDetailDTO nuevo = new CoordinadorDetailDTO();
+        return nuevo;
     }
     
       /**
@@ -105,7 +115,14 @@ public class CoordinadorResource
      * @return 
      */
     @GET    
-    public CoordinadorDTO[] retornarCoordinador() {
-        return new CoordinadorDTO[1];        
+    public List<CoordinadorDetailDTO> retornarCoordinador() {
+        
+        List<CoordinadorDetailDTO> list = new ArrayList<>();
+        
+        if(list == null)
+        {
+            throw new WebApplicationException();
+        }
+        return list;        
     }   
 }

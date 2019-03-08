@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.ChatEntity;
 import java.io.Serializable;
 
 /**
@@ -33,7 +34,22 @@ public class ChatDTO extends ActividadDTO implements Serializable{
      */
     public ChatDTO ()
     {
-        
+        super();
+    }
+    
+    /**
+     * Convertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
+     * la entidad que viene de argumento.
+     *
+     * @param pChatEntity: Es la entidad que se va a convertir a DTO
+     */
+    public ChatDTO(ChatEntity pChatEntity) 
+    {
+        super(pChatEntity);
+        if (pChatEntity != null) 
+        {
+            this.medio = pChatEntity.getMedio();
+        }
     }
     
     // --------------------------------------------------------------------
@@ -52,6 +68,24 @@ public class ChatDTO extends ActividadDTO implements Serializable{
      */
     public void setMedio(String medio) {
         this.medio = medio;
+    }
+    
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    @Override
+    public ChatEntity toEntity() 
+    {
+        ChatEntity chatEntity = new ChatEntity();
+        chatEntity.setNombre(this.getNombre());
+        chatEntity.setDescripcion(this.getDescripcion());
+        chatEntity.setMotivacion(this.getMotivacion());
+        chatEntity.setFecha(this.getFecha());
+        chatEntity.setMedio(this.getMedio());
+        
+        return chatEntity;
     }
     
 }

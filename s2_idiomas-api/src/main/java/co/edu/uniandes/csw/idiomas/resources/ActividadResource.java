@@ -7,28 +7,25 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.ActividadDTO;
 import co.edu.uniandes.csw.idiomas.dtos.ActividadDetailDTO;
+import co.edu.uniandes.csw.idiomas.ejb.ActividadLogic;
+import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
+import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Clase que define los servicios de la clase actividad
  * @author g.cubillosb
  */
-
 @Path("actividad")
-@Produces("application/json")
-@Consumes("application/json")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 public class ActividadResource {
     
@@ -42,9 +39,11 @@ public class ActividadResource {
      */
     private static final Logger LOGGER = Logger.getLogger(ActividadResource.class.getName());
     
-//    @Inject
-//    private ActividadLogic actividadLogic; 
-// Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    /**
+     * Permite acceder a la lógica de la aplicación. Es una inyección de dependencias.
+     */
+    @Inject
+    private ActividadLogic actividadLogic; 
     
     // ------------------------------------------------------------------------
     // Constructor
@@ -55,74 +54,158 @@ public class ActividadResource {
     // ------------------------------------------------------------------------
     
     /**
-     * Crea una nueva actividad con la información que se recibe en el cuerpo 
-     * de la petición y se regresa un objeto idéntico con un id auto-generado por
+     * Crea una nueva actividad con la informacion que se recibe en el cuerpo de
+     * la petición y se regresa un objeto identico con un id auto-generado por
      * la base de datos.
-     * 
-     * @param actividad {@link ActividadDTO} - La actividad que se desea guardar
+     *
+     * @param actividad {@link ActividadDTO} - La actividad que se desea
+     * guardar.
      * @return JSON {@link ActividadDTO} - La actividad guardada con el atributo
-     * autogenerado
+     * id autogenerado.
+     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
+     * Error de lógica que se genera cuando ya existe la actividad.
      */
     @POST
-    public ActividadDTO createActividad(ActividadDTO actividad)
+    public ActividadDTO createActividad(ActividadDTO actividad) throws BusinessLogicException 
     {
-        return actividad;
+        LOGGER.log(Level.INFO, "ActividadResource createActividad: input: {0}", actividad);
+        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
+        ActividadEntity actividadEntity = actividad.toEntity();
+        // Invoca la lógica para crear la actividad nueva
+        ActividadEntity nuevoActividadEntity = actividadLogic.createActividad(actividadEntity);
+        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
+        ActividadDTO nuevoActividadDTO = new ActividadDTO(nuevoActividadEntity);
+        LOGGER.log(Level.INFO, "ActividadResource createActividad: output: {0}", nuevoActividadDTO);
+        return nuevoActividadDTO;
     }
-    
+
     /**
-     * Borra la actividad con el id asociado recibido en la URL
-     * 
-     * @param actividadId Identificador de la actividad que se desea borrar. Es
-     * una cadena de dígitos
-     */
-    @DELETE
-    @Path("{actividadId: \\d+}")
-    public void deleteActvidad(@PathParam("actividadesId") Long actividadId)
-    {
-        LOGGER.log(Level.INFO, "ActividadResource deleteActividad: input: {0}", actividadId);
-        /*if (actividadLogic.getEditorial(editorialsId) == null) {
-            throw new WebApplicationException("El recurso /editorials/" + editorialsId + " no existe.", 404);
-        }
-        editorialLogic.deleteEditorial(editorialsId);*/
-        LOGGER.info("ActividadResource deleteActividad: output: void");
-    }
-    
-    /**
-     * Actualiza la actividad con el id recibido en la URL con la información que
-     * se recibe en el cuerpo de la petición.
-     * 
-     * @param actividadId Identificador de la actividad que se desea actualizar.
-     * Es una cadena de dígitos.
-     * @param actividad {@link ActividadDetailDTO} La actividad que se desea
-     * guardar
-     * @return JSON {@link EditorialsDetailDTO} - La editorial guardada 
-     */
-    @PUT
-    @Path("{editorialsId: \\d+}")
-    public ActividadDetailDTO updateEditorial(@PathParam("editorialsId") Long actividadId, ActividadDetailDTO actividad) //throws WebApplicationException 
-    {
-        LOGGER.log(Level.INFO, "EditorialResource updateEditorial: input: id:{0} , editorial: {1}", new Object[]{actividadId, actividad});
-//        actividad.setId(actividadId);
-//        if (editorialLogic.getEditorial(actividadId) == null) {
-//            throw new WebApplicationException("El recurso /editorials/" + actividadId + " no existe.", 404);
-//        }
-//        EditorialDetailDTO detailDTO = new EditorialDetailDTO(editorialLogic.updateEditorial(actividadId, actividad.toEntity()));
-//        LOGGER.log(Level.INFO, "EditorialResource updateEditorial: output: {0}", detailDTO);
-        return actividad; // Falta poner el return adecuado.
-    }
-        
-    /**
-     * Busca y devuelve la información de una actividad específica
-     * @return JSON {@link ActividadDetailDTO} - La actividad encontrada
-     * en la aplicación
+     * Busca y devuelve todas las actividades que existen en la aplicacion.
+     *
+     * @return JSONArray {@link ActividadDetailDTO} - Las actividades
+     * encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<ActividadDetailDTO> getActividad() {
-        LOGGER.info("ActividadResource getActividad: input: void");
-//        List<ActividadDetailDTO> listaEditoriales = listEntity2DetailDTO(actividadLogic.getEditorials());
-//        LOGGER.log(Level.INFO, "EditorialResource getEditorials: output: {0}", listaEditoriales);
-//        return listaEditoriales;
-        return null;
+    public List<ActividadDetailDTO> getActividades() {
+        LOGGER.info("ActividadResource getActividades: input: void");
+        List<ActividadDetailDTO> listaActividades = listEntity2DetailDTO(actividadLogic.getActividades());
+        LOGGER.log(Level.INFO, "ActividadResource getActividades: output: {0}", listaActividades);
+        return listaActividades;
     }
+
+    /**
+     * Busca la actividad con el id asociado recibido en la URL y la devuelve.
+     *
+     * @param actividadesId Identificador de la actividad que se esta buscando.
+     * Este debe ser una cadena de dígitos.
+     * @return JSON {@link ActividadDetailDTO} - La actividad buscada
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la actividad.
+     */
+    @GET
+    @Path("{actividadesId: \\d+}")
+    public ActividadDetailDTO getActividad(@PathParam("actividadesId") Long actividadesId) 
+    {
+        LOGGER.log(Level.INFO, "ActividadResource getActividad: input: {0}", actividadesId);
+        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadesId);
+        if (actividadEntity == null) {
+            throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
+        }
+        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadEntity);
+        LOGGER.log(Level.INFO, "ActividadResource getActividad: output: {0}", detailDTO);
+        return detailDTO;
+    }
+
+    /**
+     * Actualiza la actividad con el id recibido en la URL con la informacion
+     * que se recibe en el cuerpo de la petición.
+     *
+     * @param actividadesId Identificador de la actividad que se desea
+     * actualizar. Este debe ser una cadena de dígitos.
+     * @param actividad {@link ActividadDetailDTO} La actividad que se desea
+     * guardar.
+     * @return JSON {@link ActividadDetailDTO} - La actividad guardada.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la actividad a
+     * actualizar.
+     */
+    @PUT
+    @Path("{actividadesId: \\d+}")
+    public ActividadDetailDTO updateActividad(@PathParam("actividadesId") Long actividadesId, ActividadDetailDTO actividad) throws BusinessLogicException
+    {
+        LOGGER.log(Level.INFO, "ActividadResource updateActividad: input: id:{0} , actividad: {1}", new Object[]{actividadesId, actividad});
+        actividad.setId(actividadesId);
+        if (actividadLogic.getActividad(actividadesId) == null) {
+            throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
+        }
+        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadLogic.updateActividad(actividadesId, actividad.toEntity()));
+        LOGGER.log(Level.INFO, "ActividadResource updateActividad: output: {0}", detailDTO);
+        return detailDTO;
+
+    }
+
+    /**
+     * Borra la actividad con el id asociado recibido en la URL.
+     *
+     * @param actividadesId Identificador de la actividad que se desea borrar.
+     * Este debe ser una cadena de dígitos.
+     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
+     * Error de lógica que se genera cuando no se puede eliminar la actividad.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la actividad.
+     */
+    @DELETE
+    @Path("{actividadesId: \\d+}")
+    public void deleteActividad(@PathParam("actividadesId") Long actividadesId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "ActividadResource deleteActividad: input: {0}", actividadesId);
+        if (actividadLogic.getActividad(actividadesId) == null) {
+            throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
+        }
+        actividadLogic.deleteActividad(actividadesId);
+        LOGGER.info("ActividadResource deleteActividad: output: void");
+    }
+
+    // TODO: GC Conectar Actividades con Comentarios y las otras clases.
+//    /**
+//     * Conexión con el servicio de libros para una actividad.
+//     * {@link ActividadBooksResource}
+//     *
+//     * Este método conecta la ruta de /actividades con las rutas de /books que
+//     * dependen de la actividad, es una redirección al servicio que maneja el
+//     * segmento de la URL que se encarga de los libros de una actividad.
+//     *
+//     * @param actividadesId El ID de la actividad con respecto a la cual se
+//     * accede al servicio.
+//     * @return El servicio de libros para esta actividad en paricular.
+//     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+//     * Error de lógica que se genera cuando no se encuentra la actividad.
+//     */
+//    @Path("{actividadesId: \\d+}/books")
+//    public Class<ActividadBooksResource> getActividadBooksResource(@PathParam("actividadesId") Long actividadesId) {
+//        if (actividadLogic.getActividad(actividadesId) == null) {
+//            throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
+//        }
+//        return ActividadBooksResource.class;
+//    }
+
+    /**
+     * Convierte una lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos ActividadEntity a una lista de
+     * objetos ActividadDetailDTO (json)
+     *
+     * @param entityList corresponde a la lista de actividades de tipo Entity
+     * que vamos a convertir a DTO.
+     * @return la lista de actividades en forma DTO (json)
+     */
+    private List<ActividadDetailDTO> listEntity2DetailDTO(List<ActividadEntity> entityList) {
+        List<ActividadDetailDTO> list = new ArrayList<>();
+        for (ActividadEntity entity : entityList) {
+            list.add(new ActividadDetailDTO(entity));
+        }
+        return list;
+    }
+    
+    
     
 }

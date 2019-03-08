@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
+import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -18,7 +20,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *   {
  *      "id": number,
  *      "nombre": string
- *      "contraseña" : string
+ *      "contrasenia" : string
  *      "pais": string
  *      "ciudad": string
  *      "direccion": string
@@ -30,7 +32,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *   {
  *      "id": 1,
  *      "nombre": juan
- *      "contraseña" : 1234
+ *      "contrasenia" : 1234
  *      "pais": francia
  *      "ciudad": paris
  *      "direccion": car 12 - 2
@@ -40,13 +42,21 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author j.barbosa
  */
-public class AnfitrionDTO {
+public class AnfitrionDTO implements Serializable {
     Long id;
     String nombre;
-    Long contraseña;
+    Long contrasenia;
     String pais;
     String ciudad;
     String direccion;
+
+    public Long getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
+    }
     
     
     /**
@@ -61,12 +71,16 @@ public class AnfitrionDTO {
      *
      * @param anfitrionEntity: Es la entidad que se va a convertir a DTO
      */
-//    public AnfitrionDTO(AnfitrionEntity anfitrionEntity) {
-//        if (anfitrionEntity != null) {
-//            this.id = anfitrionEntity.getId();
-//            this.nombre = anfitrionEntity.getNombre();
-//        }
-//    }
+    public AnfitrionDTO(AnfitrionEntity anfitrionEntity) {
+        if (anfitrionEntity != null) {
+            this.id = anfitrionEntity.getId();
+            this.nombre = anfitrionEntity.getNombre();
+            this.contrasenia = anfitrionEntity.getContrasenia();
+            this.pais = anfitrionEntity.getPais();
+            this.direccion = anfitrionEntity.getDireccion();
+            this.ciudad = anfitrionEntity.getCiudad();
+        }
+    }
 
     /**
      * Devuelve el ID de la anfitrion.
@@ -158,18 +172,21 @@ public class AnfitrionDTO {
         this.direccion = direccion;
     }
 
-//    /**
-//     * Convertir DTO a Entity
-//     *
-//     * @return Un Entity con los valores del DTO
-//     */
-//    public AnfitrionEntity toEntity() {
-//        AnfitrionEntity anfitrionEntity = new AnfitrionEntity();
-//        anfitrionEntity.setId(this.id);
-//        anfitrionEntity.setNombre(this.nombre);
-//            aqui falta lo de direccion y pais pero tu yo del pasado le dio pereza
-//        return anfitrionEntity;
-//    }
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public AnfitrionEntity toEntity() {
+        AnfitrionEntity anfitrionEntity = new AnfitrionEntity();
+        anfitrionEntity.setId(this.id);
+        anfitrionEntity.setNombre(this.nombre);
+        anfitrionEntity.setCiudad(this.ciudad);
+        anfitrionEntity.setContraseña(this.contrasenia);
+        anfitrionEntity.setDireccion(this.direccion);
+        anfitrionEntity.setPais(this.pais);  
+        return anfitrionEntity;
+    }
 
     @Override
     public String toString() {

@@ -7,8 +7,10 @@ package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,10 +19,15 @@ import javax.persistence.OneToMany;
 @Entity
 public class PersonaEntity extends BaseEntity implements Serializable
 {
-    String contraseña;
-    String nombre;
-    //@OneToMany(mappedBy = "autor")
-    //private List<ComentarioEntity> comentarioEntitys;
+
+    private Long contrasenia;
+    private String nombre;
+    @PodamExclude
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+    private List<ComentarioEntity> comentarioEntitys;
+    
+    
+
     
     /**
      * Connstructor vacio de un Entity
@@ -31,19 +38,19 @@ public class PersonaEntity extends BaseEntity implements Serializable
     }
     
     /**
-     * Retorna la contraseña de un Entity
-     * @return contraseña la contrseña
+     * Retorna la contrasenia de un Entity
+     * @return contrasenia la contrseña
      */
-    public String getContraseña() {
-        return contraseña;
+    public Long getContrasenia() {
+        return contrasenia;
     }
     
     /**
-     * Asigna una contraseña a un Entity
-     * @param contraseña 
+     * Asigna una contrasenia a un Entity
+     * @param contrasenia 
      */
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(Long contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     /**
@@ -60,6 +67,20 @@ public class PersonaEntity extends BaseEntity implements Serializable
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the comentarioEntitys
+     */
+    public List<ComentarioEntity> getComentarioEntitys() {
+        return comentarioEntitys;
+    }
+
+    /**
+     * @param comentarioEntitys the comentarioEntitys to set
+     */
+    public void setComentarioEntitys(List<ComentarioEntity> comentarioEntitys) {
+        this.comentarioEntitys = comentarioEntitys;
     }
     
 }

@@ -1,14 +1,17 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
+import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
+import co.edu.uniandes.csw.idiomas.dtos.PersonaDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic;
 //import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,6 +20,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "administradores".
@@ -54,9 +58,9 @@ public class AdministradorResource
      * Error de lógica que se genera cuando ya existe la administrador.
      */
     @POST
-    public AdministradorDTO createAdministrador(AdministradorDTO administrador) throws BusinessLogicException {
-       
-        return administrador;
+    public AdministradorDetailDTO createAdministrador(AdministradorDTO administrador) throws BusinessLogicException {
+       AdministradorDetailDTO  retorno = new AdministradorDetailDTO();
+        return retorno;
     }
 
     /**
@@ -68,8 +72,9 @@ public class AdministradorResource
      */
     @DELETE
     @Path("{administradoresId: \\d+}")
-    public long deleteAdministrador(@PathParam("administradoresId") Long administradoresId) {
-        return administradoresId;
+    public AdministradorDetailDTO deleteAdministrador(@PathParam("administradoresId") Long administradoresId) {
+        AdministradorDetailDTO  retorno = new AdministradorDetailDTO();
+        return retorno;
     }
     
     /**
@@ -81,8 +86,13 @@ public class AdministradorResource
      */
     @PUT
     @Path("{administradoresId: \\d+}")
-    public long updateAdministrador(@PathParam("administradoresId") Long administradoresId) {
-        return administradoresId;
+    public AdministradorDetailDTO updateAdministrador(@PathParam("administradoresId") Long administradoresId) {
+         AdministradorDetailDTO  retorno = new AdministradorDetailDTO();
+         if(retorno == null)
+        {
+            throw new WebApplicationException();
+        }
+        return retorno;
     }
     
      /**
@@ -94,8 +104,9 @@ public class AdministradorResource
      */
     @GET
     @Path("{administradoresId: \\d+}")
-    public long retornarAdministrador(@PathParam("administradoresId") Long administradoresId) {
-        return administradoresId;
+    public AdministradorDetailDTO retornarAdministrador(@PathParam("administradoresId") Long administradoresId) {
+         AdministradorDetailDTO  retorno = new AdministradorDetailDTO();
+        return retorno;
     }
     
       /**
@@ -106,7 +117,12 @@ public class AdministradorResource
      * @return 
      */
     @GET    
-    public AdministradorDTO[] retornarAdministrador() {
-        return new AdministradorDTO[1];        
+    public List<AdministradorDetailDTO> retornarAdministrador() {
+        List<AdministradorDetailDTO> list = new ArrayList<>();
+        if(list == null)
+        {
+            throw new WebApplicationException();
+        }
+        return list;         
     }   
 }
