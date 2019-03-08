@@ -54,6 +54,7 @@ public class OtroLogic {
     public OtroEntity createOtro(OtroEntity otroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la otro");
+<<<<<<< Updated upstream
         
         // Verifica la regla de negocio que dice que el nombre del otro no puede ser vacío.
         if (!validateName(otroEntity.getNombre()))
@@ -82,6 +83,12 @@ public class OtroLogic {
                     otroEntity.getId());
         }
         
+=======
+        // Verifica la regla de negocio que dice que no puede haber dos otros con el mismo nombre
+        if (persistence.findByName(otroEntity.getNombre()) != null) {
+            throw new BusinessLogicException("Ya existe una Otro con el nombre \"" + otroEntity.getNombre()+ "\"");
+        }
+>>>>>>> Stashed changes
         // Invoca la persistencia para crear la otro
         persistence.create(otroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la otro");
@@ -132,6 +139,7 @@ public class OtroLogic {
      * por ejemplo el nombre.
      * @return la otro con los cambios actualizados en la base de datos.
      */
+<<<<<<< Updated upstream
     public OtroEntity updateOtro(Long  pOtrosId, OtroEntity otroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la otro con id = {0}",  pOtrosId);
@@ -156,6 +164,11 @@ public class OtroLogic {
             throw new BusinessLogicException("La otro ya existe.");
         }
         
+=======
+    public OtroEntity updateOtro(Long  pOtrosId, OtroEntity otroEntity) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la otro con id = {0}",  pOtrosId);
+>>>>>>> Stashed changes
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         OtroEntity newEntity = persistence.update(otroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la otro con id = {0}", otroEntity.getId());
@@ -180,6 +193,7 @@ public class OtroLogic {
         LOGGER.log(Level.INFO, "Termina proceso de borrar la otro con id = {0}", pOtrosId);
     }
     
+<<<<<<< Updated upstream
     /**
      * Verifica que el nombre no sea invalido.
      *
@@ -191,4 +205,6 @@ public class OtroLogic {
         return !(pNombre == null || pNombre.isEmpty());
     }
     
+=======
+>>>>>>> Stashed changes
 }

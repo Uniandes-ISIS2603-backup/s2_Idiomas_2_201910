@@ -16,13 +16,13 @@ import java.util.List;
  */
 public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
 
-    private PersonaEntity autor;
+    private PersonaDTO autor;
 
     public ComentarioDetailDTO(ComentarioEntity entity) {
         super(entity);
         if (entity != null) {
             if (entity.getAutor() != null) {
-                this.autor = entity.getAutor();
+                this.autor = new PersonaDTO(entity.getAutor());
             }
         }
 
@@ -36,7 +36,7 @@ public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
     public ComentarioEntity toEntity() {
         ComentarioEntity entity = super.toEntity();
         if (autor != null) {
-            entity.setAutor(this.getAutor());
+            entity.setAutor(this.getAutor().toEntity());
         }
         return entity;
     }
@@ -44,14 +44,15 @@ public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
     /**
      * @return the autor
      */
-    public PersonaEntity getAutor() {
+    @Override
+    public PersonaDTO getAutor() {
         return autor;
     }
 
     /**
      * @param autor the autor to set
      */
-    public void setAutor(PersonaEntity autor) {
+    public void setAutor(PersonaDTO autor) {
         this.autor = autor;
     }
 }

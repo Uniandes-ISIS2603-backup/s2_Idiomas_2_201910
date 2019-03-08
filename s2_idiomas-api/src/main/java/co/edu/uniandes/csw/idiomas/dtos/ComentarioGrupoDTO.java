@@ -20,18 +20,17 @@ public class ComentarioGrupoDTO extends ComentarioDTO implements Serializable {
     /**
      * Constructor de ComentarioActividadDTO
      *
-     * @param entity2 recibe la informacion de un comentario general.
      * @param entity recibe la informacion del comentario.
      */
-    public ComentarioGrupoDTO(ComentarioEntity entity2, ComentarioGrupoEntity entity) {
-        super(entity2);
+    public ComentarioGrupoDTO(ComentarioGrupoEntity entity) {
+        super(entity);
         if (entity != null) {
             this.titulo = entity.getTitulo();
         }
     }
     
     public ComentarioGrupoDTO(){
-        
+        super();
     }
 
     /**
@@ -48,9 +47,13 @@ public class ComentarioGrupoDTO extends ComentarioDTO implements Serializable {
         this.titulo = titulo;
     }
 
-    public ComentarioGrupoEntity toEntityG() {
+    @Override
+    public ComentarioGrupoEntity toEntity() {
         ComentarioGrupoEntity entity = new ComentarioGrupoEntity();
         entity.setTitulo(this.titulo);
+        entity.setFecha(this.getFecha());
+        entity.setTexto(this.getTexto());
+        entity.setAutor(this.getAutor().toEntity());
         return entity;
     }
 }

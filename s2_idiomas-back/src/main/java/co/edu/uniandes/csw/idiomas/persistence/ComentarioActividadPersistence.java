@@ -39,4 +39,30 @@ public class ComentarioActividadPersistence {
         TypedQuery<ComentarioActividadEntity> query = em.createQuery("select u from ComentarioActividadEntity u", ComentarioActividadEntity.class);
         return query.getResultList();
     }
+    
+    /**
+     *
+     * Borra una comment de la base de datos recibiendo como argumento el id de la
+     * comment.
+     *
+     * @param commentId: id correspondiente a la comment a borrar.
+     */
+    public void delete(Long commentId) {
+        LOGGER.log(Level.INFO, "Borrando el comentario con id={0}", commentId);
+        ComentarioEntity comentarioEntity = em.find(ComentarioEntity.class, commentId);
+        em.remove(comentarioEntity);
+    }
+    
+     /**
+     * Actualiza una comentario.
+     *
+     * @param comentarioEntity: la comment que viene con los nuevos cambios. Por ejemplo
+     * el nombre pudo cambiar. En ese caso, se haria uso del método update.
+     * @return una comment con los cambios aplicados.
+     */
+    public ComentarioActividadEntity update(ComentarioActividadEntity comentarioEntity) {
+        LOGGER.log(Level.INFO, "Actualizando editorial con id = {0}", comentarioEntity.getId());
+        LOGGER.log(Level.INFO, "Saliendo de actualizar la editorial con id = {0}", comentarioEntity.getId());
+        return em.merge(comentarioEntity);
+    }
 }

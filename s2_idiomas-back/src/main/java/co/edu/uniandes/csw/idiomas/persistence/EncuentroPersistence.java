@@ -140,8 +140,17 @@ public class EncuentroPersistence {
         query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<EncuentroEntity> sameName = query.getResultList();
+<<<<<<< Updated upstream
         EncuentroEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
+=======
+        EncuentroEntity result;
+        if (sameName == null) {
+            result = null;
+        } else if (sameName.isEmpty()) {
+            result = null;
+        } else {
+>>>>>>> Stashed changes
             result = sameName.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar encuentro por nombre = {0}", pName);

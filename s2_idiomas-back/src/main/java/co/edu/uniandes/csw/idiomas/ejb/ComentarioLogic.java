@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -25,6 +26,7 @@ public class ComentarioLogic {
     private ComentarioPersistence persistence;
    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+   private static final Logger LOGGER = Logger.getLogger(ComentarioLogic.class.getName());
     /**
      * Creac un comentario de tipo Calificacion
      *
@@ -55,4 +57,6 @@ public class ComentarioLogic {
         ComentarioEntity comentario = persistence.find(comentarioId);
         return comentario;
     }
+    
+    
 }

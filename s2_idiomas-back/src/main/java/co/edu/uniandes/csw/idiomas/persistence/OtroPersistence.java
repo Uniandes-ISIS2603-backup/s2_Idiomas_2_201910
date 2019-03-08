@@ -140,8 +140,17 @@ public class OtroPersistence {
         query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<OtroEntity> sameName = query.getResultList();
+<<<<<<< Updated upstream
         OtroEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
+=======
+        OtroEntity result;
+        if (sameName == null) {
+            result = null;
+        } else if (sameName.isEmpty()) {
+            result = null;
+        } else {
+>>>>>>> Stashed changes
             result = sameName.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar otro por nombre = {0}", pName);

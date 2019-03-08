@@ -15,7 +15,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author se.gamboa
  */
 @Entity
-public class ComentarioActividadEntity extends BaseEntity implements Serializable{
+public class ComentarioActividadEntity extends ComentarioEntity implements Serializable{
     
 
     private String titulo;

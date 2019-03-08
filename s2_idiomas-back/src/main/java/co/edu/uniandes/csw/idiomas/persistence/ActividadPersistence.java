@@ -79,7 +79,11 @@ public class ActividadPersistence {
      * @return una actividad.
      */
     public ActividadEntity find(Long pActividadId) {
+<<<<<<< Updated upstream
         LOGGER.log(Level.INFO, "Consultando actividad con id = {0}", pActividadId);
+=======
+        LOGGER.log(Level.INFO, "Consultando actividad con id={0}", pActividadId);
+>>>>>>> Stashed changes
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from ActividadEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
@@ -136,15 +140,27 @@ public class ActividadPersistence {
      */
     public ActividadEntity findByName(String pName) {
         LOGGER.log(Level.INFO, "Consultando actividad por nombre = {0}", pName);
+<<<<<<< Updated upstream
         
+=======
+>>>>>>> Stashed changes
         // Se crea un query para buscar actividades con el nombre que recibe el método como argumento. ":name" es un placeholder que debe ser remplazado
         TypedQuery query = em.createQuery("Select e From ActividadEntity e where e.nombre = :nombre", ActividadEntity.class);
         // Se remplaza el placeholder ":name" con el valor del argumento 
         query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<ActividadEntity> sameName = query.getResultList();
+<<<<<<< Updated upstream
         ActividadEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
+=======
+        ActividadEntity result;
+        if (sameName == null) {
+            result = null;
+        } else if (sameName.isEmpty()) {
+            result = null;
+        } else {
+>>>>>>> Stashed changes
             result = sameName.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);

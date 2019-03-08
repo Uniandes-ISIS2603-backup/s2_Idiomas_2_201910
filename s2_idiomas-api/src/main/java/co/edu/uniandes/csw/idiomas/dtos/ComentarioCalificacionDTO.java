@@ -21,17 +21,16 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
      * Constructor de ComentarioCalificacionDTO
      *
      * @param entity recibe el titulo del comentario.
-     * @param entity2 entidad del comentario del que hereda.
      */
-    public ComentarioCalificacionDTO(ComentarioCalificacionEntity entity, ComentarioEntity entity2) {
-        super(entity2);
+    public ComentarioCalificacionDTO(ComentarioCalificacionEntity entity) {
+        super(entity);
         if (entity != null) {
             this.titulo = entity.getTitulo();
         }
     }
     
     public ComentarioCalificacionDTO(){
-        
+        super();
     }
 
     /**
@@ -53,9 +52,13 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
      *
      * @return entidad convertida.
      */
-    public ComentarioCalificacionEntity toEntityC() {
+    @Override
+    public ComentarioCalificacionEntity toEntity() {
         ComentarioCalificacionEntity entity = new ComentarioCalificacionEntity();
         entity.setTitulo(this.titulo);
+        entity.setFecha(this.getFecha());
+        entity.setTexto(this.getTexto());
+        entity.setAutor(this.getAutor().toEntity());
         return entity;
     }
 }

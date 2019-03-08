@@ -54,6 +54,7 @@ public class EncuentroLogic {
     public EncuentroEntity createEncuentro(EncuentroEntity encuentroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la encuentro");
+<<<<<<< Updated upstream
         
         // Verifica la regla de negocio que dice que el nombre del encuentro no puede ser vacío.
         if (!validateName(encuentroEntity.getNombre()))
@@ -95,6 +96,12 @@ public class EncuentroLogic {
                     encuentroEntity.getId());
         }
         
+=======
+        // Verifica la regla de negocio que dice que no puede haber dos encuentros con el mismo nombre
+        if (persistence.findByName(encuentroEntity.getNombre()) != null) {
+            throw new BusinessLogicException("Ya existe una Encuentro con el nombre \"" + encuentroEntity.getNombre()+ "\"");
+        }
+>>>>>>> Stashed changes
         // Invoca la persistencia para crear la encuentro
         persistence.create(encuentroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la encuentro");
@@ -145,6 +152,7 @@ public class EncuentroLogic {
      * por ejemplo el nombre.
      * @return la encuentro con los cambios actualizados en la base de datos.
      */
+<<<<<<< Updated upstream
     public EncuentroEntity updateEncuentro(Long  pEncuentrosId, EncuentroEntity encuentroEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la encuentro con id = {0}",  pEncuentrosId);
@@ -182,6 +190,11 @@ public class EncuentroLogic {
             throw new BusinessLogicException("El número de asistentes es inválido.");
         }
         
+=======
+    public EncuentroEntity updateEncuentro(Long  pEncuentrosId, EncuentroEntity encuentroEntity) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la encuentro con id = {0}",  pEncuentrosId);
+>>>>>>> Stashed changes
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         EncuentroEntity newEntity = persistence.update(encuentroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la encuentro con id = {0}", encuentroEntity.getId());
@@ -206,6 +219,7 @@ public class EncuentroLogic {
         LOGGER.log(Level.INFO, "Termina proceso de borrar la encuentro con id = {0}", pEncuentrosId);
     }
     
+<<<<<<< Updated upstream
     /**
      * Verifica que el nombre no sea invalido.
      *
@@ -228,4 +242,6 @@ public class EncuentroLogic {
         return !(pNumero == null || pNumero <= 0);
     }
     
+=======
+>>>>>>> Stashed changes
 }

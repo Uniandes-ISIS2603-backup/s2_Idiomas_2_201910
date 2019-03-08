@@ -130,7 +130,11 @@ public class ChatResource {
      */
     @PUT
     @Path("{chatsId: \\d+}")
+<<<<<<< Updated upstream
     public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) throws BusinessLogicException 
+=======
+    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) 
+>>>>>>> Stashed changes
     {
         LOGGER.log(Level.INFO, "ChatResource updateChat: input: id:{0} , chat: {1}", new Object[]{chatsId, chat});
         chat.setId(chatsId);

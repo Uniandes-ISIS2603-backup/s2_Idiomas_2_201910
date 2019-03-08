@@ -16,22 +16,21 @@ import java.io.Serializable;
 public class ComentarioActividadDTO extends ComentarioDTO implements Serializable{
     
     private String titulo;
-    
+
     /**
      * Constructor de ComentarioActividadDTO
-     * @param entity recibe la informacion del comentario.
-     * @param entity2 recibe la informacion de un comentario general.
+     *
+     * @param entity recibe el titulo del comentario.
      */
-    public ComentarioActividadDTO(ComentarioActividadEntity entity, ComentarioEntity entity2)
-    {
-        super(entity2);
+    public ComentarioActividadDTO(ComentarioActividadEntity entity) {
+        super(entity);
         if (entity != null) {
             this.titulo = entity.getTitulo();
         }
     }
     
     public ComentarioActividadDTO(){
-        
+        super();
     }
 
     /**
@@ -47,13 +46,19 @@ public class ComentarioActividadDTO extends ComentarioDTO implements Serializabl
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
     /**
      * Convierte un objeto DTO a una Entidad.
+     *
      * @return entidad convertida.
      */
-    public ComentarioActividadEntity toEntityA() {
+    @Override
+    public ComentarioActividadEntity toEntity() {
         ComentarioActividadEntity entity = new ComentarioActividadEntity();
         entity.setTitulo(this.titulo);
+        entity.setFecha(this.getFecha());
+        entity.setTexto(this.getTexto());
+        entity.setAutor(this.getAutor().toEntity());
         return entity;
     }
 }

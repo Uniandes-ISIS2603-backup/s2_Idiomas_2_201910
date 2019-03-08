@@ -13,7 +13,7 @@ import javax.persistence.Entity;
  * @author se.gamboa
  */
 @Entity
-public class ComentarioBlogEntity extends BaseEntity implements Serializable{
+public class ComentarioBlogEntity extends ComentarioEntity implements Serializable{
     
 
     private String titulo;

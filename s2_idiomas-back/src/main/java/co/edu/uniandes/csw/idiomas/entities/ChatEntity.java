@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+<<<<<<< Updated upstream
 import java.util.Objects;
+=======
+>>>>>>> Stashed changes
 import javax.persistence.Entity;
 
 /**
@@ -47,6 +50,7 @@ public class ChatEntity extends ActividadEntity implements Serializable{
     public void setMedio(String medio) {
         this.medio = medio;
     }
+<<<<<<< Updated upstream
     
     /**
      * Equals de la clase
@@ -68,6 +72,8 @@ public class ChatEntity extends ActividadEntity implements Serializable{
         hash = 67 * hash + Objects.hashCode(this.medio);
         return hash;
     }
+=======
+>>>>>>> Stashed changes
 
     
     

@@ -70,7 +70,7 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
             comentarioA = new ArrayList();
             for (ComentarioActividadEntity entityComentarios : actividadEntity.getComentarios())
             {
-                comentarioA.add(new ComentarioActividadDTO(entityComentarios,null));
+                comentarioA.add(new ComentarioActividadDTO(entityComentarios));
             }
         }
     }

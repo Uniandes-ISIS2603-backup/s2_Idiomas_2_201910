@@ -8,6 +8,8 @@ package co.edu.uniandes.csw.idiomas.ejb;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioBlogEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ComentarioBlogPersistence;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -19,6 +21,8 @@ import javax.inject.Inject;
 public class ComentarioBlogLogic {
     @Inject
     private ComentarioBlogPersistence persistence;
+    private static final Logger LOGGER = Logger.getLogger(ComentarioBlogLogic.class.getName());
+    
     /**
      * Creac un comentario de tipo blog
      * @param entidad
@@ -37,5 +41,43 @@ public class ComentarioBlogLogic {
         }
         entidad = persistence.create(entidad);
         return entidad;
+    }
+    
+    public ComentarioBlogEntity getComentario(Long commentId) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la chat con id = {0}", commentId);
+        // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.
+        ComentarioBlogEntity comentarioEntity = persistence.find(commentId);
+        if (comentarioEntity == null) {
+            LOGGER.log(Level.SEVERE, "La chat con el id = {0} no existe", commentId);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la chat con id = {0}", commentId);
+        return comentarioEntity;
+    }
+    
+    public void deleteComment(Long commentId) throws BusinessLogicException 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar la chat con id = {0}", commentId);
+        persistence.delete(commentId);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar la chat con id = {0}", commentId);
+    }
+    
+    /**
+     *
+     * Actualizar una chat.
+     *
+     * @param commentId: id de la chat para buscarla en la base de
+     * datos.
+     * @param comentarioEntity: chat con los cambios para ser actualizada,
+     * por ejemplo el nombre.
+     * @return la chat con los cambios actualizados en la base de datos.
+     */
+    public ComentarioBlogEntity updateComment(Long  commentId, ComentarioBlogEntity comentarioEntity) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}",  commentId);
+        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
+        ComentarioBlogEntity newEntity = persistence.update(comentarioEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar la chat con id = {0}", comentarioEntity.getId());
+        return newEntity;
     }
 }

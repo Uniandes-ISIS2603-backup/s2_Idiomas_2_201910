@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -13,12 +14,15 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
+=======
+>>>>>>> Stashed changes
 
 /**
  *
  * @author jd.ruedaa
  */
 public class CalificacionEntity extends BaseEntity implements Serializable{
+<<<<<<< Updated upstream
     @Id
     private Long id;
     private Integer calificacion;
@@ -148,6 +152,8 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
 //        return cal;
 //    }
     
+=======
+>>>>>>> Stashed changes
     
     public CalificacionEntity()
     {

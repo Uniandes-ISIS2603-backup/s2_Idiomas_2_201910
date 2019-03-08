@@ -21,17 +21,16 @@ public class ComentarioBlogDTO extends ComentarioDTO implements Serializable {
      * Constructor de ComentarioBlogDTO
      *
      * @param entity recibe el titulo del comentario.
-     * @param entity2 recibe la informacion general de un comentario.
      */
-    public ComentarioBlogDTO(ComentarioBlogEntity entity, ComentarioEntity entity2) {
-        super(entity2);
+    public ComentarioBlogDTO(ComentarioBlogEntity entity) {
+        super(entity);
         if (entity != null) {
             this.titulo = entity.getTitulo();
         }
     }
     
     public ComentarioBlogDTO(){
-        
+        super();
     }
 
     /**
@@ -53,9 +52,13 @@ public class ComentarioBlogDTO extends ComentarioDTO implements Serializable {
      *
      * @return entidad convertida.
      */
-    public ComentarioBlogEntity toEntityB() {
+    @Override
+    public ComentarioBlogEntity toEntity() {
         ComentarioBlogEntity entity = new ComentarioBlogEntity();
         entity.setTitulo(this.titulo);
+        entity.setFecha(this.getFecha());
+        entity.setTexto(this.getTexto());
+        entity.setAutor(this.getAutor().toEntity());
         return entity;
     }
 }

@@ -6,7 +6,10 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+<<<<<<< Updated upstream
 import java.util.Objects;
+=======
+>>>>>>> Stashed changes
 import javax.persistence.Entity;
 
 /**
@@ -87,6 +90,7 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
         this.aprobado = aprobado;
     }    
     
+<<<<<<< Updated upstream
     /**
      * Equals de la clase
      */
@@ -111,4 +115,6 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
         return hash;
     }
     
+=======
+>>>>>>> Stashed changes
 }
