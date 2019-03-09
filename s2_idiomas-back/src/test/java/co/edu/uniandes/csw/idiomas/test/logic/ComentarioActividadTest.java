@@ -39,7 +39,7 @@ public class ComentarioActividadTest {
     private ComentarioActividadLogic commentLogic;
     @PersistenceContext
     private EntityManager em;
-    
+
     /**
      * Variable para marcar las transacciones del "em" (Entity Manager) cuando
      * se crean/borran datos.
@@ -48,7 +48,6 @@ public class ComentarioActividadTest {
     private UserTransaction utx;
 
     private List<ComentarioActividadEntity> data = new ArrayList<>();
-    
 
     @Deployment
     public static JavaArchive createDeployment() {
@@ -59,9 +58,8 @@ public class ComentarioActividadTest {
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-    
-    
-        /**
+
+    /**
      * Configuración inicial de la prueba.
      */
     @Before
@@ -69,7 +67,7 @@ public class ComentarioActividadTest {
         try {
             utx.begin();
             clearData();
-            //insertData();
+            insertData();
             utx.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,8 +86,21 @@ public class ComentarioActividadTest {
         em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
     }
     
-//Prueba que un comentario se cree correctamente.
+    /**
+     * Inserta los datos iniciales para el correcto funcionamiento de las
+     * pruebas.
+     */
+    private void insertData() {
+        PodamFactory factory = new PodamFactoryImpl();
+        for (int i = 0; i < 3; i++) {
+            ComentarioActividadEntity entity = factory.manufacturePojo(ComentarioActividadEntity.class);
 
+            em.persist(entity);
+            data.add(entity);
+        }
+    }
+
+//Prueba que un comentario se cree correctamente.
     @Test
     public void createBlogComment() throws BusinessLogicException {
         PodamFactory factory = new PodamFactoryImpl();
@@ -121,11 +132,15 @@ public class ComentarioActividadTest {
     }
 
     //Prueba que un comentario se cree incorrectamente (Con mas de 300 caracteres) para verificar las reglas del negocio.
-   // @Test(expected = BusinessLogicException.class)
-    //public void crearComentariMaxTexto() throws BusinessLogicException {
-      //  PodamFactory factory = new PodamFactoryImpl();
-        //ComentarioActividadEntity newEntity = factory.manufacturePojo(ComentarioActividadEntity.class);
-        //newEntity.setTexto("a");
-        //commentLogic.createActivityComment(newEntity);
-    //}
+    @Test(expected = BusinessLogicException.class)
+    public void crearComentariMaxTexto() throws BusinessLogicException {
+        PodamFactory factory = new PodamFactoryImpl();
+        ComentarioActividadEntity newEntity = factory.manufacturePojo(ComentarioActividadEntity.class);
+        String texto = "";
+        for(int i = 0; i<301; i++){
+            texto += "a";
+        }
+        newEntity.setTexto(texto);
+        commentLogic.createActivityComment(newEntity);
+    }
 }
