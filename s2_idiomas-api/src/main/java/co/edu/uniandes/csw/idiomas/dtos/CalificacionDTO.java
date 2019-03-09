@@ -20,6 +20,7 @@ public class CalificacionDTO implements Serializable {
    
     private Integer cantidadParaActualizar;
     private Double calificacionAcumulado;
+    private Integer calificacion;
     private Integer numeroDeCalificaciones;
     
     public CalificacionDTO()

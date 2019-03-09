@@ -144,7 +144,6 @@ public class EncuentroPersistence {
         if (!(sameName == null || sameName.isEmpty())) {
             result = sameName.get(0);
         }
-        }
         LOGGER.log(Level.INFO, "Saliendo de consultar encuentro por nombre = {0}", pName);
         return result;
     }

@@ -143,7 +143,6 @@ public class ChatPersistence {
         if (!(sameName == null || sameName.isEmpty())) {
             result = sameName.get(0);
         }
-        }
         LOGGER.log(Level.INFO, "Saliendo de consultar chat por nombre = {0}", pName);
         return result;
     }

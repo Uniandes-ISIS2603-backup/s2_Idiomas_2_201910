@@ -180,11 +180,11 @@ public class ActividadResource {
      * Error de lógica que se genera cuando no se encuentra la actividad.
      */
     @Path("{actividadesId: \\d+}/comentarios")
-    public Class<ActividadComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("actividadesId") Long actividadesId) {
+    public Class<ComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("actividadesId") Long actividadesId) {
         if (actividadLogic.getActividad(actividadesId) == null) {
             throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
         }
-        return ActividadComentarioActividadResource.class;
+        return ComentarioActividadResource.class;
     }
 
     /**
