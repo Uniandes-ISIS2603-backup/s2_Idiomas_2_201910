@@ -23,13 +23,30 @@ import javax.inject.Inject;
  */
 public class UsuarioEstadiaLogic {
     
-private static final Logger LOGGER = Logger.getLogger(UsuarioEstadiaLogic.class.getName());
+    // -----------------------------------------------------------------------
+    // Atributos
+    // -----------------------------------------------------------------------
+    
+    /**
+     * Logger para las asociaciones de la clase.
+     */
+    private static final Logger LOGGER = Logger.getLogger(UsuarioEstadiaLogic.class.getName());
 
+    /**
+     * Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+     */
     @Inject
     private EstadiaPersistence estadiaUsuarioPersistence;
 
+    /**
+     * Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+     */
     @Inject
     private UsuarioPersistence usuarioPersistence;
+    
+    // -------------------------------------------------------------------------
+    // Métodos
+    // -------------------------------------------------------------------------
 
     /**
      * Asocia un Estadia existente a un Usuario

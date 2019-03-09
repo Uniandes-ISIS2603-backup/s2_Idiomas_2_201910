@@ -37,8 +37,6 @@ public class CalificacionDTO implements Serializable {
     }
 
     /**
-<<<<<<< Updated upstream
-=======
      * @return the cantidadParaActualizar
      */
     public Integer getCantidadParaActualizar() {
@@ -67,7 +65,6 @@ public class CalificacionDTO implements Serializable {
     }
 
     /**
->>>>>>> Stashed changes
      * @return the calificacion
      */
     public Integer getCalificacion() {
