@@ -42,7 +42,7 @@ import javax.ws.rs.WebApplicationException;
 public class UsuarioResource
 {
     private static final Logger LOGGER = Logger.getLogger(UsuarioResource.class.getName());
-    private final static String NO_EXISTE =" no existe." ;
+    private static final String NO_EXISTE =" no existe." ;
 
     @Inject
     PersonaLogic personaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
@@ -104,14 +104,14 @@ public class UsuarioResource
      */
     @PUT
     @Path("{PersonaId: \\d+}")
-    public PersonaDTO updatePersona(@PathParam("PersonaId") Long PersonaId, PersonaDTO Persona) {
-        LOGGER.log(Level.INFO, "PersonaResource updatePersona: input: PersonaId: {0} , Persona: {1}", new Object[]{PersonaId, Persona});
-        Persona.setId(PersonaId);
-        if (personaLogic.getPersona(PersonaId) == null)
+    public PersonaDTO updatePersona(@PathParam("PersonaId") Long personaId, PersonaDTO persona) {
+        LOGGER.log(Level.INFO, "PersonaResource updatePersona: input: PersonaId: {0} , Persona: {1}", new Object[]{personaId, persona});
+        persona.setId(personaId);
+        if (personaLogic.getPersona(personaId) == null)
         {
-            throw new WebApplicationException("El recurso /Personaes/" + PersonaId +NO_EXISTE, 404);
+            throw new WebApplicationException("El recurso /Personaes/" + personaId +NO_EXISTE, 404);
         }
-        PersonaDTO detailDTO = new PersonaDTO(personaLogic.updatePersona(PersonaId, Persona.toEntity()));
+        PersonaDTO detailDTO = new PersonaDTO(personaLogic.updatePersona(personaId, persona.toEntity()));
         LOGGER.log(Level.INFO, "PersonaResource updatePersona: output: {0}", detailDTO);
         return detailDTO;
     }

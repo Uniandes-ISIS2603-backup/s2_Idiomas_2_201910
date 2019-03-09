@@ -43,7 +43,7 @@ public class AnfitrionResource
 {
  private static final Logger LOGGER = Logger.getLogger(AnfitrionResource.class.getName());
 
-    private final static String NO_EXISTE =" no existe." ;
+    private static final String NO_EXISTE =" no existe." ;
 
     @Inject
     AdministradorLogic administradorLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
@@ -105,14 +105,14 @@ public class AnfitrionResource
      */
     @PUT
     @Path("{AdministradorId: \\d+}")
-    public AdministradorDTO updateAdministrador(@PathParam("AdministradorId") Long AdministradorId, AdministradorDTO Administrador) {
-        LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: input: AdministradorId: {0} , Administrador: {1}", new Object[]{AdministradorId, Administrador});
-        Administrador.setId(AdministradorId);
-        if (administradorLogic.getAdministrador(AdministradorId) == null)
+    public AdministradorDTO updateAdministrador(@PathParam("AdministradorId") Long administradorId, AdministradorDTO administrador) {
+        LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: input: AdministradorId: {0} , Administrador: {1}", new Object[]{administradorId, administrador});
+        administrador.setId(administradorId);
+        if (administradorLogic.getAdministrador(administradorId) == null)
         {
-            throw new WebApplicationException("El recurso /Administradores/" + AdministradorId +NO_EXISTE, 404);
+            throw new WebApplicationException("El recurso /Administradores/" + administradorId +NO_EXISTE, 404);
         }
-        AdministradorDTO detailDTO = new AdministradorDTO(administradorLogic.updateAdministrador(AdministradorId, Administrador.toEntity()));
+        AdministradorDTO detailDTO = new AdministradorDTO(administradorLogic.updateAdministrador(administradorId, administrador.toEntity()));
         LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: output: {0}", detailDTO);
         return detailDTO;
     }
