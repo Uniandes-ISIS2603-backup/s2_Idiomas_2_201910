@@ -130,11 +130,7 @@ public class OtroResource {
      */
     @PUT
     @Path("{otrosId: \\d+}")
-<<<<<<< Updated upstream
     public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro) throws BusinessLogicException
-=======
-    public OtroDTO updateOtro(@PathParam("otrosId") Long otrosId, OtroDTO otro)
->>>>>>> Stashed changes
     {
         LOGGER.log(Level.INFO, "OtroResource updateOtro: input: id:{0} , otro: {1}", new Object[]{otrosId, otro});
         otro.setId(otrosId);
@@ -168,28 +164,27 @@ public class OtroResource {
         LOGGER.info("OtroResource deleteOtro: output: void");
     }
 
-    // TODO: GC Conectar Otros con Comentarios y las otras clases.
-//    /**
-//     * Conexión con el servicio de libros para una otro.
-//     * {@link OtroBooksResource}
-//     *
-//     * Este método conecta la ruta de /otros con las rutas de /books que
-//     * dependen de la otro, es una redirección al servicio que maneja el
-//     * segmento de la URL que se encarga de los libros de una otro.
-//     *
-//     * @param otrosId El ID de la otro con respecto a la cual se
-//     * accede al servicio.
-//     * @return El servicio de libros para esta otro en paricular.
-//     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-//     * Error de lógica que se genera cuando no se encuentra la otro.
-//     */
-//    @Path("{otrosId: \\d+}/books")
-//    public Class<OtroBooksResource> getOtroBooksResource(@PathParam("otrosId") Long otrosId) {
-//        if (otroLogic.getOtro(otrosId) == null) {
-//            throw new WebApplicationException("El recurso /otros/" + otrosId + " no existe.", 404);
-//        }
-//        return OtroBooksResource.class;
-//    }
+    /**
+     * Conexión con el servicio de comentarios para una otro.
+     * {@link ActividadComentarioActividadResourceResource}
+     *
+     * Este método conecta la ruta de /otros con las rutas de /comentarios que
+     * dependen de la otro, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de los comentarios de una otro.
+     *
+     * @param otrosId El ID de la otro con respecto a la cual se
+     * accede al servicio.
+     * @return El servicio de comentarios para esta otro en paricular.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la otro.
+     */
+    @Path("{otrosId: \\d+}/comentarios")
+    public Class<ActividadComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("otrosId") Long otrosId) {
+        if (otroLogic.getOtro(otrosId) == null) {
+            throw new WebApplicationException("El recurso /otros/" + otrosId + " no existe.", 404);
+        }
+        return ActividadComentarioActividadResource.class;
+    }
 
     /**
      * Convierte una lista de entidades a DTO.

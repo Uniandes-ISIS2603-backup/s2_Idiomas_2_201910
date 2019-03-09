@@ -54,7 +54,6 @@ public class ActividadLogic {
     public ActividadEntity createActividad(ActividadEntity actividadEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la actividad");
-<<<<<<< Updated upstream
         // Verifica la regla de negocio que dice que el nombre de la actividad no puede ser vacío.
         if (!validateName(actividadEntity.getNombre()))
         {
@@ -78,19 +77,6 @@ public class ActividadLogic {
             throw new BusinessLogicException("Ya existe una actividad con ese id: " +
                     actividadEntity.getId());
         }
-=======
-        // Verifica la regla de negocio que dice que no puede haber dos actividades con el mismo nombre
-        if (persistence.findByName(actividadEntity.getNombre()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una Actividad con el nombre \"" + actividadEntity.getNombre()+ "\"");
-        }
-        if (!validateName(actividadEntity.getNombre()))
-        {
-            throw new BusinessLogicException("El nombre es inválido");
-        }
-        
-        
->>>>>>> Stashed changes
         // Invoca la persistencia para crear la actividad
         persistence.create(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la actividad");
@@ -141,7 +127,6 @@ public class ActividadLogic {
      * por ejemplo el nombre.
      * @return la actividad con los cambios actualizados en la base de datos.
      */
-<<<<<<< Updated upstream
     public ActividadEntity updateActividad(Long  pActividadesId, ActividadEntity actividadEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la actividad con id = {0}",  pActividadesId);
@@ -161,11 +146,6 @@ public class ActividadLogic {
         {
             throw new BusinessLogicException("La actividad ya existe.");
         }
-=======
-    public ActividadEntity updateActividad(Long  pActividadesId, ActividadEntity actividadEntity) 
-    {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la actividad con id = {0}",  pActividadesId);
->>>>>>> Stashed changes
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         ActividadEntity newEntity = persistence.update(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la actividad con id = {0}", actividadEntity.getId());

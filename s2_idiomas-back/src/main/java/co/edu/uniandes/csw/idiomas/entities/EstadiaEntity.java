@@ -6,16 +6,12 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
-<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-=======
-import javax.persistence.Entity;
->>>>>>> Stashed changes
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -43,15 +39,14 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
     @ManyToOne
     private AnfitrionEntity anfitrion;
     
-<<<<<<< Updated upstream
+    
     /**
      * Atributo que representa los asistentes de la actividad.
      */
     @PodamExclude
     @ManyToMany(mappedBy = "estadias", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<UsuarioEntity> asistentesEstadia = new ArrayList<>();
-=======
->>>>>>> Stashed changes
+    
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
@@ -88,7 +83,6 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
         this.anfitrion = anfitrion;
     }
     
-<<<<<<< Updated upstream
     /**
      * Equals de la clase
      */
@@ -124,6 +118,4 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
     public void setAsistentesEstadia(List<UsuarioEntity> asistentesEstadia) {
         this.asistentesEstadia = asistentesEstadia;
     }
-=======
->>>>>>> Stashed changes
 }

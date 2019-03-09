@@ -140,17 +140,8 @@ public class EstadiaPersistence {
         query = query.setParameter("nombre", pName);
         // Se invoca el query se obtiene la lista resultado
         List<EstadiaEntity> sameName = query.getResultList();
-<<<<<<< Updated upstream
         EstadiaEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-=======
-        EstadiaEntity result;
-        if (sameName == null) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-            result = null;
-        } else {
->>>>>>> Stashed changes
             result = sameName.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar estadia por nombre = {0}", pName);

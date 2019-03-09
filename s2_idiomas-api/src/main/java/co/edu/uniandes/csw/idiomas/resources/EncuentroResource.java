@@ -130,11 +130,7 @@ public class EncuentroResource {
      */
     @PUT
     @Path("{encuentrosId: \\d+}")
-<<<<<<< Updated upstream
     public EncuentroDTO updateEncuentro(@PathParam("encuentrosId") Long encuentrosId, EncuentroDTO encuentro) throws BusinessLogicException
-=======
-    public EncuentroDTO updateEncuentro(@PathParam("encuentrosId") Long encuentrosId, EncuentroDTO encuentro)
->>>>>>> Stashed changes
     {
         LOGGER.log(Level.INFO, "EncuentroResource updateEncuentro: input: id:{0} , encuentro: {1}", new Object[]{encuentrosId, encuentro});
         encuentro.setId(encuentrosId);
@@ -168,28 +164,27 @@ public class EncuentroResource {
         LOGGER.info("EncuentroResource deleteEncuentro: output: void");
     }
 
-    // TODO: GC Conectar Encuentros con Comentarios y las otras clases.
-//    /**
-//     * Conexión con el servicio de libros para una encuentro.
-//     * {@link EncuentroBooksResource}
-//     *
-//     * Este método conecta la ruta de /encuentros con las rutas de /books que
-//     * dependen de la encuentro, es una redirección al servicio que maneja el
-//     * segmento de la URL que se encarga de los libros de una encuentro.
-//     *
-//     * @param encuentrosId El ID de la encuentro con respecto a la cual se
-//     * accede al servicio.
-//     * @return El servicio de libros para esta encuentro en paricular.
-//     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-//     * Error de lógica que se genera cuando no se encuentra la encuentro.
-//     */
-//    @Path("{encuentrosId: \\d+}/books")
-//    public Class<EncuentroBooksResource> getEncuentroBooksResource(@PathParam("encuentrosId") Long encuentrosId) {
-//        if (encuentroLogic.getEncuentro(encuentrosId) == null) {
-//            throw new WebApplicationException("El recurso /encuentros/" + encuentrosId + " no existe.", 404);
-//        }
-//        return EncuentroBooksResource.class;
-//    }
+    /**
+     * Conexión con el servicio de comentarios para una encuentro.
+     * {@link ActividadComentarioActividadResource}
+     *
+     * Este método conecta la ruta de /encuentros con las rutas de /comentarios que
+     * dependen de la encuentro, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de los comentarios de una encuentro.
+     *
+     * @param encuentrosId El ID de la encuentro con respecto a la cual se
+     * accede al servicio.
+     * @return El servicio de comentarios para esta encuentro en paricular.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la encuentro.
+     */
+    @Path("{encuentrosId: \\d+}/comentarios")
+    public Class<ActividadComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("encuentrosId") Long encuentrosId) {
+        if (encuentroLogic.getEncuentro(encuentrosId) == null) {
+            throw new WebApplicationException("El recurso /encuentros/" + encuentrosId + " no existe.", 404);
+        }
+        return ActividadComentarioActividadResource.class;
+    }
 
     /**
      * Convierte una lista de entidades a DTO.

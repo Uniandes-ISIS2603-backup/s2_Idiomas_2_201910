@@ -18,13 +18,9 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class UsuarioEntity extends BaseEntity implements Serializable{
-<<<<<<< Updated upstream
+    
     private Long contrasenia;
     private String nombre;
-=======
-    Long contrasenia;
-    String nombre;
->>>>>>> Stashed changes
     
 //    @PodamExclude
 //    @ManyToMany(mappedBy = "usuarios")
@@ -43,13 +39,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     @ManyToMany
     private List<ActividadEntity> actividades = new ArrayList<>();
  
-<<<<<<< Updated upstream
     
     @PodamExclude
     @ManyToMany
     private List<EstadiaEntity> estadias = new ArrayList<>();
-=======
->>>>>>> Stashed changes
+    
     /**
      * Connstructor vacio de un Entity
      */

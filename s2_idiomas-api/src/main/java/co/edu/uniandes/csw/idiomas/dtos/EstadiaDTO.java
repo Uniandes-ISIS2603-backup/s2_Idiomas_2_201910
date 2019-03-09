@@ -54,6 +54,14 @@ public class EstadiaDTO extends ActividadDTO implements Serializable{
         if (pEstadiaEntity != null) 
         {
             this.pais = pEstadiaEntity.getPais();
+            if(pEstadiaEntity.getAnfitrion() != null)
+            {
+                this.anfitrion = new AnfitrionDTO(pEstadiaEntity.getAnfitrion());
+            }
+            else
+            {
+                this.anfitrion = null;
+            }
         }
     }
     

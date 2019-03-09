@@ -53,7 +53,6 @@ public class ChatLogic {
      */
     public ChatEntity createChat(ChatEntity chatEntity) throws BusinessLogicException 
     {
-<<<<<<< Updated upstream
         LOGGER.log(Level.INFO, "Inicia proceso de creación del chat");
         // Verifica la regla de negocio que dice que el nombre del chat no puede ser vacío.
         if (!validateName(chatEntity.getNombre()))
@@ -86,16 +85,6 @@ public class ChatLogic {
         // Invoca la persistencia para crear la chat
         persistence.create(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación del chat");
-=======
-        LOGGER.log(Level.INFO, "Inicia proceso de creación de la chat");
-        // Verifica la regla de negocio que dice que no puede haber dos chats con el mismo nombre
-        if (persistence.findByName(chatEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Chat con el nombre \"" + chatEntity.getNombre()+ "\"");
-        }
-        // Invoca la persistencia para crear la chat
-        persistence.create(chatEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de creación de la chat");
->>>>>>> Stashed changes
         return chatEntity;
     }
 
@@ -143,7 +132,6 @@ public class ChatLogic {
      * por ejemplo el nombre.
      * @return la chat con los cambios actualizados en la base de datos.
      */
-<<<<<<< Updated upstream
     public ChatEntity updateChat(Long  pChatsId, ChatEntity chatEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}",  pChatsId);
@@ -173,12 +161,6 @@ public class ChatLogic {
         {
             throw new BusinessLogicException("La chat ya existe.");
         }
-        
-=======
-    public ChatEntity updateChat(Long  pChatsId, ChatEntity chatEntity) 
-    {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}",  pChatsId);
->>>>>>> Stashed changes
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         ChatEntity newEntity = persistence.update(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la chat con id = {0}", chatEntity.getId());
@@ -203,7 +185,6 @@ public class ChatLogic {
         LOGGER.log(Level.INFO, "Termina proceso de borrar la chat con id = {0}", pChatsId);
     }
     
-<<<<<<< Updated upstream
     /**
      * Verifica que el nombre no sea invalido.
      *
@@ -214,6 +195,4 @@ public class ChatLogic {
     {
         return !(pNombre == null || pNombre.isEmpty());
     }
-=======
->>>>>>> Stashed changes
 }

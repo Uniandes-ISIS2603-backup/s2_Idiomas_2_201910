@@ -14,18 +14,14 @@ import javax.inject.Inject;
  * @author jdruedaa
  */
 public class CalificacionDTO implements Serializable {
-<<<<<<< Updated upstream
 
     
 
-    private Integer calificacion;
-    private String mensaje;
-=======
+   
     private Integer cantidadParaActualizar;
     private Double calificacionAcumulado;
     private Integer calificacion;
     private Integer numeroDeCalificaciones;
->>>>>>> Stashed changes
     
     public CalificacionDTO()
     {
@@ -36,12 +32,7 @@ public class CalificacionDTO implements Serializable {
     {
         if(cal != null)
         {
-<<<<<<< Updated upstream
-            this.calificacion = cal.getCalificacion();
-            this.mensaje = cal.getMensaje();
-=======
 //            this.calificacion = cal.getCalificacion();
->>>>>>> Stashed changes
         }
     }
 
@@ -89,22 +80,7 @@ public class CalificacionDTO implements Serializable {
     public void setCalificacion(Integer calificacion) {
         this.calificacion = calificacion;
     }
-<<<<<<< Updated upstream
-    
-    /**
-     * @return the mensaje
-     */
-    public String getMensaje() {
-        return mensaje;
-    }
 
-    /**
-     * @param mensaje the mensaje to set
-     */
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-=======
 
     /**
      * @return the numeroDeCalificaciones
@@ -118,19 +94,13 @@ public class CalificacionDTO implements Serializable {
      */
     public void setNumeroDeCalificaciones(Integer numeroDeCalificaciones) {
         this.numeroDeCalificaciones = numeroDeCalificaciones;
-    }    
->>>>>>> Stashed changes
+    }
     
     @Inject
     public CalificacionEntity toEntity()
     {
         CalificacionEntity cal = new CalificacionEntity();
-<<<<<<< Updated upstream
-        cal.setCalificacion(calificacion);
-        cal.setMensaje(mensaje);
-=======
 //        cal.setCalificacion(calificacion);
->>>>>>> Stashed changes
         return cal;
     }
     

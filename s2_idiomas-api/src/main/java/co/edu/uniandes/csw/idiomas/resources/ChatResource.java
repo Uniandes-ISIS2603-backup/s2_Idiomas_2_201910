@@ -130,11 +130,7 @@ public class ChatResource {
      */
     @PUT
     @Path("{chatsId: \\d+}")
-<<<<<<< Updated upstream
-    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) throws BusinessLogicException 
-=======
-    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) 
->>>>>>> Stashed changes
+    public ChatDTO updateChat(@PathParam("chatsId") Long chatsId, ChatDTO chat) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "ChatResource updateChat: input: id:{0} , chat: {1}", new Object[]{chatsId, chat});
         chat.setId(chatsId);
@@ -168,28 +164,27 @@ public class ChatResource {
         LOGGER.info("ChatResource deleteChat: output: void");
     }
 
-    // TODO: GC Conectar Chats con Comentarios y las otras clases.
-//    /**
-//     * Conexión con el servicio de libros para una chat.
-//     * {@link ChatBooksResource}
-//     *
-//     * Este método conecta la ruta de /chats con las rutas de /books que
-//     * dependen de la chat, es una redirección al servicio que maneja el
-//     * segmento de la URL que se encarga de los libros de una chat.
-//     *
-//     * @param chatsId El ID de la chat con respecto a la cual se
-//     * accede al servicio.
-//     * @return El servicio de libros para esta chat en paricular.
-//     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-//     * Error de lógica que se genera cuando no se encuentra la chat.
-//     */
-//    @Path("{chatsId: \\d+}/books")
-//    public Class<ChatBooksResource> getChatBooksResource(@PathParam("chatsId") Long chatsId) {
-//        if (chatLogic.getChat(chatsId) == null) {
-//            throw new WebApplicationException("El recurso /chats/" + chatsId + " no existe.", 404);
-//        }
-//        return ChatBooksResource.class;
-//    }
+    /**
+     * Conexión con el servicio de comentarios para una chat.
+     * {@link ActividadComentarioActividadResource}
+     *
+     * Este método conecta la ruta de /chats con las rutas de /comentarios que
+     * dependen de la chat, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de los comentarios de una chat.
+     *
+     * @param chatsId El ID de la chat con respecto a la cual se
+     * accede al servicio.
+     * @return El servicio de comentarios para esta chat en paricular.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la chat.
+     */
+    @Path("{chatsId: \\d+}/comentarios")
+    public Class<ActividadComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("chatsId") Long chatsId) {
+        if (chatLogic.getChat(chatsId) == null) {
+            throw new WebApplicationException("El recurso /chats/" + chatsId + " no existe.", 404);
+        }
+        return ActividadComentarioActividadResource.class;
+    }
 
     /**
      * Convierte una lista de entidades a DTO.

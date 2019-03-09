@@ -130,11 +130,7 @@ public class EstadiaResource {
      */
     @PUT
     @Path("{estadiasId: \\d+}")
-<<<<<<< Updated upstream
-    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) throws BusinessLogicException 
-=======
-    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) 
->>>>>>> Stashed changes
+    public EstadiaDTO updateEstadia(@PathParam("estadiasId") Long estadiasId, EstadiaDTO estadia) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "EstadiaResource updateEstadia: input: id:{0} , estadia: {1}", new Object[]{estadiasId, estadia});
         estadia.setId(estadiasId);
@@ -168,28 +164,27 @@ public class EstadiaResource {
         LOGGER.info("EstadiaResource deleteEstadia: output: void");
     }
 
-    // TODO: GC Conectar Estadias con Comentarios y las otras clases.
-//    /**
-//     * Conexión con el servicio de libros para una estadia.
-//     * {@link EstadiaBooksResource}
-//     *
-//     * Este método conecta la ruta de /estadias con las rutas de /books que
-//     * dependen de la estadia, es una redirección al servicio que maneja el
-//     * segmento de la URL que se encarga de los libros de una estadia.
-//     *
-//     * @param estadiasId El ID de la estadia con respecto a la cual se
-//     * accede al servicio.
-//     * @return El servicio de libros para esta estadia en paricular.
-//     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-//     * Error de lógica que se genera cuando no se encuentra la estadia.
-//     */
-//    @Path("{estadiasId: \\d+}/books")
-//    public Class<EstadiaBooksResource> getEstadiaBooksResource(@PathParam("estadiasId") Long estadiasId) {
-//        if (estadiaLogic.getEstadia(estadiasId) == null) {
-//            throw new WebApplicationException("El recurso /estadias/" + estadiasId + " no existe.", 404);
-//        }
-//        return EstadiaBooksResource.class;
-//    }
+    /**
+     * Conexión con el servicio de comentarios para una estadia.
+     * {@link ActividadComentarioActividadResource}
+     *
+     * Este método conecta la ruta de /estadias con las rutas de /comentarios que
+     * dependen de la estadia, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de los comentarios de una estadia.
+     *
+     * @param estadiasId El ID de la estadia con respecto a la cual se
+     * accede al servicio.
+     * @return El servicio de comentarios para esta estadia en paricular.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la estadia.
+     */
+    @Path("{estadiasId: \\d+}/comentarios")
+    public Class<ActividadComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("estadiasId") Long estadiasId) {
+        if (estadiaLogic.getEstadia(estadiasId) == null) {
+            throw new WebApplicationException("El recurso /estadias/" + estadiasId + " no existe.", 404);
+        }
+        return ActividadComentarioActividadResource.class;
+    }
 
     /**
      * Convierte una lista de entidades a DTO.

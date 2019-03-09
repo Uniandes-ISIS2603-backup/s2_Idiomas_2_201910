@@ -77,14 +77,14 @@ public class ActividadDTO implements Serializable{
             this.fecha = pActividadEntity.getFecha();
             this.motivacion = pActividadEntity.getMotivacion();
             this.nombre = pActividadEntity.getNombre();
-//            if (pActividadEntity.getCalificacion() != null)
-//            {
-//                this.calificacion = new CalificacionDTO(pActividadEntity.getCalificacion());
-//            }
-//            else
-//            {
-//                this.calificacion = null;
-//            }
+            if (pActividadEntity.getCalificacion() != null)
+            {
+                this.calificacion = new CalificacionDTO(pActividadEntity.getCalificacion());
+            }
+            else
+            {
+                this.calificacion = null;
+            }
         }
     }
             
