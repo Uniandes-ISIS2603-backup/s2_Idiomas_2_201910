@@ -1,19 +1,14 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
-<<<<<<< Updated upstream
 import co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic;
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
-=======
-import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
-//import co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic;
-//import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
->>>>>>> Stashed changes
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.idiomas.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -45,12 +40,8 @@ import javax.ws.rs.WebApplicationException;
  */
 public class AdministradorResource 
 {
-<<<<<<< Updated upstream
     private static final  Logger LOGGER = Logger.getLogger(UsuarioResource.class.getName());
     private static final String NO_EXISTE =" no existe." ;
-=======
-    private static final Logger LOGGER = Logger.getLogger(AdministradorResource.class.getName());
->>>>>>> Stashed changes
 
     @Inject
     AdministradorLogic administradorLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.

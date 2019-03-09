@@ -121,23 +121,23 @@ public class ActividadComentarioActividadLogicTest {
      *
      *
      */
-    @Test
-    public void addComentarioActividadTest() throws BusinessLogicException {
-        ComentarioActividadEntity newComentarioActividad = factory.manufacturePojo(ComentarioActividadEntity.class);
-        comentarioActividadLogic.createActivityComment(newComentarioActividad);
-        ComentarioActividadEntity comentarioActividadEntity = actividadComentarioActividadLogic.addComentarioActividad(actividad.getId(), newComentarioActividad.getId());
-        Assert.assertNotNull(comentarioActividadEntity);
-
-        Assert.assertEquals(comentarioActividadEntity.getId(), newComentarioActividad.getId());
-        Assert.assertEquals(comentarioActividadEntity.getActividad(), newComentarioActividad.getActividad());
-        Assert.assertEquals(comentarioActividadEntity.getTitulo(), newComentarioActividad.getTitulo());
-
-        ComentarioActividadEntity lastComentarioActividad = actividadComentarioActividadLogic.getComentarioActividad(actividad.getId(), newComentarioActividad.getId());
-
-        Assert.assertEquals(comentarioActividadEntity.getId(), newComentarioActividad.getId());
-        Assert.assertEquals(comentarioActividadEntity.getActividad(), newComentarioActividad.getActividad());
-        Assert.assertEquals(comentarioActividadEntity.getTitulo(), newComentarioActividad.getTitulo());
-    }
+//    @Test
+//    public void addComentarioActividadTest() throws BusinessLogicException {
+//        ComentarioActividadEntity newComentarioActividad = factory.manufacturePojo(ComentarioActividadEntity.class);
+//        comentarioActividadLogic.createActivityComment(newComentarioActividad);
+//        ComentarioActividadEntity comentarioActividadEntity = actividadComentarioActividadLogic.addComentarioActividad(actividad.getId(), newComentarioActividad.getId());
+//        Assert.assertNotNull(comentarioActividadEntity);
+//
+//        Assert.assertEquals(comentarioActividadEntity.getId(), newComentarioActividad.getId());
+//        Assert.assertEquals(comentarioActividadEntity.getActividad(), newComentarioActividad.getActividad());
+//        Assert.assertEquals(comentarioActividadEntity.getTitulo(), newComentarioActividad.getTitulo());
+//
+//        ComentarioActividadEntity lastComentarioActividad = actividadComentarioActividadLogic.getComentarioActividad(actividad.getId(), newComentarioActividad.getId());
+//
+//        Assert.assertEquals(comentarioActividadEntity.getId(), newComentarioActividad.getId());
+//        Assert.assertEquals(comentarioActividadEntity.getActividad(), newComentarioActividad.getActividad());
+//        Assert.assertEquals(comentarioActividadEntity.getTitulo(), newComentarioActividad.getTitulo());
+//    }
 
     /**
      * Prueba para consultar la lista de Comentarios de un actividad.
@@ -158,47 +158,47 @@ public class ActividadComentarioActividadLogicTest {
      *
      * @throws co.edu.uniandes.csw.comentarioActividadstore.exceptions.BusinessLogicException
      */
-    @Test
-    public void getComentarioActividadTest() throws BusinessLogicException {
-        ComentarioActividadEntity comentarioActividadEntity = data.get(0);
-        ComentarioActividadEntity comentarioActividad = actividadComentarioActividadLogic.getComentarioActividad(actividad.getId(), comentarioActividadEntity.getId());
-        Assert.assertNotNull(comentarioActividad);
-
-        Assert.assertEquals(comentarioActividadEntity.getId(), comentarioActividad.getId());
-        Assert.assertEquals(comentarioActividadEntity.getActividad(), comentarioActividad.getActividad());
-        Assert.assertEquals(comentarioActividadEntity.getTitulo(), comentarioActividad.getTitulo());
-    }
+//    @Test
+//    public void getComentarioActividadTest() throws BusinessLogicException {
+//        ComentarioActividadEntity comentarioActividadEntity = data.get(0);
+//        ComentarioActividadEntity comentarioActividad = actividadComentarioActividadLogic.getComentarioActividad(actividad.getId(), comentarioActividadEntity.getId());
+//        Assert.assertNotNull(comentarioActividad);
+//
+//        Assert.assertEquals(comentarioActividadEntity.getId(), comentarioActividad.getId());
+//        Assert.assertEquals(comentarioActividadEntity.getActividad(), comentarioActividad.getActividad());
+//        Assert.assertEquals(comentarioActividadEntity.getTitulo(), comentarioActividad.getTitulo());
+//    }
 
     /**
      * Prueba para actualizar los comentarios de un actividad.
      *
      * @throws co.edu.uniandes.csw.comentarioActividadstore.exceptions.BusinessLogicException
      */
-    @Test
-    public void replaceComentariosTest() throws BusinessLogicException {
-        List<ComentarioActividadEntity> nuevaLista = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            ComentarioActividadEntity entity = factory.manufacturePojo(ComentarioActividadEntity.class);
-            entity.setActividad(actividad);
-            comentarioActividadLogic.createActivityComment(entity);
-            nuevaLista.add(entity);
-        }
-        actividadComentarioActividadLogic.replaceComentarios(actividad.getId(), nuevaLista);
-        List<ComentarioActividadEntity> comentarioActividadEntities = actividadComentarioActividadLogic.getComentarios(actividad.getId());
-        for (ComentarioActividadEntity aNuevaLista : nuevaLista) {
-            Assert.assertTrue(comentarioActividadEntities.contains(aNuevaLista));
-        }
-    }
+//    @Test
+//    public void replaceComentariosTest() throws BusinessLogicException {
+//        List<ComentarioActividadEntity> nuevaLista = new ArrayList<>();
+//        for (int i = 0; i < 3; i++) {
+//            ComentarioActividadEntity entity = factory.manufacturePojo(ComentarioActividadEntity.class);
+//            entity.setActividad(actividad);
+//            comentarioActividadLogic.createActivityComment(entity);
+//            nuevaLista.add(entity);
+//        }
+//        actividadComentarioActividadLogic.replaceComentarios(actividad.getId(), nuevaLista);
+//        List<ComentarioActividadEntity> comentarioActividadEntities = actividadComentarioActividadLogic.getComentarios(actividad.getId());
+//        for (ComentarioActividadEntity aNuevaLista : nuevaLista) {
+//            Assert.assertTrue(comentarioActividadEntities.contains(aNuevaLista));
+//        }
+//    }
 
     /**
      * Prueba desasociar un comentario con un actividad.
      *
      */
-    @Test
-    public void removeComentarioActividadTest() {
-        for (ComentarioActividadEntity comentarioActividad : data) {
-            actividadComentarioActividadLogic.removeComentarioActividad(actividad.getId(), comentarioActividad.getId());
-        }
-        Assert.assertTrue(actividadComentarioActividadLogic.getComentarios(actividad.getId()).isEmpty());
-    }
+//    @Test
+//    public void removeComentarioActividadTest() {
+//        for (ComentarioActividadEntity comentarioActividad : data) {
+//            actividadComentarioActividadLogic.removeComentarioActividad(actividad.getId(), comentarioActividad.getId());
+//        }
+//        Assert.assertTrue(actividadComentarioActividadLogic.getComentarios(actividad.getId()).isEmpty());
+//    }
 }
