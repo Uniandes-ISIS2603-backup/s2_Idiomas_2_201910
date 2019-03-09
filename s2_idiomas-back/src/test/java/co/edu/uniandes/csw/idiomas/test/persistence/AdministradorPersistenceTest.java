@@ -42,7 +42,7 @@ public class AdministradorPersistenceTest
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
      * datos por fuera de los métodos que se están probando.
      */
-    @PersistenceContext
+    @PersistenceContext 
     private EntityManager em;
     
      /**
