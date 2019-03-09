@@ -111,7 +111,7 @@ public class ChatLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from UsuarioEntity").executeUpdate();
-        em.createQuery("delete from ComentarioChatEntity").executeUpdate();
+        em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
         em.createQuery("delete from ChatEntity").executeUpdate();
         em.createQuery("delete from CoordinadorEntity").executeUpdate();
     }
@@ -132,13 +132,12 @@ public class ChatLogicTest {
             ChatEntity entity = factory.manufacturePojo(ChatEntity.class);
             em.persist(entity);
             entity.getCoordinadores().add(coordinadorData.get(0));
-            // TODO : GC Poner calificación
             data.add(entity);
         }
-//        ComentarioActividadEntity comentario = factory.manufacturePojo(ComentarioActividadEntity.class);
-//        comentario.setActividad(data.get(1));
-//        em.persist(comentario);
-//        data.get(1).getComentarios().add(comentario);
+        ComentarioActividadEntity comentario = factory.manufacturePojo(ComentarioActividadEntity.class);
+        comentario.setActividad(data.get(1));
+        em.persist(comentario);
+        data.get(1).getComentarios().add(comentario);
     }
 
     /**
@@ -228,19 +227,6 @@ public class ChatLogicTest {
     public void createChatTestConMedioInvalido2() throws BusinessLogicException {
         ChatEntity newEntity = factory.manufacturePojo(ChatEntity.class);
         newEntity.setMedio(null);
-        chatLogic.createChat(newEntity);
-    }
-    
-    /**
-     * Prueba para crear un Chat con un id ya existente
-     *
-     * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createChatTestConIdExistente() throws BusinessLogicException {
-        List<ChatEntity> chats = chatLogic.getChats();
-        ChatEntity newEntity = factory.manufacturePojo(ChatEntity.class);
-        newEntity.setId(chats.get(0).getId());
         chatLogic.createChat(newEntity);
     }
 

@@ -62,7 +62,6 @@ public class OtroLogic {
         }
         
         // Verifica la regla de negocio que dice que una otro debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (otroEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La otro debe tener un coordinador.");
@@ -136,7 +135,6 @@ public class OtroLogic {
         }
         
         // Verifica la regla de negocio que dice que una otro debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (otroEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La otro debe tener un coordinador.");

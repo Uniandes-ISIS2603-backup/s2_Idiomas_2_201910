@@ -60,8 +60,8 @@ public class ActividadLogic {
         {
             throw new BusinessLogicException("El nombre es inválido.");
         }
+        
         // Verifica la regla de negocio que dice que una actividad debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (actividadEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La actividad debe tener un coordinador.");
@@ -131,7 +131,6 @@ public class ActividadLogic {
             throw new BusinessLogicException("El nombre es inválido.");
         }
         // Verifica la regla de negocio que dice que una actividad debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (actividadEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La actividad debe tener un coordinador.");

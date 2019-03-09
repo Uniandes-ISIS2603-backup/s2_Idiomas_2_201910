@@ -1,7 +1,6 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
-import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import java.io.Serializable;
 import java.util.Date;
 

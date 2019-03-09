@@ -258,19 +258,6 @@ public class EncuentroLogicTest {
         newEntity.setNumeroMaxAsistentes(-1);
         encuentroLogic.createEncuentro(newEntity);
     }
-    
-    /**
-     * Prueba para crear un Encuentro con un id ya existente
-     *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createEncuentroTestConIdExistente() throws BusinessLogicException {
-        List<EncuentroEntity> encuentros = encuentroLogic.getEncuentros();
-        EncuentroEntity newEntity = factory.manufacturePojo(EncuentroEntity.class);
-        newEntity.setId(encuentros.get(0).getId());
-        encuentroLogic.createEncuentro(newEntity);
-    }
 
     /**
      * Prueba para consultar un Encuentro.

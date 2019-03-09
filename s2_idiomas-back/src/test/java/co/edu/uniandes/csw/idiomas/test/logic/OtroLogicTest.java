@@ -210,19 +210,6 @@ public class OtroLogicTest {
         OtroEntity newEntity = otros.get(0);
         otroLogic.createOtro(newEntity);
     }
-    
-    /**
-     * Prueba para crear un Otro con un id ya existente
-     *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createOtroTestConIdExistente() throws BusinessLogicException {
-        List<OtroEntity> otros = otroLogic.getOtros();
-        OtroEntity newEntity = factory.manufacturePojo(OtroEntity.class);
-        newEntity.setId(otros.get(0).getId());
-        otroLogic.createOtro(newEntity);
-    }
 
     /**
      * Prueba para consultar un Otro.

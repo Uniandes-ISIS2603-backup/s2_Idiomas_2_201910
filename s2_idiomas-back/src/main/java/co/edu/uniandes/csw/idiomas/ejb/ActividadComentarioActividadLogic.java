@@ -59,7 +59,7 @@ public class ActividadComentarioActividadLogic {
         ActividadEntity actividadEntity = actividadPersistence.find(actividadesId);
         ComentarioActividadEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
         comentarioActividadEntity.setActividad(actividadEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de asociarle un libro al actividad con id = {0}", actividadesId);
+        LOGGER.log(Level.INFO, "Termina proceso de asociarle un comentario al actividad con id = {0}", actividadesId);
         return comentarioActividadPersistence.find(comentariosId);
     }
 
@@ -82,18 +82,18 @@ public class ActividadComentarioActividadLogic {
      * @param actividadesId Identificador de la instancia de Actividad
      * @param comentariosId Identificador de la instancia de ComentarioActividad
      * @return La entidadd de Libro del actividad
-     * @throws BusinessLogicException Si el libro no está asociado al actividad
+     * @throws BusinessLogicException Si el comentario no está asociado al actividad
      */
     public ComentarioActividadEntity getComentarioActividad(Long actividadesId, Long comentariosId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar el libro con id = {0} del actividad con id = " + actividadesId, comentariosId);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar el comentario con id = {0} del actividad con id = " + actividadesId, comentariosId);
         List<ComentarioActividadEntity> comentarios = actividadPersistence.find(actividadesId).getComentarios();
         ComentarioActividadEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
         int index = comentarios.indexOf(comentarioActividadEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de consultar el libro con id = {0} del actividad con id = " + actividadesId, comentariosId);
+        LOGGER.log(Level.INFO, "Termina proceso de consultar el comentario con id = {0} del actividad con id = " + actividadesId, comentariosId);
         if (index >= 0) {
             return comentarios.get(index);
         }
-        throw new BusinessLogicException("El libro no está asociado al actividad");
+        throw new BusinessLogicException("El comentario no está asociado al actividad");
     }
 
     /**
@@ -129,9 +129,9 @@ public class ActividadComentarioActividadLogic {
      * @param comentariosId Identificador de la instancia de ComentarioActividad
      */
     public void removeComentarioActividad(Long actividadesId, Long comentariosId) {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar un libro del actividad con id = {0}", actividadesId);
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar un comentario del actividad con id = {0}", actividadesId);
         ComentarioActividadEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
         comentarioActividadEntity.setActividad(null);
-        LOGGER.log(Level.INFO, "Termina proceso de borrar un libro del actividad con id = {0}", actividadesId);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar un comentario del actividad con id = {0}", actividadesId);
     }
 }

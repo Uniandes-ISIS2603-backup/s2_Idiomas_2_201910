@@ -8,7 +8,6 @@ import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.idiomas.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

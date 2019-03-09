@@ -7,9 +7,7 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
-import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence;
 import java.util.List;
 import java.util.logging.Level;

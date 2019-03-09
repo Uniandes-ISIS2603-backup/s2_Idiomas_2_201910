@@ -187,19 +187,6 @@ public class ActividadLogicTest {
     }
     
     /**
-     * Prueba para crear un Actividad con un id ya existente
-     *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createActividadTestConIdExistente() throws BusinessLogicException {
-        List<ActividadEntity> actividades = actividadLogic.getActividades();
-        ActividadEntity newEntity = factory.manufacturePojo(ActividadEntity.class);
-        newEntity.setId(actividades.get(0).getId());
-        actividadLogic.createActividad(newEntity);
-    }
-    
-    /**
      * Prueba para crear un Actividad sin un coordinador
      *
      * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException

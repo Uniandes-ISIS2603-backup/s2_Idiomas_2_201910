@@ -6,9 +6,7 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.BlogEntity;
-import co.edu.uniandes.csw.idiomas.entities.BlogEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.idiomas.persistence.BlogPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.BlogPersistence;
 import java.util.List;
 import java.util.logging.Level;

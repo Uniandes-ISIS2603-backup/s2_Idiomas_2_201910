@@ -11,7 +11,6 @@ import co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -49,13 +48,12 @@ public class ComentarioLogic {
         return entidad;
     } 
     
-    public void deleteComment(Long commentId) throws BusinessLogicException {
+    public void deleteComment(Long commentId) {
         persistence.delete(commentId);
     }
     
     public ComentarioEntity getComment(Long comentarioId){
-        ComentarioEntity comentario = persistence.find(comentarioId);
-        return comentario;
+        return persistence.find(comentarioId);
     }
     
     
