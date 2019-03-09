@@ -5,9 +5,11 @@
  */
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
-import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
+import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
 import co.edu.uniandes.csw.idiomas.entities.BlogEntity;
-import co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence;
+import co.edu.uniandes.csw.idiomas.entities.BlogEntity;
+import co.edu.uniandes.csw.idiomas.persistence.AdministradorPersistence;
+import co.edu.uniandes.csw.idiomas.persistence.BlogPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.BlogPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class BlogPersistenceTest {
         /**
-     * Inyecta la dependencia de EstadiaPersistence.
+     * Inyecta la dependencia de BlogPersistence.
      */
     @Inject
     private BlogPersistence blogPersistence;
@@ -65,12 +67,14 @@ public class BlogPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(EstadiaEntity.class.getPackage())
-                .addPackage(EstadiaPersistence.class.getPackage())
+                .addPackage(BlogEntity.class.getPackage())
+                .addPackage(BlogPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
-
+    
+    
+    
     /**
      * Configuración inicial de la prueba.
      */
@@ -91,12 +95,16 @@ public class BlogPersistenceTest {
             }
         }
     }
+    
+    
+
+    
 
     /**
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from EstadiaEntity").executeUpdate();
+        em.createQuery("delete from BlogEntity").executeUpdate();
     }
 
     /**
@@ -114,7 +122,7 @@ public class BlogPersistenceTest {
     }
 
     /**
-     * Prueba para crear un Estadia.
+     * Prueba para crear un Blog.
      */
     @Test
     public void createBlogTest() {
@@ -124,13 +132,13 @@ public class BlogPersistenceTest {
 
         Assert.assertNotNull(result);
 
-        EstadiaEntity entity = em.find(EstadiaEntity.class, result.getId());
+        BlogEntity entity = em.find(BlogEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }
 
     /**
-     * Prueba para consultar la lista de Estadias.
+     * Prueba para consultar la lista de Blogs.
      */
     @Test
     public void getBlogLTest() {
@@ -148,7 +156,7 @@ public class BlogPersistenceTest {
     }
 
     /**
-     * Prueba para consultar un Estadia.
+     * Prueba para consultar un Blog.
      */
     @Test
     public void getBlogTest() {
@@ -160,7 +168,7 @@ public class BlogPersistenceTest {
     }
 
     /**
-     * Prueba para actualizar un Estadia.
+     * Prueba para actualizar un Blog.
      */
     @Test
     public void updateEBlogTest() {
@@ -172,13 +180,13 @@ public class BlogPersistenceTest {
 
         blogPersistence.update(newEntity);
 
-        EstadiaEntity resp = em.find(EstadiaEntity.class, entity.getId());
+        BlogEntity resp = em.find(BlogEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getId(), resp.getId());
     }
 
     /**
-     * Prueba para eliminar un Estadia.
+     * Prueba para eliminar un Blog.
      */
     @Test
     public void deleteBlogTest() {

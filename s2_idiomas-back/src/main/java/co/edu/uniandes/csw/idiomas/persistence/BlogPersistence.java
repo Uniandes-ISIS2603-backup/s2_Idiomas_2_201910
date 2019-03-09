@@ -6,11 +6,12 @@
 package co.edu.uniandes.csw.idiomas.persistence;
 
 import co.edu.uniandes.csw.idiomas.entities.BlogEntity;
-import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
+import co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity;
 import co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -19,6 +20,7 @@ import javax.persistence.TypedQuery;
  *
  * @author estudiante
  */
+@Stateless
 public class BlogPersistence {
             private static final Logger LOGGER = Logger.getLogger(BlogPersistence.class.getName());
     
@@ -31,11 +33,11 @@ public class BlogPersistence {
      * @param BlogEntity objeto Blog que se creará en la base de datos
      * @return devuelve la entidad creada con un id dado por la base de datos.
      */
-    public BlogEntity create(BlogEntity BlogEntity) {
+    public BlogEntity create(BlogEntity blogEntity) {
         LOGGER.log(Level.INFO, "Creando un GrupoDeInteres nuevo");        
-        em.persist(BlogEntity);
+        em.persist(blogEntity);
         LOGGER.log(Level.INFO, "Saliendo de crear un GrupoDeInteres nuevo");
-        return BlogEntity;
+        return blogEntity;
     }
 
     /**
@@ -45,20 +47,20 @@ public class BlogPersistence {
      *
      * @param BlogId: id correspondiente a la Blog a borrar.
      */
-    public void delete(Long BlogId) {
-        LOGGER.log(Level.INFO, "Borrando Blog con id = {0}", BlogId);
+    public void delete(Long blogId) {
+        LOGGER.log(Level.INFO, "Borrando Blog con id = {0}", blogId);
         // Se hace uso de mismo método que esta explicado en public AdministradorEntity find(Long id) para obtener la Administrador a borrar.
-        BlogEntity entity = em.find(BlogEntity.class, BlogId);
+        BlogEntity entity = em.find(BlogEntity.class, blogId);
         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
          EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
          Es similar a "delete from AdministradorEntity where id=id;" - "DELETE FROM table_nombre WHERE condition;" en SQL.*/
         em.remove(entity);
-        LOGGER.log(Level.INFO, "Saliendo de borrar la Blog con id = {0}", BlogId);
+        LOGGER.log(Level.INFO, "Saliendo de borrar la Blog con id = {0}", blogId);
     }
           /**
-     * Actualiza una estadia.
+     * Actualiza una grupoDeInteres.
      *
-     * @param GrupoDeInteresEntity: la estadia que viene con los nuevos cambios.
+     * @param GrupoDeInteresEntity: la grupoDeInteres que viene con los nuevos cambios.
      * Por ejemplo el nombre pudo cambiar. En ese caso, se haria uso del método
      * update.
      * @return un grupo con los cambios aplicados.
@@ -73,31 +75,31 @@ public class BlogPersistence {
         return em.merge(pBlogEntity);
     }
         /**
-     * Devuelve todas las estadias de la base de datos.
+     * Devuelve todas las grupoDeIntereses de la base de datos.
      *
-     * @return una lista con todas las estadias que encuentre en la base de
-     * datos, "select u from EstadiaEntity u" es como un "select * from
-     * EstadiaEntity;" - "SELECT * FROM table_name" en SQL.
+     * @return una lista con todas las grupoDeIntereses que encuentre en la base de
+     * datos, "select u from GrupoDeInteresEntity u" es como un "select * from
+     * GrupoDeInteresEntity;" - "SELECT * FROM table_name" en SQL.
      */
     public List<BlogEntity> findAll() {
         LOGGER.log(Level.INFO, "Consultando todas los Blog");
-        // Se crea un query para buscar todas las estadias en la base de datos.
+        // Se crea un query para buscar todas las grupoDeIntereses en la base de datos.
         TypedQuery query = em.createQuery("select u from Blog u", BlogEntity.class);
-        // Se hace uso del método getResultList() que obtiene una lista de estadias.
+        // Se hace uso del método getResultList() que obtiene una lista de grupoDeIntereses.
         return query.getResultList();
     }
 	
     /**
-     * Busca si hay alguna estadia con el id que se envía de argumento
+     * Busca si hay alguna grupoDeInteres con el id que se envía de argumento
      *
-     * @param pEstadiaId: id correspondiente a la estadia buscada.
-     * @return una estadia.
+     * @param pGrupoDeInteresId: id correspondiente a la grupoDeInteres buscada.
+     * @return una grupoDeInteres.
      */
     public BlogEntity find(Long pBlogId) {
         LOGGER.log(Level.INFO, "Consultando grupoDeInteres con id={0}", pBlogId);
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
-        Suponga que es algo similar a "select * from EstadiaEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
+        Suponga que es algo similar a "select * from GrupoDeInteresEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
          */
         return em.find(BlogEntity.class, pBlogId);
     }

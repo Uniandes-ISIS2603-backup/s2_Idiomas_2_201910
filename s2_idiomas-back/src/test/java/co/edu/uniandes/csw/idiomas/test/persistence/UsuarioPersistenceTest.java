@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
+import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
+import co.edu.uniandes.csw.idiomas.persistence.UsuarioPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.UsuarioPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -31,18 +34,19 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 public class UsuarioPersistenceTest 
 {
     
+      
      /**
      * Inyección de la dependencia a la clase UsuarioPersistence cuyos métodos
      * se van a probar.
      */
     @Inject
-    private UsuarioPersistence personaPersistence;
+    private UsuarioPersistence usuarioPersistence;
     
      /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
      * datos por fuera de los métodos que se están probando.
      */
-    @PersistenceContext
+    @PersistenceContext 
     private EntityManager em;
     
      /**
@@ -75,6 +79,49 @@ public class UsuarioPersistenceTest
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
+    
+    /**
+     * Configuración inicial de la prueba.
+     */
+    @Before
+    public void configTest() {
+        try {
+            utx.begin();
+            em.joinTransaction();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                utx.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+    
+    /**
+     * Limpia las tablas que están implicadas en la prueba.
+     */
+    private void clearData() {
+        em.createQuery("delete from UsuarioEntity").executeUpdate();
+    }
+
+    /**
+     * Inserta los datos iniciales para el correcto funcionamiento de las
+     * pruebas.
+     */
+    private void insertData() {
+        PodamFactory factory = new PodamFactoryImpl();
+        for (int i = 0; i < 3; i++) {
+            UsuarioEntity entity = factory.manufacturePojo(UsuarioEntity.class);
+
+            em.persist(entity);
+            data.add(entity);
+        }
+    }
+    
     /**
      * Prueva el crear
      */
@@ -83,8 +130,90 @@ public class UsuarioPersistenceTest
     {
         PodamFactory factory = new PodamFactoryImpl();
         UsuarioEntity newEntity = factory.manufacturePojo(UsuarioEntity.class);
-        UsuarioEntity result = personaPersistence.create(newEntity);
+        UsuarioEntity result = usuarioPersistence.create(newEntity);
         
          Assert.assertNotNull(result);
+         
+         UsuarioEntity entity = em.find(UsuarioEntity.class, result.getId());
+
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+    }
+    
+    /**
+     * Prueba para consultar la lista de Usuarioes.
+     */
+    @Test
+    public void getUsuarioesTest() {
+        List<UsuarioEntity> list = usuarioPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (UsuarioEntity ent : list) {
+            boolean found = false;
+            for (UsuarioEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+
+    /**
+     * Prueba para consultar un Usuario.
+     */
+    @Test
+    public void getUsuarioTest() {
+        UsuarioEntity entity = data.get(0);
+        UsuarioEntity newEntity = usuarioPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(entity.getContrasenia(), newEntity.getContrasenia());
+       }
+
+    /**
+     * Prueba para actualizar un Usuario.
+     */
+    @Test
+    public void updateUsuarioTest() {
+        UsuarioEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        UsuarioEntity newEntity = factory.manufacturePojo(UsuarioEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        usuarioPersistence.update(newEntity);
+
+        UsuarioEntity resp = em.find(UsuarioEntity.class, entity.getId());
+        
+        Assert.assertEquals(resp.getId(), newEntity.getId());
+        Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(resp.getContrasenia(), newEntity.getContrasenia());
+    }
+
+    /**
+     * Prueba para eliminar un Usuario.
+     */
+    @Test
+    public void deleteUsuarioTest() {
+        UsuarioEntity entity = data.get(0);
+        usuarioPersistence.delete(entity.getId());
+        UsuarioEntity deleted = em.find(UsuarioEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    
+    /**
+     * Prueba para consultasr un Usuario por nombre.
+     */
+    @Test
+    public void findUsuarioByNameTest() {
+        UsuarioEntity entity = data.get(0);
+        UsuarioEntity newEntity = usuarioPersistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+
+        newEntity = usuarioPersistence.findByName(null);
+        Assert.assertNull(newEntity);
+        newEntity = usuarioPersistence.findByName("");
+        Assert.assertNull(newEntity);
     }
 }
