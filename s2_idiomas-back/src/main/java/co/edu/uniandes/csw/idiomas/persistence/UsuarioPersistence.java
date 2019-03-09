@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.persistence;
 
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
+import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -108,5 +109,31 @@ public class UsuarioPersistence
         EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
         Es similar a "delete from UsuarioEntity where id=id;" - "DELETE FROM table_name WHERE condition;" en SQL.*/
         em.remove(usuarioEntity);
+    }
+    /**
+     * Busca si hay alguna editorial con el nombre que se envía de argumento
+     *
+     * @param nombre: Nombre de la editorial que se está buscando
+     * @return null si no existe ninguna editorial con el nombre del argumento.
+     * Si existe alguna devuelve la primera.
+     */
+    public UsuarioEntity findByName(String nombre) {
+        LOGGER.log(Level.INFO, "Consultando editorial por nombre ", nombre);
+        // Se crea un query para buscar editoriales con el nombre que recibe el método como argumento. ":nombre" es un placeholder que debe ser remplazado
+        TypedQuery query = em.createQuery("Select e From UsuarioEntity e where e.nombre = :nombre", UsuarioEntity.class);
+        // Se remplaza el placeholder ":nombre" con el valor del argumento 
+        query = query.setParameter("nombre", nombre);
+        // Se invoca el query se obtiene la lista resultado
+        List<UsuarioEntity> sameName = query.getResultList();
+        UsuarioEntity result;
+        if (sameName == null) {
+            result = null;
+        } else if (sameName.isEmpty()) {
+            result = null;
+        } else {
+            result = sameName.get(0);
+        }
+        LOGGER.log(Level.INFO, "Saliendo de consultar editorial por nombre ", nombre);
+        return result;
     }
 }

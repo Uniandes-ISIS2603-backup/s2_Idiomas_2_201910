@@ -7,7 +7,9 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
+import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,7 +24,7 @@ import javax.inject.Inject;
 @Stateless
 public class PersonaLogic
 {
-     private static final Logger LOGGER = Logger.getLogger(PersonaLogic.class.getName());
+      private static final Logger LOGGER = Logger.getLogger(PersonaLogic.class.getName());
 
     @Inject
     private PersonaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
@@ -37,7 +39,7 @@ public class PersonaLogic
      */
     public PersonaEntity createPersona(PersonaEntity personaEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la persona");
-        // Verifica la regla de negocio que dice que no puede haber dos personas con el mismo nombre
+        // Verifica la regla de negocio que dice que no puede haber dos persona con el mismo nombre
         if (persistence.findByName(personaEntity.getNombre()) != null) {
             throw new BusinessLogicException("Ya existe una Persona con el nombre \"" + personaEntity.getNombre() + "\"");
         }
@@ -49,33 +51,33 @@ public class PersonaLogic
 
     /**
      *
-     * Obtener todas las personas existentes en la base de datos.
+     * Obtener todas las persona existentes en la base de datos.
      *
-     * @return una lista de personas.
+     * @return una lista de persona.
      */
     public List<PersonaEntity> getPersonas() {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las personas");
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las persona");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<PersonaEntity> personas = persistence.findAll();
-        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las personas");
-        return personas;
+        List<PersonaEntity> persona = persistence.findAll();
+        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las persona");
+        return persona;
     }
 
     /**
      *
      * Obtener una persona por medio de su id.
      *
-     * @param personasId: id de la persona para ser buscada.
+     * @param personaId: id de la persona para ser buscada.
      * @return la persona solicitada por medio de su id.
      */
-    public PersonaEntity getPersona(Long personasId) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la persona con id = {0}", personasId);
+    public PersonaEntity getPersona(Long personaId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la persona con id = {0}", personaId);
         // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.
-        PersonaEntity personaEntity = persistence.find(personasId);
+        PersonaEntity personaEntity = persistence.find(personaId);
         if (personaEntity == null) {
-            LOGGER.log(Level.SEVERE, "La persona con el id = {0} no existe", personasId);
+            LOGGER.log(Level.SEVERE, "La persona con el id = {0} no existe", personaId);
         }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la persona con id = {0}", personasId);
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la persona con id = {0}", personaId);
         return personaEntity;
     }
 
@@ -83,14 +85,14 @@ public class PersonaLogic
      *
      * Actualizar una persona.
      *
-     * @param personasId: id de la persona para buscarla en la base de
+     * @param personaId: id de la persona para buscarla en la base de
      * datos.
      * @param personaEntity: persona con los cambios para ser actualizada,
      * por ejemplo el nombre.
      * @return la persona con los cambios actualizados en la base de datos.
      */
-    public PersonaEntity updatePersona(Long personasId, PersonaEntity personaEntity) {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la persona con id = {0}", personasId);
+    public PersonaEntity updatePersona(Long personaId, PersonaEntity personaEntity) {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la persona con id = {0}", personaId);
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         PersonaEntity newEntity = persistence.update(personaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la persona con id = {0}", personaEntity.getId());
@@ -100,13 +102,13 @@ public class PersonaLogic
     /**
      * Borrar un persona
      *
-     * @param personasId: id de la persona a borrar
+     * @param personaId: id de la persona a borrar
      * @throws BusinessLogicException Si la persona a eliminar tiene libros.
      */
-    public void deletePersona(Long personasId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar la persona con id = {0}", personasId);        
-        persistence.delete(personasId);
-        LOGGER.log(Level.INFO, "Termina proceso de borrar la persona con id = {0}", personasId);
+    public void deletePersona(Long personaId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar la persona con id = {0}", personaId);        
+        persistence.delete(personaId);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar la persona con id = {0}", personaId);
     }
 }
 
