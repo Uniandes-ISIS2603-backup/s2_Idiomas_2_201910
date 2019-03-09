@@ -47,6 +47,7 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
         this.comentarios = comentarios;
     }
     
+    @Override
     public CalificacionEntity toEntity()
     {
         CalificacionEntity cal = super.toEntity();
@@ -57,6 +58,7 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
             {
                 comentariosEntity.add(dtoComentario.toEntity());
             }
+            cal.setComentarios(comentariosEntity);
         }
 //        cal.setComentariosEntity(comentariosEntity);
         return cal;
