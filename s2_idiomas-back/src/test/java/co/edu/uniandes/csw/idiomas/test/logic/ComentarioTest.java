@@ -39,7 +39,7 @@ public class ComentarioTest {
     private ComentarioLogic commentLogic;
     @PersistenceContext
     private EntityManager em;
-    
+
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     @Deployment
@@ -56,6 +56,10 @@ public class ComentarioTest {
     public void createBlogComment() throws BusinessLogicException, ParseException {
         PodamFactory factory = new PodamFactoryImpl();
         ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
+        Date date1 = sdf.parse("2019-01-01");
+        if (newEntity.getFecha().before(date1)) {
+            newEntity.setFecha(date1);
+        }
         ComentarioEntity result = commentLogic.createComment(newEntity);
         Assert.assertNotNull(result);
 
@@ -72,7 +76,7 @@ public class ComentarioTest {
         newEntity.setTexto("");
         commentLogic.createComment(newEntity);
     }
-    
+
     @Test(expected = BusinessLogicException.class)
     public void crearComentarioSinFechaPermitida() throws BusinessLogicException, ParseException {
         Date date1 = sdf.parse("2018-12-01");

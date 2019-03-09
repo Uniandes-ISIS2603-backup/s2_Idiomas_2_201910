@@ -89,7 +89,7 @@ public class CalificacionLogic {
      * Actualiza la información de una instancia de Calificafion.
      *
      * @param calificacionId Identificador de la instancia a actualizar
-     * @param calificacionEntity Instancia de CalificafionEntity con los nuevos datos.
+     * @param newCalificacionEntity Instancia de CalificafionEntity con los nuevos datos.
      * @return Instancia de CalificafionEntity con los datos actualizados.
      * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
