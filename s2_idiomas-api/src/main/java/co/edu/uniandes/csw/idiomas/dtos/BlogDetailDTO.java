@@ -16,7 +16,7 @@ public class BlogDetailDTO extends BlogDTO implements Serializable {
     /**
      * Lista de comentarioDTO del Blog
      */
-    public List<ComentarioBlogDTO> comentarioBlog;
+    private List<ComentarioBlogDTO> comentarioBlog;
 
     /**
      *@return comentarios del blog

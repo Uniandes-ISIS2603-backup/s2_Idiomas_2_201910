@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author estudiante
+ * @author le.perezl
  */
 @Stateless
 public class BlogPersistence {
