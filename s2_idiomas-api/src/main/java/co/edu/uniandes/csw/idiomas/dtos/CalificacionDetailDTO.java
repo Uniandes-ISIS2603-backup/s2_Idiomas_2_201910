@@ -17,7 +17,7 @@ import java.util.List;
  * @author jdruedaa
  */
 public class CalificacionDetailDTO extends CalificacionDTO implements Serializable {
-    private List<ComentarioDTO> comentarios;
+    private List<ComentarioCalificacionDTO> comentarios;
     
     public CalificacionDetailDTO()
     {
@@ -37,14 +37,14 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
     /**
      * @return the comentarios
      */
-    public List<ComentarioDTO> getComentarios() {
+    public List<ComentarioCalificacionDTO> getComentarios() {
         return comentarios;
     }
 
     /**
      * @param comentarios the comentarios to set
      */
-    public void setComentarios(List<ComentarioDTO> comentarios) {
+    public void setComentarios(List<ComentarioCalificacionDTO> comentarios) {
         this.comentarios = comentarios;
     }
     
@@ -54,8 +54,8 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
         CalificacionEntity cal = super.toEntity();
         if(comentarios != null)
         {
-            List<ComentarioEntity> comentariosEntity = new ArrayList<>();
-            for(ComentarioDTO dtoComentario : comentarios)
+            List<ComentarioCalificacionEntity> comentariosEntity = new ArrayList<>();
+            for(ComentarioCalificacionDTO dtoComentario : comentarios)
             {
                 comentariosEntity.add(dtoComentario.toEntity());
             }
