@@ -10,7 +10,6 @@ import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.GrupoDeInteresPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence;
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
