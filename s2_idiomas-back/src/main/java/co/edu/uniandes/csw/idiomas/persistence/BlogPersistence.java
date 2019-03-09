@@ -11,14 +11,16 @@ import co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
  *
- * @author estudiante
+ * @author le.perezl
  */
+@Stateless
 public class BlogPersistence {
             private static final Logger LOGGER = Logger.getLogger(BlogPersistence.class.getName());
     
