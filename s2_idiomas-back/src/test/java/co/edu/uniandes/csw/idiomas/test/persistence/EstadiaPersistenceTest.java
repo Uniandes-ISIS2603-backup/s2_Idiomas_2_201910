@@ -27,10 +27,14 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 /**
  * Pruebas de persistencia de Estadia
  *
- * @estadia g.cubillosb
+ * @author g.cubillosb
  */
 @RunWith(Arquillian.class)
 public class EstadiaPersistenceTest {
+    
+    // ------------------------------------------------------------------------
+    // Atributos
+    // ------------------------------------------------------------------------
 
     /**
      * Inyecta la dependencia de EstadiaPersistence.
@@ -56,6 +60,10 @@ public class EstadiaPersistenceTest {
      * Lista de los datos de prueba.
      */
     private List<EstadiaEntity> data = new ArrayList<>();
+    
+    // ------------------------------------------------------------------------
+    // Métodos
+    // ------------------------------------------------------------------------
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
