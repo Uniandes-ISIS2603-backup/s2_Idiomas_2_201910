@@ -1,3 +1,4 @@
+package co.edu.uniandes.csw.idiomas.persistence;
 import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import java.util.List;
 import java.util.logging.Level;
@@ -11,7 +12,7 @@ import javax.persistence.TypedQuery;
  * Clase que maneja la persistencia para Author. Se conecta a través del Entity
  * Manager de javax.persistance con la base de datos SQL.
  *
- * @author ISIS2603
+ * @author jdruedaa
  */
 @Stateless
 public class CalificacionPersistence {

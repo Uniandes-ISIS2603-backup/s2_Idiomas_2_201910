@@ -56,6 +56,7 @@ public class OtroDTO extends ActividadDTO implements Serializable{
     public OtroEntity toEntity() 
     {
         OtroEntity otroEntity = new OtroEntity();
+        otroEntity.setId(this.getId());
         otroEntity.setNombre(this.getNombre());
         otroEntity.setDescripcion(this.getDescripcion());
         otroEntity.setMotivacion(this.getMotivacion());

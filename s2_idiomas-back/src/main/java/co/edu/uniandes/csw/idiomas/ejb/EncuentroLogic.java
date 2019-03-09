@@ -88,12 +88,6 @@ public class EncuentroLogic {
             throw new BusinessLogicException("El número de asistentes es inválido.");
         }
         
-        // Verifica la regla de negocio que dice que una encuentro no puede tener el mismo id.
-        if (persistence.find(encuentroEntity.getId()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una encuentro con ese id: " +
-                    encuentroEntity.getId());
-        }
         // Invoca la persistencia para crear la encuentro
         persistence.create(encuentroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la encuentro");
