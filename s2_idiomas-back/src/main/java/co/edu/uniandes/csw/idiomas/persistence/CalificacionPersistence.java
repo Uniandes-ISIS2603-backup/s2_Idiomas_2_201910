@@ -12,14 +12,14 @@ import javax.persistence.TypedQuery;
  * Clase que maneja la persistencia para Author. Se conecta a través del Entity
  * Manager de javax.persistance con la base de datos SQL.
  *
- * @author ISIS2603
+ * @author jdruedaa
  */
 @Stateless
 public class CalificacionPersistence {
 
     private static final Logger LOGGER = Logger.getLogger(CalificacionPersistence.class.getName());
 
-    @PersistenceContext(unitName = "IdiomasPU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**

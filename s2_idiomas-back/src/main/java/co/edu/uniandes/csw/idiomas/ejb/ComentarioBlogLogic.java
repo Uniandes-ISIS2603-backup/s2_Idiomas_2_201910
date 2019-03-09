@@ -31,13 +31,23 @@ public class ComentarioBlogLogic {
      */
     public ComentarioBlogEntity createBlogComment(ComentarioBlogEntity entidad)throws BusinessLogicException
     {
+         //Verifica que el titulo no sea null
         if(entidad.getTitulo() == null)
         {
             throw new BusinessLogicException("El titulo del comentario no puede ser null");
         }
+         //Verifica que el titulo tenga longitud mayor a cero
         if(entidad.getTitulo().length()== 0)
         {
             throw new BusinessLogicException("El titulo debe contener al menos un caracter");
+        }
+        //        Verifica que el texto no sea de longitud = 0.
+        if(entidad.getTexto().length()== 0){
+            throw new BusinessLogicException("El texto no puede ser vacío");
+        }
+//        Verifica que el texto no sea mayor a 300 caracteres.
+        if(entidad.getTexto().length()> 300){
+            throw new BusinessLogicException("El texto no puede ser mayor a 300 caracteres");
         }
         entidad = persistence.create(entidad);
         return entidad;

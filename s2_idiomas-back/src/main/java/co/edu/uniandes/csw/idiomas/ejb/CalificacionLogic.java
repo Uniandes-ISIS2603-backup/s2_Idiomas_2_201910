@@ -1,9 +1,5 @@
 package co.edu.uniandes.csw.idiomas.ejb;
-
-
 import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioCalificacionEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.CalificacionPersistence;
 import java.util.List;

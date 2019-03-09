@@ -92,6 +92,7 @@ public class EstadiaDTO extends ActividadDTO implements Serializable{
     public EstadiaEntity toEntity() 
     {
         EstadiaEntity estadiaEntity = new EstadiaEntity();
+        estadiaEntity.setId(this.getId());
         estadiaEntity.setNombre(this.getNombre());
         estadiaEntity.setDescripcion(this.getDescripcion());
         estadiaEntity.setMotivacion(this.getMotivacion());

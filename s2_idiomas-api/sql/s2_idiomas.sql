@@ -1,1 +1,1 @@
-delete from ComentarioEntity
+delete from ComentarioEntity;

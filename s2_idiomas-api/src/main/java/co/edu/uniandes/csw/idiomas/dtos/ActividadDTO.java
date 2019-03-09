@@ -101,6 +101,7 @@ public class ActividadDTO implements Serializable{
      */
     public ActividadEntity toEntity() {
         ActividadEntity actividadEntity = new ActividadEntity();
+        actividadEntity.setId(this.getId());
         actividadEntity.setDescripcion(this.getDescripcion());
         actividadEntity.setFecha(this.getFecha());
         actividadEntity.setMotivacion(this.getMotivacion());

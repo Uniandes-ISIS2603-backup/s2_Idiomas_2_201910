@@ -70,11 +70,6 @@ public class ChatLogic {
                 && persistence.findByName(chatEntity.getNombre()).equals(chatEntity)) {
             throw new BusinessLogicException("La chat ya existe.");
         }
-        // Verifica la regla de negocio que dice que una chat no puede tener el mismo id.
-        if (persistence.find(chatEntity.getId()) != null) {
-            throw new BusinessLogicException("Ya existe una chat con ese id: "
-                    + chatEntity.getId());
-        }
         // Invoca la persistencia para crear la chat
         persistence.create(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación del chat");
