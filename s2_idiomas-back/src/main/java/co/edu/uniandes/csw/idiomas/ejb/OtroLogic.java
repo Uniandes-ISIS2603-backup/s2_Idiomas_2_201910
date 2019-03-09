@@ -75,13 +75,6 @@ public class OtroLogic {
             throw new BusinessLogicException("La otro ya existe.");
         }
         
-        // Verifica la regla de negocio que dice que una otro no puede tener el mismo id.
-        if (persistence.find(otroEntity.getId()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una otro con ese id: " +
-                    otroEntity.getId());
-        }
-        
         // Invoca la persistencia para crear la otro
         persistence.create(otroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la otro");
