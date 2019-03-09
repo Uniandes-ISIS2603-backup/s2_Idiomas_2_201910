@@ -18,7 +18,7 @@ public class CalificacionPersistence {
 
     private static final Logger LOGGER = Logger.getLogger(CalificacionPersistence.class.getName());
 
-    @PersistenceContext(unitName = "IdiomasPU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
 
     /**
