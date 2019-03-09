@@ -7,16 +7,12 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 
 
-import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
-import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDTO;
-import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDetailDTO;
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
 import co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic;
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
-import co.edu.uniandes.csw.idiomas.ejb.AnfitrionLogic;
-import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import co.edu.uniandes.csw.idiomas.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -47,7 +43,7 @@ public class AnfitrionResource
 {
  private static final Logger LOGGER = Logger.getLogger(AnfitrionResource.class.getName());
 
-    private final String NO_EXISTE = " no existe.";
+    private final static String NO_EXISTE =" no existe." ;
 
     @Inject
     AdministradorLogic administradorLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
@@ -89,7 +85,7 @@ public class AnfitrionResource
     public void deleteAdministrador(@PathParam("administradoresId") Long administradoresId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "AdministradorResource deleteAdministrador: input: {0}", administradoresId);
         if (administradorLogic.getAdministrador(administradoresId) == null) {
-            throw new WebApplicationException("El recurso /administradores/" + administradoresId +NO_EXISTE , 404);
+            throw new WebApplicationException("El recurso /administradores/" + administradoresId +no_existe , 404);
         }
         administradorLogic.deleteAdministrador(administradoresId);
         LOGGER.info("AdministradorResource deleteAdministrador: output: void");
@@ -114,7 +110,7 @@ public class AnfitrionResource
         Administrador.setId(AdministradorId);
         if (administradorLogic.getAdministrador(AdministradorId) == null)
         {
-            throw new WebApplicationException("El recurso /Administradores/" + AdministradorId + NO_EXISTE, 404);
+            throw new WebApplicationException("El recurso /Administradores/" + AdministradorId +NO_EXISTE, 404);
         }
         AdministradorDTO detailDTO = new AdministradorDTO(administradorLogic.updateAdministrador(AdministradorId, Administrador.toEntity()));
         LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: output: {0}", detailDTO);
@@ -134,7 +130,7 @@ public class AnfitrionResource
         LOGGER.log(Level.INFO, "AdministradorResource getAdministrador: input: {0}", administradoresId);
         AdministradorEntity administradorEntity = administradorLogic.getAdministrador(administradoresId);
         if (administradorEntity == null) {
-            throw new WebApplicationException("El recurso /administradores/" + administradoresId + NO_EXISTE, 404);
+            throw new WebApplicationException("El recurso /administradores/" + administradoresId +NO_EXISTE, 404);
         }
         AdministradorDTO detailDTO = new AdministradorDTO(administradorEntity);
         LOGGER.log(Level.INFO, "AdministradorResource getAdministrador: output: {0}", detailDTO);
