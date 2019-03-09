@@ -27,10 +27,14 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 /**
  * Pruebas de persistencia de Encuentro
  *
- * @encuentro g.cubillosb
+ * @author g.cubillosb
  */
 @RunWith(Arquillian.class)
 public class EncuentroPersistenceTest {
+    
+    // ------------------------------------------------------------------------
+    // Atributos
+    // ------------------------------------------------------------------------
 
     /**
      * Inyecta la dependencia de EncuentroPersistence.
@@ -56,6 +60,10 @@ public class EncuentroPersistenceTest {
      * Lista de los datos de prueba.
      */
     private List<EncuentroEntity> data = new ArrayList<>();
+    
+    // ------------------------------------------------------------------------
+    // Métodos
+    // ------------------------------------------------------------------------
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.

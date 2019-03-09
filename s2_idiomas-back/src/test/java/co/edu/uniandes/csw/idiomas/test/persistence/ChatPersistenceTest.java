@@ -27,10 +27,14 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 /**
  * Pruebas de persistencia de Chat
  *
- * @chat g.cubillosb
+ * @author g.cubillosb
  */
 @RunWith(Arquillian.class)
 public class ChatPersistenceTest {
+    
+    // ------------------------------------------------------------------------
+    // Atributos
+    // ------------------------------------------------------------------------
 
     /**
      * Inyecta la dependencia de ChatPersistence.
@@ -56,6 +60,10 @@ public class ChatPersistenceTest {
      * Lista de los datos de prueba.
      */
     private List<ChatEntity> data = new ArrayList<>();
+    
+    // ------------------------------------------------------------------------
+    // Métodos
+    // ------------------------------------------------------------------------
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.

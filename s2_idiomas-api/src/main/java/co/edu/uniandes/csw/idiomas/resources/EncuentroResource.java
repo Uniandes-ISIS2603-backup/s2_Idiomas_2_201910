@@ -179,11 +179,11 @@ public class EncuentroResource {
      * Error de lógica que se genera cuando no se encuentra la encuentro.
      */
     @Path("{encuentrosId: \\d+}/comentarios")
-    public Class<ActividadComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("encuentrosId") Long encuentrosId) {
+    public Class<ComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("encuentrosId") Long encuentrosId) {
         if (encuentroLogic.getEncuentro(encuentrosId) == null) {
             throw new WebApplicationException("El recurso /encuentros/" + encuentrosId + " no existe.", 404);
         }
-        return ActividadComentarioActividadResource.class;
+        return ComentarioActividadResource.class;
     }
 
     /**

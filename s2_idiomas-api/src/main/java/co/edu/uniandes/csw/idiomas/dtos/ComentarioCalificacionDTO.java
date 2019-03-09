@@ -16,6 +16,7 @@ import java.io.Serializable;
 public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializable {
 
     private String titulo;
+    private CalificacionDTO calificacion;
 
     /**
      * Constructor de ComentarioCalificacionDTO
@@ -26,6 +27,7 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
         super(entity);
         if (entity != null) {
             this.titulo = entity.getTitulo();
+            this.calificacion = new CalificacionDTO(entity.getCalificaciones());
         }
     }
     
@@ -55,10 +57,25 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
     @Override
     public ComentarioCalificacionEntity toEntity() {
         ComentarioCalificacionEntity entity = new ComentarioCalificacionEntity();
-        entity.setTitulo(this.titulo);
+        entity.setTitulo(this.getTitulo());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
         entity.setAutor(this.getAutor().toEntity());
+        entity.setCalificaciones(this.calificacion.toEntity());
         return entity;
+    }
+
+    /**
+     * @return the calificacion
+     */
+    public CalificacionDTO getCalificacion() {
+        return calificacion;
+    }
+
+    /**
+     * @param calificacion the calificacion to set
+     */
+    public void setCalificacion(CalificacionDTO calificacion) {
+        this.calificacion = calificacion;
     }
 }

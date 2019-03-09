@@ -51,7 +51,7 @@ public class ComentarioCalificacionPersistence {
      */
     public void delete(Long commentId) {
         LOGGER.log(Level.INFO, "Borrando el comentario con id={0}", commentId);
-        ComentarioEntity comentarioEntity = em.find(ComentarioEntity.class, commentId);
+        ComentarioCalificacionEntity comentarioEntity = em.find(ComentarioCalificacionEntity.class, commentId);
         em.remove(comentarioEntity);
     }
     

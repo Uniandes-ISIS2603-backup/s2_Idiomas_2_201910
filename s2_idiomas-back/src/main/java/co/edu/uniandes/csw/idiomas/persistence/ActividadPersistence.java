@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.idiomas.persistence;
 
-
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,11 +17,11 @@ import javax.persistence.TypedQuery;
 /**
  * Clase que maneja la persistencia para Actividad. Se conecta a través Entity
  * Manager de javax.persistance con la base de datos SQL.
+ *
  * @author g.cubillosb
  */
 @Stateless
 public class ActividadPersistence {
-    
 
     // ----------------------------------------------------------------------
     // Atributos 
@@ -32,31 +31,31 @@ public class ActividadPersistence {
      * Logger para las acciones de la clase.
      */
     private static final Logger LOGGER = Logger.getLogger(ActividadPersistence.class.getName());
-    
+
     /**
      * Entity manager para la clase.
      */
-    @PersistenceContext (unitName = "idiomasPU")
+    @PersistenceContext(unitName = "idiomasPU")
     protected EntityManager em;
-    
+
     // ----------------------------------------------------------------------
     // Métodos
     // ----------------------------------------------------------------------
     
-   /**
+    /**
      * Método para persistir la entidad en la base de datos.
-     * 
-     * @param pActividadEntity Objeto actividad que se creará en la base de datos.
+     *
+     * @param pActividadEntity Objeto actividad que se creará en la base de
+     * datos.
      * @return Devuelve la actividad creada con un id dado por la base de datos.
      */
-    public ActividadEntity create (ActividadEntity pActividadEntity)
-    {
+    public ActividadEntity create(ActividadEntity pActividadEntity) {
         LOGGER.log(Level.INFO, "Creando una actividad nueva");
         em.persist(pActividadEntity);
         LOGGER.log(Level.INFO, "Saliendo de crear una actividad nueva");
         return pActividadEntity;
     }
-    
+
     /**
      * Devuelve todas las actividades de la base de datos.
      *
@@ -71,7 +70,7 @@ public class ActividadPersistence {
         // Se hace uso del método getResultList() que obtiene una lista de actividades.
         return query.getResultList();
     }
-	
+
     /**
      * Busca si hay alguna actividad con el id que se envía de argumento
      *
@@ -104,7 +103,7 @@ public class ActividadPersistence {
         LOGGER.log(Level.INFO, "Saliendo de actualizar la actividad con id = {0}", pActividadEntity.getId());
         return em.merge(pActividadEntity);
     }
-	
+
     /**
      *
      * Borra una actividad de la base de datos recibiendo como argumento el id
@@ -126,7 +125,7 @@ public class ActividadPersistence {
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar la actividad con id = {0}", pActividadId);
     }
-	
+
     /**
      * Busca si hay alguna actividad con el nombre que se envía de argumento.
      *
@@ -146,8 +145,8 @@ public class ActividadPersistence {
         if (!(sameName == null || sameName.isEmpty())) {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);
-        return result;
+            LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);
+            return result;
+        }
     }
-    
-}
+

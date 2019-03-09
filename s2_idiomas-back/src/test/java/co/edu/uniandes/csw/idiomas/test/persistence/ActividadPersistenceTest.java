@@ -27,10 +27,14 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 /**
  * Pruebas de persistencia de Actividad
  *
- * @actividad g.cubillosb
+ * @author g.cubillosb
  */
 @RunWith(Arquillian.class)
 public class ActividadPersistenceTest {
+    
+    // ------------------------------------------------------------------------
+    // Atributos
+    // ------------------------------------------------------------------------
 
     /**
      * Inyecta la dependencia de ActividadPersistence.
@@ -56,6 +60,10 @@ public class ActividadPersistenceTest {
      * Lista de los datos de prueba.
      */
     private List<ActividadEntity> data = new ArrayList<>();
+    
+    // ------------------------------------------------------------------------
+    // Métodos
+    // ------------------------------------------------------------------------
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
