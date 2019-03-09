@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
 import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
+import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
+import co.edu.uniandes.csw.idiomas.persistence.AnfitrionPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.AnfitrionPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -29,20 +32,19 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  */
 @RunWith(Arquillian.class)
 public class AnfitrionPersistenceTest 
-{
-    
+{ 
      /**
      * Inyección de la dependencia a la clase AnfitrionPersistence cuyos métodos
      * se van a probar.
      */
     @Inject
-    private AnfitrionPersistence personaPersistence;
+    private AnfitrionPersistence anfitrionPersistence;
     
      /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
      * datos por fuera de los métodos que se están probando.
      */
-    @PersistenceContext
+    @PersistenceContext 
     private EntityManager em;
     
      /**
@@ -75,6 +77,49 @@ public class AnfitrionPersistenceTest
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
+    
+    /**
+     * Configuración inicial de la prueba.
+     */
+    @Before
+    public void configTest() {
+        try {
+            utx.begin();
+            em.joinTransaction();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                utx.rollback();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+    
+    /**
+     * Limpia las tablas que están implicadas en la prueba.
+     */
+    private void clearData() {
+        em.createQuery("delete from AnfitrionEntity").executeUpdate();
+    }
+
+    /**
+     * Inserta los datos iniciales para el correcto funcionamiento de las
+     * pruebas.
+     */
+    private void insertData() {
+        PodamFactory factory = new PodamFactoryImpl();
+        for (int i = 0; i < 3; i++) {
+            AnfitrionEntity entity = factory.manufacturePojo(AnfitrionEntity.class);
+
+            em.persist(entity);
+            data.add(entity);
+        }
+    }
+    
     /**
      * Prueva el crear
      */
@@ -83,8 +128,90 @@ public class AnfitrionPersistenceTest
     {
         PodamFactory factory = new PodamFactoryImpl();
         AnfitrionEntity newEntity = factory.manufacturePojo(AnfitrionEntity.class);
-        AnfitrionEntity result = personaPersistence.create(newEntity);
+        AnfitrionEntity result = anfitrionPersistence.create(newEntity);
         
          Assert.assertNotNull(result);
+         
+         AnfitrionEntity entity = em.find(AnfitrionEntity.class, result.getId());
+
+        Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+    }
+    
+    /**
+     * Prueba para consultar la lista de Anfitriones.
+     */
+    @Test
+    public void getAnfitrionesTest() {
+        List<AnfitrionEntity> list = anfitrionPersistence.findAll();
+        Assert.assertEquals(data.size(), list.size());
+        for (AnfitrionEntity ent : list) {
+            boolean found = false;
+            for (AnfitrionEntity entity : data) {
+                if (ent.getId().equals(entity.getId())) {
+                    found = true;
+                }
+            }
+            Assert.assertTrue(found);
+        }
+    }
+
+    /**
+     * Prueba para consultar un Anfitrion.
+     */
+    @Test
+    public void getAnfitrionTest() {
+        AnfitrionEntity entity = data.get(0);
+        AnfitrionEntity newEntity = anfitrionPersistence.find(entity.getId());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(entity.getContrasenia(), newEntity.getContrasenia());
+       }
+
+    /**
+     * Prueba para actualizar un Anfitrion.
+     */
+    @Test
+    public void updateAnfitrionTest() {
+        AnfitrionEntity entity = data.get(0);
+        PodamFactory factory = new PodamFactoryImpl();
+        AnfitrionEntity newEntity = factory.manufacturePojo(AnfitrionEntity.class);
+
+        newEntity.setId(entity.getId());
+
+        anfitrionPersistence.update(newEntity);
+
+        AnfitrionEntity resp = em.find(AnfitrionEntity.class, entity.getId());
+        
+        Assert.assertEquals(resp.getId(), newEntity.getId());
+        Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(entity.getContrasenia(), newEntity.getContrasenia());
+    }
+
+    /**
+     * Prueba para eliminar un Anfitrion.
+     */
+    @Test
+    public void deleteAnfitrionTest() {
+        AnfitrionEntity entity = data.get(0);
+        anfitrionPersistence.delete(entity.getId());
+        AnfitrionEntity deleted = em.find(AnfitrionEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
+    
+    /**
+     * Prueba para consultasr un Anfitrion por nombre.
+     */
+    @Test
+    public void findAnfitrionByNameTest() {
+        AnfitrionEntity entity = data.get(0);
+        AnfitrionEntity newEntity = anfitrionPersistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+
+        newEntity = anfitrionPersistence.findByName(null);
+        Assert.assertNull(newEntity);
+        newEntity = anfitrionPersistence.findByName("");
+        Assert.assertNull(newEntity);
     }
 }

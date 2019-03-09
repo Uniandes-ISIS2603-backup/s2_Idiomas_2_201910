@@ -39,7 +39,7 @@ public class AdministradorPersistenceTest
      * se van a probar.
      */
     @Inject
-    private AdministradorPersistence personaPersistence;
+    private AdministradorPersistence administradorPersistence;
     
      /**
      * Contexto de Persistencia que se va a utilizar para acceder a la Base de
@@ -129,7 +129,7 @@ public class AdministradorPersistenceTest
     {
         PodamFactory factory = new PodamFactoryImpl();
         AdministradorEntity newEntity = factory.manufacturePojo(AdministradorEntity.class);
-        AdministradorEntity result = personaPersistence.create(newEntity);
+        AdministradorEntity result = administradorPersistence.create(newEntity);
         
          Assert.assertNotNull(result);
          
@@ -165,8 +165,8 @@ public class AdministradorPersistenceTest
         AdministradorEntity newEntity = administradorPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
-        Assert.assertEquals(entity.getFecha(), newEntity.getFecha());
-    }
+        Assert.assertEquals(entity.getContrasenia(), newEntity.getContrasenia());
+       }
 
     /**
      * Prueba para actualizar un Administrador.
@@ -185,8 +185,8 @@ public class AdministradorPersistenceTest
         
         Assert.assertEquals(resp.getId(), newEntity.getId());
         Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
-        Assert.assertEquals(resp.getDescripcion(), newEntity.getDescripcion());
-        Assert.assertEquals(resp.getFecha(), newEntity.getFecha());
+        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(entity.getContrasenia(), newEntity.getContrasenia());
     }
 
     /**
