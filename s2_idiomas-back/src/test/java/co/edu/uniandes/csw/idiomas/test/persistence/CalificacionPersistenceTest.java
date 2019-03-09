@@ -1,6 +1,5 @@
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
-import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import co.edu.uniandes.csw.idiomas.persistence.CalificacionPersistence;
 import java.util.ArrayList;
@@ -118,7 +117,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para crear un Actividad.
+     * Prueba para crear un Calificacion.
      */
     @Test
     public void createCalificacionTest() {
@@ -128,13 +127,13 @@ public class CalificacionPersistenceTest {
 
         Assert.assertNotNull(result);
 
-        ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
+        CalificacionEntity entity = em.find(CalificacionEntity.class, result.getId());
 
         Assert.assertTrue(Objects.equals(newEntity.getCalificacion(), entity.getCalificacion()));
     }
 
     /**
-     * Prueba para consultar la lista de Actividades.
+     * Prueba para consultar la lista de Calificaciones.
      */
     @Test
     public void getCalificacionesTest() {
@@ -152,7 +151,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para consultar un Actividad.
+     * Prueba para consultar una Calificacion.
      */
     @Test
     public void getCalificacionTest() {
