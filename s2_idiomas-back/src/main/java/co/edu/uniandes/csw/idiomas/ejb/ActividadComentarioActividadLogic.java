@@ -22,13 +22,30 @@ import javax.inject.Inject;
  */
 public class ActividadComentarioActividadLogic {
     
-private static final Logger LOGGER = Logger.getLogger(ActividadComentarioActividadLogic.class.getName());
+    // -----------------------------------------------------------------------
+    // Atributos
+    // -----------------------------------------------------------------------
+    
+    /**
+     * Logger para las asociaciones de la clase.
+     */
+    private static final Logger LOGGER = Logger.getLogger(ActividadComentarioActividadLogic.class.getName());
 
+    /**
+     * Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+     */
     @Inject
     private ComentarioActividadPersistence comentarioActividadPersistence;
 
+    /**
+     * Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
+     */
     @Inject
     private ActividadPersistence actividadPersistence;
+    
+    // -------------------------------------------------------------------------
+    // Métodos
+    // -------------------------------------------------------------------------
 
     /**
      * Asocia un ComentarioActividad existente a un Actividad
@@ -113,7 +130,6 @@ private static final Logger LOGGER = Logger.getLogger(ActividadComentarioActivid
      */
     public void removeComentarioActividad(Long actividadesId, Long comentariosId) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar un libro del actividad con id = {0}", actividadesId);
-        ActividadEntity actividadEntity = actividadPersistence.find(actividadesId);
         ComentarioActividadEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
         comentarioActividadEntity.setActividad(null);
         LOGGER.log(Level.INFO, "Termina proceso de borrar un libro del actividad con id = {0}", actividadesId);
