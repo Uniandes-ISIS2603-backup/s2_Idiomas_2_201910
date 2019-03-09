@@ -5,8 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
-import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
-import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
+
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
 import co.edu.uniandes.csw.idiomas.persistence.AdministradorPersistence;
 import java.util.ArrayList;
@@ -184,9 +183,8 @@ public class AdministradorPersistenceTest
         AdministradorEntity resp = em.find(AdministradorEntity.class, entity.getId());
         
         Assert.assertEquals(resp.getId(), newEntity.getId());
-        Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
-        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
-        Assert.assertEquals(entity.getContrasenia(), newEntity.getContrasenia());
+        Assert.assertEquals(resp.getNombre(), newEntity.getNombre());      
+        Assert.assertEquals(resp.getContrasenia(), newEntity.getContrasenia());
     }
 
     /**

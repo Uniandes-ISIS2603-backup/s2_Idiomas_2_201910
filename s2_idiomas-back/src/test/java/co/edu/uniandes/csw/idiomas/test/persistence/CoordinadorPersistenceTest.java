@@ -184,8 +184,8 @@ public class CoordinadorPersistenceTest
         
         Assert.assertEquals(resp.getId(), newEntity.getId());
         Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
-        Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
-        Assert.assertEquals(entity.getContrasenia(), newEntity.getContrasenia());
+        Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
+        Assert.assertEquals(resp.getContrasenia(), newEntity.getContrasenia());
     }
 
     /**
