@@ -119,6 +119,7 @@ public class EncuentroDTO extends ActividadDTO implements Serializable{
     public EncuentroEntity toEntity() 
     {
         EncuentroEntity encuentroEntity = new EncuentroEntity();
+        encuentroEntity.setId(this.getId());
         encuentroEntity.setNombre(this.getNombre());
         encuentroEntity.setDescripcion(this.getDescripcion());
         encuentroEntity.setMotivacion(this.getMotivacion());

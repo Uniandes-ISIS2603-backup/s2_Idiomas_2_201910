@@ -54,6 +54,7 @@ public class ActividadLogic {
     public ActividadEntity createActividad(ActividadEntity actividadEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la actividad");
+        
         // Verifica la regla de negocio que dice que el nombre de la actividad no puede ser vacío.
         if (!validateName(actividadEntity.getNombre()))
         {
@@ -71,12 +72,7 @@ public class ActividadLogic {
         {
             throw new BusinessLogicException("La actividad ya existe.");
         }
-        // Verifica la regla de negocio que dice que una actividad no puede tener el mismo id.
-        if (persistence.find(actividadEntity.getId()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una actividad con ese id: " +
-                    actividadEntity.getId());
-        }
+
         // Invoca la persistencia para crear la actividad
         persistence.create(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la actividad");
