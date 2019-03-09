@@ -139,13 +139,7 @@ public class OtroPersistence {
         List<OtroEntity> sameName = query.getResultList();
         OtroEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-            if (sameName == null) {
-                result = null;
-            } else if (sameName.isEmpty()) {
-                result = null;
-            } else {
-                result = sameName.get(0);
-            }
+            result = sameName.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar otro por nombre = {0}", pName);
         return result;

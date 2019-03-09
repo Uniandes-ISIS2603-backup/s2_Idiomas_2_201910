@@ -10,7 +10,6 @@ import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 import co.edu.uniandes.csw.idiomas.entities.ChatEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
-import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ChatPersistence;
 import java.util.ArrayList;
@@ -112,7 +111,7 @@ public class ChatLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from UsuarioEntity").executeUpdate();
-        em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
+        em.createQuery("delete from ComentarioChatEntity").executeUpdate();
         em.createQuery("delete from ChatEntity").executeUpdate();
         em.createQuery("delete from CoordinadorEntity").executeUpdate();
     }
@@ -132,14 +131,14 @@ public class ChatLogicTest {
         {
             ChatEntity entity = factory.manufacturePojo(ChatEntity.class);
             em.persist(entity);
-            entity.setAsistentes(new ArrayList<>());
-            entity.setComentarios(new ArrayList<>());
-            entity.setCoordinadores(new ArrayList<>());
             entity.getCoordinadores().add(coordinadorData.get(0));
             // TODO : GC Poner calificación
             data.add(entity);
-            data.add(entity);
         }
+//        ComentarioActividadEntity comentario = factory.manufacturePojo(ComentarioActividadEntity.class);
+//        comentario.setActividad(data.get(1));
+//        em.persist(comentario);
+//        data.get(1).getComentarios().add(comentario);
     }
 
     /**
@@ -177,7 +176,6 @@ public class ChatLogicTest {
     /**
      * Prueba para crear un Chat con nombre inválido
      *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
      */
     @Test(expected = BusinessLogicException.class)
     public void createChatTestConNombreInvalido2() throws BusinessLogicException {
@@ -236,7 +234,7 @@ public class ChatLogicTest {
     /**
      * Prueba para crear un Chat con un id ya existente
      *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
     @Test(expected = BusinessLogicException.class)
     public void createChatTestConIdExistente() throws BusinessLogicException {
@@ -259,6 +257,15 @@ public class ChatLogicTest {
         Assert.assertEquals(resultEntity.getDescripcion(), entity.getDescripcion());
         Assert.assertEquals(resultEntity.getFecha(), entity.getFecha());
     }
+    
+    /**
+     * Prueba para consultar un Chat.
+     */
+    @Test
+    public void getChatNoExistenteTest() {
+        ChatEntity resultEntity = chatLogic.getChat(-1L);
+        Assert.assertNull(resultEntity);
+    }
 
     /**
      * Prueba para actualizar un Chat.
@@ -279,6 +286,79 @@ public class ChatLogicTest {
 //        Assert.assertEquals(resp.getNombre(), entity.getNombre());
 //        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
 //        Assert.assertEquals(resp.getFecha(), entity.getFecha());
+    }
+    
+    /**
+     * Prueba para crear un Chat con nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateChatTestConNombreInvalido1() throws BusinessLogicException {
+        ChatEntity newEntity = factory.manufacturePojo(ChatEntity.class);
+        newEntity.setNombre("");
+        chatLogic.updateChat(newEntity.getId(), newEntity);
+    }
+
+    /**
+     * Prueba para crear un Chat con nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateChatTestConNombreInvalido2() throws BusinessLogicException {
+        ChatEntity newEntity = factory.manufacturePojo(ChatEntity.class);
+        newEntity.setNombre(null);
+        chatLogic.updateChat(newEntity.getId(), newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Chat sin un coordinador
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    // TODO: GC Conectar con coordinador
+//    @Test(expected = BusinessLogicException.class)
+//    public void createChatTestSinCoordinador() throws BusinessLogicException {
+//        ChatEntity newEntity = factory.manufacturePojo(ChatEntity.class);
+//        newEntity.setCoordinadores(null);
+//        chatLogic.createChat(newEntity);
+//    }
+    
+    /**
+     * Prueba para crear un Chat ya existente.
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateChatTestYaExistente() throws BusinessLogicException {
+        List<ChatEntity> chats = chatLogic.getChats();
+        ChatEntity newEntity = chats.get(0);
+        chatLogic.updateChat(newEntity.getId(), newEntity);
+    }
+    
+    /**
+     * Prueba para crear un Chat con nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateChatTestConMedioInvalido1() throws BusinessLogicException {
+        ChatEntity newEntity = factory.manufacturePojo(ChatEntity.class);
+        newEntity.setMedio("");
+        chatLogic.updateChat(newEntity.getId(), newEntity);
+    }
+
+    /**
+     * Prueba para crear un Chat con nombre inválido
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void updateChatTestConMedioInvalido2() throws BusinessLogicException {
+        ChatEntity newEntity = factory.manufacturePojo(ChatEntity.class);
+        newEntity.setMedio(null);
+        chatLogic.updateChat(newEntity.getId(), newEntity);
     }
 
     /**
@@ -306,14 +386,15 @@ public class ChatLogicTest {
 //    }
 
     /**
-     * Prueba para eliminar un Chat asociado a un comentario
+     * Prueba para eliminar un chat asociado a un comentario
      *
      * 
      * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
-//    @Test(expected = BusinessLogicException.class)
-//    public void deleteChatConComentarioTest() throws BusinessLogicException {
-//        chatLogic.deleteChat(data.get(1).getId());
-//    }
+    @Test(expected = BusinessLogicException.class)
+    public void deleteActividadConComentarioTest() throws BusinessLogicException 
+    {
+        chatLogic.deleteChat(data.get(1).getId());
+    }
     
 }

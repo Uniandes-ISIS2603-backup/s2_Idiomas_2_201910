@@ -77,7 +77,6 @@ public class ActividadPersistence {
      */
     public ActividadEntity find(Long pActividadId) {
         LOGGER.log(Level.INFO, "Consultando actividad con id = {0}", pActividadId);
-        LOGGER.log(Level.INFO, "Consultando actividad con id={0}", pActividadId);
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from ActividadEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
@@ -142,13 +141,7 @@ public class ActividadPersistence {
         List<ActividadEntity> sameName = query.getResultList();
         ActividadEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-            if (sameName == null) {
-                result = null;
-            } else if (sameName.isEmpty()) {
-                result = null;
-            } else {
-                result = sameName.get(0);
-            }
+            result = sameName.get(0);
         }
             LOGGER.log(Level.INFO, "Saliendo de consultar actividad por nombre = {0}", pName);
             return result;

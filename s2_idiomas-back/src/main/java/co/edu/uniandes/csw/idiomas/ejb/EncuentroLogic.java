@@ -94,12 +94,6 @@ public class EncuentroLogic {
             throw new BusinessLogicException("Ya existe una encuentro con ese id: " +
                     encuentroEntity.getId());
         }
-        
-
-        // Verifica la regla de negocio que dice que no puede haber dos encuentros con el mismo nombre
-        if (persistence.findByName(encuentroEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Encuentro con el nombre \"" + encuentroEntity.getNombre()+ "\"");
-        }
         // Invoca la persistencia para crear la encuentro
         persistence.create(encuentroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la encuentro");

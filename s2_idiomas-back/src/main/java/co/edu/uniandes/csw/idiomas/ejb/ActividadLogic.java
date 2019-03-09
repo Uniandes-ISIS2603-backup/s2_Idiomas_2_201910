@@ -77,17 +77,6 @@ public class ActividadLogic {
             throw new BusinessLogicException("Ya existe una actividad con ese id: " +
                     actividadEntity.getId());
         }
-        // Verifica la regla de negocio que dice que no puede haber dos actividades con el mismo nombre
-        if (persistence.findByName(actividadEntity.getNombre()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una Actividad con el nombre \"" + actividadEntity.getNombre()+ "\"");
-        }
-        if (!validateName(actividadEntity.getNombre()))
-        {
-            throw new BusinessLogicException("El nombre es inválido");
-        }
-        
-        
         // Invoca la persistencia para crear la actividad
         persistence.create(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la actividad");

@@ -140,13 +140,7 @@ public class EstadiaPersistence {
         List<EstadiaEntity> sameName = query.getResultList();
         EstadiaEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-            if (sameName == null) {
-                result = null;
-            } else if (sameName.isEmpty()) {
-                result = null;
-            } else {
-                result = sameName.get(0);
-            }
+            result = sameName.get(0);
         }
         LOGGER.log(Level.INFO, "Saliendo de consultar estadia por nombre = {0}", pName);
         return result;

@@ -13,10 +13,11 @@ import javax.inject.Inject;
  *
  * @author jdruedaa
  */
-public class CalificacionDTO implements Serializable { 
+public class CalificacionDTO implements Serializable {
 
-    private Integer calificacion;
-    private String mensaje;
+    
+
+   
     private Integer cantidadParaActualizar;
     private Double calificacionAcumulado;
     private Integer numeroDeCalificaciones;
@@ -30,8 +31,6 @@ public class CalificacionDTO implements Serializable {
     {
         if(cal != null)
         {
-            this.calificacion = cal.getCalificacion();
-            this.mensaje = cal.getMensaje();
 //            this.calificacion = cal.getCalificacion();
         }
     }
@@ -77,20 +76,7 @@ public class CalificacionDTO implements Serializable {
     public void setCalificacion(Integer calificacion) {
         this.calificacion = calificacion;
     }
-    
-    /**
-     * @return the mensaje
-     */
-    public String getMensaje() {
-        return mensaje;
-    }
 
-    /**
-     * @param mensaje the mensaje to set
-     */
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
 
     /**
      * @return the numeroDeCalificaciones
@@ -104,14 +90,13 @@ public class CalificacionDTO implements Serializable {
      */
     public void setNumeroDeCalificaciones(Integer numeroDeCalificaciones) {
         this.numeroDeCalificaciones = numeroDeCalificaciones;
-    }    
+    }
     
     @Inject
     public CalificacionEntity toEntity()
     {
         CalificacionEntity cal = new CalificacionEntity();
-        cal.setCalificacion(calificacion);
-        cal.setMensaje(mensaje);
+//        cal.setCalificacion(calificacion);
         return cal;
     }
     

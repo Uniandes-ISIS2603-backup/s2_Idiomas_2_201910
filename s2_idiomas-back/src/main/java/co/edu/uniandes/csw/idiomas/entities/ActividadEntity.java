@@ -10,13 +10,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import java.util.Objects;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -77,12 +76,12 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<CoordinadorEntity> coordinadores = new ArrayList<>();
     
-//    /**
-//     * Atributo que representa la calificacion de la actividad.
-//     */
-//    @PodamExclude
-//    @OneToOne
-//    private CalificacionEntity calificacion;
+    /**
+     * Atributo que representa la calificacion de la actividad.
+     */
+    @PodamExclude
+    @OneToOne
+    private CalificacionEntity calificacion;
     
     // ------------------------------------------------------------------
     // Constructor
@@ -162,19 +161,19 @@ public class ActividadEntity extends BaseEntity implements Serializable{
         this.asistentes = asistentes;
     }
 
-//    /**
-//     * @return the calificacion
-//     */
-//    public CalificacionEntity getCalificacion() {
-//        return calificacion;
-//    }
-//
-//    /**
-//     * @param calificacion the calificacion to set
-//     */
-//    public void setCalificacion(CalificacionEntity calificacion) {
-//        this.calificacion = calificacion;
-//    }
+    /**
+     * @return the calificacion
+     */
+    public CalificacionEntity getCalificacion() {
+        return calificacion;
+    }
+
+    /**
+     * @param calificacion the calificacion to set
+     */
+    public void setCalificacion(CalificacionEntity calificacion) {
+        this.calificacion = calificacion;
+    }
 
     /**
      * @return the coordinadores
@@ -203,7 +202,6 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
     
     /**
      * Equals de la clase
@@ -230,6 +228,5 @@ public class ActividadEntity extends BaseEntity implements Serializable{
         hash = 97 * hash + Objects.hashCode(this.motivacion);
         return hash;
     }
-
     
 }

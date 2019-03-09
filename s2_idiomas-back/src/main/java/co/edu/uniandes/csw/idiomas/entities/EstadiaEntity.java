@@ -12,7 +12,6 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -40,12 +39,14 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
     @ManyToOne
     private AnfitrionEntity anfitrion;
     
+    
     /**
      * Atributo que representa los asistentes de la actividad.
      */
     @PodamExclude
     @ManyToMany(mappedBy = "estadias", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<UsuarioEntity> asistentesEstadia = new ArrayList<>();
+    
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------

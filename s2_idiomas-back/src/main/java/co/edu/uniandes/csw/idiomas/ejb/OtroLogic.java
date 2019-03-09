@@ -82,10 +82,6 @@ public class OtroLogic {
                     otroEntity.getId());
         }
         
-        // Verifica la regla de negocio que dice que no puede haber dos otros con el mismo nombre
-        if (persistence.findByName(otroEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Otro con el nombre \"" + otroEntity.getNombre()+ "\"");
-        }
         // Invoca la persistencia para crear la otro
         persistence.create(otroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la otro");
@@ -159,7 +155,6 @@ public class OtroLogic {
         {
             throw new BusinessLogicException("La otro ya existe.");
         }
-        
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         OtroEntity newEntity = persistence.update(otroEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la otro con id = {0}", otroEntity.getId());
@@ -195,4 +190,5 @@ public class OtroLogic {
         return !(pNombre == null || pNombre.isEmpty());
     }
     
+
 }

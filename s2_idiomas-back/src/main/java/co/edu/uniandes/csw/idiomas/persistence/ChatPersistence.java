@@ -139,12 +139,6 @@ public class ChatPersistence {
         List<ChatEntity> sameName = query.getResultList();
         ChatEntity result = null;
         if (!(sameName == null || sameName.isEmpty())) {
-
-        if (sameName == null) {
-            result = null;
-        } else if (sameName.isEmpty()) {
-            result = null;
-        } else {
             result = sameName.get(0);
         }
         }

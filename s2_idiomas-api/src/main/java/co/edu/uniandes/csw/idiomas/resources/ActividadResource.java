@@ -165,28 +165,27 @@ public class ActividadResource {
         LOGGER.info("ActividadResource deleteActividad: output: void");
     }
 
-    // TODO: GC Conectar Actividades con Comentarios y las otras clases.
-//    /**
-//     * Conexión con el servicio de libros para una actividad.
-//     * {@link ActividadBooksResource}
-//     *
-//     * Este método conecta la ruta de /actividades con las rutas de /books que
-//     * dependen de la actividad, es una redirección al servicio que maneja el
-//     * segmento de la URL que se encarga de los libros de una actividad.
-//     *
-//     * @param actividadesId El ID de la actividad con respecto a la cual se
-//     * accede al servicio.
-//     * @return El servicio de libros para esta actividad en paricular.
-//     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-//     * Error de lógica que se genera cuando no se encuentra la actividad.
-//     */
-//    @Path("{actividadesId: \\d+}/books")
-//    public Class<ActividadBooksResource> getActividadBooksResource(@PathParam("actividadesId") Long actividadesId) {
-//        if (actividadLogic.getActividad(actividadesId) == null) {
-//            throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
-//        }
-//        return ActividadBooksResource.class;
-//    }
+    /**
+     * Conexión con el servicio de comentarios para una actividad.
+     * {@link ActividadComentarioActividadResourceResource}
+     *
+     * Este método conecta la ruta de /actividades con las rutas de /comentarios que
+     * dependen de la actividad, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de los comentarios de una actividad.
+     *
+     * @param actividadesId El ID de la actividad con respecto a la cual se
+     * accede al servicio.
+     * @return El servicio de comentarios para esta actividad en paricular.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la actividad.
+     */
+    @Path("{actividadesId: \\d+}/comentarios")
+    public Class<ActividadComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("actividadesId") Long actividadesId) {
+        if (actividadLogic.getActividad(actividadesId) == null) {
+            throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
+        }
+        return ActividadComentarioActividadResource.class;
+    }
 
     /**
      * Convierte una lista de entidades a DTO.

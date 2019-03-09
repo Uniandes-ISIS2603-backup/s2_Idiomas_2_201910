@@ -173,12 +173,11 @@ public class ActividadPersistenceTest {
         actividadPersistence.update(newEntity);
 
         ActividadEntity resp = em.find(ActividadEntity.class, entity.getId());
-
+        
         Assert.assertEquals(resp.getId(), newEntity.getId());
         Assert.assertEquals(resp.getNombre(), newEntity.getNombre());
         Assert.assertEquals(resp.getDescripcion(), newEntity.getDescripcion());
         Assert.assertEquals(resp.getFecha(), newEntity.getFecha());
-        Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
     }
 
     /**
@@ -204,7 +203,6 @@ public class ActividadPersistenceTest {
 
         newEntity = actividadPersistence.findByName(null);
         Assert.assertNull(newEntity);
-        newEntity = actividadPersistence.findByName("AOET");
         newEntity = actividadPersistence.findByName("");
         Assert.assertNull(newEntity);
     }

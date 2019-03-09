@@ -98,16 +98,10 @@ public class EstadiaLogic {
         }
         }
         
-        LOGGER.log(Level.INFO, "Inicia proceso de creación de la estadia");
-        // Verifica la regla de negocio que dice que no puede haber dos estadias con el mismo nombre
-        if (persistence.findByName(estadiaEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Estadia con el nombre \"" + estadiaEntity.getNombre()+ "\"");
-        }
         // Invoca la persistencia para crear la estadia
         persistence.create(estadiaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la estadia");
         return estadiaEntity;
-
     }
 
     /**
@@ -190,7 +184,7 @@ public class EstadiaLogic {
 //        {
 //            throw new BusinessLogicException("La estadia debe tener un anfitrion.");
 //        }
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la estadia con id = {0}",  pEstadiasId);
+        
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         EstadiaEntity newEntity = persistence.update(estadiaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la estadia con id = {0}", estadiaEntity.getId());
@@ -215,6 +209,7 @@ public class EstadiaLogic {
         LOGGER.log(Level.INFO, "Termina proceso de borrar la estadia con id = {0}", pEstadiasId);
     }
     
+
     /**
      * Verifica que el nombre no sea invalido.
      *

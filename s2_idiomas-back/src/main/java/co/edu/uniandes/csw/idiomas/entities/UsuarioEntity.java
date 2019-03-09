@@ -18,6 +18,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class UsuarioEntity extends BaseEntity implements Serializable{
+    
     private Long contrasenia;
     private String nombre;
     
@@ -42,6 +43,7 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     @PodamExclude
     @ManyToMany
     private List<EstadiaEntity> estadias = new ArrayList<>();
+    
     /**
      * Connstructor vacio de un Entity
      */

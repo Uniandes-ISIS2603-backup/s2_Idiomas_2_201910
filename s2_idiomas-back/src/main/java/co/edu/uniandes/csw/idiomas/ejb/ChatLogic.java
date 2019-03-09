@@ -48,7 +48,8 @@ public class ChatLogic {
      * @return La entiddad de la chat luego de persistirla.
      * @throws BusinessLogicException Si la chat a persistir ya existe.
      */
-    public ChatEntity createChat(ChatEntity chatEntity) throws BusinessLogicException {
+    public ChatEntity createChat(ChatEntity chatEntity) throws BusinessLogicException 
+    {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del chat");
         // Verifica la regla de negocio que dice que el nombre del chat no puede ser vacío.
         if (!validateName(chatEntity.getNombre())) {
@@ -77,15 +78,6 @@ public class ChatLogic {
         // Invoca la persistencia para crear la chat
         persistence.create(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación del chat");
-
-        LOGGER.log(Level.INFO, "Inicia proceso de creación de la chat");
-        // Verifica la regla de negocio que dice que no puede haber dos chats con el mismo nombre
-        if (persistence.findByName(chatEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Chat con el nombre \"" + chatEntity.getNombre() + "\"");
-        }
-        // Invoca la persistencia para crear la chat
-        persistence.create(chatEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de creación de la chat");
         return chatEntity;
     }
 
@@ -130,10 +122,10 @@ public class ChatLogic {
      * el nombre.
      * @return la chat con los cambios actualizados en la base de datos.
      */
-
-    public ChatEntity updateChat(Long pChatsId, ChatEntity chatEntity) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}", pChatsId);
-
+    public ChatEntity updateChat(Long  pChatsId, ChatEntity chatEntity) throws BusinessLogicException 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la chat con id = {0}",  pChatsId);
+        
         // Verifica la regla de negocio que dice que el nombre del chat no puede ser vacío.
         if (!validateName(chatEntity.getNombre())) {
             throw new BusinessLogicException("El nombre es inválido.");
@@ -155,8 +147,8 @@ public class ChatLogic {
                 && persistence.findByName(chatEntity.getNombre()).equals(chatEntity)) {
             throw new BusinessLogicException("La chat ya existe.");
         }
- // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
-                ChatEntity newEntity = persistence.update(chatEntity);
+        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
+        ChatEntity newEntity = persistence.update(chatEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la chat con id = {0}", chatEntity.getId());
         return newEntity;
     }
@@ -177,14 +169,15 @@ public class ChatLogic {
         persistence.delete(pChatsId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la chat con id = {0}", pChatsId);
     }
-/**
-             * Verifica que el nombre no sea invalido.
-             *
-             * @param pNombre a verificar
-             * @return true si el nombre es valido.
-             */
-
-    private boolean validateName(String pNombre) {
+    
+    /**
+     * Verifica que el nombre no sea invalido.
+     *
+     * @param pNombre a verificar
+     * @return true si el nombre es valido.
+     */
+    private boolean validateName(String pNombre) 
+    {
         return !(pNombre == null || pNombre.isEmpty());
     }
 }

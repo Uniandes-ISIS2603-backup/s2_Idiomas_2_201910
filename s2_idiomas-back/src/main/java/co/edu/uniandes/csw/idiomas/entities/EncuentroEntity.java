@@ -85,7 +85,7 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
      */
     public void setAprobado(Boolean aprobado) {
         this.aprobado = aprobado;
-    }    
+    }
     
     /**
      * Equals de la clase
@@ -110,5 +110,4 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
         hash = 31 * hash + Objects.hashCode(this.aprobado);
         return hash;
     }
-    
 }
