@@ -79,6 +79,7 @@ public class ChatDTO extends ActividadDTO implements Serializable{
     public ChatEntity toEntity() 
     {
         ChatEntity chatEntity = new ChatEntity();
+        chatEntity.setId(this.getId());
         chatEntity.setNombre(this.getNombre());
         chatEntity.setDescripcion(this.getDescripcion());
         chatEntity.setMotivacion(this.getMotivacion());

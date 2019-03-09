@@ -89,13 +89,7 @@ public class EstadiaLogic {
 //        {
 //            throw new BusinessLogicException("La estadia debe tener un anfitrion.");
 //        }
-        
-        // Verifica la regla de negocio que dice que una estadia no puede tener el mismo id.
-        if (persistence.find(estadiaEntity.getId()) != null)
-        {
-            throw new BusinessLogicException("Ya existe una estadia con ese id: " +
-                    estadiaEntity.getId());
-        }
+
         }
         
         // Invoca la persistencia para crear la estadia
