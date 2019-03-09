@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
+
 import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
 import co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity;
 import co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence;
@@ -15,19 +16,23 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+import org.junit.Assert;
 import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
+
 
 /**
  *
  * @author le.perezl
  */
+@RunWith(Arquillian.class)
 public class GrupoDeInteresPersistenceTest {
         /**
      * Inyecta la dependencia de EstadiaPersistence.
@@ -62,8 +67,8 @@ public class GrupoDeInteresPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(EstadiaEntity.class.getPackage())
-                .addPackage(EstadiaPersistence.class.getPackage())
+                .addPackage(GrupoDeInteresEntity.class.getPackage())
+                .addPackage(GrupoDeInteresPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -93,7 +98,7 @@ public class GrupoDeInteresPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from EstadiaEntity").executeUpdate();
+        em.createQuery("delete from GrupoDeInteresEntity").executeUpdate();
     }
 
     /**
@@ -160,7 +165,7 @@ public class GrupoDeInteresPersistenceTest {
      * Prueba para actualizar un Estadia.
      */
     @Test
-    public void updateEGrupoDeInteresTest() {
+    public void updateGrupoDeInteresTest() {
         GrupoDeInteresEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         GrupoDeInteresEntity newEntity = factory.manufacturePojo(GrupoDeInteresEntity.class);
@@ -178,7 +183,7 @@ public class GrupoDeInteresPersistenceTest {
      * Prueba para eliminar un Estadia.
      */
     @Test
-    public void deleteEstadiaTest() {
+    public void deleteGrupoDeInteresTest() {
         GrupoDeInteresEntity entity = data.get(0);
         grupoPersistence.delete(entity.getId());
         GrupoDeInteresEntity deleted = em.find(GrupoDeInteresEntity.class, entity.getId());
