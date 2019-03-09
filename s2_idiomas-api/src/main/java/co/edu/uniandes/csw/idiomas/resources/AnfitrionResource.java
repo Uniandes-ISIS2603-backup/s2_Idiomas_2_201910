@@ -85,7 +85,7 @@ public class AnfitrionResource
     public void deleteAdministrador(@PathParam("administradoresId") Long administradoresId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "AdministradorResource deleteAdministrador: input: {0}", administradoresId);
         if (administradorLogic.getAdministrador(administradoresId) == null) {
-            throw new WebApplicationException("El recurso /administradores/" + administradoresId +no_existe , 404);
+            throw new WebApplicationException("El recurso /administradores/" + administradoresId + NO_EXISTE , 404);
         }
         administradorLogic.deleteAdministrador(administradoresId);
         LOGGER.info("AdministradorResource deleteAdministrador: output: void");
