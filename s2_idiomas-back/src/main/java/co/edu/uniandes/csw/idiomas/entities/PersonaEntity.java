@@ -34,7 +34,8 @@ public class PersonaEntity extends BaseEntity implements Serializable
      */
     public PersonaEntity()
     {
-        
+        //contructor vacio
+
     }
     
     /**

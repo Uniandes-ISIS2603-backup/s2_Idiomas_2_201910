@@ -31,7 +31,7 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
      */
     public CoordinadorEntity()
     {
-        
+        //contructor vacio
     }
     
     /**

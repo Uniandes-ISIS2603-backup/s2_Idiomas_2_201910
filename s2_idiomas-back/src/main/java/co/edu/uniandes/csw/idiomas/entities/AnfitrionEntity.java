@@ -37,6 +37,13 @@ public class AnfitrionEntity extends BaseEntity implements Serializable {
     }
 
     /**
+     * Connstructor vacio de un Entity
+     */
+    public AnfitrionEntity()
+    {
+        //contructor vacio
+    }
+    /**
      * retorna el nombre 
      * @return nombre -el nombre
      */
