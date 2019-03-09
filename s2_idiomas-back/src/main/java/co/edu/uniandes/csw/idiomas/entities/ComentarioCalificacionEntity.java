@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -17,6 +19,9 @@ public class ComentarioCalificacionEntity extends ComentarioEntity implements Se
 
     private String titulo;
 
+    @PodamExclude
+    @ManyToOne
+    private CalificacionEntity calificaciones;
     /**
      * Constructor vacío de comentarioCalificacionEntity.
      */
@@ -36,6 +41,20 @@ public class ComentarioCalificacionEntity extends ComentarioEntity implements Se
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    /**
+     * @return the calificaciones
+     */
+    public CalificacionEntity getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(CalificacionEntity calificaciones) {
+        this.calificaciones = calificaciones;
     }
 
 }
