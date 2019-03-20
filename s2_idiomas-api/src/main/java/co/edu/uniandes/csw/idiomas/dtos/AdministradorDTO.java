@@ -141,7 +141,8 @@ public class AdministradorDTO implements Serializable
     }
 
     @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    public String toString()
+    {
+        return "{id:"+id.toString()+","+"nombre:"+nombre+","+"contrasenia"+contrasenia.toString()+"}";
     }
 }
