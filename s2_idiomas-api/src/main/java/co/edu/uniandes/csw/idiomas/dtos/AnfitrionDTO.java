@@ -182,7 +182,7 @@ public class AnfitrionDTO implements Serializable {
         anfitrionEntity.setId(this.id);
         anfitrionEntity.setNombre(this.nombre);
         anfitrionEntity.setCiudad(this.ciudad);
-        anfitrionEntity.setContraseña(this.contrasenia);
+        anfitrionEntity.setContrasenia(this.contrasenia);
         anfitrionEntity.setDireccion(this.direccion);
         anfitrionEntity.setPais(this.pais);  
         return anfitrionEntity;

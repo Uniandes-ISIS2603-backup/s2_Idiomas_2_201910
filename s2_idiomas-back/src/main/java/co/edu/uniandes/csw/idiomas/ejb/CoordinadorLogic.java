@@ -26,84 +26,117 @@ public class CoordinadorLogic {
     private CoordinadorPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
     /**
-     * Crea una administrador en la persistencia.
+     * Crea una coordinador en la persistencia.
      *
-     * @param administradorEntity La entidad que representa la administrador a
+     * @param coordinadorEntity La entidad que representa la coordinador a
      * persistir.
-     * @return La entiddad de la administrador luego de persistirla.
-     * @throws BusinessLogicException Si la administrador a persistir ya existe.
+     * @return La entiddad de la coordinador luego de persistirla.
+     * @throws BusinessLogicException Si la coordinador a persistir ya existe.
      */
-    public CoordinadorEntity createCoordinador(CoordinadorEntity administradorEntity) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de creación de la administrador");
-        // Verifica la regla de negocio que dice que no puede haber dos administrador con el mismo nombre
-        if (persistence.findByName(administradorEntity.getNombre()) != null) {
-            throw new BusinessLogicException("Ya existe una Coordinador con el nombre \"" + administradorEntity.getNombre() + "\"");
+    public CoordinadorEntity createCoordinador(CoordinadorEntity coordinadorEntity) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de creación de la coordinador");
+        // Verifica la regla de negocio que dice que no puede haber un coordinador con el nombre vacio
+        if(coordinadorEntity.getNombre().compareTo("")==0)
+        {
+            throw new BusinessLogicException("El Coordinador no tiene nombre");
         }
-        // Invoca la persistencia para crear la administrador
-        persistence.create(administradorEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de creación de la administrador");
-        return administradorEntity;
+        // Verifica la regla de negocio que dice que no puede haber un coordinador con contraseña vacio
+        else if(coordinadorEntity.getContrasenia()==null)
+        {
+            throw new BusinessLogicException("El Coordinador no tiene contraseña");
+        }
+        // Verifica la regla de negocio que dice que no puede haber dos coordinador con el mismo nombre
+        if (persistence.findByName(coordinadorEntity.getNombre()) != null) {
+            throw new BusinessLogicException("Ya existe una Coordinador con el nombre \"" + coordinadorEntity.getNombre() + "\"");
+        }
+        // Invoca la persistencia para crear la coordinador
+        persistence.create(coordinadorEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de creación de la coordinador");
+        return coordinadorEntity;
     }
 
     /**
      *
-     * Obtener todas las administrador existentes en la base de datos.
+     * Obtener todas las coordinador existentes en la base de datos.
      *
-     * @return una lista de administrador.
+     * @return una lista de coordinador.
      */
     public List<CoordinadorEntity> getCoordinadors() {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las administrador");
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las coordinador");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
-        List<CoordinadorEntity> administrador = persistence.findAll();
-        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las administrador");
-        return administrador;
+        List<CoordinadorEntity> coordinador = persistence.findAll();
+        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las coordinador");
+        return coordinador;
     }
 
     /**
      *
-     * Obtener una administrador por medio de su id.
+     * Obtener una coordinador por medio de su id.
      *
-     * @param administradorId: id de la administrador para ser buscada.
-     * @return la administrador solicitada por medio de su id.
+     * @param coordinadorId: id de la coordinador para ser buscada.
+     * @return la coordinador solicitada por medio de su id.
      */
-    public CoordinadorEntity getCoordinador(Long administradorId) {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la administrador con id = {0}", administradorId);
+    public CoordinadorEntity getCoordinador(Long coordinadorId) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la coordinador con id = {0}", coordinadorId);
         // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.
-        CoordinadorEntity administradorEntity = persistence.find(administradorId);
-        if (administradorEntity == null) {
-            LOGGER.log(Level.SEVERE, "La administrador con el id = {0} no existe", administradorId);
+        CoordinadorEntity coordinadorEntity = persistence.find(coordinadorId);
+        if (coordinadorEntity == null) {
+            LOGGER.log(Level.SEVERE, "La coordinador con el id = {0} no existe", coordinadorId);
         }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la administrador con id = {0}", administradorId);
-        return administradorEntity;
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la coordinador con id = {0}", coordinadorId);
+        return coordinadorEntity;
     }
 
     /**
      *
-     * Actualizar una administrador.
+     * Actualizar una coordinador.
      *
-     * @param administradorId: id de la administrador para buscarla en la base de
+     * @param coordinadorId: id de la coordinador para buscarla en la base de
      * datos.
-     * @param administradorEntity: administrador con los cambios para ser actualizada,
+     * @param coordinadorEntity: coordinador con los cambios para ser actualizada,
      * por ejemplo el nombre.
-     * @return la administrador con los cambios actualizados en la base de datos.
+     * @return la coordinador con los cambios actualizados en la base de datos.
      */
-    public CoordinadorEntity updateCoordinador(Long administradorId, CoordinadorEntity administradorEntity) {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la administrador con id = {0}", administradorId);
+    public CoordinadorEntity updateCoordinador(Long coordinadorId, CoordinadorEntity coordinadorEntity) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la coordinador con id = {0}", coordinadorId);
+       //verifica que el Coordinador que se va a actualizar existe
+        CoordinadorEntity ecoodinadorEntity = persistence.find(coordinadorId);
+        if (ecoodinadorEntity == null) {
+            throw new BusinessLogicException( "La coodinador con el id = {0} no existe" + coordinadorId);
+        }
+         // Verifica la regla de negocio que dice que no puede haber un coodinador con el nombre vacio
+        else if(coordinadorEntity.getNombre().compareTo("")==0)
+        {
+            throw new BusinessLogicException("El Coordinador no tiene nombre");
+        }
+        // Verifica la regla de negocio que dice que no puede haber un coodinador con contraseña vacio
+        else if(coordinadorEntity.getContrasenia()==null)
+        {
+            throw new BusinessLogicException("El Coordinador no tiene contraseña");
+        }
+        // Verifica la regla de negocio que dice que no puede haber dos coodinador con el mismo nombre
+        else if (persistence.findByName(coordinadorEntity.getNombre()) != null) {
+            throw new BusinessLogicException("Ya existe una Coordinador con el nombre \"" + coordinadorEntity.getNombre() + "\"");
+        }
         // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
-        CoordinadorEntity newEntity = persistence.update(administradorEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar la administrador con id = {0}", administradorEntity.getId());
+        CoordinadorEntity newEntity = persistence.update(coordinadorEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar la coordinador con id = {0}", coordinadorEntity.getId());
         return newEntity;
     }
 
     /**
-     * Borrar un administrador
+     * Borrar un coordinador
      *
-     * @param administradorId: id de la administrador a borrar
-     * @throws BusinessLogicException Si la administrador a eliminar tiene libros.
+     * @param coordinadorId: id de la coordinador a borrar
+     * @throws BusinessLogicException Si la coordinador a eliminar tiene libros.
      */
-    public void deleteCoordinador(Long administradorId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar la administrador con id = {0}", administradorId);        
-        persistence.delete(administradorId);
-        LOGGER.log(Level.INFO, "Termina proceso de borrar la administrador con id = {0}", administradorId);
+    public void deleteCoordinador(Long coordinadorId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar la coordinador con id = {0}", coordinadorId);    
+        if(persistence.find(coordinadorId)== null)
+        {
+            throw new BusinessLogicException("el coordinador no existe");
+        }
+        persistence.delete(coordinadorId);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar la coordinador con id = {0}", coordinadorId);
     }
 }

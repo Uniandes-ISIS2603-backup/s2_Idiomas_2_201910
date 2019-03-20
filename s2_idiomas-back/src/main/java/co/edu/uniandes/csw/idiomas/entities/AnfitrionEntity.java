@@ -71,7 +71,7 @@ public class AnfitrionEntity extends BaseEntity implements Serializable {
      * Asigna una contrasenia
      * @param contrasenia 
      */
-    public void setContraseña(Long contrasenia) {
+    public void setContrasenia(Long contrasenia) {
         this.contrasenia = contrasenia;
     }
 

@@ -102,7 +102,7 @@ public class CoordinadorResource
      */
     @PUT
     @Path("{CoordinadorId: \\d+}")
-    public CoordinadorDetailDTO updateCoordinador(@PathParam("CoordinadorId") Long coordinadorId, CoordinadorDetailDTO coordinador) {
+    public CoordinadorDetailDTO updateCoordinador(@PathParam("CoordinadorId") Long coordinadorId, CoordinadorDetailDTO coordinador) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "CoordinadorResource updateCoordinador: input: CoordinadorId: {0} , Coordinador: {1}", new Object[]{coordinadorId, coordinador});
         coordinador.setId(coordinadorId);
         if (coordinadorLogic.getCoordinador(coordinadorId) == null)

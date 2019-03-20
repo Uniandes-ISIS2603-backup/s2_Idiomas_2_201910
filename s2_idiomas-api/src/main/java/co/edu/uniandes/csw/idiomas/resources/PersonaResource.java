@@ -102,7 +102,7 @@ public class PersonaResource {
      */
     @PUT
     @Path("{AdministradorId: \\d+}")
-    public AdministradorDetailDTO updateAdministrador(@PathParam("AdministradorId") Long administradorId, AdministradorDetailDTO administrador) {
+    public AdministradorDetailDTO updateAdministrador(@PathParam("AdministradorId") Long administradorId, AdministradorDetailDTO administrador) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: input: AdministradorId: {0} , Administrador: {1}", new Object[]{administradorId, administrador});
         administrador.setId(administradorId);
         if (administradorLogic.getAdministrador(administradorId) == null)
