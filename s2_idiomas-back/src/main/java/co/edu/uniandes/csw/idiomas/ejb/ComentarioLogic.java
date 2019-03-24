@@ -71,8 +71,7 @@ public class ComentarioLogic {
     }
     
     public ComentarioEntity getComment(Long comentarioId){
-        ComentarioEntity comentario = persistence.find(comentarioId);
-        return comentario;
+        return persistence.find(comentarioId);
     }
     
     /**

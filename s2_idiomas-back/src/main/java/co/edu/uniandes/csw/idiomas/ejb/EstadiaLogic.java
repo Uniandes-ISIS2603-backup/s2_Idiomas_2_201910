@@ -64,7 +64,6 @@ public class EstadiaLogic {
         }
         
         // Verifica la regla de negocio que dice que una estadia debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (estadiaEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La estadia debe tener un coordinador.");
@@ -84,7 +83,6 @@ public class EstadiaLogic {
         }
         
         // Verifica la regla de negocio que dice que una estadia debe tener un anfitrion.
-        // TODO: GC Conectar con Anfitrion.
 //        if (estadiaEntity.getAnfitrion().isEmpty())
 //        {
 //            throw new BusinessLogicException("La estadia debe tener un anfitrion.");
@@ -153,7 +151,6 @@ public class EstadiaLogic {
         }
         
         // Verifica la regla de negocio que dice que una estadia debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (estadiaEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La estadia debe tener un coordinador.");
@@ -173,7 +170,6 @@ public class EstadiaLogic {
         }
         
         // Verifica la regla de negocio que dice que una estadia debe tener un anfitrion.
-        // TODO: GC Conectar con Anfitrion.
 //        if (estadiaEntity.getAnfitrion().isEmpty())
 //        {
 //            throw new BusinessLogicException("La estadia debe tener un anfitrion.");

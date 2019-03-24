@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.ComentarioBlogEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.io.Serializable;
 
 /**

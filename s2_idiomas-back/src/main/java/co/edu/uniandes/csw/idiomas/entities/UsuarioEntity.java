@@ -49,7 +49,8 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
      */
     public UsuarioEntity()
     {
-        
+        //contructor vacio
+
     }
     
     /**

@@ -5,11 +5,9 @@
  */
 package co.edu.uniandes.csw.idiomas.ejb;
 
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioCalificacionEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ComentarioCalificacionPersistence;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -68,7 +66,7 @@ public class ComentarioCalificacionLogic {
         return comentarioEntity;
     }
     
-    public void deleteComment(Long commentId) throws BusinessLogicException 
+    public void deleteComment(Long commentId)
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la chat con id = {0}", commentId);
         persistence.delete(commentId);

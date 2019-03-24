@@ -1,9 +1,3 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
@@ -39,8 +33,17 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  */
 public class AdministradorDTO implements Serializable
 {
+    /**
+     * el id del administrador
+     */
     Long id;
+    /**
+     * el nombre del administrador
+     */
     String nombre;
+    /**
+     * contraseña del administrador
+     */
     Long contrasenia;
 
 
@@ -49,7 +52,9 @@ public class AdministradorDTO implements Serializable
     /**
      * Constructor por defecto
      */
-    public AdministradorDTO() {
+    public AdministradorDTO() 
+    {
+        //constructor por defecto
     }
 
     /**
@@ -136,7 +141,8 @@ public class AdministradorDTO implements Serializable
     }
 
     @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    public String toString()
+    {
+        return "{id:"+id.toString()+","+"nombre:"+nombre+","+"contrasenia"+contrasenia.toString()+"}";
     }
 }

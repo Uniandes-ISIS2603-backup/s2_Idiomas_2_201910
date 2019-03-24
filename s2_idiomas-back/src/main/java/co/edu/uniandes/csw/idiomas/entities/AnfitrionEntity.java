@@ -37,6 +37,13 @@ public class AnfitrionEntity extends BaseEntity implements Serializable {
     }
 
     /**
+     * Connstructor vacio de un Entity
+     */
+    public AnfitrionEntity()
+    {
+        //contructor vacio
+    }
+    /**
      * retorna el nombre 
      * @return nombre -el nombre
      */
@@ -64,7 +71,7 @@ public class AnfitrionEntity extends BaseEntity implements Serializable {
      * Asigna una contrasenia
      * @param contrasenia 
      */
-    public void setContraseña(Long contrasenia) {
+    public void setContrasenia(Long contrasenia) {
         this.contrasenia = contrasenia;
     }
 

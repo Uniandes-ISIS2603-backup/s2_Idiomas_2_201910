@@ -57,7 +57,6 @@ public class BlogResource {
     @POST
     public BlogDTO createBlog (BlogDTO blog)throws BusinessLogicException
     {
-        // TODO: GC Implementar lógica POST
         LOGGER.log(Level.INFO, "BlogResource createBlog: input: {0}", blog);
 //        ActividadDTO actividadDTO = new ActividadDTO(authorLogic.createAuthor(actividad.toEntity()));
 //        LOGGER.log(Level.INFO, "ActividadResource createActividad: output: {0}", actividadDTO);
@@ -72,7 +71,6 @@ public class BlogResource {
      * una cadena de dígitos.
      * @param blog {@link BlogDTO} - El grupo que se desea guardar.
      * @return JSON {@link BlogTO} - El grupo guardado.
-     * // TODO: GC Completar documentación con excepciones
      */
     @PUT
     @Path("{blogId: \\d+}")
@@ -80,7 +78,6 @@ public class BlogResource {
     {
         LOGGER.log(Level.INFO, "BlogResource updateBlog: input: blogId: {0}, blog: {1}", 
                 new Object[]{blogId, blog});
-        // TODO: GC Implementar lógica PUT
 //        actividad.setId(actividadId);
 //        if(actividadLogic.getActividad(actividadId) == null)
 //        {
@@ -97,14 +94,12 @@ public class BlogResource {
      * @param blogID El identificador del blog que se busca. Debe ser
      * una cadena de dígitos.
      * @return JSON {@link BlogDTO} - El blog buscado.
-     * // TODO: GC Completar documentación excepciones.
      */
     @GET
     @Path("{blogID: \\d+}")
     public BlogDTO getBlog (@PathParam("blogID") Long blogID)
     {
         LOGGER.log(Level.INFO, "BlogResource getBlog: input: blogID: {0}", blogID);
-        // TODO: GC Implementar lógica GET
 //        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadId);
 //        if(ActividadEntity == null)
 //        {
@@ -120,7 +115,6 @@ public class BlogResource {
     public void deleteBlog (@PathParam("blogID") Long blogID)
     {
         LOGGER.log(Level.INFO, "BlogResource deleteBlog: input: {0}", blogID);
-        // TODO: GC Implementar lógica DELETE
 //        if (actividadLogic.getActividad(actividadId) == null)
 //        {
 //            throw new WebApplicationException("El recurso /actividad/" + actividadId + "no existe.", 404);

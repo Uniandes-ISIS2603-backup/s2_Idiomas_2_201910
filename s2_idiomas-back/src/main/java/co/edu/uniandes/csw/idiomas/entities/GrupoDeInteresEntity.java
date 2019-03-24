@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  *

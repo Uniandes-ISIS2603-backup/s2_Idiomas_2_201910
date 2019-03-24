@@ -6,9 +6,7 @@
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
 
-import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
 import co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity;
-import co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence;
 import co.edu.uniandes.csw.idiomas.persistence.GrupoDeInteresPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +33,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class GrupoDeInteresPersistenceTest {
         /**
-     * Inyecta la dependencia de EstadiaPersistence.
+     * Inyecta la dependencia de GrupoDeInteresPersistence.
      */
     @Inject
     private GrupoDeInteresPersistence grupoPersistence;
@@ -116,7 +114,7 @@ public class GrupoDeInteresPersistenceTest {
     }
 
     /**
-     * Prueba para crear un Estadia.
+     * Prueba para crear un GrupoDeInteres.
      */
     @Test
     public void createGrupoDeInteresTest() {
@@ -126,13 +124,13 @@ public class GrupoDeInteresPersistenceTest {
 
         Assert.assertNotNull(result);
 
-        EstadiaEntity entity = em.find(EstadiaEntity.class, result.getId());
+        GrupoDeInteresEntity entity = em.find(GrupoDeInteresEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }
 
     /**
-     * Prueba para consultar la lista de Estadias.
+     * Prueba para consultar la lista de GrupoDeInteress.
      */
     @Test
     public void getGrupoDeInteresLTest() {
@@ -150,7 +148,7 @@ public class GrupoDeInteresPersistenceTest {
     }
 
     /**
-     * Prueba para consultar un Estadia.
+     * Prueba para consultar un GrupoDeInteres.
      */
     @Test
     public void getGrupoDeInteresTest() {
@@ -162,7 +160,7 @@ public class GrupoDeInteresPersistenceTest {
     }
 
     /**
-     * Prueba para actualizar un Estadia.
+     * Prueba para actualizar un GrupoDeInteres.
      */
     @Test
     public void updateGrupoDeInteresTest() {
@@ -174,13 +172,13 @@ public class GrupoDeInteresPersistenceTest {
 
         grupoPersistence.update(newEntity);
 
-        EstadiaEntity resp = em.find(EstadiaEntity.class, entity.getId());
+        GrupoDeInteresEntity resp = em.find(GrupoDeInteresEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getId(), resp.getId());
     }
 
     /**
-     * Prueba para eliminar un Estadia.
+     * Prueba para eliminar un GrupoDeInteres.
      */
     @Test
     public void deleteGrupoDeInteresTest() {
