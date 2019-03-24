@@ -48,9 +48,9 @@ public class ComentarioDTO implements Serializable {
             this.autor = new PersonaDTO(entity.getAutor());
         }
     }
-    
-    public ComentarioDTO(){
-        
+
+    public ComentarioDTO() {
+
     }
 
     /**
