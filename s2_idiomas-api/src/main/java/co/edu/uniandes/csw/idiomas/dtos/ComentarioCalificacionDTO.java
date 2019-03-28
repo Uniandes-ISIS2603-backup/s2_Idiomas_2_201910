@@ -27,6 +27,7 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
         if (entity != null) {
             this.titulo = entity.getTitulo();
             this.calificacion = new CalificacionDTO(entity.getCalificaciones());
+            
         }
     }
     

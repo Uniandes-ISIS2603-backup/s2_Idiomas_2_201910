@@ -11,6 +11,7 @@ import java.io.Serializable;
 /**
  *
  * @author se.gamboa
+ * sada
  */
 public class ComentarioActividadDTO extends ComentarioDTO implements Serializable{
     

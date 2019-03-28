@@ -26,6 +26,7 @@ public class ComentarioGrupoDTO extends ComentarioDTO implements Serializable {
         if (entity != null) {
             this.titulo = entity.getTitulo();
         }
+        ///s
     }
     
     public ComentarioGrupoDTO(){

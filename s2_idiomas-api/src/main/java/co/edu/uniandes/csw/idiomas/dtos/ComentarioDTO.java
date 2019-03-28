@@ -10,11 +10,12 @@ import java.util.Date;
  */
 public class ComentarioDTO implements Serializable {
 
-    /**
+    /** 
      * @return the autor
      */
     public PersonaDTO getAutor() {
         return autor;
+        
     }
 
     /**

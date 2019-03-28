@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
 
     private PersonaDTO autor;
+    
 
     public ComentarioDetailDTO(ComentarioEntity entity) {
         super(entity);
