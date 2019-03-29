@@ -14,7 +14,6 @@ import java.io.Serializable;
  */
 public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializable {
 
-    private String titulo;
     private CalificacionDTO calificacion;
 
     /**
@@ -25,7 +24,6 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
     public ComentarioCalificacionDTO(ComentarioCalificacionEntity entity) {
         super(entity);
         if (entity != null) {
-            this.titulo = entity.getTitulo();
             this.calificacion = new CalificacionDTO(entity.getCalificaciones());
             
         }
@@ -33,20 +31,6 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
     
     public ComentarioCalificacionDTO(){
         super();
-    }
-
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
-
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     /**

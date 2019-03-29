@@ -17,7 +17,6 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ComentarioCalificacionEntity extends ComentarioEntity implements Serializable{
 
-    private String titulo;
 
     @PodamExclude
     @ManyToOne
@@ -27,20 +26,6 @@ public class ComentarioCalificacionEntity extends ComentarioEntity implements Se
      */
     public ComentarioCalificacionEntity() {
 
-    }
-
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
-
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     /**

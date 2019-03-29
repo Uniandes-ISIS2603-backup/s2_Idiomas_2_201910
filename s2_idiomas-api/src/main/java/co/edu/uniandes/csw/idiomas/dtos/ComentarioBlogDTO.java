@@ -14,7 +14,6 @@ import java.io.Serializable;
  */
 public class ComentarioBlogDTO extends ComentarioDTO implements Serializable {
 
-    private String titulo;
 
     /**
      * Constructor de ComentarioBlogDTO
@@ -23,9 +22,6 @@ public class ComentarioBlogDTO extends ComentarioDTO implements Serializable {
      */
     public ComentarioBlogDTO(ComentarioBlogEntity entity) {
         super(entity);
-        if (entity != null) {
-            this.titulo = entity.getTitulo();
-        }
         //a
     }
     
@@ -33,19 +29,6 @@ public class ComentarioBlogDTO extends ComentarioDTO implements Serializable {
         super();
     }
 
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
-
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
 
     /**
      * Convierte un objeto DTO a una Entidad.
@@ -55,7 +38,7 @@ public class ComentarioBlogDTO extends ComentarioDTO implements Serializable {
     @Override
     public ComentarioBlogEntity toEntity() {
         ComentarioBlogEntity entity = new ComentarioBlogEntity();
-        entity.setTitulo(this.titulo);
+        entity.setTitulo(this.getTitulo());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
         entity.setAutor(this.getAutor().toEntity());

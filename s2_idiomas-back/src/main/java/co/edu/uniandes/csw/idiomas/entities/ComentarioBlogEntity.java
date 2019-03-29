@@ -15,8 +15,6 @@ import javax.persistence.Entity;
 @Entity
 public class ComentarioBlogEntity extends ComentarioEntity implements Serializable{
     
-
-    private String titulo;
     
     /**
      * Constructor vacío de comentarioBlogEntity.
@@ -26,19 +24,7 @@ public class ComentarioBlogEntity extends ComentarioEntity implements Serializab
         
     }
 
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
 
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
     
     
 }
