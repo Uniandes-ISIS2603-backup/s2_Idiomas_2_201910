@@ -33,6 +33,7 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     private PersonaEntity autor;
     private String titulo;
     
+    
     /**
      * Constructor vacío de ComentarioEntity.
      */
