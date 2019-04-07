@@ -8,10 +8,15 @@ package co.edu.uniandes.csw.idiomas.entities;
 import co.edu.uniandes.csw.idiomas.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.InheritanceType;
+import javax.persistence.Inheritance;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.TemporalType;  
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 
@@ -20,6 +25,10 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author se.gamboa
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "typeofcomentario", discriminatorType = DiscriminatorType.CHAR)
+@DiscriminatorValue("C")
+
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
     private String texto;

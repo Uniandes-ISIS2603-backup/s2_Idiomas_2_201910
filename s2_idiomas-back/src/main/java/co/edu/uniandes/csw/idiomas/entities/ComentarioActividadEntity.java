@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -15,6 +16,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author se.gamboa
  */
 @Entity
+@DiscriminatorValue("A")
 public class ComentarioActividadEntity extends ComentarioEntity implements Serializable{
     
     
