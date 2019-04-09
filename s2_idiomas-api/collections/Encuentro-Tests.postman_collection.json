@@ -245,7 +245,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
+					"raw": "{\n\t\"descripcion\": \"La descripcion\",\n    \"fecha\": \"1966-07-22T00:00:00Z[UTC]\",\n    \"id\": 26,\n    \"motivacion\": \"La motivacion\",\n    \"nombre\": \"El nombre\",\n    \"lugar\": \"El lugara\",\n    \"numeroMaxAsistentes\": 2\n}"
 				},
 				"url": {
 					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/encuentro/{{new_id_a}}",
