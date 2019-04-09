@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -15,6 +16,7 @@ import javax.persistence.Entity;
  * @author g.cubillosb
  */
 @Entity
+@DiscriminatorValue("E")
 public class EncuentroEntity extends ActividadEntity implements Serializable
 {
     
@@ -98,8 +100,8 @@ public class EncuentroEntity extends ActividadEntity implements Serializable
             return false;
         }
         EncuentroEntity fobj = (EncuentroEntity) obj;
-        return aprobado.equals(fobj.getAprobado()) && lugar.equals(fobj.getLugar())
-                && numeroMaxAsistentes.equals(fobj.getNumeroMaxAsistentes());
+        return getAprobado().equals(fobj.getAprobado()) && getLugar().equals(fobj.getLugar())
+                && getNumeroMaxAsistentes().equals(fobj.getNumeroMaxAsistentes());
     }
 
     @Override

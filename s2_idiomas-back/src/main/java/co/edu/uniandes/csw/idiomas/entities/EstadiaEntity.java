@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -21,6 +22,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author g.cubillosb
  */
 @Entity
+@DiscriminatorValue("Es")
 public class EstadiaEntity extends ActividadEntity implements Serializable{
     
     // -------------------------------------------------------------------
@@ -94,7 +96,7 @@ public class EstadiaEntity extends ActividadEntity implements Serializable{
             return false;
         }
         EstadiaEntity fobj = (EstadiaEntity) obj;
-        return anfitrion.equals(fobj.getAnfitrion()) && pais.equals(fobj.getPais());
+        return getAnfitrion().equals(fobj.getAnfitrion()) && getPais().equals(fobj.getPais());
     }
 
     @Override

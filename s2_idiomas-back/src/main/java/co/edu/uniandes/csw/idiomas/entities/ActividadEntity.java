@@ -12,7 +12,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,6 +32,9 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author g.cubillosb
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "typeActivity", discriminatorType = DiscriminatorType.CHAR)
+@DiscriminatorValue("A")
 public class ActividadEntity extends BaseEntity implements Serializable{
     
     // -------------------------------------------------------------------
@@ -209,14 +217,11 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     @Override
     public boolean equals(Object obj)
     {
-        if(!super.equals(obj))
-        {
-            return false;
-        }
+        
         ActividadEntity fobj = (ActividadEntity) obj;
-        return descripcion.equals(fobj.getDescripcion()) && fecha.equals(fobj.getFecha())
-                && motivacion.equals(fobj.getMotivacion())
-                && nombre.equals(fobj.getNombre());
+        return this.getDescripcion().equals(fobj.getDescripcion()) && this.getFecha().equals(fobj.getFecha())
+                && this.getMotivacion().equals(fobj.getMotivacion())
+                && this.getNombre().equals(fobj.getNombre());
     }
 
     @Override

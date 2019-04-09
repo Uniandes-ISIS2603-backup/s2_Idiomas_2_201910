@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -14,6 +15,7 @@ import javax.persistence.Entity;
  * @author g.cubillosb
  */
 @Entity
+@DiscriminatorValue("O")
 public class OtroEntity extends ActividadEntity implements Serializable{
     
     // -------------------------------------------------------------------
