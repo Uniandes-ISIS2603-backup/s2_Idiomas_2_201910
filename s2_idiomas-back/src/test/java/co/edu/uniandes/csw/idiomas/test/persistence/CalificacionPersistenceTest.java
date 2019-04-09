@@ -1,6 +1,5 @@
 package co.edu.uniandes.csw.idiomas.test.persistence;
 
-import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import co.edu.uniandes.csw.idiomas.persistence.CalificacionPersistence;
 import java.util.ArrayList;
@@ -22,9 +21,9 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
- * Pruebas de persistencia de Actividad
+ * Pruebas de persistencia de Calificacion
  *
- * @author g.cubillosb
+ * @author jd.ruedaa
  */
 @RunWith(Arquillian.class)
 public class CalificacionPersistenceTest {
@@ -34,7 +33,7 @@ public class CalificacionPersistenceTest {
     // ------------------------------------------------------------------------
 
     /**
-     * Inyecta la dependencia de ActividadPersistence.
+     * Inyecta la dependencia de CalificacionPersistence.
      */
     @Inject
     private CalificacionPersistence calificacionPersistence;
@@ -118,7 +117,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para crear un Actividad.
+     * Prueba para crear un Calificacion.
      */
     @Test
     public void createCalificacionTest() {
@@ -128,13 +127,13 @@ public class CalificacionPersistenceTest {
 
         Assert.assertNotNull(result);
 
-        ActividadEntity entity = em.find(ActividadEntity.class, result.getId());
+        CalificacionEntity entity = em.find(CalificacionEntity.class, result.getId());
 
         Assert.assertTrue(Objects.equals(newEntity.getCalificacion(), entity.getCalificacion()));
     }
 
     /**
-     * Prueba para consultar la lista de Actividades.
+     * Prueba para consultar la lista de Calificaciones.
      */
     @Test
     public void getCalificacionesTest() {
@@ -152,7 +151,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para consultar un Actividad.
+     * Prueba para consultar una Calificacion.
      */
     @Test
     public void getCalificacionTest() {
@@ -164,7 +163,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para actualizar un Actividad.
+     * Prueba para actualizar una Calificacion.
      */
     @Test
     public void updateCalificacionTest() {
@@ -184,7 +183,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para eliminar un Actividad.
+     * Prueba para eliminar una Calificacion.
      */
     @Test
     public void deleteCalificacionTest() {

@@ -22,7 +22,7 @@ public class CalificacionLogic {
     private CalificacionPersistence calificacionPersistence;
     
       /**
-     * Se encarga de crear un Calificafion en la base de datos.
+     * Se encarga de crear una Calificafion en la base de datos.
      *
      * @param calificacionEntity Objeto de CalificacionEntity con los datos nuevos
      * @return Objeto de CalificacionEntity con los datos nuevos y su ID.
@@ -33,10 +33,10 @@ public class CalificacionLogic {
         CalificacionEntity newCalificacionEntity = calificacionPersistence.create(calificacionEntity);
         if(newCalificacionEntity != null)
         {
-            if (newCalificacionEntity.getCalificacion() != (Integer) newCalificacionEntity.getCalificacion())
+            if (newCalificacionEntity.getCalificacion().equals((Integer)newCalificacionEntity.getCalificacion()))
             {
+            } else {
                 throw new BusinessLogicException("La calificación no es entera");
-                
             }
             if (newCalificacionEntity.getCalificacion() < 0 || newCalificacionEntity.getCalificacion() > 5)
             {
@@ -48,7 +48,6 @@ public class CalificacionLogic {
                 if(newCalificacionEntity.getMensaje().length() > 300)
                 {
                     throw new BusinessLogicException("El mensaje supera el número de caracteres permitidos");
-                    
                 }
                 
             }
@@ -97,11 +96,12 @@ public class CalificacionLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el autor con id = {0}", calificacionId);
          if(calificacionPersistence.find(calificacionId) != null)
         {
-            if (newCalificacionEntity.getCalificacion() != (Integer) newCalificacionEntity.getCalificacion())
+            if (newCalificacionEntity.getCalificacion().equals((Integer)newCalificacionEntity.getCalificacion()))
             {
-                throw new BusinessLogicException("La calificación no es entera");
-                
             }
+                else{
+                        throw new BusinessLogicException("La calificación no es entera");
+                    }
             if (newCalificacionEntity.getCalificacion() < 0 || newCalificacionEntity.getCalificacion() > 5)
             {
                 throw new BusinessLogicException("La calificación no se encuentra entre 0 y 5");
