@@ -21,9 +21,9 @@ import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
- * Pruebas de persistencia de Actividad
+ * Pruebas de persistencia de Calificacion
  *
- * @author g.cubillosb
+ * @author jd.ruedaa
  */
 @RunWith(Arquillian.class)
 public class CalificacionPersistenceTest {
@@ -33,7 +33,7 @@ public class CalificacionPersistenceTest {
     // ------------------------------------------------------------------------
 
     /**
-     * Inyecta la dependencia de ActividadPersistence.
+     * Inyecta la dependencia de CalificacionPersistence.
      */
     @Inject
     private CalificacionPersistence calificacionPersistence;
@@ -163,7 +163,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para actualizar un Actividad.
+     * Prueba para actualizar una Calificacion.
      */
     @Test
     public void updateCalificacionTest() {
@@ -183,7 +183,7 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Prueba para eliminar un Actividad.
+     * Prueba para eliminar una Calificacion.
      */
     @Test
     public void deleteCalificacionTest() {
