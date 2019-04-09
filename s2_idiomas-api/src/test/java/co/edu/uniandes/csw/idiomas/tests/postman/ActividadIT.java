@@ -23,8 +23,10 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.idiomas.tests.postman;
 
+import co.edu.uniandes.csw.idiomas.dtos.ActividadDTO;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.idiomas.dtos.CascaraDTO;
+import co.edu.uniandes.csw.idiomas.resources.ActividadResource;
 import co.edu.uniandes.csw.idiomas.resources.RestConfig;
 import co.edu.uniandes.csw.postman.tests.PostmanTestBuilder;
 import java.io.File;
@@ -56,8 +58,8 @@ public class ActividadIT {
                         .importRuntimeDependencies().resolve()
                         .withTransitivity().asFile())
                 // Se agregan los compilados de los paquetes de servicios
-                .addPackage(RestConfig.class.getPackage()) //No importa cual recurso usar, lo importante es agregar el paquet
-                .addPackage(CascaraDTO.class.getPackage()) //No importa cual dto usar, lo importante es agregar el paquete.
+                .addPackage(ActividadResource.class.getPackage()) //No importa cual recurso usar, lo importante es agregar el paquet
+                .addPackage(ActividadDTO.class.getPackage()) //No importa cual dto usar, lo importante es agregar el paquete.
                 .addPackage(BusinessLogicExceptionMapper.class.getPackage())
                 // El archivo que contiene la configuracion a la base de datos.
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
@@ -72,7 +74,7 @@ public class ActividadIT {
     @RunAsClient
     public void postman() throws IOException {
         PostmanTestBuilder tp = new PostmanTestBuilder();
-        tp.setTestWithoutLogin(COLLECTION, "Entorno-IT.postman_environment");
+        tp.setTestWithoutLogin(COLLECTION, "Entorno-Colecciones.postman_environment");
         String desiredResult = "0";
         Assert.assertEquals("Error en Iterations de: " + COLLECTION, desiredResult, tp.getIterations_failed());
 

@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.idiomas.ejb;
 
-import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;

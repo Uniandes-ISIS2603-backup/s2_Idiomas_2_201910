@@ -6,11 +6,13 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -49,14 +51,80 @@ public class ComentarioLogic {
         return entidad;
     } 
     
+        /**
+     *
+     * Obtener todas las Comentarios existentes en la base de datos.
+     *
+     * @return una lista de Comentarios.
+     */
+    public List<ComentarioEntity> getComentarios() 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las Comentarios");
+        // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
+        List<ComentarioEntity> Comentarios = persistence.findAll();
+        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las Comentarios");
+        return Comentarios;
+    }
+    
     public void deleteComment(Long commentId) throws BusinessLogicException {
         persistence.delete(commentId);
     }
     
     public ComentarioEntity getComment(Long comentarioId){
-        ComentarioEntity comentario = persistence.find(comentarioId);
-        return comentario;
+        return persistence.find(comentarioId);
     }
     
+    /**
+     *
+     * Obtener una Comentario por medio de su id.
+     *
+     * @param ComentariosId: id de la Comentario para ser buscada.
+     * @return la Comentario solicitada por medio de su id.
+     */
+    public ComentarioEntity getComentario(Long ComentariosId) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la Comentario con id = {0}", ComentariosId);
+        // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.
+        ComentarioEntity ComentarioEntity = persistence.find(ComentariosId);
+        if (ComentarioEntity == null) {
+            LOGGER.log(Level.SEVERE, "La Comentario con el id = {0} no existe", ComentariosId);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la Comentario con id = {0}", ComentariosId);
+        return ComentarioEntity;
+    }
     
+        /**
+     *
+     * Actualizar una Comentario.
+     *
+     * @param pComentariosId: id de la Comentario para buscarla en la base de
+     * datos.
+     * @param ComentarioEntity: Comentario con los cambios para ser actualizada,
+     * por ejemplo el nombre.
+     * @return la Comentario con los cambios actualizados en la base de datos.
+     */
+    public ComentarioEntity updateComentario(Long  pComentariosId, ComentarioEntity ComentarioEntity) throws BusinessLogicException 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la Comentario con id = {0}",  pComentariosId);
+        if (!validateText(ComentarioEntity.getTexto()))
+        {
+            throw new BusinessLogicException("El texto es inválido.");
+        }
+
+        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
+        ComentarioEntity newEntity = persistence.update(ComentarioEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar la Comentario con id = {0}", ComentarioEntity.getId());
+        return newEntity;
+    }
+    
+        /**
+     * Verifica que el nombre no sea invalido.
+     *
+     * @param pNombre a verificar
+     * @return true si el nombre es valido.
+     */
+    private boolean validateText(String pTexto) 
+    {
+        return !(pTexto == null || pTexto.isEmpty() || pTexto.length() >=300);
+    }
 }

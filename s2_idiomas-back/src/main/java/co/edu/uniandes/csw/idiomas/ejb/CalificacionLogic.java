@@ -35,20 +35,20 @@ public class CalificacionLogic {
         {
             if (newCalificacionEntity.getCalificacion() != (Integer) newCalificacionEntity.getCalificacion())
             {
-                BusinessLogicException e = new BusinessLogicException("La calificación no es entera");
-                throw e;
+                throw new BusinessLogicException("La calificación no es entera");
+                
             }
             if (newCalificacionEntity.getCalificacion() < 0 || newCalificacionEntity.getCalificacion() > 5)
             {
-                BusinessLogicException e = new BusinessLogicException("La calificación no se encuentra entre 0 y 5");
-                throw e;
+                throw new BusinessLogicException("La calificación no se encuentra entre 0 y 5");
+                
             }
             if (newCalificacionEntity.getMensaje() != null)
             {
                 if(newCalificacionEntity.getMensaje().length() > 300)
                 {
-                    BusinessLogicException e = new BusinessLogicException("El mensaje supera el número de caracteres permitidos");
-                    throw e;
+                    throw new BusinessLogicException("El mensaje supera el número de caracteres permitidos");
+                    
                 }
                 
             }
@@ -99,20 +99,20 @@ public class CalificacionLogic {
         {
             if (newCalificacionEntity.getCalificacion() != (Integer) newCalificacionEntity.getCalificacion())
             {
-                BusinessLogicException e = new BusinessLogicException("La calificación no es entera");
-                throw e;
+                throw new BusinessLogicException("La calificación no es entera");
+                
             }
             if (newCalificacionEntity.getCalificacion() < 0 || newCalificacionEntity.getCalificacion() > 5)
             {
-                BusinessLogicException e = new BusinessLogicException("La calificación no se encuentra entre 0 y 5");
-                throw e;
+                throw new BusinessLogicException("La calificación no se encuentra entre 0 y 5");
+                
             }
             if (newCalificacionEntity.getMensaje() != null)
             {
                 if(newCalificacionEntity.getMensaje().length() > 300)
                 {
-                    BusinessLogicException e = new BusinessLogicException("El mensaje supera el número de caracteres permitidos");
-                    throw e;
+                    throw new BusinessLogicException("El mensaje supera el número de caracteres permitidos");
+                    
                 }
                 
             }

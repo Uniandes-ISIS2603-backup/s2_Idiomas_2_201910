@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -15,10 +16,9 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author se.gamboa
  */
 @Entity
+@DiscriminatorValue("A")
 public class ComentarioActividadEntity extends ComentarioEntity implements Serializable{
     
-
-    private String titulo;
     
     /**
      * Atributo que representa los comentarios de la actividad.
@@ -33,20 +33,6 @@ public class ComentarioActividadEntity extends ComentarioEntity implements Seria
     public ComentarioActividadEntity()
     {
         
-    }
-
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
-
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     /**

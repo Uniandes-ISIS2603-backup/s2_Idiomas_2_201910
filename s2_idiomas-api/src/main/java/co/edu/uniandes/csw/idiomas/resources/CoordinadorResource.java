@@ -7,14 +7,11 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDTO;
 import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
-import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDTO;
-import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
-import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
-import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import co.edu.uniandes.csw.idiomas.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -43,9 +40,9 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class CoordinadorResource 
 {
- private static final Logger LOGGER = Logger.getLogger(CoordinadorResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CoordinadorResource.class.getName());
    
-
+    private static final String NO_EXISTE =" no existe." ;
     @Inject
     CoordinadorLogic coordinadorLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
@@ -85,7 +82,7 @@ public class CoordinadorResource
     public void deleteCoordinador(@PathParam("coordinadoresId") Long coordinadoresId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "CoordinadorResource deleteCoordinador: input: {0}", coordinadoresId);
         if (coordinadorLogic.getCoordinador(coordinadoresId) == null) {
-            throw new WebApplicationException("El recurso /coordinadores/" + coordinadoresId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /coordinadores/" + coordinadoresId +NO_EXISTE, 404);
         }
         coordinadorLogic.deleteCoordinador(coordinadoresId);
         LOGGER.info("CoordinadorResource deleteCoordinador: output: void");
@@ -105,15 +102,15 @@ public class CoordinadorResource
      */
     @PUT
     @Path("{CoordinadorId: \\d+}")
-    public CoordinadorDetailDTO updateCoordinador(@PathParam("CoordinadorId") Long CoordinadorId, CoordinadorDetailDTO Coordinador) {
-        LOGGER.log(Level.INFO, "CoordinadorResource updateCoordinador: input: CoordinadorId: {0} , Coordinador: {1}", new Object[]{CoordinadorId, Coordinador.toString()});
-        Coordinador.setId(CoordinadorId);
-        if (coordinadorLogic.getCoordinador(CoordinadorId) == null)
+    public CoordinadorDetailDTO updateCoordinador(@PathParam("CoordinadorId") Long coordinadorId, CoordinadorDetailDTO coordinador) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "CoordinadorResource updateCoordinador: input: CoordinadorId: {0} , Coordinador: {1}", new Object[]{coordinadorId, coordinador});
+        coordinador.setId(coordinadorId);
+        if (coordinadorLogic.getCoordinador(coordinadorId) == null)
         {
-            throw new WebApplicationException("El recurso /Coordinadores/" + CoordinadorId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /Coordinadores/" + coordinadorId +NO_EXISTE, 404);
         }
-        CoordinadorDetailDTO detailDTO = new CoordinadorDetailDTO(coordinadorLogic.updateCoordinador(CoordinadorId, Coordinador.toEntity()));
-        LOGGER.log(Level.INFO, "CoordinadorResource updateCoordinador: output: {0}", detailDTO.toString());
+        CoordinadorDetailDTO detailDTO = new CoordinadorDetailDTO(coordinadorLogic.updateCoordinador(coordinadorId, coordinador.toEntity()));
+        LOGGER.log(Level.INFO, "CoordinadorResource updateCoordinador: output: {0}", detailDTO);
         return detailDTO;
     }
     
@@ -130,7 +127,7 @@ public class CoordinadorResource
         LOGGER.log(Level.INFO, "CoordinadorResource getCoordinador: input: {0}", coordinadoresId);
         CoordinadorEntity coordinadorEntity = coordinadorLogic.getCoordinador(coordinadoresId);
         if (coordinadorEntity == null) {
-            throw new WebApplicationException("El recurso /coordinadores/" + coordinadoresId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /coordinadores/" + coordinadoresId +NO_EXISTE, 404);
         }
         CoordinadorDetailDTO detailDTO = new CoordinadorDetailDTO(coordinadorEntity);
         LOGGER.log(Level.INFO, "CoordinadorResource getCoordinador: output: {0}", detailDTO);
@@ -148,7 +145,7 @@ public class CoordinadorResource
     public List<CoordinadorDetailDTO> retornarCoordinador() {
         LOGGER.info("CoordinadorResource getCoordinadors: input: void");
         List<CoordinadorDetailDTO> listaCoordinadors = listEntity2DTO(coordinadorLogic.getCoordinadors());
-        LOGGER.log(Level.INFO, "CoordinadorResource getCoordinadors: output: {0}", listaCoordinadors.toString());
+        LOGGER.log(Level.INFO, "CoordinadorResource getCoordinadors: output: {0}", listaCoordinadors);
         return listaCoordinadors;
                
     }   

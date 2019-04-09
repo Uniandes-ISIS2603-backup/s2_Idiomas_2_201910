@@ -8,15 +8,11 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 
 import co.edu.uniandes.csw.idiomas.dtos.PersonaDTO;
-import co.edu.uniandes.csw.idiomas.dtos.AnfitrionDetailDTO;
-import co.edu.uniandes.csw.idiomas.dtos.UsuarioDTO;
-import co.edu.uniandes.csw.idiomas.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.PersonaLogic;
-import co.edu.uniandes.csw.idiomas.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
-import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import co.edu.uniandes.csw.idiomas.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -45,8 +41,8 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class UsuarioResource
 {
- private static final Logger LOGGER = Logger.getLogger(UsuarioResource.class.getName());
-    
+    private static final Logger LOGGER = Logger.getLogger(UsuarioResource.class.getName());
+    private static final String NO_EXISTE =" no existe." ;
 
     @Inject
     PersonaLogic personaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
@@ -88,7 +84,7 @@ public class UsuarioResource
     public void deletePersona(@PathParam("personaesId") Long personaesId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "PersonaResource deletePersona: input: {0}", personaesId);
         if (personaLogic.getPersona(personaesId) == null) {
-            throw new WebApplicationException("El recurso /personaes/" + personaesId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /personaes/" + personaesId +NO_EXISTE, 404);
         }
         personaLogic.deletePersona(personaesId);
         LOGGER.info("PersonaResource deletePersona: output: void");
@@ -108,15 +104,15 @@ public class UsuarioResource
      */
     @PUT
     @Path("{PersonaId: \\d+}")
-    public PersonaDTO updatePersona(@PathParam("PersonaId") Long PersonaId, PersonaDTO Persona) {
-        LOGGER.log(Level.INFO, "PersonaResource updatePersona: input: PersonaId: {0} , Persona: {1}", new Object[]{PersonaId, Persona.toString()});
-        Persona.setId(PersonaId);
-        if (personaLogic.getPersona(PersonaId) == null)
+    public PersonaDTO updatePersona(@PathParam("PersonaId") Long personaId, PersonaDTO persona) {
+        LOGGER.log(Level.INFO, "PersonaResource updatePersona: input: PersonaId: {0} , Persona: {1}", new Object[]{personaId, persona});
+        persona.setId(personaId);
+        if (personaLogic.getPersona(personaId) == null)
         {
-            throw new WebApplicationException("El recurso /Personaes/" + PersonaId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /Personaes/" + personaId +NO_EXISTE, 404);
         }
-        PersonaDTO detailDTO = new PersonaDTO(personaLogic.updatePersona(PersonaId, Persona.toEntity()));
-        LOGGER.log(Level.INFO, "PersonaResource updatePersona: output: {0}", detailDTO.toString());
+        PersonaDTO detailDTO = new PersonaDTO(personaLogic.updatePersona(personaId, persona.toEntity()));
+        LOGGER.log(Level.INFO, "PersonaResource updatePersona: output: {0}", detailDTO);
         return detailDTO;
     }
     
@@ -133,7 +129,7 @@ public class UsuarioResource
         LOGGER.log(Level.INFO, "PersonaResource getPersona: input: {0}", personaesId);
         PersonaEntity personaEntity = personaLogic.getPersona(personaesId);
         if (personaEntity == null) {
-            throw new WebApplicationException("El recurso /personaes/" + personaesId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /personaes/" + personaesId +NO_EXISTE, 404);
         }
         PersonaDTO detailDTO = new PersonaDTO(personaEntity);
         LOGGER.log(Level.INFO, "PersonaResource getPersona: output: {0}", detailDTO);
@@ -151,7 +147,7 @@ public class UsuarioResource
     public List<PersonaDTO> retornarPersona() {
         LOGGER.info("PersonaResource getPersonas: input: void");
         List<PersonaDTO> listaPersonas = listEntity2DTO(personaLogic.getPersonas());
-        LOGGER.log(Level.INFO, "PersonaResource getPersonas: output: {0}", listaPersonas.toString());
+        LOGGER.log(Level.INFO, "PersonaResource getPersonas: output: {0}", listaPersonas);
         return listaPersonas;
                
     }   

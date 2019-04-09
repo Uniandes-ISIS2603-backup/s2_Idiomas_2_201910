@@ -66,7 +66,7 @@ public class ComentarioActividadLogic {
         return comentarioEntity;
     }
     
-    public void deleteComment(Long commentId) throws BusinessLogicException 
+    public void deleteComment(Long commentId)
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la chat con id = {0}", commentId);
         persistence.delete(commentId);

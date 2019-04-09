@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -13,10 +14,9 @@ import javax.persistence.Entity;
  * @author se.gamboa
  */
 @Entity
+@DiscriminatorValue("B")
 public class ComentarioBlogEntity extends ComentarioEntity implements Serializable{
     
-
-    private String titulo;
     
     /**
      * Constructor vacío de comentarioBlogEntity.
@@ -26,19 +26,7 @@ public class ComentarioBlogEntity extends ComentarioEntity implements Serializab
         
     }
 
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
 
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
     
     
 }

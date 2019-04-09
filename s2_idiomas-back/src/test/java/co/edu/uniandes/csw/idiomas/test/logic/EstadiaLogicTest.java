@@ -246,19 +246,6 @@ public class EstadiaLogicTest {
 //        newEntity.setCoordinadores(null);
 //        EstadiaLogic.createEstadia(newEntity);
 //    }
-    
-    /**
-     * Prueba para crear un Estadia con un id ya existente
-     *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createEstadiaTestConIdExistente() throws BusinessLogicException {
-        List<EstadiaEntity> Estadias = estadiaLogic.getEstadias();
-        EstadiaEntity newEntity = factory.manufacturePojo(EstadiaEntity.class);
-        newEntity.setId(Estadias.get(0).getId());
-        estadiaLogic.createEstadia(newEntity);
-    }
 
     /**
      * Prueba para consultar un Estadia.

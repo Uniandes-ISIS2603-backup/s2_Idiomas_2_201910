@@ -58,7 +58,6 @@ public class GrupoDeInteresResource {
     @POST
     public GrupoDeInteresDTO createGrupoDeInteres (GrupoDeInteresDTO grupoDeInteres)throws BusinessLogicException
     {
-        // TODO: GC Implementar lógica POST
         LOGGER.log(Level.INFO, "GrupoDeInteresResource createGrupoDeInteres: input: {0}", grupoDeInteres);
 //        ActividadDTO actividadDTO = new ActividadDTO(authorLogic.createAuthor(actividad.toEntity()));
 //        LOGGER.log(Level.INFO, "ActividadResource createActividad: output: {0}", actividadDTO);
@@ -74,7 +73,6 @@ public class GrupoDeInteresResource {
      * una cadena de dígitos.
      * @param grupoDeInteres {@link GrupoDeInteresDTO} - El grupo que se desea guardar.
      * @return JSON {@link GrupoDeInteresDTO} - El grupo guardado.
-     * // TODO: GC Completar documentación con excepciones
      */
     @PUT
     @Path("{grupoDeInteresId: \\d+}")
@@ -82,7 +80,6 @@ public class GrupoDeInteresResource {
     {
         LOGGER.log(Level.INFO, "GrupoDeInteresResource updateGrupoDeInteres: input: encuentroId: {0}, encuentro: {1}", 
                 new Object[]{grupoDeInteresId, grupoDeInteres});
-        // TODO: GC Implementar lógica PUT
 //        actividad.setId(actividadId);
 //        if(actividadLogic.getActividad(actividadId) == null)
 //        {
@@ -100,14 +97,12 @@ public class GrupoDeInteresResource {
      * @param grupoDeInteresId El identificador del grupo que se busca. Debe ser
      * una cadena de dígitos.
      * @return JSON {@link GrupoDeInteresDTO} - El grupo buscado.
-     * // TODO: GC Completar documentación excepciones.
      */
     @GET
     @Path("{grupoDeInteresId: \\d+}")
     public GrupoDeInteresDTO getGrupoDeInteres (@PathParam("grupoDeInteresId") Long grupoDeInteresId)
     {
         LOGGER.log(Level.INFO, "GrupoDeInteresResource getGrupoDeInteres: input: grupoDeInteresId: {0}", grupoDeInteresId);
-        // TODO: GC Implementar lógica GET
 //        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadId);
 //        if(ActividadEntity == null)
 //        {
@@ -124,7 +119,6 @@ public class GrupoDeInteresResource {
     public void deleteGrupoDeInteres (@PathParam("grupoDeInteresId") Long grupoDeInteresId)
     {
         LOGGER.log(Level.INFO, "GrupoDeInteresResource deleteGrupoDeInteres: input: {0}", grupoDeInteresId);
-        // TODO: GC Implementar lógica DELETE
 //        if (actividadLogic.getActividad(actividadId) == null)
 //        {
 //            throw new WebApplicationException("El recurso /actividad/" + actividadId + "no existe.", 404);

@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -15,9 +16,9 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author se.gamboa
  */
 @Entity
+@DiscriminatorValue("CC")
 public class ComentarioCalificacionEntity extends ComentarioEntity implements Serializable{
 
-    private String titulo;
 
     @PodamExclude
     @ManyToOne
@@ -27,20 +28,6 @@ public class ComentarioCalificacionEntity extends ComentarioEntity implements Se
      */
     public ComentarioCalificacionEntity() {
 
-    }
-
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
-
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     /**

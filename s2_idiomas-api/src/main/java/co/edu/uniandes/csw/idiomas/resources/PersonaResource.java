@@ -7,14 +7,11 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
-import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
-import co.edu.uniandes.csw.idiomas.dtos.PersonaDTO;
 import co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic;
-import co.edu.uniandes.csw.idiomas.ejb.PersonaLogic;
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
-import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
+import co.edu.uniandes.csw.idiomas.mappers.WebApplicationExceptionMapper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -44,7 +41,7 @@ import javax.ws.rs.WebApplicationException;
 public class PersonaResource {
 
     private static final Logger LOGGER = Logger.getLogger(AdministradorResource.class.getName());
-
+     private static final String NO_EXISTE =" no existe." ;
     @Inject
     AdministradorLogic administradorLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
@@ -85,7 +82,7 @@ public class PersonaResource {
     public void deleteAdministrador(@PathParam("administradoresId") Long administradoresId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "AdministradorResource deleteAdministrador: input: {0}", administradoresId);
         if (administradorLogic.getAdministrador(administradoresId) == null) {
-            throw new WebApplicationException("El recurso /administradores/" + administradoresId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /administradores/" + administradoresId +NO_EXISTE, 404);
         }
         administradorLogic.deleteAdministrador(administradoresId);
         LOGGER.info("AdministradorResource deleteAdministrador: output: void");
@@ -105,15 +102,15 @@ public class PersonaResource {
      */
     @PUT
     @Path("{AdministradorId: \\d+}")
-    public AdministradorDetailDTO updateAdministrador(@PathParam("AdministradorId") Long AdministradorId, AdministradorDetailDTO Administrador) {
-        LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: input: AdministradorId: {0} , Administrador: {1}", new Object[]{AdministradorId, Administrador.toString()});
-        Administrador.setId(AdministradorId);
-        if (administradorLogic.getAdministrador(AdministradorId) == null)
+    public AdministradorDetailDTO updateAdministrador(@PathParam("AdministradorId") Long administradorId, AdministradorDetailDTO administrador) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: input: AdministradorId: {0} , Administrador: {1}", new Object[]{administradorId, administrador});
+        administrador.setId(administradorId);
+        if (administradorLogic.getAdministrador(administradorId) == null)
         {
-            throw new WebApplicationException("El recurso /Administradores/" + AdministradorId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /Administradores/" + administradorId +NO_EXISTE, 404);
         }
-        AdministradorDetailDTO detailDTO = new AdministradorDetailDTO(administradorLogic.updateAdministrador(AdministradorId, Administrador.toEntity()));
-        LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: output: {0}", detailDTO.toString());
+        AdministradorDetailDTO detailDTO = new AdministradorDetailDTO(administradorLogic.updateAdministrador(administradorId, administrador.toEntity()));
+        LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: output: {0}", detailDTO);
         return detailDTO;
     }
     
@@ -130,7 +127,7 @@ public class PersonaResource {
         LOGGER.log(Level.INFO, "AdministradorResource getAdministrador: input: {0}", administradoresId);
         AdministradorEntity administradorEntity = administradorLogic.getAdministrador(administradoresId);
         if (administradorEntity == null) {
-            throw new WebApplicationException("El recurso /administradores/" + administradoresId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /administradores/" + administradoresId +NO_EXISTE, 404);
         }
         AdministradorDetailDTO detailDTO = new AdministradorDetailDTO(administradorEntity);
         LOGGER.log(Level.INFO, "AdministradorResource getAdministrador: output: {0}", detailDTO);
@@ -148,7 +145,7 @@ public class PersonaResource {
     public List<AdministradorDetailDTO> retornarAdministrador() {
         LOGGER.info("AdministradorResource getAdministradors: input: void");
         List<AdministradorDetailDTO> listaAdministradors = listEntity2DTO(administradorLogic.getAdministradors());
-        LOGGER.log(Level.INFO, "AdministradorResource getAdministradors: output: {0}", listaAdministradors.toString());
+        LOGGER.log(Level.INFO, "AdministradorResource getAdministradors: output: {0}", listaAdministradors);
         return listaAdministradors;
                
     }   

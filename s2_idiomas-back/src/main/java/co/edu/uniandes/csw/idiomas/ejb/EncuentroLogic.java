@@ -62,7 +62,6 @@ public class EncuentroLogic {
         }
         
         // Verifica la regla de negocio que dice que una encuentro debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (encuentroEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La encuentro debe tener un coordinador.");
@@ -149,7 +148,6 @@ public class EncuentroLogic {
         }
         
         // Verifica la regla de negocio que dice que una encuentro debe tener un coordinador.
-        // TODO: GC Conectar con Coordinador.
 //        if (encuentroEntity.getCoordinadores().isEmpty())
 //        {
 //            throw new BusinessLogicException("La encuentro debe tener un coordinador.");

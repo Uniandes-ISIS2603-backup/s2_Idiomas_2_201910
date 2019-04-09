@@ -46,4 +46,22 @@ public class ComentarioPersistence {
         ComentarioEntity comentarioEntity = em.find(ComentarioEntity.class, commentId);
         em.remove(comentarioEntity);
     }
+    
+        /**
+     * Actualiza una Comentario.
+     *
+     * @param pComentarioEntity: la Comentario que viene con los nuevos cambios.
+     * Por ejemplo el nombre pudo cambiar. En ese caso, se haria uso del método
+     * update.
+     * @return una Comentario con los cambios aplicados.
+     */
+    public ComentarioEntity update(ComentarioEntity pComentarioEntity) {
+        LOGGER.log(Level.INFO, "Actualizando Comentario con id = {0}", pComentarioEntity.getId());
+        /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
+        la Comentario con los cambios, esto es similar a 
+        "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
+         */
+        LOGGER.log(Level.INFO, "Saliendo de actualizar la Comentario con id = {0}", pComentarioEntity.getId());
+        return em.merge(pComentarioEntity);
+    }
 }

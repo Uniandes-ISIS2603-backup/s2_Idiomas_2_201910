@@ -6,16 +6,15 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.io.Serializable;
 
 /**
  *
  * @author se.gamboa
+ * sada
  */
 public class ComentarioActividadDTO extends ComentarioDTO implements Serializable{
     
-    private String titulo;
 
     /**
      * Constructor de ComentarioActividadDTO
@@ -24,27 +23,10 @@ public class ComentarioActividadDTO extends ComentarioDTO implements Serializabl
      */
     public ComentarioActividadDTO(ComentarioActividadEntity entity) {
         super(entity);
-        if (entity != null) {
-            this.titulo = entity.getTitulo();
-        }
     }
     
     public ComentarioActividadDTO(){
         super();
-    }
-
-    /**
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
-
-    /**
-     * @param titulo the titulo to set
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     /**
@@ -55,7 +37,7 @@ public class ComentarioActividadDTO extends ComentarioDTO implements Serializabl
     @Override
     public ComentarioActividadEntity toEntity() {
         ComentarioActividadEntity entity = new ComentarioActividadEntity();
-        entity.setTitulo(this.titulo);
+        entity.setTitulo(this.getTitulo());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
         entity.setAutor(this.getAutor().toEntity());
