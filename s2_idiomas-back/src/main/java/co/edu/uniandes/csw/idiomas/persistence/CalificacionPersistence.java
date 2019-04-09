@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
- * Clase que maneja la persistencia para Author. Se conecta a través del Entity
+ * Clase que maneja la persistencia para Calificacion. Se conecta a través del Entity
  * Manager de javax.persistance con la base de datos SQL.
  *
  * @author jdruedaa
@@ -31,7 +31,7 @@ public class CalificacionPersistence {
     public CalificacionEntity create(CalificacionEntity calificacionEntity) {
         LOGGER.log(Level.INFO, "Creando una calificación nueva");
         em.persist(calificacionEntity);
-        LOGGER.log(Level.INFO, "Autor creado");
+        LOGGER.log(Level.INFO, "Calificacion creada");
         return calificacionEntity;
     }
 
@@ -46,7 +46,7 @@ public class CalificacionPersistence {
         LOGGER.log(Level.INFO, "Consultando todas las calificaciones");
         // Se crea un query para buscar todas las calificaciones en la base de datos.
         TypedQuery query = em.createQuery("select u from CalificacionEntity u", CalificacionEntity.class);
-        // Note que en el query se hace uso del método getResultList() que obtiene una lista de authores.
+        // Note que en el query se hace uso del método getResultList() que obtiene una lista de calificaciones.
         return query.getResultList();
     }
 
@@ -57,7 +57,7 @@ public class CalificacionPersistence {
      * @return una calificación.
      */
     public CalificacionEntity find(Long calificacionesId) {
-        LOGGER.log(Level.INFO, "Consultando el autor con id={0}", calificacionesId);
+        LOGGER.log(Level.INFO, "Consultando la calificacion con id={0}", calificacionesId);
         /* Note que se hace uso del metodo "find" propio del EntityManager, el cual recibe como argumento 
         el tipo de la clase y el objeto que nos hara el filtro en la base de datos en este caso el "id"
         Suponga que es algo similar a "select * from CalificacionEntity where id=id;" - "SELECT * FROM table_name WHERE condition;" en SQL.
@@ -74,9 +74,9 @@ public class CalificacionPersistence {
      * @return una calificación con los cambios aplicados.
      */
     public CalificacionEntity update(CalificacionEntity calificacionEntity) {
-        LOGGER.log(Level.INFO, "Actualizando el author con id={0}", calificacionEntity.getId());
+        LOGGER.log(Level.INFO, "Actualizando la calificacion con id={0}", calificacionEntity.getId());
         /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
-        la author con los cambios, esto es similar a 
+        la calificacion con los cambios, esto es similar a 
         "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
          */
         return em.merge(calificacionEntity);
@@ -91,11 +91,11 @@ public class CalificacionPersistence {
     public void delete(Long calificacionesId) {
 
         LOGGER.log(Level.INFO, "Borrando la calificacion con id={0}", calificacionesId);
-        // Se hace uso de mismo método que esta explicado en public AuthorEntity find(Long id) para obtener la author a borrar.
+        // Se hace uso de mismo método que esta explicado en public CalificacionEntity find(Long id) para obtener la calificacion a borrar.
         CalificacionEntity calificacionEntity = em.find(CalificacionEntity.class, calificacionesId);
         /* Note que una vez obtenido el objeto desde la base de datos llamado "entity", volvemos hacer uso de un método propio del
         EntityManager para eliminar de la base de datos el objeto que encontramos y queremos borrar.
-        Es similar a "delete from AuthorEntity where id=id;" - "DELETE FROM table_name WHERE condition;" en SQL.*/
+        Es similar a "delete from CalificacionEntity where id=id;" - "DELETE FROM table_name WHERE condition;" en SQL.*/
         em.remove(calificacionEntity);
     }
 }
