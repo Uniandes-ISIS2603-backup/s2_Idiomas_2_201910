@@ -8,3 +8,4 @@ insert into COMENTARIOENTITY (titulo, texto, fecha, typeofcomentario) values ('e
 delete from ActividadEntity;
 
 Select * from ActividadEntity;
+Select * from ComentarioEntity;
