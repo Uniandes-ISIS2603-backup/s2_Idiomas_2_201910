@@ -92,7 +92,7 @@ public class CalificacionLogic {
      * @return Instancia de CalificafionEntity con los datos actualizados.
      * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
-    public CalificacionEntity updateCalificafion(Long calificacionId, CalificacionEntity newCalificacionEntity) throws BusinessLogicException {
+    public CalificacionEntity updateCalificacion(Long calificacionId, CalificacionEntity newCalificacionEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el autor con id = {0}", calificacionId);
          if(calificacionPersistence.find(calificacionId) != null)
         {
@@ -128,7 +128,7 @@ public class CalificacionLogic {
      * @param calificacionId Identificador de la instancia a eliminar.
      * @throws BusinessLogicException si el autor tiene libros asociados.
      */
-    public void deleteCalificafion(Long calificacionId) throws BusinessLogicException {
+    public void deleteCalificacion(Long calificacionId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el autor con id = {0}", calificacionId);
         calificacionPersistence.delete(calificacionId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el autor con id = {0}", calificacionId);
