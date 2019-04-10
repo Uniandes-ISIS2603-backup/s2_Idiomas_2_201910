@@ -22,7 +22,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author g.cubillosb
  */
 @Entity
-@DiscriminatorValue("Es")
+@DiscriminatorValue("F")
 public class EstadiaEntity extends ActividadEntity implements Serializable{
     
     // -------------------------------------------------------------------

@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence;
 import java.text.ParseException;
@@ -66,7 +65,8 @@ public class ComentarioLogic {
         return Comentarios;
     }
     
-    public void deleteComment(Long commentId) throws BusinessLogicException {
+    public void deleteComment(Long commentId)
+    {
         persistence.delete(commentId);
     }
     

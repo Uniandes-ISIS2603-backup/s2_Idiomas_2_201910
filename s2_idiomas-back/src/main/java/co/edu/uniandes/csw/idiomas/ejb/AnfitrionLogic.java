@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
-import co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.AnfitrionPersistence;
 import java.util.List;

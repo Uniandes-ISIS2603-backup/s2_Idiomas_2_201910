@@ -2,8 +2,6 @@ package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
 import java.io.Serializable;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * AdministradorDTO Objeto de transferencia de datos de Administradores. Los DTO

@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
@@ -46,6 +47,8 @@ public class ActividadEntity extends BaseEntity implements Serializable{
      */
     private String nombre;
     
+    @Column(name="typeActivity", insertable = false, updatable = false)
+private char subTypeId;
     /**
      * Atributo que representa la fecha de la actividad.
      */
@@ -230,11 +233,25 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.nombre);
-        hash = 97 * hash + Objects.hashCode(this.fecha);
-        hash = 97 * hash + Objects.hashCode(this.descripcion);
-        hash = 97 * hash + Objects.hashCode(this.motivacion);
+        hash = 97 * hash + Objects.hashCode(this.getNombre());
+        hash = 97 * hash + Objects.hashCode(this.getFecha());
+        hash = 97 * hash + Objects.hashCode(this.getDescripcion());
+        hash = 97 * hash + Objects.hashCode(this.getMotivacion());
         return hash;
+    }
+
+    /**
+     * @return the subTypeId
+     */
+    public char getSubTypeId() {
+        return subTypeId;
+    }
+
+    /**
+     * @param subTypeId the subTypeId to set
+     */
+    public void setSubTypeId(char subTypeId) {
+        this.subTypeId = subTypeId;
     }
     
 }
