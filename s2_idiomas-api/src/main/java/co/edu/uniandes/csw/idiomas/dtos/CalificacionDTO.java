@@ -15,13 +15,9 @@ import javax.inject.Inject;
  */
 public class CalificacionDTO implements Serializable {
 
-    
-
-   
-    private Integer cantidadParaActualizar;
-    private Double calificacionAcumulado;
+    private Long id;
     private Integer calificacion;
-    private Integer numeroDeCalificaciones;
+    private String mensaje;
     
     public CalificacionDTO()
     {
@@ -32,38 +28,26 @@ public class CalificacionDTO implements Serializable {
     {
         if(cal != null)
         {
-//            this.calificacion = cal.getCalificacion();
+            this.id = cal.getId();
+            this.calificacion = cal.getCalificacion();
+            this.mensaje = cal.getMensaje();
         }
     }
 
     /**
-     * @return the cantidadParaActualizar
+     * @return the id
      */
-    public Integer getCantidadParaActualizar() {
-        return cantidadParaActualizar;
+    public Long getId() {
+        return id;
     }
 
     /**
-     * @param cantidadParaActualizar the cantidadParaActualizar to set
+     * @param id the id to set
      */
-    public void setCantidadParaActualizar(Integer cantidadParaActualizar) {
-        this.cantidadParaActualizar = cantidadParaActualizar;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-    /**
-     * @return the calificacionAcumulado
-     */
-    public Double getCalificacionAcumulado() {
-        return calificacionAcumulado;
-    }
-
-    /**
-     * @param calificacionAcumulado the calificacionAcumulado to set
-     */
-    public void setCalificacionAcumulado(Double calificacionAcumulado) {
-        this.calificacionAcumulado = calificacionAcumulado;
-    }
-
+    
     /**
      * @return the calificacion
      */
@@ -77,20 +61,19 @@ public class CalificacionDTO implements Serializable {
     public void setCalificacion(Integer calificacion) {
         this.calificacion = calificacion;
     }
-
-
+    
     /**
-     * @return the numeroDeCalificaciones
+     * @return the mensaje
      */
-    public Integer getNumeroDeCalificaciones() {
-        return numeroDeCalificaciones;
+    public String getMensaje() {
+        return mensaje;
     }
 
     /**
-     * @param numeroDeCalificaciones the numeroDeCalificaciones to set
+     * @param mensaje the mensaje to set
      */
-    public void setNumeroDeCalificaciones(Integer numeroDeCalificaciones) {
-        this.numeroDeCalificaciones = numeroDeCalificaciones;
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
     }
     
     @Inject
