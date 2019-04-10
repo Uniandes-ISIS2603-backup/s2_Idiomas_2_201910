@@ -217,7 +217,10 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     @Override
     public boolean equals(Object obj)
     {
-        
+        if(!super.equals(obj))
+        {
+            return false;
+        }
         ActividadEntity fobj = (ActividadEntity) obj;
         return this.getDescripcion().equals(fobj.getDescripcion()) && this.getFecha().equals(fobj.getFecha())
                 && this.getMotivacion().equals(fobj.getMotivacion())

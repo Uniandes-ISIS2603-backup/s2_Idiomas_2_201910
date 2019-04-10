@@ -250,9 +250,9 @@ public class ActividadLogicTest {
         ActividadEntity resp = em.find(ActividadEntity.class, entity.getId());
 
         Assert.assertEquals(resp.getId(), entity.getId());
-//        Assert.assertEquals(resp.getNombre(), entity.getNombre());
-//        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
-//        Assert.assertEquals(resp.getFecha(), entity.getFecha());
+        Assert.assertEquals(resp.getNombre(), entity.getNombre());
+        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
+        Assert.assertEquals(resp.getFecha(), entity.getFecha());
     }
     
     /**
