@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Crear una chat",
+			"name": "Crear un chat",
 			"event": [
 				{
 					"listen": "test",
@@ -15,7 +15,7 @@
 						"id": "694741e6-4794-48fd-b32b-d790963ac9b0",
 						"exec": [
 							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id_a\",data.id);",
+							"postman.setGlobalVariable(\"new_id_c\",data.id);",
 							"tests[\"No genera error en el Post\"] = responseCode.code === 200;",
 							"console.log(data.id);"
 						],
@@ -33,7 +33,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
+					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
 				},
 				"url": {
 					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat",
@@ -53,15 +53,15 @@
 			"response": []
 		},
 		{
-			"name": "Crear una chat 2",
+			"name": "Crear un chat 2",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "edca8864-fbb2-420c-a95d-fe433ad517cc",
+						"id": "694741e6-4794-48fd-b32b-d790963ac9b0",
 						"exec": [
 							"var data = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"new_id_a2\",data.id);",
+							"postman.setGlobalVariable(\"new_id_c2\",data.id);",
 							"tests[\"No genera error en el Post\"] = responseCode.code === 200;",
 							"console.log(data.id);"
 						],
@@ -79,7 +79,183 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
+					"raw": "{\n\t\"nombre\": \"El nombre2\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"chat"
+					]
+				},
+				"description": "Crea un nuevo actividad. El Id es inicializado por la BD y se debe ver en la respuesta.\r\nPara la prueba, se guarda el id en una variable que será utilizada en otras peticiones de la colección.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una chat nombre Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "edca8864-fbb2-420c-a95d-fe433ad517cc",
+						"exec": [
+							"tests[\"No se crea con nombre inválido\"] = responseCode.code == 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El nombre es inválido.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"chat"
+					]
+				},
+				"description": "Crea un nuevo actividad. El Id es inicializado por la BD y se debe ver en la respuesta.\r\nPara la prueba, se guarda el id en una variable que será utilizada en otras peticiones de la colección.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una chat nombre Invalido 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "edca8864-fbb2-420c-a95d-fe433ad517cc",
+						"exec": [
+							"tests[\"No se crea con nombre inválido\"] = responseCode.code == 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El nombre es inválido.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"chat"
+					]
+				},
+				"description": "Crea un nuevo actividad. El Id es inicializado por la BD y se debe ver en la respuesta.\r\nPara la prueba, se guarda el id en una variable que será utilizada en otras peticiones de la colección.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un chat existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "694741e6-4794-48fd-b32b-d790963ac9b0",
+						"exec": [
+							"tests[\"No crea con el mismo nombre\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"La chat ya existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"chat"
+					]
+				},
+				"description": "Crea un nuevo actividad. El Id es inicializado por la BD y se debe ver en la respuesta.\r\nPara la prueba, se guarda el id en una variable que será utilizada en otras peticiones de la colección.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una chat medio Invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "edca8864-fbb2-420c-a95d-fe433ad517cc",
+						"exec": [
+							"tests[\"No se crea con nombre inválido\"] = responseCode.code == 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El medio del chat es inválido.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"\"\n}"
 				},
 				"url": {
 					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat",
@@ -162,7 +338,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat/{{new_id_a}}",
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat/{{new_id_c1}}",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -172,7 +348,7 @@
 						"s2_idiomas-api",
 						"api",
 						"chat",
-						"{{new_id_a}}"
+						"{{new_id_c1}}"
 					]
 				},
 				"description": "Consulta una actividad de la aplicación.  \r\nLa petición no tiene cuerpo.\r\nSe envía el id del autor deseado por la URL de la petición.\r\n\r\n**Código http esperado: 200**"
@@ -188,7 +364,7 @@
 						"id": "39dc353d-ae0a-41c6-99a5-89218360c4d3",
 						"exec": [
 							"tests[\"No se deberia obtener un autor con un id que no existe\"] = responseCode.code === 404;",
-							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /authors/0 no existe.\");"
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /chats/0 no existe.\");"
 						],
 						"type": "text/javascript"
 					}
@@ -248,7 +424,7 @@
 					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\",\n    \"medio\": \"El medio\"\n}"
 				},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat/{{new_id_a}}",
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat/{{new_id_c1}}",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -258,7 +434,7 @@
 						"s2_idiomas-api",
 						"api",
 						"chat",
-						"{{new_id_a}}"
+						"{{new_id_c1}}"
 					]
 				},
 				"description": "Actualiza una actividad existente. \r\nse envía el Id en la URL de la petición.\r\n\r\n**Código http esperado: 200**"

@@ -73,6 +73,7 @@ public class ActividadDTO implements Serializable{
     {
         if (pActividadEntity != null) 
         {
+            this.id = pActividadEntity.getId();
             this.descripcion = pActividadEntity.getDescripcion();
             this.fecha = pActividadEntity.getFecha();
             this.motivacion = pActividadEntity.getMotivacion();
