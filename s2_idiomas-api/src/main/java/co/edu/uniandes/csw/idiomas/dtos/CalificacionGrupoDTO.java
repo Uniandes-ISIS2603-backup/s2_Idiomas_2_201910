@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
-import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
+import co.edu.uniandes.csw.idiomas.entities.CalificacionGrupoEntity;
 import java.io.Serializable;
 import javax.inject.Inject;
 
@@ -13,18 +13,18 @@ import javax.inject.Inject;
  *
  * @author jdruedaa
  */
-public class CalificacionDTO implements Serializable {
+public class CalificacionGrupoDTO implements Serializable {
 
     private Long id;
     private Integer calificacion;
     private String mensaje;
     
-    public CalificacionDTO()
+    public CalificacionGrupoDTO()
     {
         
     }
     
-    public CalificacionDTO(CalificacionEntity cal)
+    public CalificacionGrupoDTO(CalificacionGrupoEntity cal)
     {
         if(cal != null)
         {
@@ -77,9 +77,9 @@ public class CalificacionDTO implements Serializable {
     }
     
     @Inject
-    public CalificacionEntity toEntity()
+    public CalificacionGrupoEntity toEntity()
     {
-        CalificacionEntity cal = new CalificacionEntity();
+        CalificacionGrupoEntity cal = new CalificacionGrupoEntity();
         cal.setId(id);
         cal.setCalificacion(calificacion);
         cal.setMensaje(mensaje);
