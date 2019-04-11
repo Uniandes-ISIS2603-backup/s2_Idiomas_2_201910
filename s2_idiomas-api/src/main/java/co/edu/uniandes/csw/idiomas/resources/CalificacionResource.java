@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
+import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import co.edu.uniandes.csw.idiomas.dtos.CalificacionDTO;
-import co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import java.util.logging.Level;
@@ -46,10 +46,19 @@ public class CalificacionResource {
         return calificacionId;
     }
     @GET
-    @Path("{calificacionesId: \\d+}")
-    public CalificacionDetailDTO retornarCalificacion(@PathParam("calificacionesId") Integer calificacionId) {
-        return null;
+    @Path("{CalificacionId: \\d+}")
+    public CalificacionDTO getCalificacion(@PathParam("CalificacionId") Long CalificacionId)
+    {
+        LOGGER.log(Level.INFO, "CalificacionGrupoResource getCalificacionGrupo: input: {0}", CalificacionId);
+        CalificacionEntity CalificacionEntity = logica.getCalificacion(CalificacionId);
+        if (CalificacionEntity == null) {
+            throw new WebApplicationException("El recurso /CalificacionGrupoes/" + CalificacionId + " no existe.", 404);
+        }
+        CalificacionDTO detailDTO = new CalificacionDTO(CalificacionEntity);
+        LOGGER.log(Level.INFO, "CalificacionGrupoResource getCalificacionGrupo: output: {0}", detailDTO);
+        return detailDTO;
     }
+
     
     /**
      * Actualiza la calificacion con el id recibido en la URL con la informacion
@@ -66,7 +75,7 @@ public class CalificacionResource {
      */
     @PUT
     @Path("{CalificacionId: \\d+}")
-    public CalificacionDTO updatecalificacion(@PathParam("calificacionId") Long calificacionId, CalificacionDTO calificacion) throws BusinessLogicException 
+    public CalificacionDTO updateCalificacion(@PathParam("calificacionId") Long calificacionId, CalificacionDTO calificacion) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "calificacionResource updatecalificacion: input: id:{0} , calificacion: {1}", new Object[]{calificacionId, calificacion});
         calificacion.setId(calificacionId);
