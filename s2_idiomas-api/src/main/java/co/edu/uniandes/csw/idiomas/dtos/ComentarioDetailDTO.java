@@ -38,7 +38,6 @@ public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
     /**
      * @return the autor
      */
-    @Override
     public PersonaDTO getAutor() {
         return autor;
     }
@@ -46,7 +45,6 @@ public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
     /**
      * @param autor the autor to set
      */
-    @Override
     public void setAutor(PersonaDTO autor) {
         this.autor = autor;
     }

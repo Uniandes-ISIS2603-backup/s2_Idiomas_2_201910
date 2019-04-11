@@ -6,7 +6,6 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence;
 import java.text.ParseException;
@@ -59,7 +58,7 @@ public class ComentarioLogic {
      */
     public List<ComentarioEntity> getComentarios() 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las Comentarios");
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos las Comentarios" + persistence.findAll().get(0).getId() + "dsadsa");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<ComentarioEntity> Comentarios = persistence.findAll();
         LOGGER.log(Level.INFO, "Termina proceso de consultar todas las Comentarios");
@@ -67,7 +66,12 @@ public class ComentarioLogic {
     }
     
     public void deleteComment(Long commentId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar la comentario con id = {0}", commentId); 
+        if(persistence.find(commentId)==null){
+            throw new BusinessLogicException("El comentario no existe");
+        }
         persistence.delete(commentId);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar la comentario con id = {0}", commentId);
     }
     
     public ComentarioEntity getComment(Long comentarioId){

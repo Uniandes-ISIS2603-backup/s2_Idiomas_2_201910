@@ -33,11 +33,16 @@ public class ComentarioPersistence {
     }
 
     public ComentarioEntity find(Long commentsID) {
+        LOGGER.log(Level.INFO, "{0}", em.find(ComentarioEntity.class, commentsID).getId());
         return em.find(ComentarioEntity.class, commentsID);
+        
+        
     }
 
     public List<ComentarioEntity> findAll() {
         TypedQuery<ComentarioEntity> query = em.createQuery("select u from ComentarioEntity u", ComentarioEntity.class);
+         LOGGER.log(Level.INFO, "Consultando todos los comentarios: " + query.getResultList().get(0));
+         System.out.println("Consultando todos los comentarios: " + query.getResultList().get(0));
         return query.getResultList();
     }
 

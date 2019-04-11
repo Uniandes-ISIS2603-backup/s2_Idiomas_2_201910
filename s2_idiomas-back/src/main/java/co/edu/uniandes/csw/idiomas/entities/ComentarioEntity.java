@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.idiomas.entities;
 import co.edu.uniandes.csw.idiomas.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -32,16 +33,19 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
     private String texto;
+    private String titulo;
 
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
+    
     private Date fecha;
 
     @PodamExclude
     @ManyToOne
     private PersonaEntity autor;
-    private String titulo;
-    
+
+    @Column(name="typeofcomentario", insertable = false, updatable = false)
+    private char subTypeId;
     
     /**
      * Constructor vacío de ComentarioEntity.
@@ -62,6 +66,20 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+    
+        /**
+     * @return the subTypeId
+     */
+    public char getSubTypeId() {
+        return subTypeId;
+    }
+
+    /**
+     * @param subTypeId the subTypeId to set
+     */
+    public void setSubTypeId(char subTypeId) {
+        this.subTypeId = subTypeId;
     }
 
     /**

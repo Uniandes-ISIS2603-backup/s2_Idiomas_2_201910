@@ -40,7 +40,6 @@ public class ComentarioActividadDTO extends ComentarioDTO implements Serializabl
         entity.setTitulo(this.getTitulo());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
-        entity.setAutor(this.getAutor().toEntity());
         return entity;
     }
 }

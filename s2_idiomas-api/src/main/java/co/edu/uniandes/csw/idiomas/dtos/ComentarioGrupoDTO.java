@@ -35,7 +35,6 @@ public class ComentarioGrupoDTO extends ComentarioDTO implements Serializable {
         entity.setTitulo(this.getTitulo());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
-        entity.setAutor(this.getAutor().toEntity());
         return entity;
     }
 }

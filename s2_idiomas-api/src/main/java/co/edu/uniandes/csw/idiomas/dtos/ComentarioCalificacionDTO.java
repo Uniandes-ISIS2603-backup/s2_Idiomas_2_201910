@@ -44,7 +44,6 @@ public class ComentarioCalificacionDTO extends ComentarioDTO implements Serializ
         entity.setTitulo(this.getTitulo());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
-        entity.setAutor(this.getAutor().toEntity());
         entity.setCalificaciones(this.calificacion.toEntity());
         return entity;
     }
