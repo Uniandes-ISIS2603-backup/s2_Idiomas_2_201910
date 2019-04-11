@@ -100,7 +100,7 @@ public class ComentarioResource {
     public List<ComentarioDetailDTO> getComentarios() {
         LOGGER.info("ComentarioResource getComentarios: input: void");
         List<ComentarioDetailDTO> listaComentarios = listEntity2DetailDTO(ComentarioLogic.getComentarios());
-        LOGGER.log(Level.INFO, "ComentarioResource getComentarios: output: {0}", listaComentarios);
+        LOGGER.log(Level.INFO, "ComentarioResource getComentarios: output: {0}", listaComentarios.get(0).getId());
         return listaComentarios;
     }
 
@@ -118,12 +118,14 @@ public class ComentarioResource {
     public ComentarioDetailDTO getComentario(@PathParam("ComentariosId") Long ComentariosId) 
     {
         LOGGER.log(Level.INFO, "ComentarioResource getComentario: input: {0}", ComentariosId);
-        ComentarioEntity ComentarioEntity = ComentarioLogic.getComentario(ComentariosId);
-        if (ComentarioEntity == null) {
+        ComentarioEntity comentarioEntity = ComentarioLogic.getComentario(ComentariosId);
+        comentarioEntity.setId(ComentariosId);
+        LOGGER.log(Level.INFO, "ComentarioResource Tiene id: input: {0}", comentarioEntity.getId());
+        if (comentarioEntity == null) {
             throw new WebApplicationException("El recurso /Comentarios/" + ComentariosId + " no existe.", 404);
         }
-        ComentarioDetailDTO detailDTO = new ComentarioDetailDTO(ComentarioEntity);
-        LOGGER.log(Level.INFO, "ComentarioResource getComentario: output: {0}", detailDTO);
+        ComentarioDetailDTO detailDTO = new ComentarioDetailDTO(comentarioEntity);
+        LOGGER.log(Level.INFO, "ComentarioResource getComentario: output: {0}", detailDTO.getId());
         return detailDTO;
     }
 
@@ -193,7 +195,7 @@ public class ComentarioResource {
      * Error de lógica que se genera cuando no se encuentra la Comentario.
      */
     @Path("{ComentariosId: \\d+}/comentarios")
-    public Class<PersonaResource> getComentarioComentarioComentarioResource(@PathParam("ComentariosId") Long ComentariosId) {
+    public Class<PersonaResource> getComentarioComentarioResource(@PathParam("ComentariosId") Long ComentariosId) {
         if (ComentarioLogic.getComentario(ComentariosId) == null) {
             throw new WebApplicationException("El recurso /Comentarios/" + ComentariosId + " no existe.", 404);
         }

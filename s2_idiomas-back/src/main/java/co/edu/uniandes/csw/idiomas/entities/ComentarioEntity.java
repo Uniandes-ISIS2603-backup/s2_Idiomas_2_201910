@@ -32,6 +32,7 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
     private String texto;
+    private String titulo;
 
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
@@ -40,7 +41,7 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @ManyToOne
     private PersonaEntity autor;
-    private String titulo;
+
     
     
     /**
