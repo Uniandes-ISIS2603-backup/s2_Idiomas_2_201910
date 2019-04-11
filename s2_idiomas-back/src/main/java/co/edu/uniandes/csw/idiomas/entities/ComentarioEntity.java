@@ -8,12 +8,6 @@ package co.edu.uniandes.csw.idiomas.entities;
 import co.edu.uniandes.csw.idiomas.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.InheritanceType;
-import javax.persistence.Inheritance;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -26,9 +20,9 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author se.gamboa
  */
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "typeofcomentario", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("C")
+
+
+
 
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
@@ -44,8 +38,14 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     @ManyToOne
     private PersonaEntity autor;
 
-    @Column(name="typeofcomentario", insertable = false, updatable = false)
-    private char subTypeId;
+    
+    @PodamExclude
+    @ManyToOne
+    private ActividadEntity actividad;
+    
+    @PodamExclude
+    @ManyToOne
+    private CalificacionEntity calificaciones;
     
     /**
      * Constructor vacío de ComentarioEntity.
@@ -66,20 +66,6 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setTexto(String texto) {
         this.texto = texto;
-    }
-    
-        /**
-     * @return the subTypeId
-     */
-    public char getSubTypeId() {
-        return subTypeId;
-    }
-
-    /**
-     * @param subTypeId the subTypeId to set
-     */
-    public void setSubTypeId(char subTypeId) {
-        this.subTypeId = subTypeId;
     }
 
     /**
@@ -122,6 +108,34 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    
+    /**
+     * @return the actividad
+     */
+    public ActividadEntity getActividad() {
+        return actividad;
+    }
+
+    /**
+     * @param actividad the actividad to set
+     */
+    public void setActividad(ActividadEntity actividad) {
+        this.actividad = actividad;
+    }
+    
+    /**
+     * @return the calificaciones
+     */
+    public CalificacionEntity getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(CalificacionEntity calificaciones) {
+        this.calificaciones = calificaciones;
     }
     
 

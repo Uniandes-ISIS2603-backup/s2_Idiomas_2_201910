@@ -179,11 +179,11 @@ public class EstadiaResource {
      * Error de lógica que se genera cuando no se encuentra la estadia.
      */
     @Path("{estadiasId: \\d+}/comentarios")
-    public Class<ComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("estadiasId") Long estadiasId) {
+    public Class<ComentarioResource> getActividadComentarioActividadResource(@PathParam("estadiasId") Long estadiasId) {
         if (estadiaLogic.getEstadia(estadiasId) == null) {
             throw new WebApplicationException("El recurso /estadias/" + estadiasId + " no existe.", 404);
         }
-        return ComentarioActividadResource.class;
+        return ComentarioResource.class;
     }
 
     /**

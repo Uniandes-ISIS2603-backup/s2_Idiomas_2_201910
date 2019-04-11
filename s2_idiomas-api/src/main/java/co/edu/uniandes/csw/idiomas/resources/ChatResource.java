@@ -179,11 +179,11 @@ public class ChatResource {
      * Error de lógica que se genera cuando no se encuentra la chat.
      */
     @Path("{chatsId: \\d+}/comentarios")
-    public Class<ComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("chatsId") Long chatsId) {
+    public Class<ComentarioResource> getActividadComentarioActividadResource(@PathParam("chatsId") Long chatsId) {
         if (chatLogic.getChat(chatsId) == null) {
             throw new WebApplicationException("El recurso /chats/" + chatsId + " no existe.", 404);
         }
-        return ComentarioActividadResource.class;
+        return ComentarioResource.class;
     }
 
     /**

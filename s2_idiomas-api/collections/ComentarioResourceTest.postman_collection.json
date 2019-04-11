@@ -117,7 +117,7 @@
 			"response": []
 		},
 		{
-			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/ComentarioPersona",
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/1",
 			"event": [
 				{
 					"listen": "test",

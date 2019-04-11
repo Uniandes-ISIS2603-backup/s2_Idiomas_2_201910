@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.idiomas.test.logic;
 import co.edu.uniandes.csw.idiomas.ejb.EstadiaLogic;
 import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;

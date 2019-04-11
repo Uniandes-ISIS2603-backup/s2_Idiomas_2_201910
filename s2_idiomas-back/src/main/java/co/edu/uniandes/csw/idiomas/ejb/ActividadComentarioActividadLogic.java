@@ -6,10 +6,10 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
-import co.edu.uniandes.csw.idiomas.persistence.ComentarioActividadPersistence;
+import co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,7 +35,7 @@ public class ActividadComentarioActividadLogic {
      * Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
      */
     @Inject
-    private ComentarioActividadPersistence comentarioActividadPersistence;
+    private ComentarioPersistence comentarioActividadPersistence;
 
     /**
      * Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
@@ -52,42 +52,42 @@ public class ActividadComentarioActividadLogic {
      *
      * @param actividadesId Identificador de la instancia de Actividad
      * @param comentariosId Identificador de la instancia de ComentarioActividad
-     * @return Instancia de ComentarioActividadEntity que fue asociada a Actividad
+     * @return Instancia de ComentarioEntity que fue asociada a Actividad
      */
-    public ComentarioActividadEntity addComentarioActividad(Long actividadesId, Long comentariosId) {
+    public ComentarioEntity addComentarioActividad(Long actividadesId, Long comentariosId) {
         LOGGER.log(Level.INFO, "Inicia proceso de asociarle un comentario a la actividad con id = {0}", actividadesId);
         ActividadEntity actividadEntity = actividadPersistence.find(actividadesId);
-        ComentarioActividadEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
+        ComentarioEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
         comentarioActividadEntity.setActividad(actividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de asociarle un comentario al actividad con id = {0}", actividadesId);
         return comentarioActividadPersistence.find(comentariosId);
     }
 
     /**
-     * Obtiene una colección de instancias de ComentarioActividadEntity asociadas a una
+     * Obtiene una colección de instancias de ComentarioEntity asociadas a una
      * instancia de Actividad
      *
      * @param actividadesId Identificador de la instancia de Actividad
-     * @return Colección de instancias de ComentarioActividadEntity asociadas a la instancia de
+     * @return Colección de instancias de ComentarioEntity asociadas a la instancia de
      * Actividad
      */
-    public List<ComentarioActividadEntity> getComentarios(Long actividadesId) {
+    public List<ComentarioEntity> getComentarios(Long actividadesId) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los comentarios del actividad con id = {0}", actividadesId);
         return actividadPersistence.find(actividadesId).getComentarios();
     }
 
     /**
-     * Obtiene una instancia de ComentarioActividadEntity asociada a una instancia de Actividad
+     * Obtiene una instancia de ComentarioEntity asociada a una instancia de Actividad
      *
      * @param actividadesId Identificador de la instancia de Actividad
      * @param comentariosId Identificador de la instancia de ComentarioActividad
      * @return La entidadd de Libro del actividad
      * @throws BusinessLogicException Si el comentario no está asociado al actividad
      */
-    public ComentarioActividadEntity getComentarioActividad(Long actividadesId, Long comentariosId) throws BusinessLogicException {
+    public ComentarioEntity getComentarioActividad(Long actividadesId, Long comentariosId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar el comentario con id = {0} del actividad con id = " + actividadesId, comentariosId);
-        List<ComentarioActividadEntity> comentarios = actividadPersistence.find(actividadesId).getComentarios();
-        ComentarioActividadEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
+        List<ComentarioEntity> comentarios = actividadPersistence.find(actividadesId).getComentarios();
+        ComentarioEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
         int index = comentarios.indexOf(comentarioActividadEntity);
         LOGGER.log(Level.INFO, "Termina proceso de consultar el comentario con id = {0} del actividad con id = " + actividadesId, comentariosId);
         if (index >= 0) {
@@ -100,15 +100,15 @@ public class ActividadComentarioActividadLogic {
      * Remplaza las instancias de ComentarioActividad asociadas a una instancia de Actividad
      *
      * @param actividadId Identificador de la instancia de Actividad
-     * @param comentarios Colección de instancias de ComentarioActividadEntity a asociar a instancia
+     * @param comentarios Colección de instancias de ComentarioEntity a asociar a instancia
      * de Actividad
-     * @return Nueva colección de ComentarioActividadEntity asociada a la instancia de Actividad
+     * @return Nueva colección de ComentarioEntity asociada a la instancia de Actividad
      */
-    public List<ComentarioActividadEntity> replaceComentarios(Long actividadId, List<ComentarioActividadEntity> comentarios) {
+    public List<ComentarioEntity> replaceComentarios(Long actividadId, List<ComentarioEntity> comentarios) {
         LOGGER.log(Level.INFO, "Inicia proceso de reemplazar los comentarios asocidos al actividad con id = {0}", actividadId);
         ActividadEntity actividadEntity = actividadPersistence.find(actividadId);
-        List<ComentarioActividadEntity> comentarioActividadList = comentarioActividadPersistence.findAll();
-        for (ComentarioActividadEntity comentarioActividad : comentarioActividadList) {
+        List<ComentarioEntity> comentarioActividadList = comentarioActividadPersistence.findAll();
+        for (ComentarioEntity comentarioActividad : comentarioActividadList) {
             if (comentarios.contains(comentarioActividad)) {
                 if (!comentarioActividad.getActividad().equals(actividadEntity)) {
                     comentarioActividad.setActividad(actividadEntity);
@@ -130,7 +130,7 @@ public class ActividadComentarioActividadLogic {
      */
     public void removeComentarioActividad(Long actividadesId, Long comentariosId) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar un comentario del actividad con id = {0}", actividadesId);
-        ComentarioActividadEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
+        ComentarioEntity comentarioActividadEntity = comentarioActividadPersistence.find(comentariosId);
         comentarioActividadEntity.setActividad(null);
         LOGGER.log(Level.INFO, "Termina proceso de borrar un comentario del actividad con id = {0}", actividadesId);
     }
