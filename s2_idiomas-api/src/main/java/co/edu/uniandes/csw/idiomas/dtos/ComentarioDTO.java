@@ -30,6 +30,7 @@ public class ComentarioDTO implements Serializable {
     private Long id;
     private PersonaDTO autor;
     private String titulo;
+    private char tipo;
 
     /**
      * Constructor de ComentarioActividadDTO
@@ -43,6 +44,7 @@ public class ComentarioDTO implements Serializable {
             this.id = entity.getId();
             this.autor = new PersonaDTO(entity.getAutor());
             this.titulo = entity.getTitulo();
+            this.tipo = entity.getSubTypeId();
         }
     }
 
@@ -76,6 +78,19 @@ public class ComentarioDTO implements Serializable {
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+        /**
+     * @return the tipo
+     */
+    public char getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the pTipo to set
+     */
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
     }
 
     /**
