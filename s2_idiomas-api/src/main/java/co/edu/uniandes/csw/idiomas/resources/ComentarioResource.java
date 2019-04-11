@@ -212,7 +212,7 @@ public class ComentarioResource {
      * que vamos a convertir a DTO.
      * @return la lista de Comentarios en forma DTO (json)
      */
-    private List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
+    public List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
         List<ComentarioDetailDTO> list = new ArrayList<>();
         for (ComentarioEntity entity : entityList) {
             list.add(new ComentarioDetailDTO(entity));
