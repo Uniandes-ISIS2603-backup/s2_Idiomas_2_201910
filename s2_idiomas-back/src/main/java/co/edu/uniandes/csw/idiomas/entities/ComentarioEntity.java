@@ -26,9 +26,9 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author se.gamboa
  */
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "typeofcomentario", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("C")
+
+
+
 
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
@@ -44,8 +44,11 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     @ManyToOne
     private PersonaEntity autor;
 
-    @Column(name="typeofcomentario", insertable = false, updatable = false)
     private char subTypeId;
+    
+        @PodamExclude
+    @ManyToOne
+    private ActividadEntity actividad;
     
     /**
      * Constructor vacío de ComentarioEntity.
@@ -122,6 +125,20 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    
+    /**
+     * @return the actividad
+     */
+    public ActividadEntity getActividad() {
+        return actividad;
+    }
+
+    /**
+     * @param actividad the actividad to set
+     */
+    public void setActividad(ActividadEntity actividad) {
+        this.actividad = actividad;
     }
     
 

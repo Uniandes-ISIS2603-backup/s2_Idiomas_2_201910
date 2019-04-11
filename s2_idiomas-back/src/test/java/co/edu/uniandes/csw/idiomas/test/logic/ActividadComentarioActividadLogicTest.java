@@ -6,9 +6,9 @@
 package co.edu.uniandes.csw.idiomas.test.logic;
 
 import co.edu.uniandes.csw.idiomas.ejb.ActividadComentarioActividadLogic;
-import co.edu.uniandes.csw.idiomas.ejb.ComentarioActividadLogic;
+import co.edu.uniandes.csw.idiomas.ejb.ComentarioLogic;
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class ActividadComentarioActividadLogicTest {
     private ActividadComentarioActividadLogic actividadComentarioActividadLogic;
 
     @Inject
-    private ComentarioActividadLogic comentarioActividadLogic;
+    private ComentarioLogic comentarioActividadLogic;
 
     @PersistenceContext
     private EntityManager em;
@@ -50,7 +50,7 @@ public class ActividadComentarioActividadLogicTest {
     private UserTransaction utx;
 
     private ActividadEntity actividad = new ActividadEntity();
-    private List<ComentarioActividadEntity> data = new ArrayList<>();
+    private List<ComentarioEntity> data = new ArrayList<>();
 
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -61,7 +61,7 @@ public class ActividadComentarioActividadLogicTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(ActividadEntity.class.getPackage())
-                .addPackage(ComentarioActividadEntity.class.getPackage())
+                .addPackage(ComentarioEntity.class.getPackage())
                 .addPackage(ActividadComentarioActividadLogic.class.getPackage())
                 .addPackage(ActividadPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
@@ -108,7 +108,7 @@ public class ActividadComentarioActividadLogicTest {
         em.persist(actividad);
 
         for (int i = 0; i < 3; i++) {
-            ComentarioActividadEntity entity = factory.manufacturePojo(ComentarioActividadEntity.class);
+            ComentarioEntity entity = factory.manufacturePojo(ComentarioEntity.class);
             entity.setActividad(actividad);
             em.persist(entity);
             data.add(entity);
@@ -144,7 +144,7 @@ public class ActividadComentarioActividadLogicTest {
      */
     @Test
     public void getComentariosTest() {
-        List<ComentarioActividadEntity> comentarioActividadEntities = actividadComentarioActividadLogic.getComentarios(actividad.getId());
+        List<ComentarioEntity> comentarioActividadEntities = actividadComentarioActividadLogic.getComentarios(actividad.getId());
 
         Assert.assertEquals(data.size(), comentarioActividadEntities.size());
 

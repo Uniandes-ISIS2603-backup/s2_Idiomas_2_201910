@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.OtroEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.OtroPersistence;
 import java.util.List;
@@ -162,7 +162,7 @@ public class OtroLogic {
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la otro con id = {0}", pOtrosId);
         // Note que, por medio de la inyección de dependencias se llama al método "delete(id)" que se encuentra en la persistencia.
-        List<ComentarioActividadEntity> comentarios = getOtro(pOtrosId).getComentarios();
+        List<ComentarioEntity> comentarios = getOtro(pOtrosId).getComentarios();
         if (comentarios != null && !comentarios.isEmpty()) {
             throw new BusinessLogicException("No se puede borrar la otro con id = " + pOtrosId + " porque tiene comentarios asociados");
         }

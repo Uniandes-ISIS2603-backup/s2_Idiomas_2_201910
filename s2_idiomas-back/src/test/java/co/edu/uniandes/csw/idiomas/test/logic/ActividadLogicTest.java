@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.idiomas.test.logic;
 import co.edu.uniandes.csw.idiomas.ejb.ActividadLogic;
 import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
@@ -136,7 +136,7 @@ public class ActividadLogicTest {
             // TODO : GC Poner calificación
             data.add(entity);
         }
-        ComentarioActividadEntity comentario = factory.manufacturePojo(ComentarioActividadEntity.class);
+        ComentarioEntity comentario = factory.manufacturePojo(ComentarioEntity.class);
         comentario.setActividad(data.get(1));
         em.persist(comentario);
         data.get(1).getComentarios().add(comentario);

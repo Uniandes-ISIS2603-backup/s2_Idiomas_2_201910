@@ -16,6 +16,7 @@ public class ComentarioDTO implements Serializable {
     private Long id;
     private String titulo;
     private char tipo;
+    
 
     /**
      * Constructor de ComentarioActividadDTO
