@@ -24,9 +24,9 @@ public class ComentarioDTO implements Serializable {
      */
     public ComentarioDTO(ComentarioEntity entity) {
         if (entity != null) {
+            this.id = entity.getId();
             this.texto = entity.getTexto();
             this.fecha = entity.getFecha();
-            this.id = entity.getId();
             this.titulo = entity.getTitulo();
         }
     }
@@ -86,9 +86,9 @@ public class ComentarioDTO implements Serializable {
      */
     public ComentarioEntity toEntity() {
         ComentarioEntity entity = new ComentarioEntity();
+        entity.setId(this.getId());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
-        entity.setId(this.getId());
         entity.setTitulo(this.getTitulo());
         return entity;
     }
