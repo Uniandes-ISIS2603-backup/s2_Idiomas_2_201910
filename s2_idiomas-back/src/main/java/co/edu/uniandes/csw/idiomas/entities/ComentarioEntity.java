@@ -44,11 +44,14 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     @ManyToOne
     private PersonaEntity autor;
 
-    private char subTypeId;
     
-        @PodamExclude
+    @PodamExclude
     @ManyToOne
     private ActividadEntity actividad;
+    
+    @PodamExclude
+    @ManyToOne
+    private CalificacionEntity calificaciones;
     
     /**
      * Constructor vacío de ComentarioEntity.
@@ -69,20 +72,6 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setTexto(String texto) {
         this.texto = texto;
-    }
-    
-        /**
-     * @return the subTypeId
-     */
-    public char getSubTypeId() {
-        return subTypeId;
-    }
-
-    /**
-     * @param subTypeId the subTypeId to set
-     */
-    public void setSubTypeId(char subTypeId) {
-        this.subTypeId = subTypeId;
     }
 
     /**
@@ -139,6 +128,20 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setActividad(ActividadEntity actividad) {
         this.actividad = actividad;
+    }
+    
+    /**
+     * @return the calificaciones
+     */
+    public CalificacionEntity getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(CalificacionEntity calificaciones) {
+        this.calificaciones = calificaciones;
     }
     
 
