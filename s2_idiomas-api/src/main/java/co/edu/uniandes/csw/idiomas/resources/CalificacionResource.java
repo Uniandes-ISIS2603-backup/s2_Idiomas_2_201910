@@ -7,8 +7,11 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import co.edu.uniandes.csw.idiomas.dtos.CalificacionDTO;
+import co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -33,15 +36,31 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class CalificacionResource {
     private static final Logger LOGGER = Logger.getLogger(CalificacionResource.class.getName());
-     @Inject
+    
+    @Inject
     private CalificacionLogic logica;
+    
+    /**
+     * Busca y devuelve todas las Calificacions que existen en la aplicacion.
+     *
+     * @return JSONArray {@link CalificacionDetailDTO} - Las Calificacions
+     * encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
+     */
+    @GET
+    public List<CalificacionDetailDTO> getCalificaciones() {
+        LOGGER.info("CalificacionResource getCalificacions: input: void");
+        List<CalificacionDetailDTO> listaCalificaciones = listEntity2DetailDTO(logica.getCalificaciones());
+        LOGGER.log(Level.INFO, "CalificacionResource getCalificacion: output: {0}", listaCalificaciones.get(0).getId());
+        return listaCalificaciones;
+    } 
+    
     @POST
     public CalificacionDTO createCalificacion (CalificacionDTO calificacion) throws BusinessLogicException
     {
         return calificacion;
     }
     @DELETE
-    @Path("{calificacionId: \\d+}")
+    @Path("{CalificacionId: \\d+}")
     public Integer deleteCalificacion(@PathParam("idCalificacion") Integer calificacionId) {
         return calificacionId;
     }
@@ -86,5 +105,23 @@ public class CalificacionResource {
         LOGGER.log(Level.INFO, "calificacionResource updatecalificacion: output: {0}", detailDTO);
         return detailDTO;
 
+    }
+    
+    /**
+     * Convierte una lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos CalificacionesEntity a una lista de
+     * objetos CalificacionDetailDTO (json)
+     *
+     * @param entityList corresponde a la lista de Calificaciones de tipo Entity
+     * que vamos a convertir a DTO.
+     * @return la lista de Comentarios en forma DTO (json)
+     */
+    public List<CalificacionDetailDTO> listEntity2DetailDTO(List<CalificacionEntity> entityList) {
+        List<CalificacionDetailDTO> list = new ArrayList<>();
+        for (CalificacionEntity entity : entityList) {
+            list.add(new CalificacionDetailDTO(entity));
+        }
+        return list;
     }
 }
