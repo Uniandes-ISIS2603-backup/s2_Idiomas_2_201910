@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class ComentarioDTO implements Serializable {
 
-
+//a
     private String texto;
     private Date fecha;
     private Long id;
