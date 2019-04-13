@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.idiomas.entities;
 import co.edu.uniandes.csw.idiomas.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -25,9 +26,9 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author se.gamboa
  */
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "typeofcomentario", discriminatorType = DiscriminatorType.CHAR)
-@DiscriminatorValue("C")
+
+
+
 
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
@@ -36,6 +37,7 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
+    
     private Date fecha;
 
     @PodamExclude
@@ -43,6 +45,13 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     private PersonaEntity autor;
 
     
+    @PodamExclude
+    @ManyToOne
+    private ActividadEntity actividad;
+    
+    @PodamExclude
+    @ManyToOne
+    private CalificacionEntity calificaciones;
     
     /**
      * Constructor vacío de ComentarioEntity.
@@ -105,6 +114,34 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    
+    /**
+     * @return the actividad
+     */
+    public ActividadEntity getActividad() {
+        return actividad;
+    }
+
+    /**
+     * @param actividad the actividad to set
+     */
+    public void setActividad(ActividadEntity actividad) {
+        this.actividad = actividad;
+    }
+    
+    /**
+     * @return the calificaciones
+     */
+    public CalificacionEntity getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(CalificacionEntity calificaciones) {
+        this.calificaciones = calificaciones;
     }
     
 
