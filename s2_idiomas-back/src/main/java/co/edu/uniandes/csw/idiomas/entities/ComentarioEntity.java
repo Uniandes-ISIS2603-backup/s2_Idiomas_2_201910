@@ -20,10 +20,6 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author se.gamboa
  */
 @Entity
-
-
-
-
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
     private String texto;
