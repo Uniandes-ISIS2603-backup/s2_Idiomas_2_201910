@@ -71,7 +71,7 @@ private char subTypeId;
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
     
     /**
      * Atributo que representa los asistentes de la actividad.
@@ -133,14 +133,14 @@ private char subTypeId;
     /**
      * @return the comentarios
      */
-    public List<ComentarioActividadEntity> getComentarios() {
+    public List<ComentarioEntity> getComentarios() {
         return comentarios;
     }
 
     /**
      * @param comentarios the comentarios to set
      */
-    public void setComentarios(List<ComentarioActividadEntity> comentarios) {
+    public void setComentarios(List<ComentarioEntity> comentarios) {
         this.comentarios = comentarios;
     }
 

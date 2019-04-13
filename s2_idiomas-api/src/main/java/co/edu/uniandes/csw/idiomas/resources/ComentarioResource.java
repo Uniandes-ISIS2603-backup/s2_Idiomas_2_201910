@@ -12,6 +12,7 @@ import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,51 +38,48 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
 
-
 public class ComentarioResource {
-    
+
     // ------------------------------------------------------------------------
     // Atributos
     // ------------------------------------------------------------------------
-    
     /**
      * Atributo que representa el logger correspondiente de la clase. Para poder
      * enviar mensajes.
      */
     private static final Logger LOGGER = Logger.getLogger(ComentarioResource.class.getName());
-    
+    Calendar now = Calendar.getInstance();
     /**
-     * Permite acceder a la lógica de la aplicación. Es una inyección de dependencias.
+     * Permite acceder a la lógica de la aplicación. Es una inyección de
+     * dependencias.
      */
     @Inject
-    private ComentarioLogic ComentarioLogic; 
-    
+    private ComentarioLogic ComentarioLogic;
+
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    
     // ------------------------------------------------------------------------
     // Métodos
     // ------------------------------------------------------------------------
-    
     /**
-     * Crea una nueva Comentario con la informacion que se recibe en el cuerpo de
-     * la petición y se regresa un objeto identico con un id auto-generado por
-     * la base de datos.
+     * Crea una nueva Comentario con la informacion que se recibe en el cuerpo
+     * de la petición y se regresa un objeto identico con un id auto-generado
+     * por la base de datos.
      *
      * @param Comentario {@link ComentarioDTO} - La Comentario que se desea
      * guardar.
-     * @return JSON {@link ComentarioDTO} - La Comentario guardada con el atributo
-     * id autogenerado.
+     * @return JSON {@link ComentarioDTO} - La Comentario guardada con el
+     * atributo id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
      * Error de lógica que se genera cuando ya existe la Comentario.
      */
     @POST
-    public ComentarioDTO createComentario(ComentarioDTO Comentario) throws BusinessLogicException, ParseException 
-    {
+    public ComentarioDTO createComentario(ComentarioDTO Comentario) throws BusinessLogicException, ParseException {
         LOGGER.log(Level.INFO, "ComentarioResource createComentario: input: {0}", Comentario);
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         ComentarioEntity ComentarioEntity = Comentario.toEntity();
+        ComentarioEntity.setFecha(now.getTime());
         // Invoca la lógica para crear la Comentario nueva
         ComentarioEntity nuevoComentarioEntity = ComentarioLogic.createComment(ComentarioEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
@@ -115,8 +113,7 @@ public class ComentarioResource {
      */
     @GET
     @Path("{ComentariosId: \\d+}")
-    public ComentarioDetailDTO getComentario(@PathParam("ComentariosId") Long ComentariosId) 
-    {
+    public ComentarioDetailDTO getComentario(@PathParam("ComentariosId") Long ComentariosId) {
         LOGGER.log(Level.INFO, "ComentarioResource getComentario: input: {0}", ComentariosId);
         ComentarioEntity comentarioEntity = ComentarioLogic.getComentario(ComentariosId);
         comentarioEntity.setId(ComentariosId);
@@ -144,8 +141,7 @@ public class ComentarioResource {
      */
     @PUT
     @Path("{ComentariosId: \\d+}")
-    public ComentarioDetailDTO updateComentario(@PathParam("ComentariosId") Long ComentariosId, ComentarioDetailDTO Comentario) throws BusinessLogicException
-    {
+    public ComentarioDetailDTO updateComentario(@PathParam("ComentariosId") Long ComentariosId, ComentarioDetailDTO Comentario) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "ComentarioResource updateComentario: input: id:{0} , Comentario: {1}", new Object[]{ComentariosId, Comentario});
         Comentario.setId(ComentariosId);
         if (ComentarioLogic.getComentario(ComentariosId) == null) {
@@ -178,15 +174,14 @@ public class ComentarioResource {
         LOGGER.info("ComentarioResource deleteComentario: output: void");
     }
 
-
-    
     /**
      * Conexión con el servicio de comentarios para una Comentario.
      * {@link ComentarioComentarioComentarioResourceResource}
      *
-     * Este método conecta la ruta de /Comentarios con las rutas de /comentarios que
-     * dependen de la Comentario, es una redirección al servicio que maneja el
-     * segmento de la URL que se encarga de los comentarios de una Comentario.
+     * Este método conecta la ruta de /Comentarios con las rutas de /comentarios
+     * que dependen de la Comentario, es una redirección al servicio que maneja
+     * el segmento de la URL que se encarga de los comentarios de una
+     * Comentario.
      *
      * @param ComentariosId El ID de la Comentario con respecto a la cual se
      * accede al servicio.
@@ -201,18 +196,18 @@ public class ComentarioResource {
         }
         return PersonaResource.class;
     }
-    
+
     /**
      * Convierte una lista de entidades a DTO.
      *
-     * Este método convierte una lista de objetos ComentarioEntity a una lista de
-     * objetos ComentarioDetailDTO (json)
+     * Este método convierte una lista de objetos ComentarioEntity a una lista
+     * de objetos ComentarioDetailDTO (json)
      *
      * @param entityList corresponde a la lista de Comentarios de tipo Entity
      * que vamos a convertir a DTO.
      * @return la lista de Comentarios en forma DTO (json)
      */
-    private List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
+    public List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
         List<ComentarioDetailDTO> list = new ArrayList<>();
         for (ComentarioEntity entity : entityList) {
             list.add(new ComentarioDetailDTO(entity));

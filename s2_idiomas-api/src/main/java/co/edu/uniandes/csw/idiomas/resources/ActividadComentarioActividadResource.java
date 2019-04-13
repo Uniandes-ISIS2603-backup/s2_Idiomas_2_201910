@@ -4,25 +4,17 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.idiomas.resources;
-import co.edu.uniandes.csw.idiomas.dtos.ComentarioActividadDTO;
+import co.edu.uniandes.csw.idiomas.dtos.ComentarioDTO;
 import co.edu.uniandes.csw.idiomas.ejb.ActividadComentarioActividadLogic;
-import co.edu.uniandes.csw.idiomas.ejb.ComentarioActividadLogic;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.ejb.ComentarioLogic;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "actividades/{id}/comentariosActividad".
@@ -54,7 +46,7 @@ public class ActividadComentarioActividadResource {
      * inyección de dependencias.
      */
     @Inject
-    private ComentarioActividadLogic comentarioActividadLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    private ComentarioLogic comentarioActividadLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     // ------------------------------------------------------------------------
     // Métodos
@@ -65,18 +57,18 @@ public class ActividadComentarioActividadResource {
      *
      * @param actividadesId El ID del autor al cual se le va a asociar el libro
      * @param comentariosActividadId El ID del libro que se asocia
-     * @return JSON {@link ComentarioActividadDTO} - El libro asociado.
+     * @return JSON {@link ComentarioDTO} - El libro asociado.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra el libro.
      */
 //    @POST
 //    @Path("{comentariosActividadId: \\d+}")
-//    public ComentarioActividadDTO addComentarioActividad(@PathParam("actividadesId") Long actividadesId, @PathParam("comentariosActividadId") Long comentariosActividadId) {
+//    public ComentarioDTO addComentarioActividad(@PathParam("actividadesId") Long actividadesId, @PathParam("comentariosActividadId") Long comentariosActividadId) {
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource addComentarioActividad: input: actividadesId {0} , comentariosActividadId {1}", new Object[]{actividadesId, comentariosActividadId});
 //        if (comentarioActividadLogic.getComentarioActividad(comentariosActividadId) == null) {
 //            throw new WebApplicationException("El recurso /comentariosActividad/" + comentariosActividadId + " no existe.", 404);
 //        }
-//        ComentarioActividadDTO detailDTO = new ComentarioActividadDTO(actividadComentarioActividadLogic.addComentarioActividad(actividadesId, comentariosActividadId));
+//        ComentarioDTO detailDTO = new ComentarioDTO(actividadComentarioActividadLogic.addComentarioActividad(actividadesId, comentariosActividadId));
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource addComentarioActividad: output: {0}", detailDTO);
 //        return detailDTO;
 //    }
@@ -85,13 +77,13 @@ public class ActividadComentarioActividadResource {
      * Busca y devuelve todos los libros que existen en un autor.
      *
      * @param actividadesId El ID del autor del cual se buscan los libros
-     * @return JSONArray {@link ComentarioActividadDTO} - Los libros encontrados en el
+     * @return JSONArray {@link ComentarioDTO} - Los libros encontrados en el
      * autor. Si no hay ninguno retorna una lista vacía.
      */
 //    @GET
-//    public List<ComentarioActividadDTO> getComentarioActividad(@PathParam("actividadesId") Long actividadesId) {
+//    public List<ComentarioDTO> getComentarioActividad(@PathParam("actividadesId") Long actividadesId) {
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource getComentarioActividad: input: {0}", actividadesId);
-//        List<ComentarioActividadDTO> lista = comentariosActividadListEntity2DTO(actividadComentarioActividadLogic.getComentarioActividad(actividadesId));
+//        List<ComentarioDTO> lista = comentariosActividadListEntity2DTO(actividadComentarioActividadLogic.getComentarioActividad(actividadesId));
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource getComentarioActividad: output: {0}", lista);
 //        return lista;
 //    }
@@ -102,7 +94,7 @@ public class ActividadComentarioActividadResource {
      *
      * @param actividadesId El ID del autor del cual se busca el libro
      * @param comentariosActividadId El ID del libro que se busca
-     * @return {@link ComentarioActividadDTO} - El libro encontrado en el autor.
+     * @return {@link ComentarioDTO} - El libro encontrado en el autor.
      * @throws co.edu.uniandes.csw.comentariosActividadtore.exceptions.BusinessLogicException
      * si el libro no está asociado al autor
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
@@ -110,12 +102,12 @@ public class ActividadComentarioActividadResource {
      */
 //    @GET
 //    @Path("{comentariosActividadId: \\d+}")
-//    public ComentarioActividadDTO getComentarioActividad(@PathParam("actividadesId") Long actividadesId, @PathParam("comentariosActividadId") Long comentariosActividadId) throws BusinessLogicException {
+//    public ComentarioDTO getComentarioActividad(@PathParam("actividadesId") Long actividadesId, @PathParam("comentariosActividadId") Long comentariosActividadId) throws BusinessLogicException {
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource getComentarioActividad: input: actividadesId {0} , comentariosActividadId {1}", new Object[]{actividadesId, comentariosActividadId});
 //        if (comentarioActividadLogic.getComentarioActividad(comentariosActividadId) == null) {
 //            throw new WebApplicationException("El recurso /comentariosActividad/" + comentariosActividadId + " no existe.", 404);
 //        }
-//        ComentarioActividadDTO detailDTO = new ComentarioActividadDTO(actividadComentarioActividadLogic.getComentarioActividad(actividadesId, comentariosActividadId));
+//        ComentarioDTO detailDTO = new ComentarioDTO(actividadComentarioActividadLogic.getComentarioActividad(actividadesId, comentariosActividadId));
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource getComentarioActividad: output: {0}", detailDTO);
 //        return detailDTO;
 //    }
@@ -125,21 +117,21 @@ public class ActividadComentarioActividadResource {
      * cuerpo
      *
      * @param actividadesId El ID del autor al cual se le va a asociar el libro
-     * @param comentariosActividad JSONArray {@link ComentarioActividadDTO} - La lista de libros que se
+     * @param comentariosActividad JSONArray {@link ComentarioDTO} - La lista de libros que se
      * desea guardar.
-     * @return JSONArray {@link ComentarioActividadDTO} - La lista actualizada.
+     * @return JSONArray {@link ComentarioDTO} - La lista actualizada.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra el libro.
      */
 //    @PUT
-//    public List<ComentarioActividadDTO> replaceComentarioActividad(@PathParam("actividadesId") Long actividadesId, List<ComentarioActividadDTO> comentariosActividad) {
+//    public List<ComentarioDTO> replaceComentarioActividad(@PathParam("actividadesId") Long actividadesId, List<ComentarioDTO> comentariosActividad) {
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource replaceComentarioActividad: input: actividadesId {0} , comentariosActividad {1}", new Object[]{actividadesId, comentariosActividad});
-//        for (ComentarioActividadDTO comentarioActividad : comentariosActividad) {
+//        for (ComentarioDTO comentarioActividad : comentariosActividad) {
 //            if (comentarioActividadLogic.getComentarioActividad(comentarioActividad.getId()) == null) {
 //                throw new WebApplicationException("El recurso /comentariosActividad/" + comentarioActividad.getId() + " no existe.", 404);
 //            }
 //        }
-//        List<ComentarioActividadDTO> lista = comentariosActividadListEntity2DTO(actividadComentarioActividadLogic.replaceComentarioActividad(actividadesId, comentariosActividadListDTO2Entity(comentariosActividad)));
+//        List<ComentarioDTO> lista = comentariosActividadListEntity2DTO(actividadComentarioActividadLogic.replaceComentarioActividad(actividadesId, comentariosActividadListDTO2Entity(comentariosActividad)));
 //        LOGGER.log(Level.INFO, "ActividadComentarioActividadResource replaceComentarioActividad: output: {0}", lista);
 //        return lista;
 //    }
@@ -164,28 +156,28 @@ public class ActividadComentarioActividadResource {
 //    }
 
     /**
-     * Convierte una lista de ComentarioActividadEntity a una lista de ComentarioActividadDTO.
+     * Convierte una lista de ComentarioActividadEntity a una lista de ComentarioDTO.
      *
      * @param entityList Lista de ComentarioActividadEntity a convertir.
-     * @return Lista de ComentarioActividadDTO convertida.
+     * @return Lista de ComentarioDTO convertida.
      */
-    private List<ComentarioActividadDTO> comentariosActividadListEntity2DTO(List<ComentarioActividadEntity> entityList) {
-        List<ComentarioActividadDTO> list = new ArrayList<>();
-        for (ComentarioActividadEntity entity : entityList) {
-            list.add(new ComentarioActividadDTO(entity));
+    private List<ComentarioDTO> comentariosActividadListEntity2DTO(List<ComentarioEntity> entityList) {
+        List<ComentarioDTO> list = new ArrayList<>();
+        for (ComentarioEntity entity : entityList) {
+            list.add(new ComentarioDTO(entity));
         }
         return list;
     }
 
     /**
-     * Convierte una lista de ComentarioActividadDTO a una lista de ComentarioActividadEntity.
+     * Convierte una lista de ComentarioDTO a una lista de ComentarioActividadEntity.
      *
-     * @param dtos Lista de ComentarioActividadDTO a convertir.
+     * @param dtos Lista de ComentarioDTO a convertir.
      * @return Lista de ComentarioActividadEntity convertida.
      */
-    private List<ComentarioActividadEntity> comentariosActividadListDTO2Entity(List<ComentarioActividadDTO> dtos) {
-        List<ComentarioActividadEntity> list = new ArrayList<>();
-        for (ComentarioActividadDTO dto : dtos) {
+    private List<ComentarioEntity> comentariosActividadListDTO2Entity(List<ComentarioDTO> dtos) {
+        List<ComentarioEntity> list = new ArrayList<>();
+        for (ComentarioDTO dto : dtos) {
             list.add(dto.toEntity());
         }
         return list;

@@ -179,11 +179,11 @@ public class OtroResource {
      * Error de lógica que se genera cuando no se encuentra la otro.
      */
     @Path("{otrosId: \\d+}/comentarios")
-    public Class<ComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("otrosId") Long otrosId) {
+    public Class<ComentarioResource> getActividadComentarioActividadResource(@PathParam("otrosId") Long otrosId) {
         if (otroLogic.getOtro(otrosId) == null) {
             throw new WebApplicationException("El recurso /otros/" + otrosId + " no existe.", 404);
         }
-        return ComentarioActividadResource.class;
+        return ComentarioResource.class;
     }
 
     /**

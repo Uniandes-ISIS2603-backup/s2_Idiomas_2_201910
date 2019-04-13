@@ -32,7 +32,7 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
     private CoordinadorEntity coord;
     @PodamExclude
     @OneToMany(mappedBy = "calificaciones")
-    private List<ComentarioCalificacionEntity> comentarios = new ArrayList<>();
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
     
     @Override
     /**
@@ -122,14 +122,14 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
     /**
      * @return the comentarios
      */
-    public List<ComentarioCalificacionEntity> getComentarios() {
+    public List<ComentarioEntity> getComentarios() {
         return comentarios;
     }
 
     /**
      * @param comentarios the comentarios to set
      */
-    public void setComentarios(List<ComentarioCalificacionEntity> comentarios) {
+    public void setComentarios(List<ComentarioEntity> comentarios) {
         this.comentarios = comentarios;
     }
     
