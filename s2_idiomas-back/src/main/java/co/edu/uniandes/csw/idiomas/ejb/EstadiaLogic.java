@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence;
 import java.util.List;
@@ -191,7 +191,7 @@ public class EstadiaLogic {
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la estadia con id = {0}", pEstadiasId);
         // Note que, por medio de la inyección de dependencias se llama al método "delete(id)" que se encuentra en la persistencia.
-        List<ComentarioActividadEntity> comentarios = getEstadia(pEstadiasId).getComentarios();
+        List<ComentarioEntity> comentarios = getEstadia(pEstadiasId).getComentarios();
         if (comentarios != null && !comentarios.isEmpty()) {
             throw new BusinessLogicException("No se puede borrar la estadia con id = " + pEstadiasId + " porque tiene comentarios asociados");
         }

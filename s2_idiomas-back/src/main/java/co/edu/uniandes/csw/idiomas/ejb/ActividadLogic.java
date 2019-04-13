@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
 import java.util.List;
@@ -157,7 +157,7 @@ public class ActividadLogic {
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la actividad con id = {0}", pActividadesId);
         // Note que, por medio de la inyección de dependencias se llama al método "delete(id)" que se encuentra en la persistencia.
-        List<ComentarioActividadEntity> comentarios = getActividad(pActividadesId).getComentarios();
+        List<ComentarioEntity> comentarios = getActividad(pActividadesId).getComentarios();
         if (comentarios != null && !comentarios.isEmpty()) {
             throw new BusinessLogicException("No se puede borrar la actividad con id = " + pActividadesId + " porque tiene comentarios asociados");
         }

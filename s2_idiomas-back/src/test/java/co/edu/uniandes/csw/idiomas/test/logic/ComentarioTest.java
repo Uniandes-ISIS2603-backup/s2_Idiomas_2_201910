@@ -5,12 +5,12 @@
  */
 package co.edu.uniandes.csw.idiomas.test.logic;
 
-import co.edu.uniandes.csw.idiomas.ejb.ComentarioGrupoLogic;
+
 import co.edu.uniandes.csw.idiomas.ejb.ComentarioLogic;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioGrupoEntity;
+
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.idiomas.persistence.ComentarioGrupoPersistence;
+
 import co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,9 +45,9 @@ public class ComentarioTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(ComentarioGrupoEntity.class.getPackage())
-                .addPackage(ComentarioGrupoLogic.class.getPackage())
-                .addPackage(ComentarioGrupoPersistence.class.getPackage())
+                .addPackage(ComentarioEntity.class.getPackage())
+                .addPackage(ComentarioLogic.class.getPackage())
+                .addPackage(ComentarioPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
