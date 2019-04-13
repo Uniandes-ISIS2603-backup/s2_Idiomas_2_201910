@@ -31,7 +31,7 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     private List<UsuarioDTO> asistentes;
     
     /**
-     * Lista de tipo ComentarioActividadDTO contiene los comentarios que están
+     * Lista de tipo ComentarioDTO contiene los comentarios que están
      * asociados con esta actividad.
      */
     private List<ComentarioDTO> comentarioA;

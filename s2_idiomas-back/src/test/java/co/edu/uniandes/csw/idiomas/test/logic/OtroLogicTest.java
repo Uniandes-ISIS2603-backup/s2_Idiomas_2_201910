@@ -112,7 +112,7 @@ public class OtroLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from UsuarioEntity").executeUpdate();
-        em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
+        em.createQuery("delete from ComentarioEntity").executeUpdate();
         em.createQuery("delete from OtroEntity").executeUpdate();
         em.createQuery("delete from CoordinadorEntity").executeUpdate();
     }

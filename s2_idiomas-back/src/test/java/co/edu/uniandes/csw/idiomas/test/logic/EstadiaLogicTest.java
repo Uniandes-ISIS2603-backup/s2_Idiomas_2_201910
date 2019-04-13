@@ -112,7 +112,7 @@ public class EstadiaLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from UsuarioEntity").executeUpdate();
-        em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
+        em.createQuery("delete from ComentarioEntity").executeUpdate();
         em.createQuery("delete from EstadiaEntity").executeUpdate();
         em.createQuery("delete from CoordinadorEntity").executeUpdate();
     }

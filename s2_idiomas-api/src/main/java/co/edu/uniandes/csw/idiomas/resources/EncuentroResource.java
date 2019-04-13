@@ -166,7 +166,7 @@ public class EncuentroResource {
 
     /**
      * Conexión con el servicio de comentarios para una encuentro.
-     * {@link ActividadComentarioActividadResource}
+     * {@link ActividadComentarioResource}
      *
      * Este método conecta la ruta de /encuentros con las rutas de /comentarios que
      * dependen de la encuentro, es una redirección al servicio que maneja el
@@ -179,7 +179,7 @@ public class EncuentroResource {
      * Error de lógica que se genera cuando no se encuentra la encuentro.
      */
     @Path("{encuentrosId: \\d+}/comentarios")
-    public Class<ComentarioResource> getActividadComentarioActividadResource(@PathParam("encuentrosId") Long encuentrosId) {
+    public Class<ComentarioResource> getActividadComentarioResource(@PathParam("encuentrosId") Long encuentrosId) {
         if (encuentroLogic.getEncuentro(encuentrosId) == null) {
             throw new WebApplicationException("El recurso /encuentros/" + encuentrosId + " no existe.", 404);
         }
