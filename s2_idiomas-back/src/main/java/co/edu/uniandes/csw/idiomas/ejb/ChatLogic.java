@@ -66,7 +66,8 @@ public class ChatLogic {
         }
         // Verifica la regla de negocio que dice que una chat no puede ser idéntica a otra chat.
         if (persistence.findByName(chatEntity.getNombre()) != null
-                && persistence.findByName(chatEntity.getNombre()).equals(chatEntity)) {
+                /*&& persistence.findByName(chatEntity.getNombre()).equals(chatEntity)*/) 
+        {
             throw new BusinessLogicException("La chat ya existe.");
         }
         // Invoca la persistencia para crear la chat
