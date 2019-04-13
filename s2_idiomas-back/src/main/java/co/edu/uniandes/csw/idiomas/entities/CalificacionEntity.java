@@ -24,12 +24,16 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
     private Long id;
     private Integer calificacion;
     private String mensaje;
+    @PodamExclude
     @ManyToOne
-    private ActividadEntity activ;
+    private ActividadEntity actividad;
+    @PodamExclude
     @ManyToOne
-    private AdministradorEntity admin;
+    private AdministradorEntity administrador;
+    @PodamExclude
     @ManyToOne
-    private CoordinadorEntity coord;
+    private CoordinadorEntity coordinador;
+    @PodamExclude
     @ManyToOne
     private GrupoDeInteresEntity grupo;
     @PodamExclude
@@ -79,6 +83,47 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
         this.mensaje = mensaje;
     }
 
+    /**
+     * @return the activ
+     */
+    public ActividadEntity getActividad() {
+        return actividad;
+    }
+
+    /**
+     * @param actividad the actividad to set
+     */
+    public void setActividad(ActividadEntity actividad) {
+        this.actividad = actividad;
+    }
+
+    /**
+     * @return the admin
+     */
+    public AdministradorEntity getAdministrador() {
+        return administrador;
+    }
+
+    /**
+     * @param administrador the administrador to set
+     */
+    public void setAdministrador(AdministradorEntity administrador) {
+        this.administrador = administrador;
+    }
+
+    /**
+     * @return the coordinador
+     */
+    public CoordinadorEntity getCoordinador() {
+        return coordinador;
+    }
+
+    /**
+     * @param coordinador the coordinador to set
+     */
+    public void setCoordinador(CoordinadorEntity coordinador) {
+        this.coordinador = coordinador;
+    }
     
     /**
      * @return the grupo
@@ -111,48 +156,6 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
     public CalificacionEntity()
     {
         // Constructor vacío
-    }
-
-    /**
-     * @return the activ
-     */
-    public ActividadEntity getActiv() {
-        return activ;
-    }
-
-    /**
-     * @param activ the activ to set
-     */
-    public void setActiv(ActividadEntity activ) {
-        this.activ = activ;
-    }
-
-    /**
-     * @return the admin
-     */
-    public AdministradorEntity getAdmin() {
-        return admin;
-    }
-
-    /**
-     * @param admin the admin to set
-     */
-    public void setAdmin(AdministradorEntity admin) {
-        this.admin = admin;
-    }
-
-    /**
-     * @return the coord
-     */
-    public CoordinadorEntity getCoord() {
-        return coord;
-    }
-
-    /**
-     * @param coord the coord to set
-     */
-    public void setCoord(CoordinadorEntity coord) {
-        this.coord = coord;
     }
     
 }

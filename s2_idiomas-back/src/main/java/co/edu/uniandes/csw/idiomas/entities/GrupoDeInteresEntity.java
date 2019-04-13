@@ -40,7 +40,7 @@ public class GrupoDeInteresEntity extends BaseEntity implements Serializable{
      * Atributo que representa las calificaciones de la actividad.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.PERSIST)
     private List<CalificacionGrupoEntity> calificaciones = new ArrayList<>();
     
     /**

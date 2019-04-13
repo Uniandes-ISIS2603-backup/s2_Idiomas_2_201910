@@ -27,7 +27,7 @@ public class AdministradorEntity extends BaseEntity implements Serializable {
      * Atributo que representa las calificaciones de la actividad.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.PERSIST)
     private List<CalificacionAdministradorEntity> calificaciones = new ArrayList<>();
     
     /**

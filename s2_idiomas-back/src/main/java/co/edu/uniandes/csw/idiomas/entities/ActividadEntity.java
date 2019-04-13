@@ -79,7 +79,7 @@ private char subTypeId;
      * Atributo que representa las calificaciones de la actividad.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.PERSIST)
     private List<CalificacionActividadEntity> calificaciones = new ArrayList<>();
     
     /**

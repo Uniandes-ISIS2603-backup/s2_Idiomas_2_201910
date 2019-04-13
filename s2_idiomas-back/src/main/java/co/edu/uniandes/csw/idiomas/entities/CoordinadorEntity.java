@@ -32,7 +32,7 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
      * Atributo que representa las calificaciones de la actividad.
      */
     @PodamExclude
-    @OneToMany(mappedBy = "coordinador", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "coordinador", cascade = CascadeType.PERSIST)
     private List<CalificacionCoordinadorEntity> calificaciones = new ArrayList<>();
     
     /**
