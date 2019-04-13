@@ -15,9 +15,9 @@ import javax.inject.Inject;
  */
 public class CalificacionDTO implements Serializable {
 
-    private Long id;
-    private Integer calificacion;
-    private String mensaje;
+    Long id;
+    Integer calificacion;
+    String mensaje;
     
     public CalificacionDTO()
     {

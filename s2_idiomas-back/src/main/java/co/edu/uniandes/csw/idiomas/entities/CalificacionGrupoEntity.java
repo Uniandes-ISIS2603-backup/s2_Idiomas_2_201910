@@ -17,7 +17,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 @DiscriminatorValue("G")
-public class CalificacionGrupoEntity extends BaseEntity implements Serializable{
+public class CalificacionGrupoEntity extends CalificacionEntity implements Serializable{
     
     /**
      * Atributo que representa los comentarios de la Grupo.
