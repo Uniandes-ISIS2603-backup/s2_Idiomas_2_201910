@@ -76,47 +76,6 @@ public class CalificacionPersistenceTest {
     }
 
     /**
-     * Configuración inicial de la prueba.
-     */
-    @Before
-    public void configTest() {
-        try {
-            utx.begin();
-            em.joinTransaction();
-            clearData();
-            insertData();
-            utx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            try {
-                utx.rollback();
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * Limpia las tablas que están implicadas en la prueba.
-     */
-    private void clearData() {
-        em.createQuery("delete from CalificacionEntity").executeUpdate();
-    }
-
-    /**
-     * Inserta los datos iniciales para el correcto funcionamiento de las
-     * pruebas.
-     */
-    private void insertData() {
-        PodamFactory factory = new PodamFactoryImpl();
-        for (int i = 0; i < 3; i++) {
-            CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
-            em.persist(entity);
-            data.add(entity);
-        }
-    }
-
-    /**
      * Prueba para crear un Calificacion.
      */
     @Test
@@ -129,7 +88,9 @@ public class CalificacionPersistenceTest {
 
         CalificacionEntity entity = em.find(CalificacionEntity.class, result.getId());
 
-        Assert.assertTrue(Objects.equals(newEntity.getCalificacion(), entity.getCalificacion()));
+        Assert.assertEquals(newEntity.getCalificacion(), entity.getCalificacion());
+        Assert.assertEquals(newEntity.getMensaje(), entity.getMensaje());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
     }
 
     /**

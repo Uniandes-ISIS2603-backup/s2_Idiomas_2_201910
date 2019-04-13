@@ -91,7 +91,7 @@ private char subTypeId;
      * Atributo que representa la calificacion de la actividad.
      */
     @PodamExclude
-    @OneToOne
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
     private CalificacionEntity calificacion;
     
     // ------------------------------------------------------------------
