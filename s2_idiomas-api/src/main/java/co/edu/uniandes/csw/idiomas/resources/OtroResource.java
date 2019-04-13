@@ -166,7 +166,7 @@ public class OtroResource {
 
     /**
      * Conexión con el servicio de comentarios para una otro.
-     * {@link ActividadComentarioActividadResourceResource}
+     * {@link ActividadComentarioResourceResource}
      *
      * Este método conecta la ruta de /otros con las rutas de /comentarios que
      * dependen de la otro, es una redirección al servicio que maneja el
@@ -179,11 +179,11 @@ public class OtroResource {
      * Error de lógica que se genera cuando no se encuentra la otro.
      */
     @Path("{otrosId: \\d+}/comentarios")
-    public Class<ComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("otrosId") Long otrosId) {
+    public Class<ComentarioResource> getActividadComentarioResource(@PathParam("otrosId") Long otrosId) {
         if (otroLogic.getOtro(otrosId) == null) {
             throw new WebApplicationException("El recurso /otros/" + otrosId + " no existe.", 404);
         }
-        return ComentarioActividadResource.class;
+        return ComentarioResource.class;
     }
 
     /**

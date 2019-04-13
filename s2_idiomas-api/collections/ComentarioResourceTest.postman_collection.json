@@ -117,7 +117,7 @@
 			"response": []
 		},
 		{
-			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/ComentarioPersona",
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/1",
 			"event": [
 				{
 					"listen": "test",
@@ -154,6 +154,42 @@
 						"s2_idiomas-api",
 						"api",
 						"ComentarioPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"comments",
+						""
 					]
 				}
 			},

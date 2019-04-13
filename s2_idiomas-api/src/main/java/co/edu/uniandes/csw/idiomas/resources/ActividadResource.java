@@ -167,7 +167,7 @@ public class ActividadResource {
 
     /**
      * Conexión con el servicio de comentarios para una actividad.
-     * {@link ActividadComentarioActividadResourceResource}
+     * {@link ActividadComentarioResourceResource}
      *
      * Este método conecta la ruta de /actividades con las rutas de /comentarios que
      * dependen de la actividad, es una redirección al servicio que maneja el
@@ -180,11 +180,11 @@ public class ActividadResource {
      * Error de lógica que se genera cuando no se encuentra la actividad.
      */
     @Path("{actividadesId: \\d+}/comentarios")
-    public Class<ComentarioActividadResource> getActividadComentarioActividadResource(@PathParam("actividadesId") Long actividadesId) {
+    public Class<ComentarioResource> getActividadComentarioResource(@PathParam("actividadesId") Long actividadesId) {
         if (actividadLogic.getActividad(actividadesId) == null) {
             throw new WebApplicationException("El recurso /actividades/" + actividadesId + " no existe.", 404);
         }
-        return ComentarioActividadResource.class;
+        return ComentarioResource.class;
     }
 
     /**

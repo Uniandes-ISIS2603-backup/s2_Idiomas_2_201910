@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.EncuentroEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.EncuentroPersistence;
 import java.util.List;
@@ -189,7 +189,7 @@ public class EncuentroLogic {
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la encuentro con id = {0}", pEncuentrosId);
         // Note que, por medio de la inyección de dependencias se llama al método "delete(id)" que se encuentra en la persistencia.
-        List<ComentarioActividadEntity> comentarios = getEncuentro(pEncuentrosId).getComentarios();
+        List<ComentarioEntity> comentarios = getEncuentro(pEncuentrosId).getComentarios();
         if (comentarios != null && !comentarios.isEmpty()) {
             throw new BusinessLogicException("No se puede borrar la encuentro con id = " + pEncuentrosId + " porque tiene comentarios asociados");
         }

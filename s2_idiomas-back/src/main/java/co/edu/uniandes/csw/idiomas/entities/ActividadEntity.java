@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.entities;
 
+import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.apache.commons.logging.Log;
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 
@@ -71,7 +73,7 @@ private char subTypeId;
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
     
     /**
      * Atributo que representa las calificaciones de la actividad.
@@ -133,14 +135,14 @@ private char subTypeId;
     /**
      * @return the comentarios
      */
-    public List<ComentarioActividadEntity> getComentarios() {
+    public List<ComentarioEntity> getComentarios() {
         return comentarios;
     }
 
     /**
      * @param comentarios the comentarios to set
      */
-    public void setComentarios(List<ComentarioActividadEntity> comentarios) {
+    public void setComentarios(List<ComentarioEntity> comentarios) {
         this.comentarios = comentarios;
     }
     /**

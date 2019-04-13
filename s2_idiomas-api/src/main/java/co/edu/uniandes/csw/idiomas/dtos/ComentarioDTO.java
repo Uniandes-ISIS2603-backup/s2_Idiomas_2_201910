@@ -10,12 +10,12 @@ import java.util.Date;
  */
 public class ComentarioDTO implements Serializable {
 
-
+//a
     private String texto;
     private Date fecha;
     private Long id;
     private String titulo;
-    private char tipo;
+    
 
     /**
      * Constructor de ComentarioActividadDTO
@@ -24,11 +24,10 @@ public class ComentarioDTO implements Serializable {
      */
     public ComentarioDTO(ComentarioEntity entity) {
         if (entity != null) {
+            this.id = entity.getId();
             this.texto = entity.getTexto();
             this.fecha = entity.getFecha();
-            this.id = entity.getId();
             this.titulo = entity.getTitulo();
-            this.tipo = entity.getSubTypeId();
         }
     }
 
@@ -63,19 +62,6 @@ public class ComentarioDTO implements Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-        /**
-     * @return the tipo
-     */
-    public char getTipo() {
-        return tipo;
-    }
-
-    /**
-     * @param tipo the pTipo to set
-     */
-    public void setTipo(char tipo) {
-        this.tipo = tipo;
-    }
 
     /**
      * @return the id
@@ -100,9 +86,9 @@ public class ComentarioDTO implements Serializable {
      */
     public ComentarioEntity toEntity() {
         ComentarioEntity entity = new ComentarioEntity();
+        entity.setId(this.getId());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
-        entity.setId(this.getId());
         entity.setTitulo(this.getTitulo());
         return entity;
     }

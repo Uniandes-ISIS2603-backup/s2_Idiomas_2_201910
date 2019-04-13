@@ -25,6 +25,7 @@ import javax.inject.Inject;
 public class ComentarioLogic {
    @Inject
     private ComentarioPersistence persistence;
+   
    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
    private static final Logger LOGGER = Logger.getLogger(ComentarioLogic.class.getName());
@@ -74,9 +75,6 @@ public class ComentarioLogic {
         LOGGER.log(Level.INFO, "Termina proceso de borrar la comentario con id = {0}", commentId);
     }
     
-    public ComentarioEntity getComment(Long comentarioId){
-        return persistence.find(comentarioId);
-    }
     
     /**
      *
