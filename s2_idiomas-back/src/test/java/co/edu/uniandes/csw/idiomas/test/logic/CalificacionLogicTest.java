@@ -29,7 +29,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author jd.ruedaa
  */
 @RunWith(Arquillian.class)
-public class CalificacionTest {
+public class CalificacionLogicTest {
 
     @Inject
     private CalificacionLogic calificacionLogic;
