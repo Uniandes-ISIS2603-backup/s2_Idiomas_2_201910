@@ -508,7 +508,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad/{{new_id_a}}",
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad/{{new_id_c1}}",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -518,7 +518,7 @@
 						"s2_idiomas-api",
 						"api",
 						"actividad",
-						"{{new_id_a}}"
+						"{{new_id_c1}}"
 					]
 				},
 				"description": "Borra una actividad. Se envía el id de la actividad creado anteriormente.\n\n**Código HTTP esperado: 204**"
@@ -547,7 +547,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat/{{new_id_a2}}",
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/chat/{{new_id_c2}}",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -557,7 +557,7 @@
 						"s2_idiomas-api",
 						"api",
 						"chat",
-						"{{new_id_a2}}"
+						"{{new_id_c2}}"
 					]
 				},
 				"description": "Borra una actividad. Se envía el id de la actividad creado anteriormente.\n\n**Código HTTP esperado: 204**"
