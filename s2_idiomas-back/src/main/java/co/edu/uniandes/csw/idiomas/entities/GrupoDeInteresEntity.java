@@ -6,11 +6,13 @@
 package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 
 /**
  *
  * @author estudiante
  */
+@Entity
 public class GrupoDeInteresEntity extends BaseEntity implements Serializable{
     /**
      * idioma del grupo
