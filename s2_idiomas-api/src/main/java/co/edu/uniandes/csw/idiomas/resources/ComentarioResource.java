@@ -114,7 +114,7 @@ public class ComentarioResource {
     @GET
     @Path("{ComentariosId: \\d+}")
     public ComentarioDetailDTO getComentario(@PathParam("ComentariosId") Long ComentariosId) {
-        LOGGER.log(Level.INFO, "ComentarioResource getComentario: input: {0}", ComentariosId);
+        LOGGER.log(Level.INFO, "ComentarioResource getComentario: input: {0}", ComentariosId );
         ComentarioEntity comentarioEntity = ComentarioLogic.getComentario(ComentariosId);
         comentarioEntity.setId(ComentariosId);
         LOGGER.log(Level.INFO, "ComentarioResource Tiene id: input: {0}", comentarioEntity.getId());

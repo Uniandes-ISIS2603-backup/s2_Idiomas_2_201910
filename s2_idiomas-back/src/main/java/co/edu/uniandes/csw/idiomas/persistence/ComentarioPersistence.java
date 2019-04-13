@@ -40,9 +40,10 @@ public class ComentarioPersistence {
     }
 
     public List<ComentarioEntity> findAll() {
-        TypedQuery<ComentarioEntity> query = em.createQuery("select ID from COMENTARIOENTITY WHERE TITULO = 'MUNDO'", ComentarioEntity.class);
-         LOGGER.log(Level.INFO, "Consultando todos los comentarios: " + query.getResultList().get(0));
-         System.out.println("Consultando todos los comentarios: " + query.getResultList().get(0).getAutor());
+        LOGGER.log(Level.INFO, "Consultando todas las actividades");
+        // Se crea un query para buscar todos los comentarios en la base de datos.
+        TypedQuery query = em.createQuery("select u from ComentarioEntity u", ComentarioEntity.class);
+        // Se hace uso del método getResultList() que obtiene una lista de actividades.
         return query.getResultList();
     }
 

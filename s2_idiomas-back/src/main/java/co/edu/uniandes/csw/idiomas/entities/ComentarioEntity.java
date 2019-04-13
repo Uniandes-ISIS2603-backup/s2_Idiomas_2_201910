@@ -31,7 +31,6 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
-    
     private Date fecha;
 
     @PodamExclude
@@ -137,6 +136,7 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     public void setCalificaciones(CalificacionEntity calificaciones) {
         this.calificaciones = calificaciones;
     }
+    
     
 
     /**
