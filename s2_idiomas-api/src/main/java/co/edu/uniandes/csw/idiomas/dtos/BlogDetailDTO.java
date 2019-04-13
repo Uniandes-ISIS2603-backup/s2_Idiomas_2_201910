@@ -21,7 +21,7 @@ public class BlogDetailDTO extends BlogDTO implements Serializable {
     /**
      *@return comentarios del blog
     */
-    public List<ComentarioDTO> getComentarioBlog() {
+    public List<ComentarioDTO> getComentario() {
         return comentarioBlog;
     }
 
@@ -29,7 +29,7 @@ public class BlogDetailDTO extends BlogDTO implements Serializable {
      * Cambia los comentarios del blog
      * @param comentarioBlog del Blog
      */
-    public void setComentarioBlog(List<ComentarioDTO> comentarioBlog) {
+    public void setComentario(List<ComentarioDTO> comentarioBlog) {
         this.comentarioBlog = comentarioBlog;
     }
     

@@ -166,7 +166,7 @@ public class EstadiaResource {
 
     /**
      * Conexión con el servicio de comentarios para una estadia.
-     * {@link ActividadComentarioActividadResource}
+     * {@link ActividadComentarioResource}
      *
      * Este método conecta la ruta de /estadias con las rutas de /comentarios que
      * dependen de la estadia, es una redirección al servicio que maneja el
@@ -179,7 +179,7 @@ public class EstadiaResource {
      * Error de lógica que se genera cuando no se encuentra la estadia.
      */
     @Path("{estadiasId: \\d+}/comentarios")
-    public Class<ComentarioResource> getActividadComentarioActividadResource(@PathParam("estadiasId") Long estadiasId) {
+    public Class<ComentarioResource> getActividadComentarioResource(@PathParam("estadiasId") Long estadiasId) {
         if (estadiaLogic.getEstadia(estadiasId) == null) {
             throw new WebApplicationException("El recurso /estadias/" + estadiasId + " no existe.", 404);
         }
