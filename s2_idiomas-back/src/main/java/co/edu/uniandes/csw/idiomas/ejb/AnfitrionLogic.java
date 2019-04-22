@@ -36,6 +36,16 @@ public class AnfitrionLogic
      */
     public AnfitrionEntity createAnfitrion(AnfitrionEntity anfitrionEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la anfitrion");
+         // Verifica la regla de negocio que dice que no puede haber un anfitrion con el nombre vacio
+        if(anfitrionEntity.getNombre().compareTo("")==0)
+        {
+            throw new BusinessLogicException("El Anfitrion no tiene nombre");
+        }
+        // Verifica la regla de negocio que dice que no puede haber un anfitrion con contraseña vacio
+        else if(anfitrionEntity.getContrasenia()==null)
+        {
+            throw new BusinessLogicException("El Anfitrion no tiene contraseña");
+        }
         // Verifica la regla de negocio que dice que no puede haber dos anfitrion con el mismo nombre
         if (persistence.findByName(anfitrionEntity.getNombre()) != null) {
             throw new BusinessLogicException("Ya existe una Anfitrion con el nombre \"" + anfitrionEntity.getNombre() + "\"");
@@ -88,9 +98,28 @@ public class AnfitrionLogic
      * por ejemplo el nombre.
      * @return la anfitrion con los cambios actualizados en la base de datos.
      */
-    public AnfitrionEntity updateAnfitrion(Long anfitrionId, AnfitrionEntity anfitrionEntity) {
+    public AnfitrionEntity updateAnfitrion(Long anfitrionId, AnfitrionEntity anfitrionEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la anfitrion con id = {0}", anfitrionId);
-        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
+        //verifica que el Anfitrion que se va a actualizar existe
+        AnfitrionEntity eanfitrionEntity = persistence.find(anfitrionId);
+        if (eanfitrionEntity == null) {
+            throw new BusinessLogicException( "La anfitrion con el id = {0} no existe" + anfitrionId);
+        }
+         // Verifica la regla de negocio que dice que no puede haber un anfitrion con el nombre vacio
+        else if(anfitrionEntity.getNombre().compareTo("")==0)
+        {
+            throw new BusinessLogicException("El Anfitrion no tiene nombre");
+        }
+        // Verifica la regla de negocio que dice que no puede haber un anfitrion con contraseña vacio
+        else if(anfitrionEntity.getContrasenia()==null)
+        {
+            throw new BusinessLogicException("El Anfitrion no tiene contraseña");
+        }
+        // Verifica la regla de negocio que dice que no puede haber dos anfitrion con el mismo nombre
+        else if (persistence.findByName(anfitrionEntity.getNombre()) != null) {
+            throw new BusinessLogicException("Ya existe una Anfitrion con el nombre \"" + anfitrionEntity.getNombre() + "\"");
+        }
+        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.       
         AnfitrionEntity newEntity = persistence.update(anfitrionEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la anfitrion con id = {0}", anfitrionEntity.getId());
         return newEntity;
@@ -103,7 +132,11 @@ public class AnfitrionLogic
      * @throws BusinessLogicException Si la anfitrion a eliminar tiene libros.
      */
     public void deleteAnfitrion(Long anfitrionId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar la anfitrion con id = {0}", anfitrionId);        
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar la anfitrion con id = {0}", anfitrionId);     
+        if(persistence.find(anfitrionId)== null)
+        {
+            throw new BusinessLogicException("el anfitrion no existe");
+        }
         persistence.delete(anfitrionId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la anfitrion con id = {0}", anfitrionId);
     }

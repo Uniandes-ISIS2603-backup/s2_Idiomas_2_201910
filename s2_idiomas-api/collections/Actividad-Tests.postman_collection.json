@@ -33,7 +33,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\"\n}"
+					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\"\n}"
 				},
 				"url": {
 					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad",
@@ -58,7 +58,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "edca8864-fbb2-420c-a95d-fe433ad517cc",
+						"id": "694741e6-4794-48fd-b32b-d790963ac9b0",
 						"exec": [
 							"var data = JSON.parse(responseBody);",
 							"postman.setGlobalVariable(\"new_id_a2\",data.id);",
@@ -79,7 +79,95 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nombre\": \"El nombre2\",\n    \"descripcion\": \"La descripcion2\",\n    \"motivacion\": \"La motivacion2\"\n}"
+					"raw": "{\n\t\"nombre\": \"El nombre2\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion2\",\n    \"motivacion\": \"La motivacion\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"actividad"
+					]
+				},
+				"description": "Crea un nuevo actividad. El Id es inicializado por la BD y se debe ver en la respuesta.\r\nPara la prueba, se guarda el id en una variable que será utilizada en otras peticiones de la colección.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una actividad Nombre Invalido 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "694741e6-4794-48fd-b32b-d790963ac9b0",
+						"exec": [
+							"tests[\"No se crea con nombre inválido\"] = responseCode.code == 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El nombre es inválido.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"\",\n\t\"fecha\": \"1966-07-22T00:00:00-05:00\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"actividad"
+					]
+				},
+				"description": "Crea un nuevo actividad. El Id es inicializado por la BD y se debe ver en la respuesta.\r\nPara la prueba, se guarda el id en una variable que será utilizada en otras peticiones de la colección.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una actividad ya existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "edca8864-fbb2-420c-a95d-fe433ad517cc",
+						"exec": [
+							"tests[\"No crea con el mismo nombre\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"La actividad ya existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\"\n}"
 				},
 				"url": {
 					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad",
@@ -245,6 +333,51 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"descripcion\": \"La descripcion\",\n    \"fecha\": \"1966-07-22T00:00:00Z[UTC]\",\n    \"motivacion\": \"La motivaciono\",\n    \"nombre\": \"El nombre\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad/{{new_id_a}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"actividad",
+						"{{new_id_a}}"
+					]
+				},
+				"description": "Actualiza una actividad existente. \r\nse envía el Id en la URL de la petición.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "Editar una actividad nombre inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68dc8b6c-6d16-40b8-8f51-b61db7113074",
+						"exec": [
+							"tests[\"No se crea con nombre inválido\"] = responseCode.code == 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El nombre es inválido.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"La descripcion\",\n    \"fecha\": \"1966-07-22T00:00:00Z[UTC]\",\n    \"motivacion\": \"La motivaciono\",\n    \"nombre\": \"\"\n}"
 				},
 				"url": {
 					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad/{{new_id_a}}",

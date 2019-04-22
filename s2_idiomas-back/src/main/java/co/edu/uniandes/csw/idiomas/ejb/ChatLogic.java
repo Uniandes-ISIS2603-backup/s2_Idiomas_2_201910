@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.ejb;
 
 import co.edu.uniandes.csw.idiomas.entities.ChatEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ChatPersistence;
 import java.util.List;
@@ -66,7 +66,8 @@ public class ChatLogic {
         }
         // Verifica la regla de negocio que dice que una chat no puede ser idéntica a otra chat.
         if (persistence.findByName(chatEntity.getNombre()) != null
-                && persistence.findByName(chatEntity.getNombre()).equals(chatEntity)) {
+                /*&& persistence.findByName(chatEntity.getNombre()).equals(chatEntity)*/) 
+        {
             throw new BusinessLogicException("La chat ya existe.");
         }
         // Invoca la persistencia para crear la chat
@@ -155,7 +156,7 @@ public class ChatLogic {
     public void deleteChat(Long pChatsId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la chat con id = {0}", pChatsId);
         // Note que, por medio de la inyección de dependencias se llama al método "delete(id)" que se encuentra en la persistencia.
-        List<ComentarioActividadEntity> comentarios = getChat(pChatsId).getComentarios();
+        List<ComentarioEntity> comentarios = getChat(pChatsId).getComentarios();
         if (comentarios != null && !comentarios.isEmpty()) {
             throw new BusinessLogicException("No se puede borrar la chat con id = " + pChatsId + " porque tiene comentarios asociados");
         }

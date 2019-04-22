@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.idiomas.test.logic;
 import co.edu.uniandes.csw.idiomas.ejb.ActividadLogic;
 import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence;
@@ -112,7 +112,7 @@ public class ActividadLogicTest {
      */
     private void clearData() {
         em.createQuery("delete from UsuarioEntity").executeUpdate();
-        em.createQuery("delete from ComentarioActividadEntity").executeUpdate();
+        em.createQuery("delete from ComentarioEntity").executeUpdate();
         em.createQuery("delete from ActividadEntity").executeUpdate();
         em.createQuery("delete from CoordinadorEntity").executeUpdate();
     }
@@ -136,7 +136,7 @@ public class ActividadLogicTest {
             // TODO : GC Poner calificación
             data.add(entity);
         }
-        ComentarioActividadEntity comentario = factory.manufacturePojo(ComentarioActividadEntity.class);
+        ComentarioEntity comentario = factory.manufacturePojo(ComentarioEntity.class);
         comentario.setActividad(data.get(1));
         em.persist(comentario);
         data.get(1).getComentarios().add(comentario);
@@ -250,9 +250,9 @@ public class ActividadLogicTest {
         ActividadEntity resp = em.find(ActividadEntity.class, entity.getId());
 
         Assert.assertEquals(resp.getId(), entity.getId());
-//        Assert.assertEquals(resp.getNombre(), entity.getNombre());
-//        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
-//        Assert.assertEquals(resp.getFecha(), entity.getFecha());
+        Assert.assertEquals(resp.getNombre(), entity.getNombre());
+        Assert.assertEquals(resp.getDescripcion(), entity.getDescripcion());
+        Assert.assertEquals(resp.getFecha(), entity.getFecha());
     }
     
     /**

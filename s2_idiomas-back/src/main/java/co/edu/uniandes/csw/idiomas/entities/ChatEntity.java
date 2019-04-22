@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.idiomas.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -15,6 +16,7 @@ import javax.persistence.Entity;
  * @author g.cubillosb
  */
 @Entity
+@DiscriminatorValue("C")
 public class ChatEntity extends ActividadEntity implements Serializable{
     
     // -------------------------------------------------------------------
@@ -59,7 +61,7 @@ public class ChatEntity extends ActividadEntity implements Serializable{
             return false;
         }
         ChatEntity fobj = (ChatEntity) obj;
-        return medio.equals(fobj.getMedio());
+        return getMedio().equals(fobj.getMedio());
     }
 
     @Override

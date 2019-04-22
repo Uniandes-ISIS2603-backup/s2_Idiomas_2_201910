@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "da2d4c33-b918-464c-8ec4-014c9131c1b0",
+		"name": "ComentarioResourceTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e295c063-0107-4717-acc3-c520370696e7",
+						"exec": [
+							"tests[\"No genera error en el post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"texto\": \"ab\",\n\t\"fecha\": \"2012-04-23T18:25:43.511Z\",\n\t\"id\":1205\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"texto\": \"a\",\n\t\"fecha\": \"2012-04-23T18:25:43.511Z\",\n\t\"id\": 0512\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/1",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07a31677-b76b-457d-b743-1ec6f657c710",
+						"exec": [
+							"tests[\"No genera error en el delete\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"texto\": \"a\",\n\t\"fecha\": \"2012-04-23T18:25:43.511Z\",\n\t\"id\": 3\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/ComentarioPersona",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"ComentarioPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/comments/",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

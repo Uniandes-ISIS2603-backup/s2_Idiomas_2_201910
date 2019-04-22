@@ -22,7 +22,7 @@ public class CalificacionLogic {
     private CalificacionPersistence calificacionPersistence;
     
       /**
-     * Se encarga de crear un Calificafion en la base de datos.
+     * Se encarga de crear una Calificafion en la base de datos.
      *
      * @param calificacionEntity Objeto de CalificacionEntity con los datos nuevos
      * @return Objeto de CalificacionEntity con los datos nuevos y su ID.
@@ -33,10 +33,10 @@ public class CalificacionLogic {
         CalificacionEntity newCalificacionEntity = calificacionPersistence.create(calificacionEntity);
         if(newCalificacionEntity != null)
         {
-            if (newCalificacionEntity.getCalificacion() != (Integer) newCalificacionEntity.getCalificacion())
+            if (newCalificacionEntity.getCalificacion().equals((Integer)newCalificacionEntity.getCalificacion()))
             {
+            } else {
                 throw new BusinessLogicException("La calificación no es entera");
-                
             }
             if (newCalificacionEntity.getCalificacion() < 0 || newCalificacionEntity.getCalificacion() > 5)
             {
@@ -48,7 +48,6 @@ public class CalificacionLogic {
                 if(newCalificacionEntity.getMensaje().length() > 300)
                 {
                     throw new BusinessLogicException("El mensaje supera el número de caracteres permitidos");
-                    
                 }
                 
             }
@@ -93,15 +92,16 @@ public class CalificacionLogic {
      * @return Instancia de CalificafionEntity con los datos actualizados.
      * @throws co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException
      */
-    public CalificacionEntity updateCalificafion(Long calificacionId, CalificacionEntity newCalificacionEntity) throws BusinessLogicException {
+    public CalificacionEntity updateCalificacion(Long calificacionId, CalificacionEntity newCalificacionEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el autor con id = {0}", calificacionId);
          if(calificacionPersistence.find(calificacionId) != null)
         {
-            if (newCalificacionEntity.getCalificacion() != (Integer) newCalificacionEntity.getCalificacion())
+            if (newCalificacionEntity.getCalificacion().equals((Integer)newCalificacionEntity.getCalificacion()))
             {
-                throw new BusinessLogicException("La calificación no es entera");
-                
             }
+                else{
+                        throw new BusinessLogicException("La calificación no es entera");
+                    }
             if (newCalificacionEntity.getCalificacion() < 0 || newCalificacionEntity.getCalificacion() > 5)
             {
                 throw new BusinessLogicException("La calificación no se encuentra entre 0 y 5");
@@ -128,7 +128,7 @@ public class CalificacionLogic {
      * @param calificacionId Identificador de la instancia a eliminar.
      * @throws BusinessLogicException si el autor tiene libros asociados.
      */
-    public void deleteCalificafion(Long calificacionId) throws BusinessLogicException {
+    public void deleteCalificacion(Long calificacionId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el autor con id = {0}", calificacionId);
         calificacionPersistence.delete(calificacionId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el autor con id = {0}", calificacionId);

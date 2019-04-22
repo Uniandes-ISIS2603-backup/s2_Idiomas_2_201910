@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
 
     private PersonaDTO autor;
+    
 
     public ComentarioDetailDTO(ComentarioEntity entity) {
         super(entity);
@@ -37,7 +38,6 @@ public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
     /**
      * @return the autor
      */
-    @Override
     public PersonaDTO getAutor() {
         return autor;
     }
@@ -45,7 +45,6 @@ public class ComentarioDetailDTO extends ComentarioDTO implements Serializable {
     /**
      * @param autor the autor to set
      */
-    @Override
     public void setAutor(PersonaDTO autor) {
         this.autor = autor;
     }

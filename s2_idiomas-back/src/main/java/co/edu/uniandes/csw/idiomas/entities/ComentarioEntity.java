@@ -11,7 +11,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.TemporalType;  
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 
@@ -20,18 +20,33 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author se.gamboa
  */
 @Entity
+
+
+
+
 public class ComentarioEntity extends BaseEntity implements Serializable {
 
     private String texto;
+    private String titulo;
 
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
+    
     private Date fecha;
 
     @PodamExclude
     @ManyToOne
     private PersonaEntity autor;
 
+    
+    @PodamExclude
+    @ManyToOne
+    private ActividadEntity actividad;
+    
+    @PodamExclude
+    @ManyToOne
+    private CalificacionEntity calificaciones;
+    
     /**
      * Constructor vacío de ComentarioEntity.
      */
@@ -80,6 +95,49 @@ public class ComentarioEntity extends BaseEntity implements Serializable {
     public void setAutor(PersonaEntity autor) {
         this.autor = autor;
     }
+
+    /**
+     * @return the titulo
+     */
+    public String getTitulo() {
+        return titulo;
+    }
+
+    /**
+     * @param titulo the titulo to set
+     */
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    /**
+     * @return the actividad
+     */
+    public ActividadEntity getActividad() {
+        return actividad;
+    }
+
+    /**
+     * @param actividad the actividad to set
+     */
+    public void setActividad(ActividadEntity actividad) {
+        this.actividad = actividad;
+    }
+    
+    /**
+     * @return the calificaciones
+     */
+    public CalificacionEntity getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(CalificacionEntity calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+    
 
     /**
      * @return the comments

@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioCalificacionEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  * @author jdruedaa
  */
 public class CalificacionDetailDTO extends CalificacionDTO implements Serializable {
-    private List<ComentarioCalificacionDTO> comentarios;
+    private List<ComentarioDTO> comentarios;
     
     public CalificacionDetailDTO()
     {
@@ -36,14 +36,14 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
     /**
      * @return the comentarios
      */
-    public List<ComentarioCalificacionDTO> getComentarios() {
+    public List<ComentarioDTO> getComentarios() {
         return comentarios;
     }
 
     /**
      * @param comentarios the comentarios to set
      */
-    public void setComentarios(List<ComentarioCalificacionDTO> comentarios) {
+    public void setComentarios(List<ComentarioDTO> comentarios) {
         this.comentarios = comentarios;
     }
     
@@ -53,14 +53,13 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
         CalificacionEntity cal = super.toEntity();
         if(comentarios != null)
         {
-            List<ComentarioCalificacionEntity> comentariosEntity = new ArrayList<>();
-            for(ComentarioCalificacionDTO dtoComentario : comentarios)
+            List<ComentarioEntity> comentariosEntity = new ArrayList<>();
+            for(ComentarioDTO dtoComentario : comentarios)
             {
                 comentariosEntity.add(dtoComentario.toEntity());
             }
             cal.setComentarios(comentariosEntity);
         }
-//        cal.setComentariosEntity(comentariosEntity);
         return cal;
     }
 }

@@ -10,24 +10,12 @@ import java.util.Date;
  */
 public class ComentarioDTO implements Serializable {
 
-    /**
-     * @return the autor
-     */
-    public PersonaDTO getAutor() {
-        return autor;
-    }
-
-    /**
-     * @param autor the autor to set
-     */
-    public void setAutor(PersonaDTO autor) {
-        this.autor = autor;
-    }
-
+//a
     private String texto;
     private Date fecha;
     private Long id;
-    private PersonaDTO autor;
+    private String titulo;
+    
 
     /**
      * Constructor de ComentarioActividadDTO
@@ -36,15 +24,15 @@ public class ComentarioDTO implements Serializable {
      */
     public ComentarioDTO(ComentarioEntity entity) {
         if (entity != null) {
+            this.id = entity.getId();
             this.texto = entity.getTexto();
             this.fecha = entity.getFecha();
-            this.id = entity.getId();
-            this.autor = new PersonaDTO(entity.getAutor());
+            this.titulo = entity.getTitulo();
         }
     }
-    
-    public ComentarioDTO(){
-        
+
+    public ComentarioDTO() {
+
     }
 
     /**
@@ -88,6 +76,8 @@ public class ComentarioDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    
 
     /**
      * Convierte un objeto DTO a una Entidad.
@@ -96,11 +86,25 @@ public class ComentarioDTO implements Serializable {
      */
     public ComentarioEntity toEntity() {
         ComentarioEntity entity = new ComentarioEntity();
+        entity.setId(this.getId());
         entity.setFecha(this.getFecha());
         entity.setTexto(this.getTexto());
-        entity.setId(this.getId());
-        entity.setAutor(this.getAutor().toEntity());
+        entity.setTitulo(this.getTitulo());
         return entity;
+    }
+
+    /**
+     * @return the titulo
+     */
+    public String getTitulo() {
+        return titulo;
+    }
+
+    /**
+     * @param titulo the titulo to set
+     */
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
 }

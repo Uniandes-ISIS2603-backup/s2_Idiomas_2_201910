@@ -24,7 +24,7 @@ public class GrupoDeInteresDetailDTO extends GrupoDeInteresDTO implements Serial
     /**
      * lista de comentarioDTO que contiene los comentarios del grupo
      */
-    private List<ComentarioGrupoDTO> comentariosGrupo;
+    private List<ComentarioDTO> comentariosGrupo;
     
     /**
      * constructor vacio
@@ -37,13 +37,13 @@ public class GrupoDeInteresDetailDTO extends GrupoDeInteresDTO implements Serial
     /**
      * @return comentarios del grupo
     */
-    public List<ComentarioGrupoDTO> getComentariosGrupo() {
+    public List<ComentarioDTO> getComentariosGrupo() {
         return comentariosGrupo;
     }
     /**
      * @param comentarios del grupo
     */
-    public void setComentariosGrupo(List<ComentarioGrupoDTO> comentariosGrupo) {
+    public void setComentariosGrupo(List<ComentarioDTO> comentariosGrupo) {
         this.comentariosGrupo = comentariosGrupo;
     }
     

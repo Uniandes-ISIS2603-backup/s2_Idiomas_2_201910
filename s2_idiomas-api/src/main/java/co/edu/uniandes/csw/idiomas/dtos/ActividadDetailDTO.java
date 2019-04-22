@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -31,10 +31,10 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     private List<UsuarioDTO> asistentes;
     
     /**
-     * Lista de tipo ComentarioActividadDTO contiene los comentarios que están
+     * Lista de tipo ComentarioDTO contiene los comentarios que están
      * asociados con esta actividad.
      */
-    private List<ComentarioActividadDTO> comentarioA;
+    private List<ComentarioDTO> comentarioA;
     
     // ------------------------------------------------------------------------
     // Constructor
@@ -68,9 +68,9 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
         if (actividadEntity.getComentarios() != null)
         {
             comentarioA = new ArrayList();
-            for (ComentarioActividadEntity entityComentarios : actividadEntity.getComentarios())
+            for (ComentarioEntity entityComentarios : actividadEntity.getComentarios())
             {
-                comentarioA.add(new ComentarioActividadDTO(entityComentarios));
+                comentarioA.add(new ComentarioDTO(entityComentarios));
             }
         }
     }
@@ -97,8 +97,8 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
             actividadEntity.setAsistentes(usuarioEntity);
         }
         if (comentarioA != null) {
-            List<ComentarioActividadEntity> comentariosEntity = new ArrayList<>();
-            for (ComentarioActividadDTO dtoComentario : comentarioA) {
+            List<ComentarioEntity> comentariosEntity = new ArrayList<>();
+            for (ComentarioDTO dtoComentario : comentarioA) {
                 comentariosEntity.add(dtoComentario.toEntity());
             }
             actividadEntity.setComentarios(comentariosEntity);
@@ -123,14 +123,14 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     /**
      * @return the comentarioA
      */
-    public List<ComentarioActividadDTO> getComentarioA() {
+    public List<ComentarioDTO> getComentarioA() {
         return comentarioA;
     }
 
     /**
      * @param comentarioA the comentarioA to set
      */
-    public void setComentarioA(List<ComentarioActividadDTO> comentarioA) {
+    public void setComentarioA(List<ComentarioDTO> comentarioA) {
         this.comentarioA = comentarioA;
     }
     

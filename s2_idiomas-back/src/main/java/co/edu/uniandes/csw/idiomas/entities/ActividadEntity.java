@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.entities;
 
+import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.podam.DateStrategy;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,12 +13,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.apache.commons.logging.Log;
 import uk.co.jemos.podam.common.PodamExclude;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 
@@ -27,6 +35,9 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
  * @author g.cubillosb
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "typeActivity", discriminatorType = DiscriminatorType.CHAR)
+@DiscriminatorValue("A")
 public class ActividadEntity extends BaseEntity implements Serializable{
     
     // -------------------------------------------------------------------
@@ -38,6 +49,8 @@ public class ActividadEntity extends BaseEntity implements Serializable{
      */
     private String nombre;
     
+    @Column(name="typeActivity", insertable = false, updatable = false)
+private char subTypeId;
     /**
      * Atributo que representa la fecha de la actividad.
      */
@@ -60,7 +73,7 @@ public class ActividadEntity extends BaseEntity implements Serializable{
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
-    private List<ComentarioActividadEntity> comentarios = new ArrayList<>();
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
     
     /**
      * Atributo que representa los asistentes de la actividad.
@@ -122,14 +135,14 @@ public class ActividadEntity extends BaseEntity implements Serializable{
     /**
      * @return the comentarios
      */
-    public List<ComentarioActividadEntity> getComentarios() {
+    public List<ComentarioEntity> getComentarios() {
         return comentarios;
     }
 
     /**
      * @param comentarios the comentarios to set
      */
-    public void setComentarios(List<ComentarioActividadEntity> comentarios) {
+    public void setComentarios(List<ComentarioEntity> comentarios) {
         this.comentarios = comentarios;
     }
 
@@ -214,19 +227,33 @@ public class ActividadEntity extends BaseEntity implements Serializable{
             return false;
         }
         ActividadEntity fobj = (ActividadEntity) obj;
-        return descripcion.equals(fobj.getDescripcion()) && fecha.equals(fobj.getFecha())
-                && motivacion.equals(fobj.getMotivacion())
-                && nombre.equals(fobj.getNombre());
+        return this.getDescripcion().equals(fobj.getDescripcion()) && this.getFecha().equals(fobj.getFecha())
+                && this.getMotivacion().equals(fobj.getMotivacion())
+                && this.getNombre().equals(fobj.getNombre());
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.nombre);
-        hash = 97 * hash + Objects.hashCode(this.fecha);
-        hash = 97 * hash + Objects.hashCode(this.descripcion);
-        hash = 97 * hash + Objects.hashCode(this.motivacion);
+        hash = 97 * hash + Objects.hashCode(this.getNombre());
+        hash = 97 * hash + Objects.hashCode(this.getFecha());
+        hash = 97 * hash + Objects.hashCode(this.getDescripcion());
+        hash = 97 * hash + Objects.hashCode(this.getMotivacion());
         return hash;
+    }
+
+    /**
+     * @return the subTypeId
+     */
+    public char getSubTypeId() {
+        return subTypeId;
+    }
+
+    /**
+     * @param subTypeId the subTypeId to set
+     */
+    public void setSubTypeId(char subTypeId) {
+        this.subTypeId = subTypeId;
     }
     
 }

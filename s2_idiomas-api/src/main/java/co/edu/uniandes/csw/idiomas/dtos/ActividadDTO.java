@@ -51,6 +51,11 @@ public class ActividadDTO implements Serializable{
      */
     private CalificacionDTO calificacion;
     
+    /**
+     * Atributo que contiene el tipo
+     */
+    private char pTipo;
+    
     // -----------------------------------------------------------------------
     // Constructor
     // -----------------------------------------------------------------------
@@ -73,18 +78,20 @@ public class ActividadDTO implements Serializable{
     {
         if (pActividadEntity != null) 
         {
+            this.id = pActividadEntity.getId();
             this.descripcion = pActividadEntity.getDescripcion();
             this.fecha = pActividadEntity.getFecha();
             this.motivacion = pActividadEntity.getMotivacion();
             this.nombre = pActividadEntity.getNombre();
-            if (pActividadEntity.getCalificacion() != null)
-            {
-                this.calificacion = new CalificacionDTO(pActividadEntity.getCalificacion());
-            }
-            else
-            {
-                this.calificacion = null;
-            }
+//            if (pActividadEntity.getCalificacion() != null)
+//            {
+//                this.calificacion = new CalificacionDTO(pActividadEntity.getCalificacion());
+//            }
+//            else
+//            {
+//                this.calificacion = null;
+//            }
+            this.pTipo = pActividadEntity.getSubTypeId();
         }
     }
             
@@ -192,6 +199,20 @@ public class ActividadDTO implements Serializable{
      */
     public Date getFecha() {
         return fecha;
+    }
+
+    /**
+     * @return the pTipo
+     */
+    public char getpTipo() {
+        return pTipo;
+    }
+
+    /**
+     * @param pTipo the pTipo to set
+     */
+    public void setpTipo(char pTipo) {
+        this.pTipo = pTipo;
     }
     
     

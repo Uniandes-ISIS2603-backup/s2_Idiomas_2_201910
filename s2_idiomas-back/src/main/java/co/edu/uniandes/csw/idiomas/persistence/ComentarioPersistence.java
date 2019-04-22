@@ -33,11 +33,16 @@ public class ComentarioPersistence {
     }
 
     public ComentarioEntity find(Long commentsID) {
+        LOGGER.log(Level.INFO, "{0}", em.find(ComentarioEntity.class, commentsID).getId());
         return em.find(ComentarioEntity.class, commentsID);
+        
+        
     }
 
     public List<ComentarioEntity> findAll() {
-        TypedQuery<ComentarioEntity> query = em.createQuery("select u from ComentarioEntity u", ComentarioEntity.class);
+        TypedQuery<ComentarioEntity> query = em.createQuery("select ID from COMENTARIOENTITY WHERE TITULO = 'MUNDO'", ComentarioEntity.class);
+         LOGGER.log(Level.INFO, "Consultando todos los comentarios: " + query.getResultList().get(0));
+         System.out.println("Consultando todos los comentarios: " + query.getResultList().get(0).getAutor());
         return query.getResultList();
     }
 
@@ -45,5 +50,23 @@ public class ComentarioPersistence {
         LOGGER.log(Level.INFO, "Borrando el libro con id={0}", commentId);
         ComentarioEntity comentarioEntity = em.find(ComentarioEntity.class, commentId);
         em.remove(comentarioEntity);
+    }
+    
+        /**
+     * Actualiza una Comentario.
+     *
+     * @param pComentarioEntity: la Comentario que viene con los nuevos cambios.
+     * Por ejemplo el nombre pudo cambiar. En ese caso, se haria uso del método
+     * update.
+     * @return una Comentario con los cambios aplicados.
+     */
+    public ComentarioEntity update(ComentarioEntity pComentarioEntity) {
+        LOGGER.log(Level.INFO, "Actualizando Comentario con id = {0}", pComentarioEntity.getId());
+        /* Note que hacemos uso de un método propio del EntityManager llamado merge() que recibe como argumento
+        la Comentario con los cambios, esto es similar a 
+        "UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;" en SQL.
+         */
+        LOGGER.log(Level.INFO, "Saliendo de actualizar la Comentario con id = {0}", pComentarioEntity.getId());
+        return em.merge(pComentarioEntity);
     }
 }
