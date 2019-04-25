@@ -8,7 +8,11 @@ package co.edu.uniandes.csw.idiomas.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -17,7 +21,9 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author j.barbosaj
  */
 @Entity
-public class UsuarioEntity extends BaseEntity implements Serializable{
+public class UsuarioEntity  implements Serializable{
+    
+
     
     private Long contrasenia;
     private String nombre;
@@ -42,7 +48,7 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     
     @PodamExclude
     @ManyToMany
-    private List<EstadiaEntity> estadias = new ArrayList<>();
+    private List<EstadiaEntity> estadias = new ArrayList<>();    
     
     /**
      * Connstructor vacio de un Entity
@@ -50,7 +56,6 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     public UsuarioEntity()
     {
         //contructor vacio
-
     }
     
     /**
@@ -98,5 +103,30 @@ public class UsuarioEntity extends BaseEntity implements Serializable{
     public void setEstadias(List<EstadiaEntity> estadias) {
         this.estadias = estadias;
     }
+
     
+    
+   
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
+
+    @Override
+    public int hashCode() {
+        if (this.getId() != null) {
+            return this.getId().hashCode();
+        }
+        return super.hashCode();
+    }
 }

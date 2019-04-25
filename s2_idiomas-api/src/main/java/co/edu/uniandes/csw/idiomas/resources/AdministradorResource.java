@@ -64,9 +64,9 @@ public class AdministradorResource
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         AdministradorEntity administradorEntity = administrador.toEntity();
         // Invoca la lógica para crear la administrador nueva
-        AdministradorEntity nuevoAdministradorEntity = administradorLogic.createAdministrador(administradorEntity);
+        administradorLogic.createAdministrador(administradorEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        AdministradorDTO nuevoAdministradorDTO = new AdministradorDTO(nuevoAdministradorEntity);
+        AdministradorDTO nuevoAdministradorDTO = new AdministradorDTO(administradorEntity);
         LOGGER.log(Level.INFO, "AdministradorResource createAdministrador: output: {0}", nuevoAdministradorDTO);
         return nuevoAdministradorDTO;
     }
