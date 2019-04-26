@@ -59,7 +59,7 @@ public class ComentarioLogic {
      */
     public List<ComentarioEntity> getComentarios() 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos las Comentarios" + persistence.findAll().get(0).getId() + "dsadsa");
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos las Comentarios");
         // Note que, por medio de la inyección de dependencias se llama al método "findAll()" que se encuentra en la persistencia.
         List<ComentarioEntity> Comentarios = persistence.findAll();
         LOGGER.log(Level.INFO, "Termina proceso de consultar todas las Comentarios");

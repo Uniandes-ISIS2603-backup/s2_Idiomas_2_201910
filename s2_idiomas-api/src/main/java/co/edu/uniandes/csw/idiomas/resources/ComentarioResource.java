@@ -98,7 +98,7 @@ public class ComentarioResource {
     public List<ComentarioDetailDTO> getComentarios() {
         LOGGER.info("ComentarioResource getComentarios: input: void");
         List<ComentarioDetailDTO> listaComentarios = listEntity2DetailDTO(ComentarioLogic.getComentarios());
-        LOGGER.log(Level.INFO, "ComentarioResource getComentarios: output: {0}", listaComentarios.get(0).getId());
+        LOGGER.log(Level.INFO, "ComentarioResource getComentarios: output: {0}");
         return listaComentarios;
     }
 
@@ -116,7 +116,6 @@ public class ComentarioResource {
     public ComentarioDetailDTO getComentario(@PathParam("ComentariosId") Long ComentariosId) {
         LOGGER.log(Level.INFO, "ComentarioResource getComentario: input: {0}", ComentariosId );
         ComentarioEntity comentarioEntity = ComentarioLogic.getComentario(ComentariosId);
-        comentarioEntity.setId(ComentariosId);
         LOGGER.log(Level.INFO, "ComentarioResource Tiene id: input: {0}", comentarioEntity.getId());
         if (comentarioEntity == null) {
             throw new WebApplicationException("El recurso /Comentarios/" + ComentariosId + " no existe.", 404);
@@ -212,9 +211,12 @@ public class ComentarioResource {
      */
     public List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
         List<ComentarioDetailDTO> list = new ArrayList<>();
+        if(entityList.size()>0){
         for (ComentarioEntity entity : entityList) {
             list.add(new ComentarioDetailDTO(entity));
         }
+        }
+
         return list;
     }
 }
