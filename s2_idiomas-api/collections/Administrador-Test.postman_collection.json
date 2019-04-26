@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "7979db06-f8d8-4dfe-8ff0-09d10d2d1137",
+		"name": "Administrador-test-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crear 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "042f58b5-7741-476c-b98a-eea2314b179d",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_administradores1\",data.id);",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"nuevo\"\n\t,\"contrasenia\": 1234\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores"
+					]
+				},
+				"description": "post"
+			},
+			"response": []
+		},
+		{
+			"name": "crear 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "042f58b5-7741-476c-b98a-eea2314b179d",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_administradores2\",data.id);",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"nuevo2\"\n\t,\"contrasenia\": 1234\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores"
+					]
+				},
+				"description": "post"
+			},
+			"response": []
+		},
+		{
+			"name": "crear sin nobre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "042f58b5-7741-476c-b98a-eea2314b179d",
+						"exec": [
+							"tests[\"genera error\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El Administrador no tiene nombre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"\"\n\t,\"contrasenia\": 1234\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores"
+					]
+				},
+				"description": "post"
+			},
+			"response": []
+		},
+		{
+			"name": "crear sin contraseña",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "042f58b5-7741-476c-b98a-eea2314b179d",
+						"exec": [
+							"tests[\"genera error\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El Administrador no tiene contraseña\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"nuevo\"\n\t,\"contrasenia\": null\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores"
+					]
+				},
+				"description": "post"
+			},
+			"response": []
+		},
+		{
+			"name": "crear duplicado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "042f58b5-7741-476c-b98a-eea2314b179d",
+						"exec": [
+							"tests[\"genera error\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"Ya existe una Administrador con el nombre \");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"nuevo\"\n\t,\"contrasenia\": 1122\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores"
+					]
+				},
+				"description": "post"
+			},
+			"response": []
+		},
+		{
+			"name": "obtener uno",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "922f1fb8-7566-45bd-9442-03161cfb2486",
+						"exec": [
+							"tests[\"No genera error en el Get\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores/{{new_id_administradores1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores",
+						"{{new_id_administradores1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener un inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "922f1fb8-7566-45bd-9442-03161cfb2486",
+						"exec": [
+							"tests[\"No genera error en el Get\"] = responseCode.code === 404;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /administradores/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "00a1cc7a-9fe3-48f6-9d7a-190a55e665b6",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Gell All\"] = responseCode.code === 200;",
+							"tests[\"authors count\"] = data.length >= 1;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c418a1b7-9fc3-4c57-8e81-eb044cca1cdc",
+						"exec": [
+							"console.log(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"cabio con el put del nuevo\"\n\t,\"contrasenia\": 56789\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores/{{new_id_administradores1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores",
+						"{{new_id_administradores1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar sin nombre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c418a1b7-9fc3-4c57-8e81-eb044cca1cdc",
+						"exec": [
+							"tests[\"No genera error en el Put\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El Administrador no tiene nombre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"\"\n\t,\"contrasenia\": 56789\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores/{{new_id_administradores1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores",
+						"{{new_id_administradores1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c418a1b7-9fc3-4c57-8e81-eb044cca1cdc",
+						"exec": [
+							"tests[\"No genera error en el Put\"] = responseCode.code === 404;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /Administradores/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\" : \"x\"\n\t,\"contrasenia\": 56789\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/administradores/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrar un inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c4fa2826-e976-4660-84c5-5c5d06aa864f",
+						"exec": [
+							"tests[\" genera error en el delete\"] = responseCode.code === 404;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /administradores/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s2_idiomas-api/api/administradores/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrar uno",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "706f944e-d103-41ac-baa2-a6488b8f0bfe",
+						"exec": [
+							"tests[\"No genera error en el delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s2_idiomas-api/api/administradores/{{new_id_administradores1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"administradores",
+						"{{new_id_administradores1}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
