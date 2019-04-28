@@ -10,3 +10,9 @@ delete from ActividadEntity;
 Select * from ActividadEntity;
 Select * from ComentarioEntity;
 SELECT ID, FECHA, TEXTO, TITULO, ACTIVIDAD_ID, AUTOR_ID, CALIFICACIONES_ID FROM COMENTARIOENTITY;
+
+
+delete from UsuarioEntity;
+delete from CoordinadorEntity;
+delete from AdministradorEntity;
+delete from AnfitrionEntity;
