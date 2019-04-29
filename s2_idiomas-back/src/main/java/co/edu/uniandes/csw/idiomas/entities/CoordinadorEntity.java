@@ -85,6 +85,7 @@ public class CoordinadorEntity  implements Serializable
     public void setActividadesCoordinadas(List<ActividadEntity> actividadesCoordinadas) {
         this.actividadesCoordinadas = actividadesCoordinadas;
     }
+
       @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -96,8 +97,6 @@ public class CoordinadorEntity  implements Serializable
     public void setId(Long id) {
         this.id = id;
     }
-
-    
 
     @Override
     public int hashCode() {

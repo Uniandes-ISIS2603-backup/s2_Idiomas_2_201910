@@ -101,7 +101,7 @@ public class CalificacionPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from ActividadEntity").executeUpdate();
+        em.createQuery("delete from CalificacionEntity").executeUpdate();
     }
 
     /**
@@ -182,7 +182,7 @@ public class CalificacionPersistenceTest {
         CalificacionEntity resp = em.find(CalificacionEntity.class, entity.getId());
         
         Assert.assertEquals(resp.getId(), newEntity.getId());
-        Assert.assertTrue(Objects.equals(entity.getCalificacion(), newEntity.getCalificacion()));
+        Assert.assertEquals(resp.getCalificacion(), newEntity.getCalificacion());
         Assert.assertEquals(resp.getMensaje(), newEntity.getMensaje());
     }
 
