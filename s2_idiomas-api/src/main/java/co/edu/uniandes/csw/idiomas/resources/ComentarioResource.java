@@ -51,7 +51,7 @@ public class ComentarioResource {
     Calendar now = Calendar.getInstance();
     /**
      * Permite acceder a la lógica de la aplicación. Es una inyección de
-     * dependencias.
+     * dependenciasAS.
      */
     @Inject
     private ComentarioLogic ComentarioLogic;

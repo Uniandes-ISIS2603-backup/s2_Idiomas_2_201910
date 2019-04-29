@@ -7,7 +7,7 @@ package co.edu.uniandes.csw.idiomas.tests.postman;
 
 /**
  *
- * @author se.gamboa
+ * @author se.gamboa/201713080
  */
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.idiomas.dtos.CascaraDTO;
