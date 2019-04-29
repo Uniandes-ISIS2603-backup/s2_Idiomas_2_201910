@@ -140,6 +140,26 @@ public class UsuarioResource
         return detailDTO;
     }
     
+     /**
+     * Retornar el usuario con el nombre.
+     *
+     * @param nombre Identificador de la usuario que se desea actualizar.
+     * Este debe ser una cadena de dígitos.
+     * @return 
+     */
+     @GET
+    @Path("{nombre: [a-zA-Z][a-zA-Z0-9]*}")
+    public UsuarioDetailDTO retornarUsuario(@PathParam("nombre") String nombre) {
+          LOGGER.log(Level.INFO, "UsuarioResource getUsuario: input: {0}", nombre);
+        UsuarioEntity usuarioEntity = usuarioLogic.getUsuarioNombre(nombre);
+        if (usuarioEntity == null) {
+            throw new WebApplicationException("El recurso /usuarioes/" + nombre +NO_EXISTE, 404);
+        }
+        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioEntity);
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO);
+        return detailDTO;
+    }
+    
       /**
      * Actualiza la usuario con el id asociado recibido en la URL.
      *

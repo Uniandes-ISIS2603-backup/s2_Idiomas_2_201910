@@ -88,6 +88,25 @@ public class UsuarioLogic
         LOGGER.log(Level.INFO, "Termina proceso de consultar la usuario con id = {0}", usuarioId);
         return usuarioEntity;
     }
+    
+     /**
+     *
+     * Obtener una usuario por medio de su nombre.
+     *
+     * @param nombre: id de la usuario para ser buscada.
+     * @return la usuario solicitada por medio de su id.
+     */
+    public UsuarioEntity getUsuarioNombre(String nombre) {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la usuario con el nombre = {0}", nombre);
+        // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.        
+        UsuarioEntity usuarioEntity = persistence.findByName(nombre);
+        if (usuarioEntity == null) {
+            LOGGER.log(Level.SEVERE, "La usuario con el id = {0} no existe", nombre);
+        }
+        
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la usuario con id = {0}", nombre);
+        return usuarioEntity;
+    }
 
     /**
      *
