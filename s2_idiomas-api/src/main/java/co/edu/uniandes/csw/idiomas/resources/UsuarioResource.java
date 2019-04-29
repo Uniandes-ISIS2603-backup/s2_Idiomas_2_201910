@@ -7,9 +7,10 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 
 
-import co.edu.uniandes.csw.idiomas.dtos.PersonaDTO;
-import co.edu.uniandes.csw.idiomas.ejb.PersonaLogic;
-import co.edu.uniandes.csw.idiomas.entities.PersonaEntity;
+import co.edu.uniandes.csw.idiomas.dtos.UsuarioDTO;
+import co.edu.uniandes.csw.idiomas.dtos.UsuarioDetailDTO;
+import co.edu.uniandes.csw.idiomas.ejb.UsuarioLogic;
+import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.idiomas.mappers.WebApplicationExceptionMapper;
@@ -45,122 +46,125 @@ public class UsuarioResource
     private static final String NO_EXISTE =" no existe." ;
 
     @Inject
-    PersonaLogic personaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    UsuarioLogic usuarioLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     /**
-     * Crea una nueva persona con la informacion que se recibe en el cuerpo de
+     * Crea una nueva usuario con la informacion que se recibe en el cuerpo de
      * la petición y se regresa un objeto identico con un id auto-generado por
      * la base de datos.
      *
-     * @param persona {@link PersonaDTO} - La persona que se desea
+     * @param usuario {@link UsuarioDTO} - La usuario que se desea
      * guardar.
-     * @return JSON {@link PersonaDTO} - La persona guardada con el atributo
+     * @return JSON {@link UsuarioDTO} - La usuario guardada con el atributo
      * id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
-     * Error de lógica que se genera cuando ya existe la persona.
+     * Error de lógica que se genera cuando ya existe la usuario.
      */
     @POST
-    public PersonaDTO createPersona(PersonaDTO persona) throws BusinessLogicException {
-       LOGGER.log(Level.INFO, "PersonaResource createPersona: input: {0}", persona);
+    public UsuarioDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException {
+       LOGGER.log(Level.INFO, "UsuarioResource createUsuario: input: {0}", usuario);
         // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        PersonaEntity personaEntity = persona.toEntity();
-        // Invoca la lógica para crear la persona nueva
-        PersonaEntity nuevoPersonaEntity = personaLogic.createPersona(personaEntity);
+        UsuarioEntity usuarioEntity = usuario.toEntity();
+        // Invoca la lógica para crear la usuario nueva
+        usuarioLogic.createUsuario(usuarioEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        PersonaDTO nuevoPersonaDTO = new PersonaDTO(nuevoPersonaEntity);
-        LOGGER.log(Level.INFO, "PersonaResource createPersona: output: {0}", nuevoPersonaDTO);
-        return nuevoPersonaDTO;
+         System.out.println("en el resourse el entity toString : "+usuarioEntity.toString());
+         LOGGER.log(Level.INFO, "entity: output: {0}", usuarioEntity);
+         System.out.println("en el resourse el entity tiene : "+usuarioEntity.getId());
+        UsuarioDTO nuevoUsuarioDTO = new UsuarioDTO(usuarioEntity);
+        LOGGER.log(Level.INFO, "UsuarioResource createUsuario: output: {0}", nuevoUsuarioDTO);
+        return nuevoUsuarioDTO;
     }
 
     /**
-     * Borra la persona con el id asociado recibido en la URL.
+     * Borra la usuario con el id asociado recibido en la URL.
      *
-     * @param personaesId Identificador de la persona que se desea borrar.
+     * @param usuarioesId Identificador de la usuario que se desea borrar.
      * Este debe ser una cadena de dígitos.
      * @return 
      */
     @DELETE
-    @Path("{personaesId: \\d+}")
-    public void deletePersona(@PathParam("personaesId") Long personaesId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "PersonaResource deletePersona: input: {0}", personaesId);
-        if (personaLogic.getPersona(personaesId) == null) {
-            throw new WebApplicationException("El recurso /personaes/" + personaesId +NO_EXISTE, 404);
+    @Path("{usuarioesId: \\d+}")
+    public void deleteUsuario(@PathParam("usuarioesId") Long usuarioesId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "UsuarioResource deleteUsuario: input: {0}", usuarioesId);
+        if (usuarioLogic.getUsuario(usuarioesId) == null) {
+            throw new WebApplicationException("El recurso /usuarioes/" + usuarioesId +NO_EXISTE, 404);
         }
-        personaLogic.deletePersona(personaesId);
-        LOGGER.info("PersonaResource deletePersona: output: void");
+        usuarioLogic.deleteUsuario(usuarioesId);
+        LOGGER.info("UsuarioResource deleteUsuario: output: void");
     }
     
    /**
      * Actualiza el autor con el id recibido en la URL con la información que se
      * recibe en el cuerpo de la petición.
      *
-     * @param PersonaId Identificador del autor que se desea actualizar. Este
+     * @param UsuarioId Identificador del autor que se desea actualizar. Este
      * debe ser una cadena de dígitos.
-     * @param Persona {@link PersonaDTO} El autor que se desea guardar.
-     * @return JSON {@link PersonaDTO} - El autor guardado.
+     * @param Usuario {@link UsuarioDTO} El autor que se desea guardar.
+     * @return JSON {@link UsuarioDTO} - El autor guardado.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra el autor a
      * actualizar.
      */
     @PUT
-    @Path("{PersonaId: \\d+}")
-    public PersonaDTO updatePersona(@PathParam("PersonaId") Long personaId, PersonaDTO persona) {
-        LOGGER.log(Level.INFO, "PersonaResource updatePersona: input: PersonaId: {0} , Persona: {1}", new Object[]{personaId, persona});
-        persona.setId(personaId);
-        if (personaLogic.getPersona(personaId) == null)
+    @Path("{UsuarioId: \\d+}")
+    public UsuarioDTO updateUsuario(@PathParam("UsuarioId") Long usuarioId, UsuarioDTO usuario) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: input: UsuarioId: {0} , Usuario: {1}", new Object[]{usuarioId, usuario});
+        usuario.setId(usuarioId);
+        if (usuarioLogic.getUsuario(usuarioId) == null)
         {
-            throw new WebApplicationException("El recurso /Personaes/" + personaId +NO_EXISTE, 404);
+            throw new WebApplicationException("El recurso /Usuarioes/" + usuarioId +NO_EXISTE, 404);
         }
-        PersonaDTO detailDTO = new PersonaDTO(personaLogic.updatePersona(personaId, persona.toEntity()));
-        LOGGER.log(Level.INFO, "PersonaResource updatePersona: output: {0}", detailDTO);
+        UsuarioDTO detailDTO = new UsuarioDTO(usuarioLogic.updateUsuario(usuarioId, usuario.toEntity()));
+        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: output: {0}", detailDTO);
         return detailDTO;
     }
     
      /**
-     * Actualiza la persona con el id asociado recibido en la URL.
+     * Actualiza la usuario con el id asociado recibido en la URL.
      *
-     * @param personaesId Identificador de la persona que se desea actualizar.
+     * @param usuarioesId Identificador de la usuario que se desea actualizar.
      * Este debe ser una cadena de dígitos.
      * @return 
      */
     @GET
-    @Path("{personaesId: \\d+}")
-    public PersonaDTO retornarPersona(@PathParam("personaesId") Long personaesId) {
-        LOGGER.log(Level.INFO, "PersonaResource getPersona: input: {0}", personaesId);
-        PersonaEntity personaEntity = personaLogic.getPersona(personaesId);
-        if (personaEntity == null) {
-            throw new WebApplicationException("El recurso /personaes/" + personaesId +NO_EXISTE, 404);
+    @Path("{usuarioesId: \\d+}")
+    public UsuarioDetailDTO retornarUsuario(@PathParam("usuarioesId") Long usuarioesId) {
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: input: {0}", usuarioesId);
+        UsuarioEntity usuarioEntity = usuarioLogic.getUsuario(usuarioesId);
+        if (usuarioEntity == null) {
+            throw new WebApplicationException("El recurso /usuarioes/" + usuarioesId +NO_EXISTE, 404);
         }
-        PersonaDTO detailDTO = new PersonaDTO(personaEntity);
-        LOGGER.log(Level.INFO, "PersonaResource getPersona: output: {0}", detailDTO);
+        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioEntity);
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO);
         return detailDTO;
     }
     
       /**
-     * Actualiza la persona con el id asociado recibido en la URL.
+     * Actualiza la usuario con el id asociado recibido en la URL.
      *
-     * @param personaesId Identificador de la persona que se desea actualizar.
+     * @param usuarioesId Identificador de la usuario que se desea actualizar.
      * Este debe ser una cadena de dígitos.
      * @return 
      */
     @GET    
-    public List<PersonaDTO> retornarPersona() {
-        LOGGER.info("PersonaResource getPersonas: input: void");
-        List<PersonaDTO> listaPersonas = listEntity2DTO(personaLogic.getPersonas());
-        LOGGER.log(Level.INFO, "PersonaResource getPersonas: output: {0}", listaPersonas);
-        return listaPersonas;
+    public List<UsuarioDTO> retornarUsuario() {
+        LOGGER.info("UsuarioResource getUsuarios: input: void");
+        List<UsuarioDTO> listaUsuarios = listEntity2DTO(usuarioLogic.getUsuarios());
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuarios: output: {0}", listaUsuarios);
+        return listaUsuarios;
                
     }   
       /**
-     * Convierte una lista de PersonaEntity a una lista de PersonaDTO.
+     * Convierte una lista de UsuarioEntity a una lista de UsuarioDTO.
      *
-     * @param entityList Lista de PersonaEntity a convertir.
-     * @return Lista de PersonaDTO convertida.
+     * @param entityList Lista de UsuarioEntity a convertir.
+     * @return Lista de UsuarioDTO convertida.
      */
-    private List<PersonaDTO> listEntity2DTO(List<PersonaEntity> entityList) {
-        List<PersonaDTO> list = new ArrayList<>();
-        for (PersonaEntity entity : entityList) {
-            list.add(new PersonaDTO(entity));
+    private List<UsuarioDTO> listEntity2DTO(List<UsuarioEntity> entityList) {
+        List<UsuarioDTO> list = new ArrayList<>();
+        for (UsuarioEntity entity : entityList) {
+            list.add(new UsuarioDTO(entity));
         }
         return list;
     }

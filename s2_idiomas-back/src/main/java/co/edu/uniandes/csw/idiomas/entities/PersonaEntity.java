@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -17,7 +20,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author j.barbosaj
  */
 @Entity
-public class PersonaEntity extends BaseEntity implements Serializable
+public class PersonaEntity  implements Serializable
 {
 
     private Long contrasenia;
@@ -82,6 +85,27 @@ public class PersonaEntity extends BaseEntity implements Serializable
      */
     public void setComentarioEntitys(List<ComentarioEntity> comentarioEntitys) {
         this.comentarioEntitys = comentarioEntitys;
+    }
+      @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
+
+    @Override
+    public int hashCode() {
+        if (this.getId() != null) {
+            return this.getId().hashCode();
+        }
+        return super.hashCode();
     }
     
 }

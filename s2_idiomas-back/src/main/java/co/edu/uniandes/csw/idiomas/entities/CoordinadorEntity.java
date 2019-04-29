@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -19,7 +22,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  * @author j.barbosaj
  */
 @Entity
-public class CoordinadorEntity  extends BaseEntity implements Serializable
+public class CoordinadorEntity  implements Serializable
 {
     Long contrasenia;
     String nombre;    
@@ -83,20 +86,24 @@ public class CoordinadorEntity  extends BaseEntity implements Serializable
         this.actividadesCoordinadas = actividadesCoordinadas;
     }
 
-    /**
-     * @return the calificaciones
-     */
-    public List<CalificacionCoordinadorEntity> getCalificaciones() {
-        return calificaciones;
+      @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    public Long getId() {
+        return id;
     }
 
-    /**
-     * @param calificaciones the calificaciones to set
-     */
-    public void setCalificaciones(List<CalificacionCoordinadorEntity> calificaciones) {
-        this.calificaciones = calificaciones;
+    public void setId(Long id) {
+        this.id = id;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        if (this.getId() != null) {
+            return this.getId().hashCode();
+        }
+        return super.hashCode();
+    }
     
 }
