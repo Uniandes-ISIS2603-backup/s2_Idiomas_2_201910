@@ -44,7 +44,7 @@ import org.junit.runner.RunWith;
 
 /**
  *  Pruebas de integracion de actividad.
- * @author g.cubillosb
+ * @author j.barbosa
  */
 @RunWith(Arquillian.class)
 public class UsuarioIT {
