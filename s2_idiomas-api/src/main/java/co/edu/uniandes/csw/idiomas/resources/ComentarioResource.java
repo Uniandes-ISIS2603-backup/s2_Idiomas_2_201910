@@ -10,9 +10,12 @@ import co.edu.uniandes.csw.idiomas.dtos.ComentarioDTO;
 import co.edu.uniandes.csw.idiomas.ejb.ComentarioLogic;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +29,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
@@ -102,6 +106,22 @@ public class ComentarioResource {
         return listaComentarios;
     }
 
+    @GET
+    @Path("/fechas")
+    public List<ComentarioDetailDTO> getComentariosFecha(@QueryParam("fecha1") String fechas1, @QueryParam("fecha2") String fechas2) {
+
+                LOGGER.info("ComentarioResource getComentarios: input: void");
+        final Date fecha1;
+        final Date fecha2;    
+        fecha1 = new Date(fechas1);
+        System.out.println(fecha1);
+        fecha2 = new Date(fechas2);
+        System.out.println(fecha2);
+        List<ComentarioDetailDTO> listaComentarios = listEntity2DetailDTO(ComentarioLogic.getComentarioDate(fecha1, fecha2));
+        LOGGER.log(Level.INFO, "ComentarioResource getComentarios: output: {0}");
+        return listaComentarios;
+    }
+
     /**
      * Busca la Comentario con el id asociado recibido en la URL y la devuelve.
      *
@@ -114,7 +134,7 @@ public class ComentarioResource {
     @GET
     @Path("{ComentariosId: \\d+}")
     public ComentarioDetailDTO getComentario(@PathParam("ComentariosId") Long ComentariosId) {
-        LOGGER.log(Level.INFO, "ComentarioResource getComentario: input: {0}", ComentariosId );
+        LOGGER.log(Level.INFO, "ComentarioResource getComentario: input: {0}", ComentariosId);
         ComentarioEntity comentarioEntity = ComentarioLogic.getComentario(ComentariosId);
         LOGGER.log(Level.INFO, "ComentarioResource Tiene id: input: {0}", comentarioEntity.getId());
         if (comentarioEntity == null) {
@@ -145,7 +165,7 @@ public class ComentarioResource {
         Comentario.setId(ComentariosId);
         Comentario.setFecha(ComentarioLogic.getComentario(ComentariosId).getFecha());
         Comentario.setTitulo(ComentarioLogic.getComentario(ComentariosId).getTitulo());
-        
+
         if (ComentarioLogic.getComentario(ComentariosId) == null) {
             throw new WebApplicationException("El recurso /Comentarios/" + ComentariosId + " no existe.", 404);
         }
@@ -211,10 +231,10 @@ public class ComentarioResource {
      */
     public List<ComentarioDetailDTO> listEntity2DetailDTO(List<ComentarioEntity> entityList) {
         List<ComentarioDetailDTO> list = new ArrayList<>();
-        if(entityList.size()>0){
-        for (ComentarioEntity entity : entityList) {
-            list.add(new ComentarioDetailDTO(entity));
-        }
+        if (entityList.size() > 0) {
+            for (ComentarioEntity entity : entityList) {
+                list.add(new ComentarioDetailDTO(entity));
+            }
         }
 
         return list;
