@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.idiomas.ejb;
+package co.edu.uniandes.csw.idiomas.test.logic;
 
 /**
  *
  * @author g.cubillosb
  */
-public class ComentarioActividadLogic {
+public class ActividadComentarioLogicTest {
     
 }
