@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.CalificacionDTO;
+import co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
@@ -80,14 +81,14 @@ public class CalificacionActividadResource {
      */
     @GET
     @Path("{calificacionId: \\d+}")
-    public CalificacionDTO getCalificacion(@PathParam("calificacionId") Long CalificacionId)
+    public CalificacionDetailDTO getCalificacion(@PathParam("calificacionId") Long CalificacionId)
     {
         LOGGER.log(Level.INFO, "CalificacionResource getCalificacion: input: {0}", CalificacionId);
         CalificacionEntity CalificacionEntity = logica.getCalificacion(CalificacionId);
         if (CalificacionEntity == null) {
             throw new WebApplicationException("El recurso /Calificaciones/" + CalificacionId + " no existe.", 404);
         }
-        CalificacionDTO detailDTO = new CalificacionDTO(CalificacionEntity);
+        CalificacionDetailDTO detailDTO = new CalificacionDetailDTO(CalificacionEntity);
         LOGGER.log(Level.INFO, "CalificacionResource getCalificacion: output: {0}", detailDTO);
         return detailDTO;
     }

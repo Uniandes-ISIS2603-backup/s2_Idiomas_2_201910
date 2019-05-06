@@ -62,9 +62,9 @@ public class CalificacionActividadLogic {
      * @return Colección de objetos de CalificafionEntity.
      */
     public List<CalificacionActividadEntity> getCalificacionActividades() {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todos los autores");
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las calificaciones");
         List<CalificacionActividadEntity> lista = CalificacionActividadPersistence.findAll();
-        LOGGER.log(Level.INFO, "Termina proceso de consultar todos los autores");
+        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las calificaciones");
         return lista;
     }
 
