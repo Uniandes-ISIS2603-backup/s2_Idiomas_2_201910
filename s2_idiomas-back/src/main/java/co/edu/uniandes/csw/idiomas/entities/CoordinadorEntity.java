@@ -106,4 +106,5 @@ public class CoordinadorEntity  implements Serializable
         return super.hashCode();
     }
     
+    
 }
