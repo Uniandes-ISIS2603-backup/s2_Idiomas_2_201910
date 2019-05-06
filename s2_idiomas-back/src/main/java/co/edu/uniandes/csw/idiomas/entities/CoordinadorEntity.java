@@ -36,7 +36,7 @@ public class CoordinadorEntity  implements Serializable
      */
     @PodamExclude
     @OneToMany(mappedBy = "coordinador", cascade = CascadeType.PERSIST)
-    private List<CalificacionCoordinadorEntity> calificaciones = new ArrayList<>();
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
     
     /**
      * Connstructor vacio de un Entity
@@ -104,6 +104,20 @@ public class CoordinadorEntity  implements Serializable
             return this.getId().hashCode();
         }
         return super.hashCode();
+    }
+
+    /**
+     * @return the calificaciones
+     */
+    public List<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
     }
     
     

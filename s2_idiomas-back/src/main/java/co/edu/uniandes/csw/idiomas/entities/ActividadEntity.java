@@ -80,7 +80,7 @@ private char subTypeId;
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.PERSIST)
-    private List<CalificacionActividadEntity> calificaciones = new ArrayList<>();
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
     
     /**
      * Atributo que representa los asistentes de la actividad.
@@ -148,14 +148,14 @@ private char subTypeId;
     /**
      * @return the calificaciones
      */
-    public List<CalificacionActividadEntity> getCalificaciones() {
+    public List<CalificacionEntity> getCalificaciones() {
         return calificaciones;
     }
 
     /**
      * @param calificaciones the calificaciones to set
      */
-    public void setCalificaciones(List<CalificacionActividadEntity> calificaciones) {
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
         this.calificaciones = calificaciones;
     }
     
