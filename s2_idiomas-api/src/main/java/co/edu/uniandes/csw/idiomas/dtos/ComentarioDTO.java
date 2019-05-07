@@ -15,6 +15,7 @@ public class ComentarioDTO implements Serializable {
     private Date fecha;
     private Long id;
     private String titulo;
+    private ActividadDTO actividad;
     
 
     /**
@@ -28,6 +29,14 @@ public class ComentarioDTO implements Serializable {
             this.texto = entity.getTexto();
             this.fecha = entity.getFecha();
             this.titulo = entity.getTitulo();
+            if(entity.getActividad() !=null)
+            {
+                this.actividad = new ActividadDTO(entity.getActividad());
+            }
+            else
+            {
+                this.actividad = null;
+            }
             
         }
     }
