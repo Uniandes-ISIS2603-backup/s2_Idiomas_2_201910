@@ -8,11 +8,7 @@
     <class>co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity</class>
     <class>co.edu.uniandes.csw.idiomas.entities.CalificacionEntity</class>
     <class>co.edu.uniandes.csw.idiomas.entities.ChatEntity</class>
-    <class>co.edu.uniandes.csw.idiomas.entities.ComentarioActividadEntity</class>
-    <class>co.edu.uniandes.csw.idiomas.entities.ComentarioBlogEntity</class>
-    <class>co.edu.uniandes.csw.idiomas.entities.ComentarioCalificacionEntity</class>
     <class>co.edu.uniandes.csw.idiomas.entities.ComentarioEntity</class>
-    <class>co.edu.uniandes.csw.idiomas.entities.ComentarioGrupoEntity</class>
     <class>co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity</class>
     <class>co.edu.uniandes.csw.idiomas.entities.EncuentroEntity</class>
     <class>co.edu.uniandes.csw.idiomas.entities.EstadiaEntity</class>
