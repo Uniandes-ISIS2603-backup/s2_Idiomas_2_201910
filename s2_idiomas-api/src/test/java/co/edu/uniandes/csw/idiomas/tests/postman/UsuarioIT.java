@@ -25,10 +25,7 @@ package co.edu.uniandes.csw.idiomas.tests.postman;
 
 import co.edu.uniandes.csw.idiomas.dtos.UsuarioDTO;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
-import co.edu.uniandes.csw.idiomas.dtos.CascaraDTO;
-import co.edu.uniandes.csw.idiomas.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.idiomas.resources.UsuarioResource;
-import co.edu.uniandes.csw.idiomas.resources.RestConfig;
 import co.edu.uniandes.csw.postman.tests.PostmanTestBuilder;
 import java.io.File;
 import java.io.IOException;
@@ -43,7 +40,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- *  Pruebas de integracion de actividad.
+ *  Pruebas de integracion de usuario.
  * @author g.cubillosb
  */
 @RunWith(Arquillian.class)

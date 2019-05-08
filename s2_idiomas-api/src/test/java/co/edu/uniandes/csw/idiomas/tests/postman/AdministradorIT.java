@@ -23,12 +23,9 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.idiomas.tests.postman;
 
-import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
-import co.edu.uniandes.csw.idiomas.dtos.CascaraDTO;
-import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
+import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
 import co.edu.uniandes.csw.idiomas.resources.AdministradorResource;
-import co.edu.uniandes.csw.idiomas.resources.RestConfig;
 import co.edu.uniandes.csw.postman.tests.PostmanTestBuilder;
 import java.io.File;
 import java.io.IOException;
@@ -43,13 +40,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- *  Pruebas de integracion de actividad.
+ *  Pruebas de integracion de administrador.
  * @author g.cubillosb
  */
 @RunWith(Arquillian.class)
 public class AdministradorIT {
 
-    private static final String COLLECTION = "Administrador-Test.postman_collection";
+    private static final String COLLECTION = "Administrador-Tests.postman_collection";
 
     @Deployment(testable = true)
     public static WebArchive createDeployment() {
@@ -61,7 +58,6 @@ public class AdministradorIT {
                 // Se agregan los compilados de los paquetes de servicios
                 .addPackage(AdministradorResource.class.getPackage()) //No importa cual recurso usar, lo importante es agregar el paquet
                 .addPackage(AdministradorDTO.class.getPackage()) //No importa cual dto usar, lo importante es agregar el paquete.
-                .addPackage(AdministradorDetailDTO.class.getPackage()) //No importa cual dto usar, lo importante es agregar el paquete.
                 .addPackage(BusinessLogicExceptionMapper.class.getPackage())
                 // El archivo que contiene la configuracion a la base de datos.
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")

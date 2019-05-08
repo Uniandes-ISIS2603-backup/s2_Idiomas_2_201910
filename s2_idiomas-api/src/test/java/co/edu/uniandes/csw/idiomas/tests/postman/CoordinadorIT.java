@@ -23,12 +23,9 @@ SOFTWARE.
  */
 package co.edu.uniandes.csw.idiomas.tests.postman;
 
-import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDTO;
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
-import co.edu.uniandes.csw.idiomas.dtos.CascaraDTO;
-import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDetailDTO;
+import co.edu.uniandes.csw.idiomas.dtos.CoordinadorDTO;
 import co.edu.uniandes.csw.idiomas.resources.CoordinadorResource;
-import co.edu.uniandes.csw.idiomas.resources.RestConfig;
 import co.edu.uniandes.csw.postman.tests.PostmanTestBuilder;
 import java.io.File;
 import java.io.IOException;
@@ -43,13 +40,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- *  Pruebas de integracion de actividad.
+ *  Pruebas de integracion de coordinador.
  * @author g.cubillosb
  */
 @RunWith(Arquillian.class)
 public class CoordinadorIT {
 
-    private static final String COLLECTION = "Coordinador-Tests.postman_collection";
+    private static final String COLLECTION = "Cascara-Tests.postman_collection";
 
     @Deployment(testable = true)
     public static WebArchive createDeployment() {
@@ -61,7 +58,6 @@ public class CoordinadorIT {
                 // Se agregan los compilados de los paquetes de servicios
                 .addPackage(CoordinadorResource.class.getPackage()) //No importa cual recurso usar, lo importante es agregar el paquet
                 .addPackage(CoordinadorDTO.class.getPackage()) //No importa cual dto usar, lo importante es agregar el paquete.
-                .addPackage(CoordinadorDetailDTO.class.getPackage()) //No importa cual dto usar, lo importante es agregar el paquete.
                 .addPackage(BusinessLogicExceptionMapper.class.getPackage())
                 // El archivo que contiene la configuracion a la base de datos.
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")

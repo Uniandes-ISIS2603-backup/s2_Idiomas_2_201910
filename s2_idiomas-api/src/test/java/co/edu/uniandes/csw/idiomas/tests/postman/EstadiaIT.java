@@ -24,10 +24,8 @@ SOFTWARE.
 package co.edu.uniandes.csw.idiomas.tests.postman;
 
 import co.edu.uniandes.csw.idiomas.mappers.BusinessLogicExceptionMapper;
-import co.edu.uniandes.csw.idiomas.dtos.CascaraDTO;
 import co.edu.uniandes.csw.idiomas.dtos.EstadiaDTO;
 import co.edu.uniandes.csw.idiomas.resources.EstadiaResource;
-import co.edu.uniandes.csw.idiomas.resources.RestConfig;
 import co.edu.uniandes.csw.postman.tests.PostmanTestBuilder;
 import java.io.File;
 import java.io.IOException;
