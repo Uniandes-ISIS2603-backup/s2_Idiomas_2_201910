@@ -26,7 +26,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 /**
  * Pruebas de logica de la relacion Calificacion - GrupoDeInteres
  *
- * @author ISIS2603
+ * @author jdruedaa
  */
 @RunWith(Arquillian.class)
 public class CalificacionGrupoDeInteresLogicTest {

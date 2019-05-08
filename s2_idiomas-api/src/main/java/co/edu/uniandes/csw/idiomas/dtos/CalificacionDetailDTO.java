@@ -20,16 +20,18 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
     
     public CalificacionDetailDTO()
     {
-        
+        super();
     }
     
     public CalificacionDetailDTO(CalificacionEntity cal)
     {
         super(cal);
-        if(cal!=null)
+        if(cal.getComentarios()!=null)
         {
             comentarios = new ArrayList<>();
-            
+            for (ComentarioEntity entityComentario : cal.getComentarios()) {
+                comentarios.add(new ComentarioDTO(entityComentario));
+            }
         }
     }
 
@@ -51,11 +53,9 @@ public class CalificacionDetailDTO extends CalificacionDTO implements Serializab
     public CalificacionEntity toEntity()
     {
         CalificacionEntity cal = super.toEntity();
-        if(comentarios != null)
-        {
+        if (comentarios != null) {
             List<ComentarioEntity> comentariosEntity = new ArrayList<>();
-            for(ComentarioDTO dtoComentario : comentarios)
-            {
+            for (ComentarioDTO dtoComentario : getComentarios()) {
                 comentariosEntity.add(dtoComentario.toEntity());
             }
             cal.setComentarios(comentariosEntity);

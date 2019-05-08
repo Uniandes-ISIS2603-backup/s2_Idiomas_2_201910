@@ -49,9 +49,18 @@ public class CalificacionActividadLogic {
     public void removeActividad(Long calificacionesId) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la Actividad del libro con id = {0}", calificacionesId);
         CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
-        ActividadEntity actividadEntity = actividadPersistence.find(calificacionEntity.getActividad().getId());
-        calificacionEntity.setActividad(null);
-        actividadEntity.getCalificaciones().remove(calificacionEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de borrar la Actividad del libro con id = {0}", calificacionEntity.getId());
+        if(calificacionEntity.getActividad()!= null)
+        {
+            ActividadEntity actividadEntity = actividadPersistence.find(calificacionEntity.getActividad().getId());
+            calificacionEntity.setActividad(null);
+            actividadEntity.getCalificaciones().remove(calificacionEntity);
+            LOGGER.log(Level.INFO, "Termina proceso de borrar la Actividad del libro con id = {0}", calificacionEntity.getId());
+        }
+        else
+        {
+            LOGGER.log(Level.INFO, "Proceso de borrar actividad detenido, no es su turno");
+        }
+        
+        
     }
 }
