@@ -45,9 +45,14 @@ public class ChatDTO extends ActividadDTO implements Serializable{
      */
     public ChatDTO(ChatEntity pChatEntity) 
     {
-        super(pChatEntity);
         if (pChatEntity != null) 
         {
+            this.id = pChatEntity.getId();
+            this.descripcion = pChatEntity.getDescripcion();
+            this.fecha = pChatEntity.getFecha();
+            this.motivacion = pChatEntity.getMotivacion();
+            this.nombre = pChatEntity.getNombre();
+            this.pTipo = pChatEntity.getSubTypeId();
             this.medio = pChatEntity.getMedio();
         }
     }

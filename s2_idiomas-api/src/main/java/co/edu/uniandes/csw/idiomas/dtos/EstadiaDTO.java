@@ -50,9 +50,14 @@ public class EstadiaDTO extends ActividadDTO implements Serializable{
      */
     public EstadiaDTO(EstadiaEntity pEstadiaEntity) 
     {
-        super(pEstadiaEntity);
         if (pEstadiaEntity != null) 
         {
+            this.id = pEstadiaEntity.getId();
+            this.descripcion = pEstadiaEntity.getDescripcion();
+            this.fecha = pEstadiaEntity.getFecha();
+            this.motivacion = pEstadiaEntity.getMotivacion();
+            this.nombre = pEstadiaEntity.getNombre();
+            this.pTipo = pEstadiaEntity.getSubTypeId();
             this.pais = pEstadiaEntity.getPais();
             if(pEstadiaEntity.getAnfitrion() != null)
             {
