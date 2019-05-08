@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
+import co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.idiomas.dtos.CalificacionGrupoDTO;
 import co.edu.uniandes.csw.idiomas.ejb.CalificacionGrupoLogic;
 import co.edu.uniandes.csw.idiomas.entities.CalificacionGrupoEntity;
@@ -80,14 +81,14 @@ public class CalificacionGrupoResource {
      */
     @GET
     @Path("{CalificacionGrupoId: \\d+}")
-    public CalificacionGrupoDTO getCalificacionGrupo(@PathParam("CalificacionGrupoId") Long CalificacionGrupoId)
+    public CalificacionDetailDTO getCalificacionGrupo(@PathParam("CalificacionGrupoId") Long CalificacionGrupoId)
     {
         LOGGER.log(Level.INFO, "CalificacionGrupoResource getCalificacionGrupo: input: {0}", CalificacionGrupoId);
         CalificacionGrupoEntity CalificacionGrupoEntity = logica.getCalificacionGrupo(CalificacionGrupoId);
         if (CalificacionGrupoEntity == null) {
             throw new WebApplicationException("El recurso /CalificacionGrupoes/" + CalificacionGrupoId + " no existe.", 404);
         }
-        CalificacionGrupoDTO detailDTO = new CalificacionGrupoDTO(CalificacionGrupoEntity);
+        CalificacionDetailDTO detailDTO = new CalificacionDetailDTO(CalificacionGrupoEntity);
         LOGGER.log(Level.INFO, "CalificacionGrupoResource getCalificacionGrupo: output: {0}", detailDTO);
         return detailDTO;
     }

@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.CalificacionCoordinadorDTO;
+import co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.CalificacionCoordinadorLogic;
 import co.edu.uniandes.csw.idiomas.entities.CalificacionCoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
@@ -80,14 +81,14 @@ public class CalificacionCoordinadorResource {
      */
     @GET
     @Path("{CalificacionCoordinadorId: \\d+}")
-    public CalificacionCoordinadorDTO getCalificacionCoordinador(@PathParam("CalificacionCoordinadorId") Long CalificacionCoordinadorId)
+    public CalificacionDetailDTO getCalificacionCoordinador(@PathParam("CalificacionCoordinadorId") Long CalificacionCoordinadorId)
     {
         LOGGER.log(Level.INFO, "CalificacionCoordinadorResource getCalificacionCoordinador: input: {0}", CalificacionCoordinadorId);
         CalificacionCoordinadorEntity CalificacionCoordinadorEntity = logica.getCalificacionCoordinador(CalificacionCoordinadorId);
         if (CalificacionCoordinadorEntity == null) {
             throw new WebApplicationException("El recurso /CalificacionCoordinadores/" + CalificacionCoordinadorId + " no existe.", 404);
         }
-        CalificacionCoordinadorDTO detailDTO = new CalificacionCoordinadorDTO(CalificacionCoordinadorEntity);
+        CalificacionDetailDTO detailDTO = new CalificacionDetailDTO(CalificacionCoordinadorEntity);
         LOGGER.log(Level.INFO, "CalificacionCoordinadorResource getCalificacionCoordinador: output: {0}", detailDTO);
         return detailDTO;
     }

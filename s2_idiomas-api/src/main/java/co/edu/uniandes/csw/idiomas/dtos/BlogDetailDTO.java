@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.idiomas.dtos;
 
+import co.edu.uniandes.csw.idiomas.entities.BlogEntity;
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,6 +14,12 @@ import java.util.List;
  * @author Luis Perez le.perezl
  */
 public class BlogDetailDTO extends BlogDTO implements Serializable {
+    
+    
+    public BlogDetailDTO(){
+        super();
+    }
+    
     /**
      * Lista de comentarioDTO del Blog
      */
