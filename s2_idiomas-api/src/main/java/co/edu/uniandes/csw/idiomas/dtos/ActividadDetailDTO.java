@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.idiomas.dtos;
 
 import co.edu.uniandes.csw.idiomas.entities.ActividadEntity;
-import co.edu.uniandes.csw.idiomas.entities.CalificacionActividadEntity;
+import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
 import co.edu.uniandes.csw.idiomas.entities.ComentarioEntity;
 import co.edu.uniandes.csw.idiomas.entities.UsuarioEntity;
 import java.io.Serializable;
@@ -32,10 +32,10 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     private List<UsuarioDTO> asistentes;
     
     /**
-     * Lista de tipo CalificacionActividadDTO contiene las calificaciones que están
+     * Lista de tipo CalificacionDTO contiene las calificaciones que están
      * asociados con esta actividad.
      */
-    private List<CalificacionActividadDTO> calificacionA;
+    private List<CalificacionDTO> calificacion;
     
     /**
      * Lista de tipo ComentarioDTO contiene los comentarios que están
@@ -82,10 +82,10 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
         }
         if (actividadEntity.getCalificaciones() != null)
         {
-            calificacionA = new ArrayList();
-            for (CalificacionActividadEntity entityCalificaciones : actividadEntity.getCalificaciones())
+            calificacion = new ArrayList();
+            for (CalificacionEntity entityCalificaciones : actividadEntity.getCalificaciones())
             {
-                calificacionA.add(new CalificacionActividadDTO(entityCalificaciones));
+                calificacion.add(new CalificacionDTO(entityCalificaciones));
             }
         }
     }
@@ -119,8 +119,8 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
             actividadEntity.setComentarios(comentariosEntity);
         }
         if (getCalificacionA() != null) {
-            List<CalificacionActividadEntity> calificacionesEntity = new ArrayList<>();
-            for (CalificacionActividadDTO dtoCalificacion : getCalificacionA()) {
+            List<CalificacionEntity> calificacionesEntity = new ArrayList<>();
+            for (CalificacionDTO dtoCalificacion : getCalificacionA()) {
                 calificacionesEntity.add(dtoCalificacion.toEntity());
             }
             actividadEntity.setCalificaciones(calificacionesEntity);
@@ -143,17 +143,17 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     }
     
     /**
-     * @return the calificacionA
+     * @return the calificacion
      */
-    public List<CalificacionActividadDTO> getCalificacionA() {
-        return calificacionA;
+    public List<CalificacionDTO> getCalificacionA() {
+        return calificacion;
     }
 
     /**
-     * @param calificacionA the calificacionA to set
+     * @param calificacion the calificacion to set
      */
-    public void setCalificacionA(List<CalificacionActividadDTO> calificacionA) {
-        this.calificacionA = calificacionA;
+    public void setCalificacionA(List<CalificacionDTO> calificacion) {
+        this.calificacion = calificacion;
     }
 
     /**

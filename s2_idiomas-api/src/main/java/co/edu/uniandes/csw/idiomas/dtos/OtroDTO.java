@@ -9,29 +9,27 @@ import co.edu.uniandes.csw.idiomas.entities.OtroEntity;
 import java.io.Serializable;
 
 /**
- * OtroDTO Objeto de transferencia de datos de otro. Los DTO 
- * contienen las representaciones de los JSON que se transfieren entre el 
- * cliente y el servidor.
+ * OtroDTO Objeto de transferencia de datos de otro. Los DTO contienen las
+ * representaciones de los JSON que se transfieren entre el cliente y el
+ * servidor.
+ *
  * @author g.cubillosb
  */
-public class OtroDTO extends ActividadDTO implements Serializable{
-    
+public class OtroDTO extends ActividadDTO implements Serializable {
+
     // -------------------------------------------------------------------------
     // Atributos
     // -------------------------------------------------------------------------
-    
     // -------------------------------------------------------------------------
     // Constructor
     // -------------------------------------------------------------------------
-    
     /**
      * Constructor vacío
      */
-    public OtroDTO ()
-    {
+    public OtroDTO() {
         super();
     }
-    
+
     /**
      * Convertir Entity a DTO (Crea un nuevo DTO con los valores que recibe en
      * la entidad que viene de argumento.
@@ -40,28 +38,34 @@ public class OtroDTO extends ActividadDTO implements Serializable{
      */
     public OtroDTO(OtroEntity pOtroEntity) 
     {
-        super(pOtroEntity);
+        if (pOtroEntity != null)
+        {
+            this.id = pOtroEntity.getId();
+            this.descripcion = pOtroEntity.getDescripcion();
+            this.fecha = pOtroEntity.getFecha();
+            this.motivacion = pOtroEntity.getMotivacion();
+            this.nombre = pOtroEntity.getNombre();
+            this.pTipo = pOtroEntity.getSubTypeId();
+        }
     }
-    
+
     // -------------------------------------------------------------------------
     // Métodos
     // -------------------------------------------------------------------------
-    
     /**
      * Convertir DTO a Entity
      *
      * @return Un Entity con los valores del DTO
      */
     @Override
-    public OtroEntity toEntity() 
-    {
+    public OtroEntity toEntity() {
         OtroEntity otroEntity = new OtroEntity();
         otroEntity.setId(this.getId());
         otroEntity.setNombre(this.getNombre());
         otroEntity.setDescripcion(this.getDescripcion());
         otroEntity.setMotivacion(this.getMotivacion());
         otroEntity.setFecha(this.getFecha());
-        
+
         return otroEntity;
     }
 }

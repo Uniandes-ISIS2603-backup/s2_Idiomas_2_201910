@@ -32,78 +32,76 @@ import uk.co.jemos.podam.common.PodamStrategyValue;
 /**
  * Clase que representa una actividad en la persistencia y permite su
  * serialización.
+ *
  * @author g.cubillosb
  */
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typeActivity", discriminatorType = DiscriminatorType.CHAR)
 @DiscriminatorValue("A")
-public class ActividadEntity extends BaseEntity implements Serializable{
-    
+public class ActividadEntity extends BaseEntity implements Serializable {
+
     // -------------------------------------------------------------------
     // Atributos
     // -------------------------------------------------------------------
-    
     /**
      * Atributo que representa el nombre de la actividad.
      */
     private String nombre;
-    
-    @Column(name="typeActivity", insertable = false, updatable = false)
-private char subTypeId;
+
+    @Column(name = "typeActivity", insertable = false, updatable = false)
+    private char subTypeId;
     /**
      * Atributo que representa la fecha de la actividad.
      */
     @Temporal(TemporalType.DATE)
     @PodamStrategyValue(DateStrategy.class)
     private Date fecha;
-    
+
     /**
      * Atributo que modela la descripción de la actividad.
      */
     private String descripcion;
-    
+
     /**
      * Atributo que representa la motivación de la actividad.
      */
     private String motivacion;
-    
+
     /**
      * Atributo que representa los comentarios de la actividad.
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
     private List<ComentarioEntity> comentarios = new ArrayList<>();
-    
+
     /**
      * Atributo que representa las calificaciones de la actividad.
      */
     @PodamExclude
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.PERSIST)
-    private List<CalificacionActividadEntity> calificaciones = new ArrayList<>();
-    
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
+
     /**
      * Atributo que representa los asistentes de la actividad.
      */
     @PodamExclude
     @ManyToMany(mappedBy = "actividades", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<UsuarioEntity> asistentes = new ArrayList<>();
-    
+
     /**
      * Atributo que representa los coordinadores de una actividad.
      */
     @PodamExclude
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<CoordinadorEntity> coordinadores = new ArrayList<>();
-    
+
     // ------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------
-    
     // ------------------------------------------------------------------
     // Métodos
     // ------------------------------------------------------------------
-
     /**
      * @return the descripcion
      */
@@ -145,20 +143,21 @@ private char subTypeId;
     public void setComentarios(List<ComentarioEntity> comentarios) {
         this.comentarios = comentarios;
     }
+
     /**
      * @return the calificaciones
      */
-    public List<CalificacionActividadEntity> getCalificaciones() {
+    public List<CalificacionEntity> getCalificaciones() {
         return calificaciones;
     }
 
     /**
      * @param calificaciones the calificaciones to set
      */
-    public void setCalificaciones(List<CalificacionActividadEntity> calificaciones) {
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
         this.calificaciones = calificaciones;
     }
-    
+
     /**
      * @return the nombre
      */
@@ -214,15 +213,13 @@ private char subTypeId;
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
+
     /**
      * Equals de la clase
      */
     @Override
-    public boolean equals(Object obj)
-    {
-        if(!super.equals(obj))
-        {
+    public boolean equals(Object obj) {
+        if (!super.equals(obj)) {
             return false;
         }
         ActividadEntity fobj = (ActividadEntity) obj;
@@ -255,6 +252,4 @@ private char subTypeId;
         this.subTypeId = subTypeId;
     }
 
-    
-    
 }
