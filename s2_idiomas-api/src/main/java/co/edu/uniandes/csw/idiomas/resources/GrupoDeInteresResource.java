@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.GrupoDeInteresDTO;
+import co.edu.uniandes.csw.idiomas.dtos.GrupoDeInteresDetailDTO;
 //import co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic;
 //import co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
@@ -100,7 +101,7 @@ public class GrupoDeInteresResource {
      */
     @GET
     @Path("{grupoDeInteresId: \\d+}")
-    public GrupoDeInteresDTO getGrupoDeInteres (@PathParam("grupoDeInteresId") Long grupoDeInteresId)
+    public GrupoDeInteresDetailDTO getGrupoDeInteres (@PathParam("grupoDeInteresId") Long grupoDeInteresId)
     {
         LOGGER.log(Level.INFO, "GrupoDeInteresResource getGrupoDeInteres: input: grupoDeInteresId: {0}", grupoDeInteresId);
 //        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadId);
@@ -111,7 +112,7 @@ public class GrupoDeInteresResource {
 //        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadEntity);
 //        LOGGER.log(Level.INFO, "ActividadResource getActividad: output: actividadId {0}"), detailDTO);
 //        return detailDTO;
-        return new GrupoDeInteresDTO();
+        return new GrupoDeInteresDetailDTO();
     }
     
     @DELETE

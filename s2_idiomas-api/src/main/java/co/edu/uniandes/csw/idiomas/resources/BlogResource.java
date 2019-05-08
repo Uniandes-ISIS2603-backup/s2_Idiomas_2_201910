@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.BlogDTO;
+import co.edu.uniandes.csw.idiomas.dtos.BlogDetailDTO;
 import co.edu.uniandes.csw.idiomas.dtos.GrupoDeInteresDTO;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import java.util.logging.Level;
@@ -97,7 +98,7 @@ public class BlogResource {
      */
     @GET
     @Path("{blogID: \\d+}")
-    public BlogDTO getBlog (@PathParam("blogID") Long blogID)
+    public BlogDetailDTO getBlog (@PathParam("blogID") Long blogID)
     {
         LOGGER.log(Level.INFO, "BlogResource getBlog: input: blogID: {0}", blogID);
 //        ActividadEntity actividadEntity = actividadLogic.getActividad(actividadId);
@@ -108,7 +109,7 @@ public class BlogResource {
 //        ActividadDetailDTO detailDTO = new ActividadDetailDTO(actividadEntity);
 //        LOGGER.log(Level.INFO, "ActividadResource getActividad: output: actividadId {0}"), detailDTO);
 //        return detailDTO;
-        return new BlogDTO();
+        return new BlogDetailDTO();
     }
     @DELETE
     @Path("{blogID: \\d+}")

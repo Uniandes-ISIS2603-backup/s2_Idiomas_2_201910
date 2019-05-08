@@ -66,14 +66,14 @@ public class CalificacionResource {
     }
     @GET
     @Path("{CalificacionId: \\d+}")
-    public CalificacionDTO getCalificacion(@PathParam("CalificacionId") Long CalificacionId)
+    public CalificacionDetailDTO getCalificacion(@PathParam("CalificacionId") Long CalificacionId)
     {
         LOGGER.log(Level.INFO, "CalificacionGrupoResource getCalificacionGrupo: input: {0}", CalificacionId);
         CalificacionEntity CalificacionEntity = logica.getCalificacion(CalificacionId);
         if (CalificacionEntity == null) {
             throw new WebApplicationException("El recurso /CalificacionGrupoes/" + CalificacionId + " no existe.", 404);
         }
-        CalificacionDTO detailDTO = new CalificacionDTO(CalificacionEntity);
+        CalificacionDetailDTO detailDTO = new CalificacionDetailDTO(CalificacionEntity);
         LOGGER.log(Level.INFO, "CalificacionGrupoResource getCalificacionGrupo: output: {0}", detailDTO);
         return detailDTO;
     }
