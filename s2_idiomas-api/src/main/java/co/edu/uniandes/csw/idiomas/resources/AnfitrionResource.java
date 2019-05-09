@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.idiomas.resources;
 
 
 import co.edu.uniandes.csw.idiomas.dtos.AdministradorDTO;
+import co.edu.uniandes.csw.idiomas.dtos.AdministradorDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic;
 import co.edu.uniandes.csw.idiomas.entities.AdministradorEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
@@ -105,14 +106,14 @@ public class AnfitrionResource
      */
     @PUT
     @Path("{AdministradorId: \\d+}")
-    public AdministradorDTO updateAdministrador(@PathParam("AdministradorId") Long administradorId, AdministradorDTO administrador) throws BusinessLogicException {
+    public AdministradorDetailDTO updateAdministrador(@PathParam("AdministradorId") Long administradorId, AdministradorDTO administrador) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: input: AdministradorId: {0} , Administrador: {1}", new Object[]{administradorId, administrador});
         administrador.setId(administradorId);
         if (administradorLogic.getAdministrador(administradorId) == null)
         {
             throw new WebApplicationException("El recurso /Administradores/" + administradorId +NO_EXISTE, 404);
         }
-        AdministradorDTO detailDTO = new AdministradorDTO(administradorLogic.updateAdministrador(administradorId, administrador.toEntity()));
+        AdministradorDetailDTO detailDTO = new AdministradorDetailDTO(administradorLogic.updateAdministrador(administradorId, administrador.toEntity()));
         LOGGER.log(Level.INFO, "AdministradorResource updateAdministrador: output: {0}", detailDTO);
         return detailDTO;
     }

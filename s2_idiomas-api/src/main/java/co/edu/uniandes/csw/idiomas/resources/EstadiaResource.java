@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.idiomas.resources;
 
 import co.edu.uniandes.csw.idiomas.dtos.EstadiaDTO;
+import co.edu.uniandes.csw.idiomas.dtos.EstadiaDetailDTO;
 import co.edu.uniandes.csw.idiomas.ejb.EstadiaLogic;
 import co.edu.uniandes.csw.idiomas.entities.EstadiaEntity;
 import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
@@ -85,9 +86,9 @@ public class EstadiaResource {
      * encontradas en la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<EstadiaDTO> getEstadias() {
+    public List<EstadiaDetailDTO> getEstadias() {
         LOGGER.info("EstadiaResource getEstadias: input: void");
-        List<EstadiaDTO> listaEstadias = listEntity2DetailDTO(estadiaLogic.getEstadias());
+        List<EstadiaDetailDTO> listaEstadias = listEntity2DetailDTO(estadiaLogic.getEstadias());
         LOGGER.log(Level.INFO, "EstadiaResource getEstadias: output: {0}", listaEstadias);
         return listaEstadias;
     }
@@ -103,14 +104,14 @@ public class EstadiaResource {
      */
     @GET
     @Path("{estadiasId: \\d+}")
-    public EstadiaDTO getEstadia(@PathParam("estadiasId") Long estadiasId)
+    public EstadiaDetailDTO getEstadia(@PathParam("estadiasId") Long estadiasId)
     {
         LOGGER.log(Level.INFO, "EstadiaResource getEstadia: input: {0}", estadiasId);
         EstadiaEntity estadiaEntity = estadiaLogic.getEstadia(estadiasId);
         if (estadiaEntity == null) {
             throw new WebApplicationException("El recurso /estadias/" + estadiasId + " no existe.", 404);
         }
-        EstadiaDTO detailDTO = new EstadiaDTO(estadiaEntity);
+        EstadiaDetailDTO detailDTO = new EstadiaDetailDTO(estadiaEntity);
         LOGGER.log(Level.INFO, "EstadiaResource getEstadia: output: {0}", detailDTO);
         return detailDTO;
     }
@@ -196,10 +197,10 @@ public class EstadiaResource {
      * que vamos a convertir a DTO.
      * @return la lista de estadias en forma DTO (json)
      */
-    private List<EstadiaDTO> listEntity2DetailDTO(List<EstadiaEntity> entityList) {
-        List<EstadiaDTO> list = new ArrayList<>();
+    private List<EstadiaDetailDTO> listEntity2DetailDTO(List<EstadiaEntity> entityList) {
+        List<EstadiaDetailDTO> list = new ArrayList<>();
         for (EstadiaEntity entity : entityList) {
-            list.add(new EstadiaDTO(entity));
+            list.add(new EstadiaDetailDTO(entity));
         }
         return list;
     }

@@ -13,6 +13,7 @@ import co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
@@ -20,6 +21,7 @@ import javax.inject.Inject;
  * la entidad de Usuario y Estadia.
  * @author g.cubillosb
  */
+@Stateless
 public class UsuarioEstadiaLogic {
     
     // -----------------------------------------------------------------------

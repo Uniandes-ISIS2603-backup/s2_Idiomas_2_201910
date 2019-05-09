@@ -55,9 +55,14 @@ public class EncuentroDTO extends ActividadDTO implements Serializable{
      */
     public EncuentroDTO(EncuentroEntity pEncuentroEntity) 
     {
-        super(pEncuentroEntity);
         if (pEncuentroEntity != null) 
         {
+            this.id = pEncuentroEntity.getId();
+            this.descripcion = pEncuentroEntity.getDescripcion();
+            this.fecha = pEncuentroEntity.getFecha();
+            this.motivacion = pEncuentroEntity.getMotivacion();
+            this.nombre = pEncuentroEntity.getNombre();
+            this.pTipo = pEncuentroEntity.getSubTypeId();
             this.aprobado = pEncuentroEntity.getAprobado();
             this.lugar = pEncuentroEntity.getLugar();
             this.numeroMaxAsistentes = pEncuentroEntity.getNumeroMaxAsistentes();

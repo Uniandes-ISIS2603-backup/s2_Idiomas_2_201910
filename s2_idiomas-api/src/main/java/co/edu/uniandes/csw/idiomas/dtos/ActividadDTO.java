@@ -24,32 +24,32 @@ public class ActividadDTO implements Serializable{
     /**
      * Atributo que representa el Id de la actividad
      */
-    private Long id;
+    protected Long id;
     
     /**
      * Atributo que representa el nombre de la actividad.
      */
-    private String nombre;
+    protected String nombre;
     
     /**
      * Atributo que contiene la fecha.
      */
-    private Date fecha;
+    protected Date fecha;
     
     /**
      * Atributo que contiene la descripcion de la actividad.
      */
-    private String descripcion;
+    protected String descripcion;
     
     /**
      * Atributo que contiene la motivacion de la actvidad
      */
-    private String motivacion;
+    protected String motivacion;
     
     /**
      * Atributo que contiene el tipo
      */
-    private char pTipo;
+    protected Character pTipo;
     
     // -----------------------------------------------------------------------
     // Constructor
@@ -183,9 +183,9 @@ public class ActividadDTO implements Serializable{
     /**
      * @param pTipo the pTipo to set
      */
-    public void setpTipo(char pTipo) {
+    public void setpTipo(Character pTipo) {
         this.pTipo = pTipo;
     }
-    
+
     
 }

@@ -143,7 +143,7 @@ public class ActividadDetailDTO extends ActividadDTO implements Serializable {
     }
     
     /**
-     * @return the calificacionA
+     * @return the calificacion
      */
     public List<CalificacionDTO> getCalificacion() {
         return calificacion;
