@@ -41,7 +41,7 @@ public class GrupoDeInteresEntity extends BaseEntity implements Serializable{
      */
     @PodamExclude
     @OneToMany(mappedBy = "grupo", cascade = CascadeType.PERSIST)
-    private List<CalificacionGrupoEntity> calificaciones = new ArrayList<>();
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
     
     /**
      * Connstructor vacio de un Entity
@@ -110,14 +110,14 @@ public class GrupoDeInteresEntity extends BaseEntity implements Serializable{
     /**
      * @return the calificaciones
      */
-    public List<CalificacionGrupoEntity> getCalificaciones() {
+    public List<CalificacionEntity> getCalificaciones() {
         return calificaciones;
     }
 
     /**
      * @param calificaciones the calificaciones to set
      */
-    public void setCalificaciones(List<CalificacionGrupoEntity> calificaciones) {
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
         this.calificaciones = calificaciones;
     }
     

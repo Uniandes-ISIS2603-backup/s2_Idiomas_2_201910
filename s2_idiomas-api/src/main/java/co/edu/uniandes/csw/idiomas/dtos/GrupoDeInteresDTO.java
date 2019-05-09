@@ -43,6 +43,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author le.perezl
  */
 public class GrupoDeInteresDTO implements Serializable{
+    private Long id;
     /**
      * idioma del grupo
      */
@@ -61,6 +62,10 @@ public class GrupoDeInteresDTO implements Serializable{
     Long blog;
     
     public GrupoDeInteresDTO(){
+        
+    }
+    
+    public GrupoDeInteresDTO(GrupoDeInteresEntity grupo){
         
     }
     public GrupoDeInteresEntity toEntity(){
@@ -123,5 +128,19 @@ public class GrupoDeInteresDTO implements Serializable{
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
    
 }

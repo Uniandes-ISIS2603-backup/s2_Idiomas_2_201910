@@ -5,19 +5,15 @@
  */
 package co.edu.uniandes.csw.idiomas.resources;
 
-import co.edu.uniandes.csw.idiomas.dtos.CalificacionDTO;
+import co.edu.uniandes.csw.idiomas.dtos.ActividadDTO;
 import co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO;
+import co.edu.uniandes.csw.idiomas.ejb.ActividadLogic;
+import co.edu.uniandes.csw.idiomas.ejb.CalificacionActividadLogic;
 import co.edu.uniandes.csw.idiomas.ejb.CalificacionLogic;
-import co.edu.uniandes.csw.idiomas.entities.CalificacionEntity;
-import co.edu.uniandes.csw.idiomas.exceptions.BusinessLogicException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -26,119 +22,49 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 /**
+ * Clase que implementa el recurso "actividad/{id}/calificaciones".
  *
- * @author Jd.ruedaa
+ * @author jdruedaa
  */
-@Path("actividadGrades")
-@Produces(MediaType.APPLICATION_JSON)
+@Path("calificaciones/{calificacionesId: \\d+}/actividad")
 @Consumes(MediaType.APPLICATION_JSON)
-@RequestScoped
+@Produces(MediaType.APPLICATION_JSON)
 public class CalificacionActividadResource {
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
     private static final Logger LOGGER = Logger.getLogger(CalificacionActividadResource.class.getName());
-    
-     @Inject
-    private CalificacionLogic logica;
-    
+
+    @Inject
+    private CalificacionLogic calificacionLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+
+    @Inject
+    private CalificacionActividadLogic calificacionActividadLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+
+    @Inject
+    private ActividadLogic actividadLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+
     /**
-     * Crea una nueva calificacion con la informacion que se recibe en el cuerpo de
-     * la petición y se regresa un objeto identico con un id auto-generado por
-     * la base de datos.
+     * Remplaza la instancia de Actividad asociada a un Calificacion.
      *
-     * @param calificacion {@link calificacionDTO} - La calificacion que se desea
-     * guardar.
-     * @return JSON {@link calificacionDTO} - La calificacion guardada con el atributo
-     * id autogenerado.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
-     * Error de lógica que se genera cuando la calificacion no cumple con los requisitos.
-     */
-    @POST
-    public CalificacionDTO createCalificacion(CalificacionDTO calificacion) throws BusinessLogicException 
-    {
-        LOGGER.log(Level.INFO, "calificacionResource createcalificacion: input: {0}", calificacion);
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        CalificacionEntity calificacionEntity = calificacion.toEntity();
-        // Invoca la lógica para crear una Calificacion nueva
-        CalificacionEntity calificacionResEntity = logica.createCalificacion(calificacionEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-        CalificacionDTO calificacionDTO = new CalificacionDTO(calificacionResEntity);
-        LOGGER.log(Level.INFO, "CalificacionResource createcalificacion: output: {0}", calificacionDTO);
-        return calificacionDTO;
-    }
-    
-    /**
-     * Busca el Calificacion con el id asociado recibido en la URL y la devuelve.
-     *
-     * @param CalificacionId Identificador de la Calificacion que se esta buscando.
-     * Este debe ser una cadena de dígitos.
-     * @return JSON {@link CalificacionDetailDTO} - La Calificacion buscada
+     * @param calificacionesId Identificador de la calificacion que se esta actualizando. Este
+     * debe ser una cadena de dígitos.
+     * @param actividad La actividad que será de la calificacion.
+     * @return JSON {@link CalificacionDetailDTO} - El arreglo de calificaciones guardado en la
+     * actividad.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la Calificacion.
-     */
-    @GET
-    @Path("{calificacionId: \\d+}")
-    public CalificacionDetailDTO getCalificacion(@PathParam("calificacionId") Long CalificacionId)
-    {
-        LOGGER.log(Level.INFO, "CalificacionResource getCalificacion: input: {0}", CalificacionId);
-        CalificacionEntity CalificacionEntity = logica.getCalificacion(CalificacionId);
-        if (CalificacionEntity == null) {
-            throw new WebApplicationException("El recurso /Calificaciones/" + CalificacionId + " no existe.", 404);
-        }
-        CalificacionDetailDTO detailDTO = new CalificacionDetailDTO(CalificacionEntity);
-        LOGGER.log(Level.INFO, "CalificacionResource getCalificacion: output: {0}", detailDTO);
-        return detailDTO;
-    }
-    
-    /**
-     * Borra la Calificacion con el id asociado recibido en la URL.
-     *
-     * @param CalificacionId Identificador de la Calificacion que se desea borrar.
-     * Este debe ser una cadena de dígitos.
-     * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
-     * Error de lógica que se genera cuando no se puede eliminar la Calificacion.
-     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la Calificacion.
-     */
-    @DELETE
-    @Path("{calificacionId: \\d+}")
-    public void deleteCalificacion(@PathParam("calificacionId") Long CalificacionId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "CalificacionResource deleteCalificacion: input: {0}", CalificacionId);
-        if (logica.getCalificacion(CalificacionId) == null) {
-            throw new WebApplicationException("El recurso /Calificacions/" + CalificacionId + " no existe.", 404);
-        }
-        logica.deleteCalificacion(CalificacionId);
-        LOGGER.info("CalificacionResource deleteCalificacion: output: void");
-    }
-    
-     /**
-     * Actualiza la Calificacion con el id recibido en la URL con la informacion
-     * que se recibe en el cuerpo de la petición.
-     *
-     * @param CalificacionId Identificador de la Calificacion que se desea
-     * actualizar. Este debe ser una cadena de dígitos.
-     * @param Calificacion {@link CalificacionDetailDTO} La Calificacion que se desea
-     * guardar.
-     * @return JSON {@link CalificacionDetailDTO} - La Calificacion guardada.
-     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la Calificacion a
-     * actualizar.
+     * Error de lógica que se genera cuando no se encuentra la actividad o la
+     * calificacion.
      */
     @PUT
-    @Path("{calificacionId: \\d+}")
-    public CalificacionDTO updateCalificacion(@PathParam("calificacionId") Long CalificacionId, CalificacionDTO Calificacion) throws BusinessLogicException 
-    {
-        LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: input: id:{0} , Calificacion: {1}", new Object[]{CalificacionId, Calificacion});
-        Calificacion.setId(CalificacionId);
-        if (logica.getCalificacion(CalificacionId) == null) {
-            throw new WebApplicationException("El recurso /Calificaciones/" + CalificacionId + " no existe.", 404);
+    public CalificacionDetailDTO replaceActividad(@PathParam("calificacionesId") Long calificacionesId, ActividadDTO actividad) {
+        LOGGER.log(Level.INFO, "CalificacionActividadResource replaceActividad: input: calificacionesId{0} , Actividad:{1}", new Object[]{calificacionesId, actividad});
+        if (calificacionLogic.getCalificacion(calificacionesId) == null) {
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
         }
-        CalificacionDTO detailDTO = new CalificacionDTO(logica.updateCalificacion(CalificacionId, Calificacion.toEntity()));
-        LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: output: {0}", detailDTO);
-        return detailDTO;
-
+        if (actividadLogic.getActividad(actividad.getId()) == null) {
+            throw new WebApplicationException("El recurso /actividads/" + actividad.getId() + " no existe.", 404);
+        }
+        CalificacionDetailDTO calificacionDetailDTO = new CalificacionDetailDTO(calificacionActividadLogic.replaceActividad(calificacionesId, actividad.getId()));
+        LOGGER.log(Level.INFO, "CalificacionActividadResource replaceActividad: output: {0}", calificacionDetailDTO);
+        return calificacionDetailDTO;
     }
 }

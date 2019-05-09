@@ -31,7 +31,7 @@ public class AdministradorEntity implements Serializable {
      */
     @PodamExclude
     @OneToMany(mappedBy = "administrador", cascade = CascadeType.PERSIST)
-    private List<CalificacionAdministradorEntity> calificaciones = new ArrayList<>();
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
     
     /**
      * Atributo que representa los grupos administradps.
@@ -92,7 +92,19 @@ public class AdministradorEntity implements Serializable {
         this.id = id;
     }
 
-    
+    /**
+     * @return the calificaciones
+     */
+    public List<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
+    }
+
+    /**
+     * @param calificaciones the calificaciones to set
+     */
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
 
     @Override
     public int hashCode() {
