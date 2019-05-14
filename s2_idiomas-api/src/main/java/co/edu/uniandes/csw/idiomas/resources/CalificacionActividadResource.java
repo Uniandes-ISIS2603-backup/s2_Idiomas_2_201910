@@ -61,7 +61,7 @@ public class CalificacionActividadResource {
             throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
         }
         if (actividadLogic.getActividad(actividad.getId()) == null) {
-            throw new WebApplicationException("El recurso /actividads/" + actividad.getId() + " no existe.", 404);
+            throw new WebApplicationException("El recurso /actividades/" + actividad.getId() + " no existe.", 404);
         }
         CalificacionDetailDTO calificacionDetailDTO = new CalificacionDetailDTO(calificacionActividadLogic.replaceActividad(calificacionesId, actividad.getId()));
         LOGGER.log(Level.INFO, "CalificacionActividadResource replaceActividad: output: {0}", calificacionDetailDTO);
