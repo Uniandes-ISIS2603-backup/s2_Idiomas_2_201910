@@ -98,9 +98,9 @@ public class CalificacionGrupoDeInteresLogicTest {
      */
     private void insertData() {
         for (int i = 0; i < 3; i++) {
-            CalificacionEntity calificaciones = factory.manufacturePojo(CalificacionEntity.class);
-            em.persist(calificaciones);
-            calificacionesData.add(calificaciones);
+            CalificacionEntity calificacion = factory.manufacturePojo(CalificacionEntity.class);
+            em.persist(calificacion);
+            calificacionesData.add(calificacion);
         }
         for (int i = 0; i < 3; i++) {
             GrupoDeInteresEntity entity = factory.manufacturePojo(GrupoDeInteresEntity.class);

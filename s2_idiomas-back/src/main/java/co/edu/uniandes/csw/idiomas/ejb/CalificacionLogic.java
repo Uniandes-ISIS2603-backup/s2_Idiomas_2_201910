@@ -46,31 +46,30 @@ public class CalificacionLogic {
      */
     public CalificacionEntity createCalificacion(CalificacionEntity calificacionEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la calificacion");
-        CalificacionEntity newCalificacionEntity = calificacionPersistence.create(calificacionEntity);
-        if(newCalificacionEntity != null)
+        if(calificacionEntity != null)
         {
-            if (newCalificacionEntity.getActividad() != null)
+            if (calificacionEntity.getActividad() != null)
             {
                 if (actividadPersistence.find(calificacionEntity.getActividad().getId()) == null)
                 {
                     throw new BusinessLogicException("Actividad no válida");
                 }
             }
-            else if (newCalificacionEntity.getAdministrador() != null)
+            else if (calificacionEntity.getAdministrador() != null)
             {
                 if (administradorPersistence.find(calificacionEntity.getAdministrador().getId()) == null)
                 {
                     throw new BusinessLogicException("Administrador no válido");
                 }
             }
-            else if (newCalificacionEntity.getCoordinador() != null)
+            else if (calificacionEntity.getCoordinador() != null)
             {
                 if (coordinadorPersistence.find(calificacionEntity.getCoordinador().getId()) == null)
                 {
                     throw new BusinessLogicException("Coordinador no válido");
                 }
             }
-            else if (newCalificacionEntity.getGrupo() != null)
+            else if (calificacionEntity.getGrupo() != null)
             {
                 if (grupoDeInteresPersistence.find(calificacionEntity.getGrupo().getId()) == null)
                 {
@@ -81,20 +80,30 @@ public class CalificacionLogic {
             {
                 throw new BusinessLogicException("No se puede crear calificaciones sin específicar qué está calificando");   
             }
-            if (newCalificacionEntity.getCalificacion() < 0 || newCalificacionEntity.getCalificacion() > 5)
+            
+            if (calificacionEntity.getCalificacion() != null)
             {
+                if (calificacionEntity.getCalificacion() < 0 || calificacionEntity.getCalificacion() > 5)
+                {
                 throw new BusinessLogicException("La calificación no se encuentra entre 0 y 5");   
+                } 
             }
-            if (newCalificacionEntity.getMensaje() != null)
+            else
             {
-                if(newCalificacionEntity.getMensaje().length() > 250)
+                throw new BusinessLogicException("La calificación no puede ser nula"); 
+            }
+            
+            if (calificacionEntity.getMensaje() != null)
+            {
+                if(calificacionEntity.getMensaje().length() > 250)
                 {
                     throw new BusinessLogicException("El mensaje supera el número de caracteres permitidos");
                 }
             }
         }
+        calificacionPersistence.create(calificacionEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la calificacion");
-        return newCalificacionEntity;
+        return calificacionEntity;
     }
 
     /**

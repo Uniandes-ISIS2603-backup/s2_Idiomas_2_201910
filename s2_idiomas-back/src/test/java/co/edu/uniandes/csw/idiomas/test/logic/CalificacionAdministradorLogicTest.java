@@ -98,9 +98,9 @@ public class CalificacionAdministradorLogicTest {
      */
     private void insertData() {
         for (int i = 0; i < 3; i++) {
-            CalificacionEntity calificaciones = factory.manufacturePojo(CalificacionEntity.class);
-            em.persist(calificaciones);
-            calificacionesData.add(calificaciones);
+            CalificacionEntity calificacion = factory.manufacturePojo(CalificacionEntity.class);
+            em.persist(calificacion);
+            calificacionesData.add(calificacion);
         }
         for (int i = 0; i < 3; i++) {
             AdministradorEntity entity = factory.manufacturePojo(AdministradorEntity.class);

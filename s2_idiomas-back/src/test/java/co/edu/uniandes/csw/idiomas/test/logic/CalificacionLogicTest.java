@@ -118,6 +118,7 @@ public class CalificacionLogicTest {
         for (int i = 0; i < 3; i++) {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
             entity.setActividad(actividadData.get(0));
+            entity.setCalificacion(3);
 
             em.persist(entity);
             data.add(entity);
@@ -130,6 +131,7 @@ public class CalificacionLogicTest {
         for (int i = 0; i < 3; i++) {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
             entity.setAdministrador(administradorData.get(0));
+            entity.setCalificacion(2);
 
             em.persist(entity);
             data.add(entity);
@@ -142,6 +144,7 @@ public class CalificacionLogicTest {
         for (int i = 0; i < 3; i++) {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
             entity.setCoordinador(coordinadorData.get(0));
+            entity.setCalificacion(1);
 
             em.persist(entity);
             data.add(entity);
@@ -154,6 +157,7 @@ public class CalificacionLogicTest {
         for (int i = 0; i < 3; i++) {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
             entity.setGrupo(grupoDeInteresData.get(0));
+            entity.setCalificacion(5);
             em.persist(entity);
             data.add(entity);
         }
@@ -168,6 +172,7 @@ public class CalificacionLogicTest {
     public void createCalificacionTest() throws BusinessLogicException {
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
         newEntity.setActividad(actividadData.get(0));
+        newEntity.setCalificacion(4);
         CalificacionEntity result = calificacionLogic.createCalificacion(newEntity);
         Assert.assertNotNull(result);
         CalificacionEntity entity = em.find(CalificacionEntity.class, result.getId());
@@ -212,6 +217,7 @@ public class CalificacionLogicTest {
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
         newEntity.setActividad(actividadData.get(0));
         newEntity.setMensaje("Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó");
+        newEntity.setCalificacion(3);
         calificacionLogic.createCalificacion(newEntity);
     }
 
@@ -327,6 +333,7 @@ public class CalificacionLogicTest {
         CalificacionEntity entity = data.get(0);
         CalificacionEntity pojoEntity = factory.manufacturePojo(CalificacionEntity.class);
         pojoEntity.setId(entity.getId());
+        pojoEntity.setCalificacion(3);
         calificacionLogic.updateCalificacion(pojoEntity.getId(), pojoEntity);
         CalificacionEntity resp = em.find(CalificacionEntity.class, entity.getId());
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
