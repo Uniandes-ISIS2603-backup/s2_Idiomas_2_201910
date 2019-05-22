@@ -47,6 +47,7 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
     public Long getId() {
         return id;
     }
+    
     @Override
     /**
      * @param id the id to set
