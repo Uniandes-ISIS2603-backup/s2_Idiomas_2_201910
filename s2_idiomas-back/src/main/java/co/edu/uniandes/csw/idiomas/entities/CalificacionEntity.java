@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -20,8 +19,7 @@ import uk.co.jemos.podam.common.PodamExclude;
  */
 @Entity
 public class CalificacionEntity extends BaseEntity implements Serializable{
-    @Id
-    private Long id;
+    
     private Integer calificacion;
     private String mensaje;
     @PodamExclude
@@ -40,22 +38,6 @@ public class CalificacionEntity extends BaseEntity implements Serializable{
     @OneToMany(mappedBy = "calificaciones")
     private List<ComentarioEntity> comentarios = new ArrayList<>();
     
-    @Override
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-    
-    @Override
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     /**
      * @return the calificacion
      */

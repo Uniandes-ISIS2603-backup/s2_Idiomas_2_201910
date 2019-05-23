@@ -1,0 +1,748 @@
+{
+	"info": {
+		"_postman_id": "adfc14eb-2fbd-4b5f-8717-1e72b3759de0",
+		"name": "Calificacion-Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "postGrupo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9464520-c8ec-4dbe-b855-0df178158890",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_grupo1\",data.id);",
+							"tests[\"No genera error en el Post grupo\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"idioma\": \"INGLES\"\n\t, \"administrador\" : \"El Macho\"\n\t, \"blog\" : \"Dying in a volcano\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/grupoDeInteres",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"grupoDeInteres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postActividad",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "694741e6-4794-48fd-b32b-d790963ac9b0",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_a\",data.id);",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;",
+							"console.log(data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"El nombre\",\n\t\"fecha\": \"2019-03-20T05:00:00Z[UTC]\",\n    \"descripcion\": \"La descripcion\",\n    \"motivacion\": \"La motivacion\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/actividad",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"actividad"
+					]
+				},
+				"description": "Crea un nuevo actividad. El Id es inicializado por la BD y se debe ver en la respuesta.\r\nPara la prueba, se guarda el id en una variable que será utilizada en otras peticiones de la colección.\r\n\r\n**Código http esperado: 200**"
+			},
+			"response": []
+		},
+		{
+			"name": "postCalificacionNormal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af327ed1-34ac-46f0-a63d-cac9d447c067",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_calificacion1\",data.id);",
+							"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 5\n\t, \"mensaje\" : \"Best\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postCalificacionNormal 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af327ed1-34ac-46f0-a63d-cac9d447c067",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_calificacion2\",data.id);",
+							"tests[\"No genera error en el Post 2\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 4\n\t, \"mensaje\" : \"Almost Best\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postCalificacionSinRelaciones",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc12cd56-46ab-41a5-8a75-5fd70b74522e",
+						"exec": [
+							"tests[\"No crea sin relaciones\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"No se puede crear calificaciones sin\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 4\n\t, \"mensaje\" : \"Best\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postCalificacionCalificacionFueraDeLimites",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc12cd56-46ab-41a5-8a75-5fd70b74522e",
+						"exec": [
+							"tests[\"No crea con calificación fuera de límites\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"La calificación no se encuentra entre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 6\n\t, \"mensaje\" : \"Best\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postCalificacionMensajeFueraDeLimites",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc12cd56-46ab-41a5-8a75-5fd70b74522e",
+						"exec": [
+							"tests[\"No crea con mensaje fuera de límites\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El mensaje supera\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 3\n\t, \"mensaje\" : \"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido uso\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCalificaciones",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a22bddf8-5b2a-4ac9-8e29-34d5305204e3",
+						"exec": [
+							"tests[\"No genera error en el Get lista\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCalificacionConId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0dcd37a6-0719-40d4-960b-bfb1384be945",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get con id\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/{{new_id_calificacion1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"{{new_id_calificacion1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCalificacionQueNoExiste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0dcd37a6-0719-40d4-960b-bfb1384be945",
+						"exec": [
+							"tests[\"No consulta con id que no existe\"] = responseCode.code === 404; ",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /calificaciones/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putCalificacionNormal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d5f63f6-2cda-48a8-b27c-6152a57d6cae",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 3\n\t, \"mensaje\" : \"Not best\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/{{new_id_calificacion1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"{{new_id_calificacion1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putCalificacionQueNoExiste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d5f63f6-2cda-48a8-b27c-6152a57d6cae",
+						"exec": [
+							"tests[\"No actualiza con id que no existe\"] = responseCode.code === 404;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /calificaciones/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 3\n\t, \"mensaje\" : \"Not best\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putCalificacionCalificacionFueraDeLimites",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc12cd56-46ab-41a5-8a75-5fd70b74522e",
+						"exec": [
+							"tests[\"No actualiza con calificación fuera de límites\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"La calificación no se encuentra entre\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 6\n\t, \"mensaje\" : \"Best\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/{{new_id_calificacion1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"{{new_id_calificacion1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putCalificacionMensajeFueraDeLimites",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc12cd56-46ab-41a5-8a75-5fd70b74522e",
+						"exec": [
+							"tests[\"No crea con mensaje fuera de límites\"] = responseCode.code === 412;",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El mensaje supera\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"calificacion\": 3\n\t, \"mensaje\" : \"Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido uso\"\n\t, \"actividad\": { \"id\": {{new_id_a}} }\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/{{new_id_calificacion1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"{{new_id_calificacion1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCalificacion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc12cd56-46ab-41a5-8a75-5fd70b74522e",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/{{new_id_calificacion1}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"{{new_id_calificacion1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCalificacion 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc12cd56-46ab-41a5-8a75-5fd70b74522e",
+						"exec": [
+							"tests[\"No genera error en el Delete 2\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/{{new_id_calificacion2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"{{new_id_calificacion2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCalificacionQueNoExiste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0dcd37a6-0719-40d4-960b-bfb1384be945",
+						"exec": [
+							"tests[\"No borra con id que no existe\"] = responseCode.code === 404; ",
+							"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /calificaciones/0 no existe.\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_idiomas-api/api/calificaciones/0",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_idiomas-api",
+						"api",
+						"calificaciones",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
