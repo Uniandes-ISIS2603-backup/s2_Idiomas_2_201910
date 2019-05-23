@@ -55,7 +55,7 @@ public class GrupoDeInteresDTO implements Serializable{
     /**
      * calificacion del grupo
      */
-    Long calificacion;
+//    Long calificacion;
     /**
      * blog del grupo
      */
@@ -65,12 +65,24 @@ public class GrupoDeInteresDTO implements Serializable{
         
     }
     
-    public GrupoDeInteresDTO(GrupoDeInteresEntity grupo){
-        
+    public GrupoDeInteresDTO(GrupoDeInteresEntity grupoEntity){
+        if(grupoEntity !=null){
+           this.id = grupoEntity.getId();
+           this.idioma= grupoEntity.getIdioma();
+           this.administrador= grupoEntity.getAdministrador();
+//           this.blog=grupoEntity.getBlog();
+                   
+        }
+            
     }
     public GrupoDeInteresEntity toEntity(){
         //crear variable del tipo
         //hacer traspaso de los datos
+        GrupoDeInteresEntity grupoEntity = new GrupoDeInteresEntity();
+        grupoEntity.setId(this.id);
+        grupoEntity.setAdministrador(this.administrador);
+        grupoEntity.setIdioma(this.idioma);
+//        grupoEntity.setBlog(this.blog);
         return null;
         
     }
@@ -110,17 +122,17 @@ public class GrupoDeInteresDTO implements Serializable{
      *
      * @param calificacion the calificacion to set
      */
-    public void setCalificacion(Long pCalificacion) {
-        this.calificacion = pCalificacion;
-    }
+//    public void setCalificacion(Long pCalificacion) {
+//        this.calificacion = pCalificacion;
+//    }
     
       /**
      * retorna la califiacion del grupo.
      *
      */
-    public Long getCalificacion() {
-       return calificacion;
-    }
+//    public Long getCalificacion() {
+//       return calificacion;
+//    }
 
 
 
