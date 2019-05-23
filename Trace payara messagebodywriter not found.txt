@@ -1516,3 +1516,29 @@ MUY DETALLADO:   release unit of work
 MUY DETALLADO:   client released
 INFORMACIÓN:   ActividadResource getActividades: output: []
 GRAVE:   MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList, genericType=java.util.List<co.edu.uniandes.csw.idiomas.dtos.ActividadDetailDTO>.
+
+
+Get calificaciones
+
+INFORMACIÓN:   CalificacionResource getCalificaciones: input: void
+INFORMACIÓN:   Inicia proceso de consultar todas las calificaciones
+INFORMACIÓN:   Consultando todas las calificaciones
+MUY DETALLADO:   client acquired: 689639790
+MUY DETALLADO:   TX binding to tx mgr, status=STATUS_ACTIVE
+MUY DETALLADO:   acquire unit of work: 720291519
+MUY DETALLADO:   begin unit of work flush
+MUY DETALLADO:   end unit of work flush
+MÁS DETALLADO:   Execute query ReadAllQuery(referenceClass=CalificacionEntity sql="SELECT ID, CALIFICACION, MENSAJE, ACTIVIDAD_ID, ADMINISTRADOR_ID, COORDINADOR_ID, GRUPO_ID FROM CALIFICACIONENTITY")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   SELECT ID, CALIFICACION, MENSAJE, ACTIVIDAD_ID, ADMINISTRADOR_ID, COORDINADOR_ID, GRUPO_ID FROM CALIFICACIONENTITY
+MÁS DETALLADO:   Connection released to connection pool [read].
+INFORMACIÓN:   Termina proceso de consultar todas las calificaciones
+MUY DETALLADO:   TX beforeCompletion callback, status=STATUS_ACTIVE
+MUY DETALLADO:   begin unit of work commit
+MUY DETALLADO:   TX afterCompletion callback, status=COMMITTED
+MUY DETALLADO:   end unit of work commit
+MUY DETALLADO:   release unit of work
+MUY DETALLADO:   client released
+INFORMACIÓN:   CalificacionResource getCalificaciones: output: []
+GRAVE:   MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList, genericType=java.util.List<co.edu.uniandes.csw.idiomas.dtos.CalificacionDetailDTO>.
