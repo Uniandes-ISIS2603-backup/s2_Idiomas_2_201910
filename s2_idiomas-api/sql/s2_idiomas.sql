@@ -22,7 +22,7 @@ insert into ComentarioEntity (titulo, texto, fecha, id, calificaciones_id) value
 Select * from ActividadEntity;
 Select * from ComentarioEntity;
 Select * from UsuarioEntity;
-Select * from CalificacionEntity;
+Select * from CalificacionEntity; 
 
 SELECT ID, FECHA, TEXTO, TITULO, ACTIVIDAD_ID, AUTOR_ID, CALIFICACIONES_ID FROM COMENTARIOENTITY;
 
