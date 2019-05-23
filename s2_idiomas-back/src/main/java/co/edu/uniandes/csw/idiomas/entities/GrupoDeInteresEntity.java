@@ -95,30 +95,30 @@ public class GrupoDeInteresEntity extends BaseEntity implements Serializable{
      * 
      * @return calificacion
      */
-//    public Long getCalificacion() {
-//        return calificacion;
-//    }
+    public Long getCalificacion() {
+        return calificacion;
+    }
     /**
      * 
      * @param calificacion 
      */
-//    public void setCalificacion(Long calificacion) {
-//        this.calificacion = calificacion;
-//    }
+    public void setCalificacion(Long calificacion) {
+        this.calificacion = calificacion;
+    }
    /**
      * 
-//     * @return blog
-//     */
-//    public Long getBlog() {
-//        return blog;
-//    }
-//    /**
-//     * 
-//     * @param blog 
-//     */
-//    public void setBlog(Long blog) {
-//        this.blog = blog;
-//    }
+     * @return blog
+     */
+    public Long getBlog() {
+        return blog;
+    }
+    /**
+     * 
+     * @param blog 
+     */
+    public void setBlog(Long blog) {
+        this.blog = blog;
+    }
 
     /**
      * @return the calificaciones
