@@ -43,19 +43,19 @@ public class GrupoDeInteresEntity extends BaseEntity implements Serializable{
     @OneToMany(mappedBy = "grupo", cascade = CascadeType.PERSIST)
     private List<CalificacionEntity> calificaciones = new ArrayList<>();
     
-     /**
-     * Atributo que representa las calificaciones de la actividad.
-     */
-    @PodamExclude
-    @OneToMany(mappedBy = "grupo", cascade = CascadeType.PERSIST)
-    private List<UsuarioEntity> usuarios = new ArrayList<>();
-    
-     /**
-     * Atributo que representa las calificaciones de la actividad.
-     */
-    @PodamExclude
-    @OneToMany(mappedBy = "grupo", cascade = CascadeType.PERSIST)
-    private List<ActividadEntity> actividades = new ArrayList<>();
+//     /**
+//     * Atributo que representa las calificaciones de la actividad.
+//     */
+//    @PodamExclude
+//    @OneToMany(mappedBy = "grupo", cascade = CascadeType.PERSIST)
+//    private List<UsuarioEntity> usuarios = new ArrayList<>();
+//    
+//     /**
+//     * Atributo que representa las calificaciones de la actividad.
+//     */
+//    @PodamExclude
+//    @OneToMany(mappedBy = "grupo", cascade = CascadeType.PERSIST)
+//    private List<ActividadEntity> actividades = new ArrayList<>();
     /**
      * Connstructor vacio de un Entity
      */
@@ -133,29 +133,29 @@ public class GrupoDeInteresEntity extends BaseEntity implements Serializable{
     public void setCalificaciones(List<CalificacionEntity> calificaciones) {
         this.calificaciones = calificaciones;
     }
-        /**
-     * @return the calificaciones
-     */
-    public List<UsuarioEntity> getUsuariosGrupo() {
-        return usuarios;
-    }
-     /**
-     * @param usuarios the calificaciones to set
-     */
-    public void setUsuariosGrupo(List<UsuarioEntity> usuarios) {
-        this.usuarios = usuarios;
-    }
-    
-      /**
-     * @param usuarios the calificaciones to set
-     */
-    public void setActividadesGrupo(List<ActividadEntity> actividades) {
-        this.actividades = actividades;
-    }
-    
-        public List<ActividadEntity> getActividadesGrupo() {
-        return actividades;
-    }
+//        /**
+//     * @return the calificaciones
+//     */
+//    public List<UsuarioEntity> getUsuariosGrupo() {
+//        return usuarios;
+//    }
+//     /**
+//     * @param usuarios the calificaciones to set
+//     */
+//    public void setUsuariosGrupo(List<UsuarioEntity> usuarios) {
+//        this.usuarios = usuarios;
+//    }
+//    
+//      /**
+//     * @param usuarios the calificaciones to set
+//     */
+//    public void setActividadesGrupo(List<ActividadEntity> actividades) {
+//        this.actividades = actividades;
+//    }
+//    
+//        public List<ActividadEntity> getActividadesGrupo() {
+//        return actividades;
+//    }
 
     
     
