@@ -1,0 +1,1518 @@
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ComentarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ChatEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ActividadEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.OtroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EncuentroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CalificacionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.PersonaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EstadiaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AdministradorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.BaseEntity_] not found during initialization.
+MÁS DETALLADO:   End deploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Deployed; factoryCount 1
+INFORMACIÓN:   Portable JNDI names for EJB AdministradorLogic: [java:global/s2_idiomas-api/AdministradorLogic, java:global/s2_idiomas-api/AdministradorLogic!co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioPersistence: [java:global/s2_idiomas-api/UsuarioPersistence, java:global/s2_idiomas-api/UsuarioPersistence!co.edu.uniandes.csw.idiomas.persistence.UsuarioPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB ComentarioLogic: [java:global/s2_idiomas-api/ComentarioLogic, java:global/s2_idiomas-api/ComentarioLogic!co.edu.uniandes.csw.idiomas.ejb.ComentarioLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionGrupoLogic: [java:global/s2_idiomas-api/CalificacionGrupoLogic, java:global/s2_idiomas-api/CalificacionGrupoLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionGrupoLogic]
+INFORMACIÓN:   Portable JNDI names for EJB ActividadLogic: [java:global/s2_idiomas-api/ActividadLogic!co.edu.uniandes.csw.idiomas.ejb.ActividadLogic, java:global/s2_idiomas-api/ActividadLogic]
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioLogic: [java:global/s2_idiomas-api/UsuarioLogic!co.edu.uniandes.csw.idiomas.ejb.UsuarioLogic, java:global/s2_idiomas-api/UsuarioLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionLogic: [java:global/s2_idiomas-api/CalificacionLogic, java:global/s2_idiomas-api/CalificacionLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionLogic]
+INFORMACIÓN:   Portable JNDI names for EJB BlogPersistence: [java:global/s2_idiomas-api/BlogPersistence, java:global/s2_idiomas-api/BlogPersistence!co.edu.uniandes.csw.idiomas.persistence.BlogPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB PersonaLogic: [java:global/s2_idiomas-api/PersonaLogic!co.edu.uniandes.csw.idiomas.ejb.PersonaLogic, java:global/s2_idiomas-api/PersonaLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionCoordinadorLogic: [java:global/s2_idiomas-api/CalificacionCoordinadorLogic, java:global/s2_idiomas-api/CalificacionCoordinadorLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionCoordinadorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB ChatLogic: [java:global/s2_idiomas-api/ChatLogic!co.edu.uniandes.csw.idiomas.ejb.ChatLogic, java:global/s2_idiomas-api/ChatLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CascaraPersistence: [java:global/s2_idiomas-api/CascaraPersistence!co.edu.uniandes.csw.idiomas.persistence.CascaraPersistence, java:global/s2_idiomas-api/CascaraPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB CoordinadorLogic: [java:global/s2_idiomas-api/CoordinadorLogic, java:global/s2_idiomas-api/CoordinadorLogic!co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionAdministradorLogic: [java:global/s2_idiomas-api/CalificacionAdministradorLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionAdministradorLogic, java:global/s2_idiomas-api/CalificacionAdministradorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CoordinadorPersistence: [java:global/s2_idiomas-api/CoordinadorPersistence, java:global/s2_idiomas-api/CoordinadorPersistence!co.edu.uniandes.csw.idiomas.persistence.CoordinadorPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB ActividadComentariosLogic: [java:global/s2_idiomas-api/ActividadComentariosLogic!co.edu.uniandes.csw.idiomas.ejb.ActividadComentariosLogic, java:global/s2_idiomas-api/ActividadComentariosLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CascaraLogic: [java:global/s2_idiomas-api/CascaraLogic, java:global/s2_idiomas-api/CascaraLogic!co.edu.uniandes.csw.idiomas.ejb.CascaraLogic]
+INFORMACIÓN:   Portable JNDI names for EJB EncuentroLogic: [java:global/s2_idiomas-api/EncuentroLogic!co.edu.uniandes.csw.idiomas.ejb.EncuentroLogic, java:global/s2_idiomas-api/EncuentroLogic]
+INFORMACIÓN:   Portable JNDI names for EJB GrupoDeInteresPersistence: [java:global/s2_idiomas-api/GrupoDeInteresPersistence, java:global/s2_idiomas-api/GrupoDeInteresPersistence!co.edu.uniandes.csw.idiomas.persistence.GrupoDeInteresPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB OtroLogic: [java:global/s2_idiomas-api/OtroLogic!co.edu.uniandes.csw.idiomas.ejb.OtroLogic, java:global/s2_idiomas-api/OtroLogic]
+INFORMACIÓN:   Portable JNDI names for EJB BlogLogic: [java:global/s2_idiomas-api/BlogLogic!co.edu.uniandes.csw.idiomas.ejb.BlogLogic, java:global/s2_idiomas-api/BlogLogic]
+INFORMACIÓN:   Portable JNDI names for EJB PersonaPersistence: [java:global/s2_idiomas-api/PersonaPersistence!co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence, java:global/s2_idiomas-api/PersonaPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB ComentarioPersistence: [java:global/s2_idiomas-api/ComentarioPersistence!co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence, java:global/s2_idiomas-api/ComentarioPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB EstadiaPersistence: [java:global/s2_idiomas-api/EstadiaPersistence, java:global/s2_idiomas-api/EstadiaPersistence!co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioEstadiaLogic: [java:global/s2_idiomas-api/UsuarioEstadiaLogic!co.edu.uniandes.csw.idiomas.ejb.UsuarioEstadiaLogic, java:global/s2_idiomas-api/UsuarioEstadiaLogic]
+INFORMACIÓN:   Portable JNDI names for EJB EncuentroPersistence: [java:global/s2_idiomas-api/EncuentroPersistence!co.edu.uniandes.csw.idiomas.persistence.EncuentroPersistence, java:global/s2_idiomas-api/EncuentroPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB AnfitrionPersistence: [java:global/s2_idiomas-api/AnfitrionPersistence!co.edu.uniandes.csw.idiomas.persistence.AnfitrionPersistence, java:global/s2_idiomas-api/AnfitrionPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB AnfitrionLogic: [java:global/s2_idiomas-api/AnfitrionLogic!co.edu.uniandes.csw.idiomas.ejb.AnfitrionLogic, java:global/s2_idiomas-api/AnfitrionLogic]
+INFORMACIÓN:   Portable JNDI names for EJB AdministradorPersistence: [java:global/s2_idiomas-api/AdministradorPersistence!co.edu.uniandes.csw.idiomas.persistence.AdministradorPersistence, java:global/s2_idiomas-api/AdministradorPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionActividadLogic: [java:global/s2_idiomas-api/CalificacionActividadLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionActividadLogic, java:global/s2_idiomas-api/CalificacionActividadLogic]
+INFORMACIÓN:   Portable JNDI names for EJB GrupoDeInteresLogic: [java:global/s2_idiomas-api/GrupoDeInteresLogic, java:global/s2_idiomas-api/GrupoDeInteresLogic!co.edu.uniandes.csw.idiomas.ejb.GrupoDeInteresLogic]
+INFORMACIÓN:   Portable JNDI names for EJB ActividadPersistence: [java:global/s2_idiomas-api/ActividadPersistence, java:global/s2_idiomas-api/ActividadPersistence!co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB EstadiaLogic: [java:global/s2_idiomas-api/EstadiaLogic!co.edu.uniandes.csw.idiomas.ejb.EstadiaLogic, java:global/s2_idiomas-api/EstadiaLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionPersistence: [java:global/s2_idiomas-api/CalificacionPersistence!co.edu.uniandes.csw.idiomas.persistence.CalificacionPersistence, java:global/s2_idiomas-api/CalificacionPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB ChatPersistence: [java:global/s2_idiomas-api/ChatPersistence!co.edu.uniandes.csw.idiomas.persistence.ChatPersistence, java:global/s2_idiomas-api/ChatPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB OtroPersistence: [java:global/s2_idiomas-api/OtroPersistence!co.edu.uniandes.csw.idiomas.persistence.OtroPersistence, java:global/s2_idiomas-api/OtroPersistence]
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.LoginToContinueInterceptor.interceptedBean is not resolvable to a concrete type.
+
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.RememberMeInterceptor.interceptedBean is not resolvable to a concrete type.
+
+INFORMACIÓN:   Initializing Soteria 1.0 for context '/s2_idiomas-api'
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: s2_idiomas-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+INFORMACIÓN:   Loading application [s2_idiomas-api] at [/s2_idiomas-api]
+INFORMACIÓN:   s2_idiomas-api was successfully deployed in 10.875 milliseconds.
+INFORMACIÓN:   Server shutdown initiated
+INFORMACIÓN:   Unregistered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@2630dbc4 from service registry.
+INFORMACIÓN:   FileMonitoring shutdown
+INFORMACIÓN:   JMXStartupService: Stopped JMXConnectorServer: null
+INFORMACIÓN:   JMXStartupService and JMXConnectors have been shut down.
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: frontstepbystep-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+MÁS DETALLADO:   Begin undeploying Persistence Unit BookStorePU; session /file:/C:/Users/estudiante/backstepbystep/frontstepbystep-api/target/frontstepbystep-api-1.0/WEB-INF/lib/backstepbystep-back-1.0.jar_BookStorePU; state Predeployed; factoryCount 1
+MÁS DETALLADO:   End undeploying Persistence Unit BookStorePU; session /file:/C:/Users/estudiante/backstepbystep/frontstepbystep-api/target/frontstepbystep-api-1.0/WEB-INF/lib/backstepbystep-back-1.0.jar_BookStorePU; state Undeployed; factoryCount 0
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: cursos-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: s2_idiomas-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+MÁS DETALLADO:   Begin undeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Deployed; factoryCount 1
+MÁS DETALLADO:   Unregistering MBean: TopLink:Name=Development-/file_/C_/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU,Type=Configuration on server com.sun.enterprise.v3.admin.DynamicInterceptor@552804d4
+MÁS DETALLADO:   Unregistered MBean [TopLink:Name=Development-/file_/C_/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU,Type=Configuration] from MBeanServer [com.sun.enterprise.v3.admin.DynamicInterceptor@552804d4].
+MÁS DETALLADO:   Unregistering MBean: TopLink:Name=Session(/file_/C_/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU) on server com.sun.enterprise.v3.admin.DynamicInterceptor@552804d4
+MÁS DETALLADO:   Unregistered MBean [TopLink:Name=Session(/file_/C_/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU)] from MBeanServer [com.sun.enterprise.v3.admin.DynamicInterceptor@552804d4].
+MÁS DETALLADO:   sequencing disconnected
+CONFIGURAR:   disconnect
+MUY DETALLADO:   initialize identitymaps
+INFORMACIÓN:   /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU logout successful
+MÁS DETALLADO:   End undeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Undeployed; factoryCount 0
+INFORMACIÓN:   JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]
+INFORMACIÓN:   RAR7094: __ds_jdbc_ra shutdown successful.
+Completed shutdown of Log manager service
+INFORMACIÓN:   Shutdown procedure finished
+Completed shutdown of GlassFish runtime
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Launching GlassFish on Felix platform
+may 22, 2019 11:33:50 PM com.sun.enterprise.glassfish.bootstrap.osgi.BundleProvisioner createBundleProvisioner
+INFORMACIÓN: Create bundle provisioner class = class com.sun.enterprise.glassfish.bootstrap.osgi.BundleProvisioner.
+Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishRuntime@64e2519e in service registry.
+#!## LogManagerService.postConstruct : rootFolder=C:\Program Files (x86)\payara41\glassfish
+#!## LogManagerService.postConstruct : templateDir=C:\Program Files (x86)\payara41\glassfish\lib\templates
+#!## LogManagerService.postConstruct : src=C:\Program Files (x86)\payara41\glassfish\lib\templates\logging.properties
+#!## LogManagerService.postConstruct : dest=C:\Program Files (x86)\payara41\glassfish\domains\domain1\config\logging.properties
+INFORMACIÓN:   Running Payara Version: Payara Server  4.1.2.174 #badassfish (build 192)
+INFORMACIÓN:   Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter
+INFORMACIÓN:   Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+INFORMACIÓN:   Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+INFORMACIÓN:   Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+INFORMACIÓN:   Authorization Service has successfully initialized.
+INFORMACIÓN:   Grizzly Framework 2.3.31 started in: 62ms - bound to [/0.0.0.0:8080]
+INFORMACIÓN:   Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry
+INFORMACIÓN:   Grizzly Framework 2.3.31 started in: 37ms - bound to [/0.0.0.0:8181]
+INFORMACIÓN:   Grizzly Framework 2.3.31 started in: 1ms - bound to [/0.0.0.0:4848]
+INFORMACIÓN:   Registered fish.payara.ha.hazelcast.store.HazelcastBackingStoreFactoryProxy for persistence-type = hazelcast in BackingStoreFactoryRegistry
+INFORMACIÓN:   Registered Hazelcast BackingStoreFactory with persistence-type = hazelcast
+INFORMACIÓN:   Grizzly Framework 2.3.31 started in: 0ms - bound to [/0.0.0.0:3700]
+INFORMACIÓN:   GlassFishORBFactory service initialized.
+GRAVE:   The SSL certificate has expired: [
+[
+  Version: V3
+  Subject: OU=Equifax Secure Certificate Authority, O=Equifax, C=US
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+  Key:  Sun RSA public key, 1024 bits
+  modulus: 135786214035069526348186531221551781468391756233528066061569654028671100866720352830303278016129003918213826297308054231261658522889438712013757624116391437358730449661353175673177742307421061340003741057138887918110217006515773038453829253517076741780039735595086881329494037450587568122088113584549069375417
+  public exponent: 65537
+  Validity: [From: Sat Aug 22 11:41:51 COT 1998,
+               To: Wed Aug 22 11:41:51 COT 2018]
+  Issuer: OU=Equifax Secure Certificate Authority, O=Equifax, C=US
+  SerialNumber: [    35def4cf]
+Certificate Extensions: 7
+[1]: ObjectId: 1.2.840.113533.7.65.0 Criticality=false
+Extension unknown: DER encoded OCTET string =
+0000: 04 0D 30 0B 1B 05 56 33   2E 30 63 03 02 06 C0     ..0...V3.0c....
+[2]: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 48 E6 68 F9 2B D2 B2 95   D7 47 D8 23 20 10 4F 33  H.h.+....G.# .O3
+0010: 98 90 9F D4                                        ....
+]
+]
+[3]: ObjectId: 2.5.29.19 Criticality=false
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+[4]: ObjectId: 2.5.29.31 Criticality=false
+CRLDistributionPoints [
+  [DistributionPoint:
+     [CN=CRL1, OU=Equifax Secure Certificate Authority, O=Equifax, C=US]
+]]
+[5]: ObjectId: 2.5.29.15 Criticality=false
+KeyUsage [
+  Key_CertSign
+  Crl_Sign
+]
+[6]: ObjectId: 2.5.29.16 Criticality=false
+PrivateKeyUsage: [
+To: Wed Aug 22 11:41:51 COT 2018]
+[7]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 48 E6 68 F9 2B D2 B2 95   D7 47 D8 23 20 10 4F 33  H.h.+....G.# .O3
+0010: 98 90 9F D4                                        ....
+]
+]
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: 58 CE 29 EA FC F7 DE B5   CE 02 B9 17 B5 85 D1 B9  X.).............
+0010: E3 E0 95 CC 25 31 0D 00   A6 92 6E 7F B6 92 63 9E  ....%1....n...c.
+0020: 50 95 D1 9A 6F E4 11 DE   63 85 6E 98 EE A8 FF 5A  P...o...c.n....Z
+0030: C8 D3 55 B2 66 71 57 DE   C0 21 EB 3D 2A A7 23 49  ..U.fqW..!.=*.#I
+0040: 01 04 86 42 7B FC EE 7F   A2 16 52 B5 67 67 D3 40  ...B......R.gg.@
+0050: DB 3B 26 58 B2 28 77 3D   AE 14 77 61 D6 FA 2A 66  .;&X.(w=..wa..*f
+0060: 27 A0 0D FA A7 73 5C EA   70 F1 94 21 65 44 5F FA  '....s\.p..!eD_.
+0070: FC EF 29 68 A9 A2 87 79   EF 79 EF 4F AC 07 77 38  ..)h...y.y.O..w8
+]
+GRAVE:   The SSL certificate has expired: [
+[
+  Version: V1
+  Subject: CN=GTE CyberTrust Global Root, OU="GTE CyberTrust Solutions, Inc.", O=GTE Corporation, C=US
+  Signature Algorithm: MD5withRSA, OID = 1.2.840.113549.1.1.4
+  Key:  Sun RSA public key, 1024 bits
+  modulus: 104674226241368487598835828377585222181792546532354327780214427055917513664449991602803276678454577364904540367827644455215731003386468752240014232146814457308076052176227490263634768927290191763858631579785604655038492469791381988347440106477066514204303723029602991655085187937840556671697442212352844587673
+  public exponent: 65537
+  Validity: [From: Wed Aug 12 19:29:00 COT 1998,
+               To: Mon Aug 13 18:59:00 COT 2018]
+  Issuer: CN=GTE CyberTrust Global Root, OU="GTE CyberTrust Solutions, Inc.", O=GTE Corporation, C=US
+  SerialNumber: [    01a5]
+]
+  Algorithm: [MD5withRSA]
+  Signature:
+0000: 6D EB 1B 09 E9 5E D9 51   DB 67 22 61 A4 2A 3C 48  m....^.Q.g"a.*<H
+0010: 77 E3 A0 7C A6 DE 73 A2   14 03 85 3D FB AB 0E 30  w.....s....=...0
+0020: C5 83 16 33 81 13 08 9E   7B 34 4E DF 40 C8 74 D7  ...3.....4N.@.t.
+0030: B9 7D DC F4 76 55 7D 9B   63 54 18 E9 F0 EA F3 5C  ....vU..cT.....\
+0040: B1 D9 8B 42 1E B9 C0 95   4E BA FA D5 E2 7C F5 68  ...B....N......h
+0050: 61 BF 8E EC 05 97 5F 5B   B0 D7 A3 85 34 C4 24 A7  a....._[....4.$.
+0060: 0D 0F 95 93 EF CB 94 D8   9E 1F 9D 5C 85 6D C7 AA  ...........\.m..
+0070: AE 4F 1F 22 B5 CD 95 AD   BA A7 CC F9 AB 0B 7A 7F  .O."..........z.
+]
+INFORMACIÓN:   Java security manager is disabled.
+INFORMACIÓN:   Entering Security Startup Service.
+INFORMACIÓN:   Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.
+INFORMACIÓN:   Security Service(s) started successfully.
+INFORMACIÓN:   Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080
+INFORMACIÓN:   Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181
+INFORMACIÓN:   Created HTTP listener admin-listener on host/port 0.0.0.0:4848
+INFORMACIÓN:   Created virtual server server
+INFORMACIÓN:   Created virtual server __asadmin
+INFORMACIÓN:   Setting JAAS app name glassfish-web
+INFORMACIÓN:   Virtual server server loaded default web module 
+Información:   HV000001: Hibernate Validator 5.2.4.Final
+MÁS DETALLADO:   property=eclipselink.logging.parameters; value=true
+DETALLADO:   Configured server platform: org.eclipse.persistence.platform.server.glassfish.GlassfishPlatform
+MÁS DETALLADO:   Begin predeploying Persistence Unit BookStorePU; session /file:/C:/Users/estudiante/backstepbystep/frontstepbystep-api/target/frontstepbystep-api-1.0/WEB-INF/lib/backstepbystep-back-1.0.jar_BookStorePU; state Initial; factoryCount 0
+MÁS DETALLADO:   property=eclipselink.orm.throw.exceptions; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.changetracking; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.lazy; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.eager; default value=false
+MÁS DETALLADO:   property=eclipselink.weaving.fetchgroups; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.internal; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.rest; default value=true
+MÁS DETALLADO:   property=eclipselink.multitenant.tenants-share-emf; default value=true
+MÁS DETALLADO:   property=eclipselink.multitenant.tenants-share-cache; default value=false
+MUY DETALLADO:   Searching for mapping file: [META-INF/orm.xml] at root URL: [file:/C:/Users/estudiante/backstepbystep/frontstepbystep-api/target/frontstepbystep-api-1.0/WEB-INF/lib/backstepbystep-back-1.0.jar].
+MUY DETALLADO:   Searching for mapping file: [META-INF/eclipselink-orm.xml] at root URL: [file:/C:/Users/estudiante/backstepbystep/frontstepbystep-api/target/frontstepbystep-api-1.0/WEB-INF/lib/backstepbystep-back-1.0.jar].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.bookstore.entities.BaseEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.bookstore.entities.EditorialEntity] is set to [FIELD].
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.bookstore.entities.EditorialEntity] is being defaulted to: EditorialEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.bookstore.entities.EditorialEntity] is being defaulted to: EDITORIALENTITY.
+CONFIGURAR:   The column name for element [name] is being defaulted to: NAME.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.bookstore.entities.EditorialEntity] registered to be processed by weaver.
+MÁS DETALLADO:   End predeploying Persistence Unit BookStorePU; session /file:/C:/Users/estudiante/backstepbystep/frontstepbystep-api/target/frontstepbystep-api-1.0/WEB-INF/lib/backstepbystep-back-1.0.jar_BookStorePU; state Predeployed; factoryCount 1
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.bookstore.entities.EditorialEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.bookstore.entities.BaseEntity_] not found during initialization.
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/persistence/EditorialPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/persistence/EditorialPersistence].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/bookstore/entities/EditorialEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/bookstore/entities/EditorialEntity]. Class loaders: context [68b7b5fd] argument [68b7b5fd].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/bookstore/entities/EditorialEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/bookstore/entities/EditorialEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/bookstore/entities/EditorialEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/bookstore/entities/EditorialEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/bookstore/entities/EditorialEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/bookstore/entities/EditorialEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/bookstore/entities/BaseEntity]. Class loaders: context [68b7b5fd] argument [68b7b5fd].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/bookstore/entities/BaseEntity].
+INFORMACIÓN:   Portable JNDI names for EJB EditorialPersistence: [java:global/frontstepbystep-api/EditorialPersistence!co.edu.uniandes.csw.bookstore.persistence.EditorialPersistence, java:global/frontstepbystep-api/EditorialPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/ejb/EditorialLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/ejb/EditorialLogic].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/exceptions/BusinessLogicException].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/exceptions/BusinessLogicException].
+INFORMACIÓN:   Portable JNDI names for EJB EditorialLogic: [java:global/frontstepbystep-api/EditorialLogic, java:global/frontstepbystep-api/EditorialLogic!co.edu.uniandes.csw.bookstore.ejb.EditorialLogic]
+Información:   WELD-000900: 2.4.5 (Final)
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/adapters/DateAdapter$1].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/adapters/DateAdapter$1].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/adapters/DateAdapter].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/adapters/DateAdapter].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/dtos/EditorialDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/dtos/EditorialDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/mappers/BusinessLogicExceptionMapper].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/mappers/BusinessLogicExceptionMapper].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/mappers/WebApplicationExceptionMapper].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/mappers/WebApplicationExceptionMapper].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/resources/EditorialResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/resources/EditorialResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/bookstore/resources/RestConfig].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/bookstore/resources/RestConfig].
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.RememberMeInterceptor.interceptedBean is not resolvable to a concrete type.
+
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.LoginToContinueInterceptor.interceptedBean is not resolvable to a concrete type.
+
+INFORMACIÓN:   Initializing Soteria 1.0 for context '/frontstepbystep-api'
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: frontstepbystep-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+INFORMACIÓN:   Cannot find the resource bundle for the name com.sun.logging.enterprise.system.core.naming for class org.glassfish.concurrent.runtime.deployer.ConcurrentObjectFactory using org.glassfish.main.concurrent.impl [40]
+INFORMACIÓN:   Loading application [frontstepbystep-api] at [/frontstepbystep-api]
+INFORMACIÓN:   Loading application frontstepbystep-api done in 22.429 ms
+DETALLADO:   Configured server platform: org.eclipse.persistence.platform.server.glassfish.GlassfishPlatform
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.cursos.entities.BaseEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.cursos.entities.CursoEntity] is set to [FIELD].
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.cursos.entities.CursoEntity] is being defaulted to: CursoEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.cursos.entities.CursoEntity] is being defaulted to: CURSOENTITY.
+CONFIGURAR:   The column name for element [name] is being defaulted to: NAME.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [crn] is being defaulted to: CRN.
+INFORMACIÓN:   Portable JNDI names for EJB CursoPersistence: [java:global/cursos-api/CursoPersistence, java:global/cursos-api/CursoPersistence!co.edu.uniandes.csw.cursos.persistence.CursoPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB CursoLogic: [java:global/cursos-api/CursoLogic, java:global/cursos-api/CursoLogic!co.edu.uniandes.csw.cursos.ejb.CursoLogic]
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Información:   WELD-000119: Not generating any bean definitions from co.edu.uniandes.csw.cursos.dtos.ProgramaDTO because of underlying class loading error: Type co.edu.uniandes.csw.cursos.entities.ProgramaEntity not found.  If this is unexpected, enable DEBUG logging to see the full error.
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.LoginToContinueInterceptor.interceptedBean is not resolvable to a concrete type.
+
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.RememberMeInterceptor.interceptedBean is not resolvable to a concrete type.
+
+INFORMACIÓN:   Initializing Soteria 1.0 for context '/cursos-api'
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: cursos-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+INFORMACIÓN:   Loading application [cursos-api] at [/cursos-api]
+INFORMACIÓN:   Loading application cursos-api done in 6.152 ms
+MÁS DETALLADO:   property=eclipselink.logging.parameters; value=true
+DETALLADO:   Configured server platform: org.eclipse.persistence.platform.server.glassfish.GlassfishPlatform
+MÁS DETALLADO:   Begin predeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Initial; factoryCount 0
+MÁS DETALLADO:   property=eclipselink.orm.throw.exceptions; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.changetracking; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.lazy; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.eager; default value=false
+MÁS DETALLADO:   property=eclipselink.weaving.fetchgroups; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.internal; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.rest; default value=true
+MÁS DETALLADO:   property=eclipselink.multitenant.tenants-share-emf; default value=true
+MÁS DETALLADO:   property=eclipselink.multitenant.tenants-share-cache; default value=false
+MUY DETALLADO:   Searching for mapping file: [META-INF/orm.xml] at root URL: [file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar].
+MUY DETALLADO:   Searching for mapping file: [META-INF/eclipselink-orm.xml] at root URL: [file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.BaseEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field administrador] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field coordinador] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field grupo] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field comentarios] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field actividad] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.ActividadEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field coordinadores] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field comentarios] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity.
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field asistentes] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.ChatEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field estadias] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.PersonaEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field comentarioEntitys] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field anfitrion] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity.
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field asistentesEstadia] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field estadias] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity.
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field actividades] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.OtroEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field autor] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.PersonaEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field actividad] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field actividadesCoordinadas] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.EncuentroEntity] is set to [FIELD].
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] is being defaulted to: GrupoDeInteresEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] is being defaulted to: GRUPODEINTERESENTITY.
+CONFIGURAR:   The column name for element [administrador] is being defaulted to: ADMINISTRADOR.
+CONFIGURAR:   The column name for element [calificacion] is being defaulted to: CALIFICACION.
+CONFIGURAR:   The column name for element [idioma] is being defaulted to: IDIOMA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [blog] is being defaulted to: BLOG.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] is being defaulted to: CalificacionEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] is being defaulted to: CALIFICACIONENTITY.
+CONFIGURAR:   The column name for element [calificacion] is being defaulted to: CALIFICACION.
+CONFIGURAR:   The column name for element [mensaje] is being defaulted to: MENSAJE.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.ChatEntity] is being defaulted to: ChatEntity.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.ActividadEntity] is being defaulted to: ActividadEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.ActividadEntity] is being defaulted to: ACTIVIDADENTITY.
+CONFIGURAR:   The column name for element [descripcion] is being defaulted to: DESCRIPCION.
+CONFIGURAR:   The column name for element [fecha] is being defaulted to: FECHA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The column name for element [motivacion] is being defaulted to: MOTIVACION.
+CONFIGURAR:   The column name for element [medio] is being defaulted to: MEDIO.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] is being defaulted to: AnfitrionEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] is being defaulted to: ANFITRIONENTITY.
+CONFIGURAR:   The column name for element [ciudad] is being defaulted to: CIUDAD.
+CONFIGURAR:   The column name for element [direccion] is being defaulted to: DIRECCION.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The column name for element [pais] is being defaulted to: PAIS.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.PersonaEntity] is being defaulted to: PersonaEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.PersonaEntity] is being defaulted to: PERSONAENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity] is being defaulted to: EstadiaEntity.
+CONFIGURAR:   The column name for element [pais] is being defaulted to: PAIS.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] is being defaulted to: UsuarioEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] is being defaulted to: USUARIOENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] is being defaulted to: AdministradorEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] is being defaulted to: ADMINISTRADORENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.OtroEntity] is being defaulted to: OtroEntity.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] is being defaulted to: ComentarioEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] is being defaulted to: COMENTARIOENTITY.
+CONFIGURAR:   The column name for element [texto] is being defaulted to: TEXTO.
+CONFIGURAR:   The column name for element [fecha] is being defaulted to: FECHA.
+CONFIGURAR:   The column name for element [titulo] is being defaulted to: TITULO.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] is being defaulted to: CoordinadorEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] is being defaulted to: COORDINADORENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.EncuentroEntity] is being defaulted to: EncuentroEntity.
+CONFIGURAR:   The column name for element [numeroMaxAsistentes] is being defaulted to: NUMEROMAXASISTENTES.
+CONFIGURAR:   The column name for element [lugar] is being defaulted to: LUGAR.
+CONFIGURAR:   The column name for element [aprobado] is being defaulted to: APROBADO.
+CONFIGURAR:   The primary key column name for the mapping element [field administrador] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [administrador] is being defaulted to: ADMINISTRADOR_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field coordinador] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [coordinador] is being defaulted to: COORDINADOR_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field grupo] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [grupo] is being defaulted to: GRUPO_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field actividad] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [actividad] is being defaulted to: ACTIVIDAD_ID.
+CONFIGURAR:   The join table name for the many to many mapping [field coordinadores] is being defaulted to: ACTIVIDADENTITY_COORDINADORENTITY.
+CONFIGURAR:   The source primary key column name for the many to many mapping [field coordinadores] is being defaulted to: ID.
+CONFIGURAR:   The source foreign key column name for the many to many mapping [coordinadores] is being defaulted to: actividadesCoordinadas_ID.
+CONFIGURAR:   The target primary key column name for the many to many mapping [field coordinadores] is being defaulted to: ID.
+CONFIGURAR:   The target foreign key column name for the many to many mapping [coordinadores] is being defaulted to: coordinadores_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field anfitrion] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [anfitrion] is being defaulted to: ANFITRION_ID.
+CONFIGURAR:   The join table name for the many to many mapping [field estadias] is being defaulted to: USUARIOENTITY_ACTIVIDADENTITY.
+CONFIGURAR:   The source primary key column name for the many to many mapping [field estadias] is being defaulted to: ID.
+CONFIGURAR:   The source foreign key column name for the many to many mapping [estadias] is being defaulted to: asistentesEstadia_ID.
+CONFIGURAR:   The target primary key column name for the many to many mapping [field estadias] is being defaulted to: ID.
+CONFIGURAR:   The target foreign key column name for the many to many mapping [estadias] is being defaulted to: estadias_ID.
+CONFIGURAR:   The join table name for the many to many mapping [field actividades] is being defaulted to: USUARIOENTITY_ACTIVIDADENTITY.
+CONFIGURAR:   The source primary key column name for the many to many mapping [field actividades] is being defaulted to: ID.
+CONFIGURAR:   The source foreign key column name for the many to many mapping [actividades] is being defaulted to: asistentes_ID.
+CONFIGURAR:   The target primary key column name for the many to many mapping [field actividades] is being defaulted to: ID.
+CONFIGURAR:   The target foreign key column name for the many to many mapping [actividades] is being defaulted to: actividades_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field calificaciones] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [calificaciones] is being defaulted to: CALIFICACIONES_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field autor] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [autor] is being defaulted to: AUTOR_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field actividad] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [actividad] is being defaulted to: ACTIVIDAD_ID.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.ChatEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.PersonaEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.EstadiaEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.OtroEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.ActividadEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.EncuentroEntity] registered to be processed by weaver.
+MÁS DETALLADO:   End predeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Predeployed; factoryCount 1
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ComentarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ChatEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ActividadEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.OtroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EncuentroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CalificacionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.PersonaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EstadiaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AdministradorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.BaseEntity_] not found during initialization.
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/UsuarioPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/UsuarioPersistence].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioPersistence: [java:global/s2_idiomas-api/UsuarioPersistence, java:global/s2_idiomas-api/UsuarioPersistence!co.edu.uniandes.csw.idiomas.persistence.UsuarioPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/EncuentroLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/EncuentroLogic].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/exceptions/BusinessLogicException].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/exceptions/BusinessLogicException].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/ActividadEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/BaseEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+INFORMACIÓN:   Portable JNDI names for EJB EncuentroLogic: [java:global/s2_idiomas-api/EncuentroLogic!co.edu.uniandes.csw.idiomas.ejb.EncuentroLogic, java:global/s2_idiomas-api/EncuentroLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/CalificacionPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/CalificacionPersistence].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionPersistence: [java:global/s2_idiomas-api/CalificacionPersistence!co.edu.uniandes.csw.idiomas.persistence.CalificacionPersistence, java:global/s2_idiomas-api/CalificacionPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/EncuentroPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/EncuentroPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB EncuentroPersistence: [java:global/s2_idiomas-api/EncuentroPersistence!co.edu.uniandes.csw.idiomas.persistence.EncuentroPersistence, java:global/s2_idiomas-api/EncuentroPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/CascaraPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/CascaraPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB CascaraPersistence: [java:global/s2_idiomas-api/CascaraPersistence!co.edu.uniandes.csw.idiomas.persistence.CascaraPersistence, java:global/s2_idiomas-api/CascaraPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/PersonaLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/PersonaLogic].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/PersonaEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+INFORMACIÓN:   Portable JNDI names for EJB PersonaLogic: [java:global/s2_idiomas-api/PersonaLogic!co.edu.uniandes.csw.idiomas.ejb.PersonaLogic, java:global/s2_idiomas-api/PersonaLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/UsuarioLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/UsuarioLogic].
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioLogic: [java:global/s2_idiomas-api/UsuarioLogic!co.edu.uniandes.csw.idiomas.ejb.UsuarioLogic, java:global/s2_idiomas-api/UsuarioLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/BlogPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/BlogPersistence].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/entities/BlogEntity].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/entities/BlogEntity].
+INFORMACIÓN:   Portable JNDI names for EJB BlogPersistence: [java:global/s2_idiomas-api/BlogPersistence, java:global/s2_idiomas-api/BlogPersistence!co.edu.uniandes.csw.idiomas.persistence.BlogPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/ComentarioPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/ComentarioPersistence].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+INFORMACIÓN:   Portable JNDI names for EJB ComentarioPersistence: [java:global/s2_idiomas-api/ComentarioPersistence!co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence, java:global/s2_idiomas-api/ComentarioPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/ChatLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/ChatLogic].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/ChatEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+INFORMACIÓN:   Portable JNDI names for EJB ChatLogic: [java:global/s2_idiomas-api/ChatLogic!co.edu.uniandes.csw.idiomas.ejb.ChatLogic, java:global/s2_idiomas-api/ChatLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/CalificacionAdministradorLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/CalificacionAdministradorLogic].
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionAdministradorLogic: [java:global/s2_idiomas-api/CalificacionAdministradorLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionAdministradorLogic, java:global/s2_idiomas-api/CalificacionAdministradorLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/CoordinadorLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/CoordinadorLogic].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+INFORMACIÓN:   Portable JNDI names for EJB CoordinadorLogic: [java:global/s2_idiomas-api/CoordinadorLogic, java:global/s2_idiomas-api/CoordinadorLogic!co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/ComentarioLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/ComentarioLogic].
+INFORMACIÓN:   Portable JNDI names for EJB ComentarioLogic: [java:global/s2_idiomas-api/ComentarioLogic, java:global/s2_idiomas-api/ComentarioLogic!co.edu.uniandes.csw.idiomas.ejb.ComentarioLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/AnfitrionLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/AnfitrionLogic].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+INFORMACIÓN:   Portable JNDI names for EJB AnfitrionLogic: [java:global/s2_idiomas-api/AnfitrionLogic!co.edu.uniandes.csw.idiomas.ejb.AnfitrionLogic, java:global/s2_idiomas-api/AnfitrionLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/CoordinadorPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/CoordinadorPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB CoordinadorPersistence: [java:global/s2_idiomas-api/CoordinadorPersistence, java:global/s2_idiomas-api/CoordinadorPersistence!co.edu.uniandes.csw.idiomas.persistence.CoordinadorPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/ActividadPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/ActividadPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB ActividadPersistence: [java:global/s2_idiomas-api/ActividadPersistence, java:global/s2_idiomas-api/ActividadPersistence!co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/UsuarioEstadiaLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/UsuarioEstadiaLogic].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioEstadiaLogic: [java:global/s2_idiomas-api/UsuarioEstadiaLogic!co.edu.uniandes.csw.idiomas.ejb.UsuarioEstadiaLogic, java:global/s2_idiomas-api/UsuarioEstadiaLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/ActividadLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/ActividadLogic].
+INFORMACIÓN:   Portable JNDI names for EJB ActividadLogic: [java:global/s2_idiomas-api/ActividadLogic!co.edu.uniandes.csw.idiomas.ejb.ActividadLogic, java:global/s2_idiomas-api/ActividadLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/ActividadComentariosLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/ActividadComentariosLogic].
+INFORMACIÓN:   Portable JNDI names for EJB ActividadComentariosLogic: [java:global/s2_idiomas-api/ActividadComentariosLogic!co.edu.uniandes.csw.idiomas.ejb.ActividadComentariosLogic, java:global/s2_idiomas-api/ActividadComentariosLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/ChatPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/ChatPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB ChatPersistence: [java:global/s2_idiomas-api/ChatPersistence!co.edu.uniandes.csw.idiomas.persistence.ChatPersistence, java:global/s2_idiomas-api/ChatPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/CascaraLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/CascaraLogic].
+INFORMACIÓN:   Portable JNDI names for EJB CascaraLogic: [java:global/s2_idiomas-api/CascaraLogic, java:global/s2_idiomas-api/CascaraLogic!co.edu.uniandes.csw.idiomas.ejb.CascaraLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/AdministradorPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/AdministradorPersistence].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+INFORMACIÓN:   Portable JNDI names for EJB AdministradorPersistence: [java:global/s2_idiomas-api/AdministradorPersistence!co.edu.uniandes.csw.idiomas.persistence.AdministradorPersistence, java:global/s2_idiomas-api/AdministradorPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/CalificacionGrupoLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/CalificacionGrupoLogic].
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionGrupoLogic: [java:global/s2_idiomas-api/CalificacionGrupoLogic, java:global/s2_idiomas-api/CalificacionGrupoLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionGrupoLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/AdministradorLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/AdministradorLogic].
+INFORMACIÓN:   Portable JNDI names for EJB AdministradorLogic: [java:global/s2_idiomas-api/AdministradorLogic, java:global/s2_idiomas-api/AdministradorLogic!co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/EstadiaLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/EstadiaLogic].
+INFORMACIÓN:   Portable JNDI names for EJB EstadiaLogic: [java:global/s2_idiomas-api/EstadiaLogic!co.edu.uniandes.csw.idiomas.ejb.EstadiaLogic, java:global/s2_idiomas-api/EstadiaLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/CalificacionCoordinadorLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/CalificacionCoordinadorLogic].
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionCoordinadorLogic: [java:global/s2_idiomas-api/CalificacionCoordinadorLogic, java:global/s2_idiomas-api/CalificacionCoordinadorLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionCoordinadorLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/CalificacionActividadLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/CalificacionActividadLogic].
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionActividadLogic: [java:global/s2_idiomas-api/CalificacionActividadLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionActividadLogic, java:global/s2_idiomas-api/CalificacionActividadLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/GrupoDeInteresPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/GrupoDeInteresPersistence].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+INFORMACIÓN:   Portable JNDI names for EJB GrupoDeInteresPersistence: [java:global/s2_idiomas-api/GrupoDeInteresPersistence, java:global/s2_idiomas-api/GrupoDeInteresPersistence!co.edu.uniandes.csw.idiomas.persistence.GrupoDeInteresPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/AnfitrionPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/AnfitrionPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB AnfitrionPersistence: [java:global/s2_idiomas-api/AnfitrionPersistence!co.edu.uniandes.csw.idiomas.persistence.AnfitrionPersistence, java:global/s2_idiomas-api/AnfitrionPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/OtroPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/OtroPersistence].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/OtroEntity]. Class loaders: context [753b1134] argument [753b1134].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+INFORMACIÓN:   Portable JNDI names for EJB OtroPersistence: [java:global/s2_idiomas-api/OtroPersistence!co.edu.uniandes.csw.idiomas.persistence.OtroPersistence, java:global/s2_idiomas-api/OtroPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/EstadiaPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/EstadiaPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB EstadiaPersistence: [java:global/s2_idiomas-api/EstadiaPersistence, java:global/s2_idiomas-api/EstadiaPersistence!co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/persistence/PersonaPersistence].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/persistence/PersonaPersistence].
+INFORMACIÓN:   Portable JNDI names for EJB PersonaPersistence: [java:global/s2_idiomas-api/PersonaPersistence!co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence, java:global/s2_idiomas-api/PersonaPersistence]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/OtroLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/OtroLogic].
+INFORMACIÓN:   Portable JNDI names for EJB OtroLogic: [java:global/s2_idiomas-api/OtroLogic!co.edu.uniandes.csw.idiomas.ejb.OtroLogic, java:global/s2_idiomas-api/OtroLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/CalificacionLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/CalificacionLogic].
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionLogic: [java:global/s2_idiomas-api/CalificacionLogic, java:global/s2_idiomas-api/CalificacionLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/BlogLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/BlogLogic].
+INFORMACIÓN:   Portable JNDI names for EJB BlogLogic: [java:global/s2_idiomas-api/BlogLogic!co.edu.uniandes.csw.idiomas.ejb.BlogLogic, java:global/s2_idiomas-api/BlogLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/ejb/GrupoDeInteresLogic].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/ejb/GrupoDeInteresLogic].
+INFORMACIÓN:   Portable JNDI names for EJB GrupoDeInteresLogic: [java:global/s2_idiomas-api/GrupoDeInteresLogic, java:global/s2_idiomas-api/GrupoDeInteresLogic!co.edu.uniandes.csw.idiomas.ejb.GrupoDeInteresLogic]
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/adapters/DateAdapter$1].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/adapters/DateAdapter$1].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/adapters/DateAdapter].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/adapters/DateAdapter].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/ActividadDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/ActividadDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/ActividadDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/ActividadDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/AdministradorDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/AdministradorDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/AdministradorDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/AdministradorDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/AnfitrionDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/AnfitrionDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/AnfitrionDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/AnfitrionDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/BlogDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/BlogDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/BlogDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/BlogDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/CalificacionDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/CalificacionDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/CalificacionDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/CalificacionDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/CascaraDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/CascaraDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/ChatDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/ChatDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/ComentarioDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/ComentarioDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/ComentarioDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/ComentarioDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/CoordinadorDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/CoordinadorDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/CoordinadorDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/CoordinadorDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/EncuentroDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/EncuentroDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/EstadiaDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/EstadiaDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/EstadiaDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/EstadiaDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/GrupoDeInteresDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/GrupoDeInteresDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/GrupoDeInteresDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/GrupoDeInteresDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/OtroDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/OtroDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/PersonaDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/PersonaDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/UsuarioDetailDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/UsuarioDetailDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/dtos/UsuarioDTO].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/dtos/UsuarioDTO].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/filters/CORSFilter].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/filters/CORSFilter].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/mappers/BusinessLogicExceptionMapper].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/mappers/BusinessLogicExceptionMapper].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/mappers/ExceptionMapperA].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/mappers/ExceptionMapperA].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/mappers/WebApplicationExceptionMapper].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/mappers/WebApplicationExceptionMapper].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/ActividadComentariosResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/ActividadComentariosResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/ActividadResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/ActividadResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/AdministradorResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/AdministradorResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/AnfitrionResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/AnfitrionResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/BlogResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/BlogResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/CalificacionActividadResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/CalificacionActividadResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/CalificacionAdministradorResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/CalificacionAdministradorResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/CalificacionCoordinadorResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/CalificacionCoordinadorResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/CalificacionGrupoResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/CalificacionGrupoResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/CalificacionResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/CalificacionResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/ChatResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/ChatResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/ComentarioResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/ComentarioResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/CoordinadorResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/CoordinadorResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/EncuentroResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/EncuentroResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/EstadiaResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/EstadiaResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/GrupoDeInteresResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/GrupoDeInteresResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/OtroResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/OtroResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/PersonaResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/PersonaResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/RestConfig].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/RestConfig].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/UsuarioEstadiaResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/UsuarioEstadiaResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/resources/UsuarioResource].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/resources/UsuarioResource].
+MÁS DETALLADO:   Missing class details for [co/edu/uniandes/csw/idiomas/podam/DateStrategy].
+MÁS DETALLADO:   Using existing class bytes for [co/edu/uniandes/csw/idiomas/podam/DateStrategy].
+MÁS DETALLADO:   Missing class details for [uk/co/jemos/podam/common/AttributeStrategy].
+MÁS DETALLADO:   Using existing class bytes for [uk/co/jemos/podam/common/AttributeStrategy].
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+MÁS DETALLADO:   Missing class details for [uk/co/jemos/podam/common/PodamStrategyValue].
+MÁS DETALLADO:   Using existing class bytes for [uk/co/jemos/podam/common/PodamStrategyValue].
+MÁS DETALLADO:   Missing class details for [uk/co/jemos/podam/common/PodamExclude].
+MÁS DETALLADO:   Using existing class bytes for [uk/co/jemos/podam/common/PodamExclude].
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.LoginToContinueInterceptor.interceptedBean is not resolvable to a concrete type.
+
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.RememberMeInterceptor.interceptedBean is not resolvable to a concrete type.
+
+INFORMACIÓN:   Initializing Soteria 1.0 for context '/s2_idiomas-api'
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: s2_idiomas-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+INFORMACIÓN:   Loading application [s2_idiomas-api] at [/s2_idiomas-api]
+INFORMACIÓN:   Loading application s2_idiomas-api done in 10.144 ms
+INFORMACIÓN:   Payara Server  4.1.2.174 #badassfish (192) startup time : Felix (5.938ms), startup services(40.499ms), total(46.437ms)
+INFORMACIÓN:   Payara Notification Service bootstrapped with configuration: NotificationExecutionOptions{enabled=true, notifierConfigurationExecutionOptionsList={LOG=LogNotifierConfigurationExecutionOptions{useSeparateLogFile=false} NotifierConfigurationExecutionOptions{notifierType=LOG, enabled=true}}}
+INFORMACIÓN:   Cleaning JarFileFactory Cache to prevent jar FD leaks
+INFORMACIÓN:   Grizzly Framework 2.3.31 started in: 16ms - bound to [/0.0.0.0:7676]
+INFORMACIÓN:   Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@2630dbc4 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@10b1a751.
+INFORMACIÓN:   JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://0.0.0.0:8686/jndi/rmi://0.0.0.0:8686/jmxrmi
+INFORMACIÓN:   C:\Program Files (x86)\payara41\glassfish\domains\domain1\autodeploy\bundles does not exist, please create it.
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: s2_idiomas-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+MÁS DETALLADO:   Begin undeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Predeployed; factoryCount 1
+MUY DETALLADO:   Detected server platform: org.eclipse.persistence.platform.server.glassfish.GlassfishPlatform.
+MUY DETALLADO:   initializing session manager
+MÁS DETALLADO:   End undeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Undeployed; factoryCount 0
+MÁS DETALLADO:   property=eclipselink.logging.level; value=ALL; translated value=ALL
+MÁS DETALLADO:   property=eclipselink.logging.parameters; value=true
+MÁS DETALLADO:   property=eclipselink.logging.level; value=ALL; translated value=ALL
+MÁS DETALLADO:   property=eclipselink.logging.parameters; value=true
+DETALLADO:   Configured server platform: org.eclipse.persistence.platform.server.glassfish.GlassfishPlatform
+MÁS DETALLADO:   Begin predeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Initial; factoryCount 0
+MÁS DETALLADO:   property=eclipselink.orm.throw.exceptions; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.changetracking; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.lazy; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.eager; default value=false
+MÁS DETALLADO:   property=eclipselink.weaving.fetchgroups; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.internal; default value=true
+MÁS DETALLADO:   property=eclipselink.weaving.rest; default value=true
+MÁS DETALLADO:   property=eclipselink.multitenant.tenants-share-emf; default value=true
+MÁS DETALLADO:   property=eclipselink.multitenant.tenants-share-cache; default value=false
+MUY DETALLADO:   Searching for mapping file: [META-INF/orm.xml] at root URL: [file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar].
+MUY DETALLADO:   Searching for mapping file: [META-INF/eclipselink-orm.xml] at root URL: [file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.BaseEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field administrador] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field coordinador] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field grupo] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field comentarios] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field actividad] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.ActividadEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field coordinadores] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field comentarios] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity.
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field asistentes] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.ChatEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field estadias] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.PersonaEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field comentarioEntitys] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field anfitrion] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity.
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field asistentesEstadia] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field estadias] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity.
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field actividades] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.OtroEntity] is set to [FIELD].
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field autor] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.PersonaEntity.
+CONFIGURAR:   The target entity (reference) class for the many to one mapping element [field actividad] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] is set to [FIELD].
+CONFIGURAR:   The target entity (reference) class for the many to many mapping element [field actividadesCoordinadas] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.ActividadEntity.
+CONFIGURAR:   The target entity (reference) class for the one to many mapping element [field calificaciones] is being defaulted to: class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity.
+CONFIGURAR:   The access type for the persistent class [class co.edu.uniandes.csw.idiomas.entities.EncuentroEntity] is set to [FIELD].
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] is being defaulted to: GrupoDeInteresEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] is being defaulted to: GRUPODEINTERESENTITY.
+CONFIGURAR:   The column name for element [administrador] is being defaulted to: ADMINISTRADOR.
+CONFIGURAR:   The column name for element [calificacion] is being defaulted to: CALIFICACION.
+CONFIGURAR:   The column name for element [idioma] is being defaulted to: IDIOMA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [blog] is being defaulted to: BLOG.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] is being defaulted to: CalificacionEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] is being defaulted to: CALIFICACIONENTITY.
+CONFIGURAR:   The column name for element [calificacion] is being defaulted to: CALIFICACION.
+CONFIGURAR:   The column name for element [mensaje] is being defaulted to: MENSAJE.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.ChatEntity] is being defaulted to: ChatEntity.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.ActividadEntity] is being defaulted to: ActividadEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.ActividadEntity] is being defaulted to: ACTIVIDADENTITY.
+CONFIGURAR:   The column name for element [descripcion] is being defaulted to: DESCRIPCION.
+CONFIGURAR:   The column name for element [fecha] is being defaulted to: FECHA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The column name for element [motivacion] is being defaulted to: MOTIVACION.
+CONFIGURAR:   The column name for element [medio] is being defaulted to: MEDIO.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] is being defaulted to: AnfitrionEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] is being defaulted to: ANFITRIONENTITY.
+CONFIGURAR:   The column name for element [ciudad] is being defaulted to: CIUDAD.
+CONFIGURAR:   The column name for element [direccion] is being defaulted to: DIRECCION.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The column name for element [pais] is being defaulted to: PAIS.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.PersonaEntity] is being defaulted to: PersonaEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.PersonaEntity] is being defaulted to: PERSONAENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.EstadiaEntity] is being defaulted to: EstadiaEntity.
+CONFIGURAR:   The column name for element [pais] is being defaulted to: PAIS.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] is being defaulted to: UsuarioEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] is being defaulted to: USUARIOENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] is being defaulted to: AdministradorEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] is being defaulted to: ADMINISTRADORENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.OtroEntity] is being defaulted to: OtroEntity.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] is being defaulted to: ComentarioEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] is being defaulted to: COMENTARIOENTITY.
+CONFIGURAR:   The column name for element [texto] is being defaulted to: TEXTO.
+CONFIGURAR:   The column name for element [fecha] is being defaulted to: FECHA.
+CONFIGURAR:   The column name for element [titulo] is being defaulted to: TITULO.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] is being defaulted to: CoordinadorEntity.
+CONFIGURAR:   The table name for entity [class co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] is being defaulted to: COORDINADORENTITY.
+CONFIGURAR:   The column name for element [contrasenia] is being defaulted to: CONTRASENIA.
+CONFIGURAR:   The column name for element [id] is being defaulted to: ID.
+CONFIGURAR:   The column name for element [nombre] is being defaulted to: NOMBRE.
+CONFIGURAR:   The alias name for the entity class [class co.edu.uniandes.csw.idiomas.entities.EncuentroEntity] is being defaulted to: EncuentroEntity.
+CONFIGURAR:   The column name for element [numeroMaxAsistentes] is being defaulted to: NUMEROMAXASISTENTES.
+CONFIGURAR:   The column name for element [lugar] is being defaulted to: LUGAR.
+CONFIGURAR:   The column name for element [aprobado] is being defaulted to: APROBADO.
+CONFIGURAR:   The primary key column name for the mapping element [field administrador] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [administrador] is being defaulted to: ADMINISTRADOR_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field coordinador] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [coordinador] is being defaulted to: COORDINADOR_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field grupo] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [grupo] is being defaulted to: GRUPO_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field actividad] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [actividad] is being defaulted to: ACTIVIDAD_ID.
+CONFIGURAR:   The join table name for the many to many mapping [field coordinadores] is being defaulted to: ACTIVIDADENTITY_COORDINADORENTITY.
+CONFIGURAR:   The source primary key column name for the many to many mapping [field coordinadores] is being defaulted to: ID.
+CONFIGURAR:   The source foreign key column name for the many to many mapping [coordinadores] is being defaulted to: actividadesCoordinadas_ID.
+CONFIGURAR:   The target primary key column name for the many to many mapping [field coordinadores] is being defaulted to: ID.
+CONFIGURAR:   The target foreign key column name for the many to many mapping [coordinadores] is being defaulted to: coordinadores_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field anfitrion] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [anfitrion] is being defaulted to: ANFITRION_ID.
+CONFIGURAR:   The join table name for the many to many mapping [field estadias] is being defaulted to: USUARIOENTITY_ACTIVIDADENTITY.
+CONFIGURAR:   The source primary key column name for the many to many mapping [field estadias] is being defaulted to: ID.
+CONFIGURAR:   The source foreign key column name for the many to many mapping [estadias] is being defaulted to: asistentesEstadia_ID.
+CONFIGURAR:   The target primary key column name for the many to many mapping [field estadias] is being defaulted to: ID.
+CONFIGURAR:   The target foreign key column name for the many to many mapping [estadias] is being defaulted to: estadias_ID.
+CONFIGURAR:   The join table name for the many to many mapping [field actividades] is being defaulted to: USUARIOENTITY_ACTIVIDADENTITY.
+CONFIGURAR:   The source primary key column name for the many to many mapping [field actividades] is being defaulted to: ID.
+CONFIGURAR:   The source foreign key column name for the many to many mapping [actividades] is being defaulted to: asistentes_ID.
+CONFIGURAR:   The target primary key column name for the many to many mapping [field actividades] is being defaulted to: ID.
+CONFIGURAR:   The target foreign key column name for the many to many mapping [actividades] is being defaulted to: actividades_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field calificaciones] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [calificaciones] is being defaulted to: CALIFICACIONES_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field autor] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [autor] is being defaulted to: AUTOR_ID.
+CONFIGURAR:   The primary key column name for the mapping element [field actividad] is being defaulted to: ID.
+CONFIGURAR:   The foreign key column name for the mapping element [actividad] is being defaulted to: ACTIVIDAD_ID.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.CalificacionEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.ChatEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.PersonaEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.EstadiaEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.AdministradorEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.OtroEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.ComentarioEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.ActividadEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity] registered to be processed by weaver.
+MUY DETALLADO:   Class [co.edu.uniandes.csw.idiomas.entities.EncuentroEntity] registered to be processed by weaver.
+MÁS DETALLADO:   End predeploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Predeployed; factoryCount 1
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ComentarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ChatEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ActividadEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.OtroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EncuentroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CalificacionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.PersonaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EstadiaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AdministradorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.BaseEntity_] not found during initialization.
+MÁS DETALLADO:   Begin deploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Predeployed; factoryCount 1
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/GrupoDeInteresEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/BaseEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/BaseEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CalificacionEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/ActividadEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ActividadEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AdministradorEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/CoordinadorEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/ChatEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ChatEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/AnfitrionEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/PersonaEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/PersonaEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EstadiaEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved persistence (PersistenceEntity) [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Weaved REST [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/UsuarioEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/OtroEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/OtroEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/ComentarioEntity].
+MÁS DETALLADO:   Begin weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Initializing compute class writer for [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity]. Class loaders: context [65a57863] argument [65a57863].
+MÁS DETALLADO:   Visiting the end of the class [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Adding _persistence_get() method into [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Adding _persistence_set() method into [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Weaved change tracking (ChangeTracker) [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   Weaved fetch groups (FetchGroupTracker) [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   End weaver class transformer processing class [co/edu/uniandes/csw/idiomas/entities/EncuentroEntity].
+MÁS DETALLADO:   property=eclipselink.target-server; value=Glassfish; translated value=org.eclipse.persistence.platform.server.glassfish.GlassfishPlatform
+MÁS DETALLADO:   property=eclipselink.logging.level; value=ALL; translated value=ALL
+MÁS DETALLADO:   property=eclipselink.logging.parameters; value=true
+MÁS DETALLADO:   property=eclipselink.logging.level; value=ALL; translated value=ALL
+MÁS DETALLADO:   property=eclipselink.logging.parameters; value=true
+MÁS DETALLADO:   property=eclipselink.target-database; value=Derby; translated value=org.eclipse.persistence.platform.database.DerbyPlatform
+MÁS DETALLADO:   property=javax.persistence.jdbc.user; value=APP
+MÁS DETALLADO:   property=javax.persistence.jdbc.password; value=xxxxxx
+MÁS DETALLADO:   property=eclipselink.cache.type.default; value=NONE; translated value=org.eclipse.persistence.internal.identitymaps.NoIdentityMap
+INFORMACIÓN:   EclipseLink, version: Eclipse Persistence Services - 2.6.4.qualifier
+CONFIGURAR:   connecting(DatabaseLogin(
+	platform=>DerbyPlatform
+	user name=> "APP"
+	connector=>JNDIConnector datasource name=>null
+))
+CONFIGURAR:   Connected: jdbc:derby://localhost:1527/idiomas
+	User: APP
+	Database: Apache Derby  Version: 10.10.2.0 - (1582446)
+	Driver: Apache Derby Network Client JDBC Driver  Version: 10.10.2.0 - (1582446)
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   Connection released to connection pool [read].
+CONFIGURAR:   connecting(DatabaseLogin(
+	platform=>DerbyPlatform
+	user name=> "APP"
+	connector=>JNDIConnector datasource name=>null
+))
+CONFIGURAR:   Connected: jdbc:derby://localhost:1527/idiomas
+	User: APP
+	Database: Apache Derby  Version: 10.10.2.0 - (1582446)
+	Driver: Apache Derby Network Client JDBC Driver  Version: 10.10.2.0 - (1582446)
+MÁS DETALLADO:   sequencing connected, state is NoPreallocation_State
+MÁS DETALLADO:   sequence SEQ_GEN_IDENTITY: preallocation size 1
+INFORMACIÓN:   /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU login successful
+MUY DETALLADO:   JMX MBeanServer instance found: [com.sun.enterprise.v3.admin.DynamicInterceptor@2d609cfb], # of beans: [24], domain: [DefaultDomain] at index: [0].
+MÁS DETALLADO:   Registered MBean: org.eclipse.persistence.services.mbean.MBeanDevelopmentServices[TopLink:Name=Development-/file_/C_/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU,Type=Configuration] on server com.sun.enterprise.v3.admin.DynamicInterceptor@2d609cfb
+MÁS DETALLADO:   Registered MBean: org.eclipse.persistence.services.glassfish.MBeanGlassfishRuntimeServices[TopLink:Name=Session(/file_/C_/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU)] on server com.sun.enterprise.v3.admin.DynamicInterceptor@2d609cfb
+MÁS DETALLADO:   EclipseLink JMX Runtime Services is referencing the [Platform ConversionManager] ClassLoader at: [WebappClassLoader (delegate=true; repositories=WEB-INF/classes/)]
+MÁS DETALLADO:   The applicationName for the MBean attached to session [/file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU] is [unknown]
+MÁS DETALLADO:   The moduleName for the MBean attached to session [/file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU] is [unknown]
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE COMENTARIOENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, FECHA DATE, TEXTO VARCHAR(255), TITULO VARCHAR(255), ACTIVIDAD_ID BIGINT, AUTOR_ID BIGINT, CALIFICACIONES_ID BIGINT, PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE COMENTARIOENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, FECHA DATE, TEXTO VARCHAR(255), TITULO VARCHAR(255), ACTIVIDAD_ID BIGINT, AUTOR_ID BIGINT, CALIFICACIONES_ID BIGINT, PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (COMENTARIOENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE ACTIVIDADENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, typeActivity VARCHAR(31), DESCRIPCION VARCHAR(255), FECHA DATE, MOTIVACION VARCHAR(255), NOMBRE VARCHAR(255), MEDIO VARCHAR(255), APROBADO SMALLINT DEFAULT 0, LUGAR VARCHAR(255), NUMEROMAXASISTENTES INTEGER, PAIS VARCHAR(255), ANFITRION_ID BIGINT, PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE ACTIVIDADENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, typeActivity VARCHAR(31), DESCRIPCION VARCHAR(255), FECHA DATE, MOTIVACION VARCHAR(255), NOMBRE VARCHAR(255), MEDIO VARCHAR(255), APROBADO SMALLINT DEFAULT 0, LUGAR VARCHAR(255), NUMEROMAXASISTENTES INTEGER, PAIS VARCHAR(255), ANFITRION_ID BIGINT, PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (ACTIVIDADENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE ANFITRIONENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CIUDAD VARCHAR(255), CONTRASENIA BIGINT, DIRECCION VARCHAR(255), NOMBRE VARCHAR(255), PAIS VARCHAR(255), PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE ANFITRIONENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CIUDAD VARCHAR(255), CONTRASENIA BIGINT, DIRECCION VARCHAR(255), NOMBRE VARCHAR(255), PAIS VARCHAR(255), PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (ANFITRIONENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE COORDINADORENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE COORDINADORENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (COORDINADORENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE GRUPODEINTERESENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, ADMINISTRADOR VARCHAR(255), BLOG BIGINT, CALIFICACION BIGINT, IDIOMA VARCHAR(255), PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE GRUPODEINTERESENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, ADMINISTRADOR VARCHAR(255), BLOG BIGINT, CALIFICACION BIGINT, IDIOMA VARCHAR(255), PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (GRUPODEINTERESENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE USUARIOENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE USUARIOENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (USUARIOENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE CALIFICACIONENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CALIFICACION INTEGER, MENSAJE VARCHAR(255), ACTIVIDAD_ID BIGINT, ADMINISTRADOR_ID BIGINT, COORDINADOR_ID BIGINT, GRUPO_ID BIGINT, PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE CALIFICACIONENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CALIFICACION INTEGER, MENSAJE VARCHAR(255), ACTIVIDAD_ID BIGINT, ADMINISTRADOR_ID BIGINT, COORDINADOR_ID BIGINT, GRUPO_ID BIGINT, PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (CALIFICACIONENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE PERSONAENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE PERSONAENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (PERSONAENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE ADMINISTRADORENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE ADMINISTRADORENTITY (ID BIGINT GENERATED BY DEFAULT AS IDENTITY NOT NULL, CONTRASENIA BIGINT, NOMBRE VARCHAR(255), PRIMARY KEY (ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (ADMINISTRADORENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE USUARIOENTITY_ACTIVIDADENTITY (actividades_ID BIGINT NOT NULL, asistentes_ID BIGINT NOT NULL, asistentesEstadia_ID BIGINT NOT NULL, estadias_ID BIGINT NOT NULL, PRIMARY KEY (actividades_ID, asistentes_ID, asistentesEstadia_ID, estadias_ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE USUARIOENTITY_ACTIVIDADENTITY (actividades_ID BIGINT NOT NULL, asistentes_ID BIGINT NOT NULL, asistentesEstadia_ID BIGINT NOT NULL, estadias_ID BIGINT NOT NULL, PRIMARY KEY (actividades_ID, asistentes_ID, asistentesEstadia_ID, estadias_ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (USUARIOENTITY_ACTIVIDADENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="CREATE TABLE ACTIVIDADENTITY_COORDINADORENTITY (actividadesCoordinadas_ID BIGINT NOT NULL, coordinadores_ID BIGINT NOT NULL, PRIMARY KEY (actividadesCoordinadas_ID, coordinadores_ID))")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   CREATE TABLE ACTIVIDADENTITY_COORDINADORENTITY (actividadesCoordinadas_ID BIGINT NOT NULL, coordinadores_ID BIGINT NOT NULL, PRIMARY KEY (actividadesCoordinadas_ID, coordinadores_ID))
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   The table (ACTIVIDADENTITY_COORDINADORENTITY) is created.
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE COMENTARIOENTITY ADD CONSTRAINT CMNTRENTITYCTVDDID FOREIGN KEY (ACTIVIDAD_ID) REFERENCES ACTIVIDADENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE COMENTARIOENTITY ADD CONSTRAINT CMNTRENTITYCTVDDID FOREIGN KEY (ACTIVIDAD_ID) REFERENCES ACTIVIDADENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE COMENTARIOENTITY ADD CONSTRAINT CMNTRNTTYCLFCCNSID FOREIGN KEY (CALIFICACIONES_ID) REFERENCES CALIFICACIONENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE COMENTARIOENTITY ADD CONSTRAINT CMNTRNTTYCLFCCNSID FOREIGN KEY (CALIFICACIONES_ID) REFERENCES CALIFICACIONENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE COMENTARIOENTITY ADD CONSTRAINT CMNTARIOENTITYTRID FOREIGN KEY (AUTOR_ID) REFERENCES PERSONAENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE COMENTARIOENTITY ADD CONSTRAINT CMNTARIOENTITYTRID FOREIGN KEY (AUTOR_ID) REFERENCES PERSONAENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE ACTIVIDADENTITY ADD CONSTRAINT CTVDDENTITYNFTRNID FOREIGN KEY (ANFITRION_ID) REFERENCES ANFITRIONENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE ACTIVIDADENTITY ADD CONSTRAINT CTVDDENTITYNFTRNID FOREIGN KEY (ANFITRION_ID) REFERENCES ANFITRIONENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCNNTTDMNSTRDRD FOREIGN KEY (ADMINISTRADOR_ID) REFERENCES ADMINISTRADORENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCNNTTDMNSTRDRD FOREIGN KEY (ADMINISTRADOR_ID) REFERENCES ADMINISTRADORENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCNNTITYCRDNDRD FOREIGN KEY (COORDINADOR_ID) REFERENCES COORDINADORENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCNNTITYCRDNDRD FOREIGN KEY (COORDINADOR_ID) REFERENCES COORDINADORENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCNENTITYCTVDDD FOREIGN KEY (ACTIVIDAD_ID) REFERENCES ACTIVIDADENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCNENTITYCTVDDD FOREIGN KEY (ACTIVIDAD_ID) REFERENCES ACTIVIDADENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCIONENTITYGRPD FOREIGN KEY (GRUPO_ID) REFERENCES GRUPODEINTERESENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE CALIFICACIONENTITY ADD CONSTRAINT CLFCCIONENTITYGRPD FOREIGN KEY (GRUPO_ID) REFERENCES GRUPODEINTERESENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTVDDNTstdsD FOREIGN KEY (estadias_ID) REFERENCES ACTIVIDADENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTVDDNTstdsD FOREIGN KEY (estadias_ID) REFERENCES ACTIVIDADENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTsstntsstdD FOREIGN KEY (asistentesEstadia_ID) REFERENCES USUARIOENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTsstntsstdD FOREIGN KEY (asistentesEstadia_ID) REFERENCES USUARIOENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTVDDsstntsD FOREIGN KEY (asistentes_ID) REFERENCES USUARIOENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTVDDsstntsD FOREIGN KEY (asistentes_ID) REFERENCES USUARIOENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTVDDctvddsD FOREIGN KEY (actividades_ID) REFERENCES ACTIVIDADENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE USUARIOENTITY_ACTIVIDADENTITY ADD CONSTRAINT SRNTTYCTVDDctvddsD FOREIGN KEY (actividades_ID) REFERENCES ACTIVIDADENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE ACTIVIDADENTITY_COORDINADORENTITY ADD CONSTRAINT CTVDDNTTYCcrdndrsD FOREIGN KEY (coordinadores_ID) REFERENCES COORDINADORENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE ACTIVIDADENTITY_COORDINADORENTITY ADD CONSTRAINT CTVDDNTTYCcrdndrsD FOREIGN KEY (coordinadores_ID) REFERENCES COORDINADORENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Execute query DataModifyQuery(sql="ALTER TABLE ACTIVIDADENTITY_COORDINADORENTITY ADD CONSTRAINT CTVDDctvddsCrdndsD FOREIGN KEY (actividadesCoordinadas_ID) REFERENCES ACTIVIDADENTITY (ID)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   ALTER TABLE ACTIVIDADENTITY_COORDINADORENTITY ADD CONSTRAINT CTVDDctvddsCrdndsD FOREIGN KEY (actividadesCoordinadas_ID) REFERENCES ACTIVIDADENTITY (ID)
+MÁS DETALLADO:   Connection released to connection pool [read].
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ComentarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ChatEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AnfitrionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.ActividadEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CoordinadorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.GrupoDeInteresEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.OtroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EncuentroEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.CalificacionEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.PersonaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.EstadiaEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.AdministradorEntity_] not found during initialization.
+MUY DETALLADO:   Canonical Metamodel class [co.edu.uniandes.csw.idiomas.entities.BaseEntity_] not found during initialization.
+MÁS DETALLADO:   End deploying Persistence Unit idiomasPU; session /file:/C:/Users/estudiante/s2_Idiomas_2_201910/s2_idiomas-api/target/s2_idiomas-api-1.0/WEB-INF/lib/s2_idiomas-back-1.0.jar_idiomasPU; state Deployed; factoryCount 1
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionPersistence: [java:global/s2_idiomas-api/CalificacionPersistence!co.edu.uniandes.csw.idiomas.persistence.CalificacionPersistence, java:global/s2_idiomas-api/CalificacionPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB OtroLogic: [java:global/s2_idiomas-api/OtroLogic!co.edu.uniandes.csw.idiomas.ejb.OtroLogic, java:global/s2_idiomas-api/OtroLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CascaraLogic: [java:global/s2_idiomas-api/CascaraLogic, java:global/s2_idiomas-api/CascaraLogic!co.edu.uniandes.csw.idiomas.ejb.CascaraLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionAdministradorLogic: [java:global/s2_idiomas-api/CalificacionAdministradorLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionAdministradorLogic, java:global/s2_idiomas-api/CalificacionAdministradorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB BlogLogic: [java:global/s2_idiomas-api/BlogLogic!co.edu.uniandes.csw.idiomas.ejb.BlogLogic, java:global/s2_idiomas-api/BlogLogic]
+INFORMACIÓN:   Portable JNDI names for EJB OtroPersistence: [java:global/s2_idiomas-api/OtroPersistence!co.edu.uniandes.csw.idiomas.persistence.OtroPersistence, java:global/s2_idiomas-api/OtroPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB EncuentroPersistence: [java:global/s2_idiomas-api/EncuentroPersistence!co.edu.uniandes.csw.idiomas.persistence.EncuentroPersistence, java:global/s2_idiomas-api/EncuentroPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB ComentarioPersistence: [java:global/s2_idiomas-api/ComentarioPersistence!co.edu.uniandes.csw.idiomas.persistence.ComentarioPersistence, java:global/s2_idiomas-api/ComentarioPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionCoordinadorLogic: [java:global/s2_idiomas-api/CalificacionCoordinadorLogic, java:global/s2_idiomas-api/CalificacionCoordinadorLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionCoordinadorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CoordinadorLogic: [java:global/s2_idiomas-api/CoordinadorLogic, java:global/s2_idiomas-api/CoordinadorLogic!co.edu.uniandes.csw.idiomas.ejb.CoordinadorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB AdministradorPersistence: [java:global/s2_idiomas-api/AdministradorPersistence!co.edu.uniandes.csw.idiomas.persistence.AdministradorPersistence, java:global/s2_idiomas-api/AdministradorPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB ComentarioLogic: [java:global/s2_idiomas-api/ComentarioLogic, java:global/s2_idiomas-api/ComentarioLogic!co.edu.uniandes.csw.idiomas.ejb.ComentarioLogic]
+INFORMACIÓN:   Portable JNDI names for EJB EstadiaPersistence: [java:global/s2_idiomas-api/EstadiaPersistence, java:global/s2_idiomas-api/EstadiaPersistence!co.edu.uniandes.csw.idiomas.persistence.EstadiaPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioEstadiaLogic: [java:global/s2_idiomas-api/UsuarioEstadiaLogic!co.edu.uniandes.csw.idiomas.ejb.UsuarioEstadiaLogic, java:global/s2_idiomas-api/UsuarioEstadiaLogic]
+INFORMACIÓN:   Portable JNDI names for EJB ActividadLogic: [java:global/s2_idiomas-api/ActividadLogic!co.edu.uniandes.csw.idiomas.ejb.ActividadLogic, java:global/s2_idiomas-api/ActividadLogic]
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioLogic: [java:global/s2_idiomas-api/UsuarioLogic!co.edu.uniandes.csw.idiomas.ejb.UsuarioLogic, java:global/s2_idiomas-api/UsuarioLogic]
+INFORMACIÓN:   Portable JNDI names for EJB AdministradorLogic: [java:global/s2_idiomas-api/AdministradorLogic, java:global/s2_idiomas-api/AdministradorLogic!co.edu.uniandes.csw.idiomas.ejb.AdministradorLogic]
+INFORMACIÓN:   Portable JNDI names for EJB PersonaPersistence: [java:global/s2_idiomas-api/PersonaPersistence!co.edu.uniandes.csw.idiomas.persistence.PersonaPersistence, java:global/s2_idiomas-api/PersonaPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB EncuentroLogic: [java:global/s2_idiomas-api/EncuentroLogic!co.edu.uniandes.csw.idiomas.ejb.EncuentroLogic, java:global/s2_idiomas-api/EncuentroLogic]
+INFORMACIÓN:   Portable JNDI names for EJB ActividadComentariosLogic: [java:global/s2_idiomas-api/ActividadComentariosLogic!co.edu.uniandes.csw.idiomas.ejb.ActividadComentariosLogic, java:global/s2_idiomas-api/ActividadComentariosLogic]
+INFORMACIÓN:   Portable JNDI names for EJB BlogPersistence: [java:global/s2_idiomas-api/BlogPersistence, java:global/s2_idiomas-api/BlogPersistence!co.edu.uniandes.csw.idiomas.persistence.BlogPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB UsuarioPersistence: [java:global/s2_idiomas-api/UsuarioPersistence, java:global/s2_idiomas-api/UsuarioPersistence!co.edu.uniandes.csw.idiomas.persistence.UsuarioPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB ChatLogic: [java:global/s2_idiomas-api/ChatLogic!co.edu.uniandes.csw.idiomas.ejb.ChatLogic, java:global/s2_idiomas-api/ChatLogic]
+INFORMACIÓN:   Portable JNDI names for EJB EstadiaLogic: [java:global/s2_idiomas-api/EstadiaLogic!co.edu.uniandes.csw.idiomas.ejb.EstadiaLogic, java:global/s2_idiomas-api/EstadiaLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionLogic: [java:global/s2_idiomas-api/CalificacionLogic, java:global/s2_idiomas-api/CalificacionLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionActividadLogic: [java:global/s2_idiomas-api/CalificacionActividadLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionActividadLogic, java:global/s2_idiomas-api/CalificacionActividadLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CalificacionGrupoLogic: [java:global/s2_idiomas-api/CalificacionGrupoLogic, java:global/s2_idiomas-api/CalificacionGrupoLogic!co.edu.uniandes.csw.idiomas.ejb.CalificacionGrupoLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CoordinadorPersistence: [java:global/s2_idiomas-api/CoordinadorPersistence, java:global/s2_idiomas-api/CoordinadorPersistence!co.edu.uniandes.csw.idiomas.persistence.CoordinadorPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB AnfitrionLogic: [java:global/s2_idiomas-api/AnfitrionLogic!co.edu.uniandes.csw.idiomas.ejb.AnfitrionLogic, java:global/s2_idiomas-api/AnfitrionLogic]
+INFORMACIÓN:   Portable JNDI names for EJB ActividadPersistence: [java:global/s2_idiomas-api/ActividadPersistence, java:global/s2_idiomas-api/ActividadPersistence!co.edu.uniandes.csw.idiomas.persistence.ActividadPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB GrupoDeInteresPersistence: [java:global/s2_idiomas-api/GrupoDeInteresPersistence, java:global/s2_idiomas-api/GrupoDeInteresPersistence!co.edu.uniandes.csw.idiomas.persistence.GrupoDeInteresPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB AnfitrionPersistence: [java:global/s2_idiomas-api/AnfitrionPersistence!co.edu.uniandes.csw.idiomas.persistence.AnfitrionPersistence, java:global/s2_idiomas-api/AnfitrionPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB PersonaLogic: [java:global/s2_idiomas-api/PersonaLogic!co.edu.uniandes.csw.idiomas.ejb.PersonaLogic, java:global/s2_idiomas-api/PersonaLogic]
+INFORMACIÓN:   Portable JNDI names for EJB CascaraPersistence: [java:global/s2_idiomas-api/CascaraPersistence!co.edu.uniandes.csw.idiomas.persistence.CascaraPersistence, java:global/s2_idiomas-api/CascaraPersistence]
+INFORMACIÓN:   Portable JNDI names for EJB GrupoDeInteresLogic: [java:global/s2_idiomas-api/GrupoDeInteresLogic, java:global/s2_idiomas-api/GrupoDeInteresLogic!co.edu.uniandes.csw.idiomas.ejb.GrupoDeInteresLogic]
+INFORMACIÓN:   Portable JNDI names for EJB ChatPersistence: [java:global/s2_idiomas-api/ChatPersistence!co.edu.uniandes.csw.idiomas.persistence.ChatPersistence, java:global/s2_idiomas-api/ChatPersistence]
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Información:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.LoginToContinueInterceptor.interceptedBean is not resolvable to a concrete type.
+
+ADVERTENCIA:   The following warnings have been detected: WARNING: Parameter interceptedBean of type javax.enterprise.inject.spi.Bean<?> from private javax.enterprise.inject.spi.Bean<?> org.glassfish.soteria.cdi.RememberMeInterceptor.interceptedBean is not resolvable to a concrete type.
+
+INFORMACIÓN:   Initializing Soteria 1.0 for context '/s2_idiomas-api'
+WARN:   WELD-000718: No EEModuleDescriptor defined for bean archive with ID: s2_idiomas-api.war. @Initialized and @Destroyed events for ApplicationScoped may be fired twice.
+INFORMACIÓN:   Loading application [s2_idiomas-api] at [/s2_idiomas-api]
+INFORMACIÓN:   s2_idiomas-api was successfully deployed in 11.625 milliseconds.
+INFORMACIÓN:   UsuarioResource createUsuario: input: co.edu.uniandes.csw.idiomas.dtos.UsuarioDTO@517c04aa[
+  id=<null>
+  nombre=name
+  contrasenia=123
+]
+INFORMACIÓN:   Inicia proceso de creación de la usuario
+INFORMACIÓN:   Consultando editorial por nombre 
+MUY DETALLADO:   client acquired: 1812642985
+MUY DETALLADO:   TX binding to tx mgr, status=STATUS_ACTIVE
+MUY DETALLADO:   acquire unit of work: 437816395
+MUY DETALLADO:   begin unit of work flush
+MUY DETALLADO:   end unit of work flush
+MÁS DETALLADO:   Execute query ReadAllQuery(referenceClass=UsuarioEntity sql="SELECT ID, CONTRASENIA, NOMBRE FROM USUARIOENTITY WHERE (NOMBRE = ?)")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   SELECT ID, CONTRASENIA, NOMBRE FROM USUARIOENTITY WHERE (NOMBRE = ?)
+	bind => [name]
+MÁS DETALLADO:   Connection released to connection pool [read].
+INFORMACIÓN:   Saliendo de consultar editorial por nombre 
+INFORMACIÓN:   Creando un usuario nuevo
+MÁS DETALLADO:   PERSIST operation called on: co.edu.uniandes.csw.idiomas.entities.UsuarioEntity@5b2ab94c.
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+INFORMACIÓN:   Autor creado
+INFORMACIÓN:   Termina proceso de creación de la usuario
+MUY DETALLADO:   TX beforeCompletion callback, status=STATUS_ACTIVE
+MUY DETALLADO:   begin unit of work commit
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MUY DETALLADO:   TX beginTransaction, status=STATUS_ACTIVE
+MÁS DETALLADO:   Execute query InsertObjectQuery(co.edu.uniandes.csw.idiomas.entities.UsuarioEntity@5b2ab94c)
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Connection acquired from connection pool [default].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   INSERT INTO USUARIOENTITY (CONTRASENIA, NOMBRE) VALUES (?, ?)
+	bind => [123, name]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Execute query ValueReadQuery(name="SEQ_GEN_IDENTITY" sql="values IDENTITY_VAL_LOCAL()")
+DETALLADO:   values IDENTITY_VAL_LOCAL()
+MÁS DETALLADO:   assign sequence to the object (1 -> co.edu.uniandes.csw.idiomas.entities.UsuarioEntity@5b2ab94c)
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Connection released to connection pool [default].
+MUY DETALLADO:   TX afterCompletion callback, status=COMMITTED
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MUY DETALLADO:   end unit of work commit
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MUY DETALLADO:   release unit of work
+MUY DETALLADO:   client released
+INFORMACIÓN:   entity: output: co.edu.uniandes.csw.idiomas.entities.UsuarioEntity@1
+INFORMACIÓN:   en el resourse el entity toString : co.edu.uniandes.csw.idiomas.entities.UsuarioEntity@1
+INFORMACIÓN:   en el resourse el entity tiene : 1
+INFORMACIÓN:   UsuarioResource createUsuario: output: co.edu.uniandes.csw.idiomas.dtos.UsuarioDTO@545081cc[
+  id=1
+  nombre=name
+  contrasenia=123
+]
+INFORMACIÓN:   UsuarioResource getUsuarios: input: void
+INFORMACIÓN:   Inicia proceso de consultar todas las usuario
+INFORMACIÓN:   Consultando todos los usuarios
+MUY DETALLADO:   client acquired: 668997375
+MUY DETALLADO:   TX binding to tx mgr, status=STATUS_ACTIVE
+MUY DETALLADO:   acquire unit of work: 27982850
+MUY DETALLADO:   begin unit of work flush
+MUY DETALLADO:   end unit of work flush
+MÁS DETALLADO:   Execute query ReadAllQuery(referenceClass=UsuarioEntity sql="SELECT ID, CONTRASENIA, NOMBRE FROM USUARIOENTITY")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   SELECT ID, CONTRASENIA, NOMBRE FROM USUARIOENTITY
+MÁS DETALLADO:   Connection released to connection pool [read].
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_get. Class loaders: context [65a57863], instance [65a57863]
+MÁS DETALLADO:   Calling [co.edu.uniandes.csw.idiomas.entities.UsuarioEntity]._persistence_set. Class loaders: context [65a57863], instance [65a57863]
+INFORMACIÓN:   Termina proceso de consultar todas las usuario
+MUY DETALLADO:   TX beforeCompletion callback, status=STATUS_ACTIVE
+MUY DETALLADO:   begin unit of work commit
+MUY DETALLADO:   TX afterCompletion callback, status=COMMITTED
+MUY DETALLADO:   end unit of work commit
+MUY DETALLADO:   release unit of work
+MUY DETALLADO:   client released
+INFORMACIÓN:   UsuarioResource getUsuarios: output: [co.edu.uniandes.csw.idiomas.dtos.UsuarioDTO@a62c396[
+  id=1
+  nombre=name
+  contrasenia=123
+]]
+INFORMACIÓN:   ActividadResource getActividades: input: void
+INFORMACIÓN:   Inicia proceso de consultar todas las actividades
+INFORMACIÓN:   Consultando todas las actividades
+MUY DETALLADO:   client acquired: 1070199930
+MUY DETALLADO:   TX binding to tx mgr, status=STATUS_ACTIVE
+MUY DETALLADO:   acquire unit of work: 177759321
+MUY DETALLADO:   begin unit of work flush
+MUY DETALLADO:   end unit of work flush
+MÁS DETALLADO:   Execute query ReadAllQuery(referenceClass=ActividadEntity sql="SELECT ID, typeActivity, DESCRIPCION, FECHA, MOTIVACION, NOMBRE, MEDIO, APROBADO, LUGAR, NUMEROMAXASISTENTES, PAIS, ANFITRION_ID FROM ACTIVIDADENTITY")
+MÁS DETALLADO:   Connection acquired from connection pool [read].
+MÁS DETALLADO:   reconnecting to external connection pool
+DETALLADO:   SELECT ID, typeActivity, DESCRIPCION, FECHA, MOTIVACION, NOMBRE, MEDIO, APROBADO, LUGAR, NUMEROMAXASISTENTES, PAIS, ANFITRION_ID FROM ACTIVIDADENTITY
+MÁS DETALLADO:   Connection released to connection pool [read].
+INFORMACIÓN:   Termina proceso de consultar todas las actividades
+MUY DETALLADO:   TX beforeCompletion callback, status=STATUS_ACTIVE
+MUY DETALLADO:   begin unit of work commit
+MUY DETALLADO:   TX afterCompletion callback, status=COMMITTED
+MUY DETALLADO:   end unit of work commit
+MUY DETALLADO:   release unit of work
+MUY DETALLADO:   client released
+INFORMACIÓN:   ActividadResource getActividades: output: []
+GRAVE:   MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList, genericType=java.util.List<co.edu.uniandes.csw.idiomas.dtos.ActividadDetailDTO>.
