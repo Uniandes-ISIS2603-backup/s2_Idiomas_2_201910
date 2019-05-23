@@ -101,7 +101,7 @@ public class CalificacionLogic {
                 }
             }
         }
-        calificacionPersistence.create(calificacionEntity);
+        calificacionEntity = calificacionPersistence.create(calificacionEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la calificacion");
         return calificacionEntity;
     }

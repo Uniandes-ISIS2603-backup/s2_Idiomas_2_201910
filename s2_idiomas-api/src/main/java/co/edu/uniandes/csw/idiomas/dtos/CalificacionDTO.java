@@ -59,7 +59,7 @@ public class CalificacionDTO implements Serializable {
         }
     }
     
-     @Inject
+    @Inject
     public CalificacionEntity toEntity()
     {
         CalificacionEntity cal = new CalificacionEntity();
@@ -182,5 +182,4 @@ public class CalificacionDTO implements Serializable {
     public void setGrupoDeInteres(GrupoDeInteresDTO grupoDeInteres) {
         this.grupoDeInteres = grupoDeInteres;
     }
-    
 }
